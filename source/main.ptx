@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+    <macros>
+      \newcommand{\R}{\mathbb R}
+      \renewcommand{\Re}{\operatorname{Re}}
+      \renewcommand{\Im}{\operatorname{Im}}
+      \renewcommand{\C}{\mathbb{C}}
+      \newcommand{\abs}[1]{\left| #1 \right|}
+      \newcommand\set[2]{\left\{ #1 : #2 \right\}}
+      \renewcommand{\bar}{\overline}
+    </macros>
+    <latax-image-preamble>
+      \usepackage{tikz}
+    </latax-image-preamble>
+  </docinfo>
+
+  <book xml:id="my-great-book">
+    <title>Complex Analysis</title>
+    <subtitle>Course notes for Math 423 at UNL</subtitle>
+
+    <frontmatter xml:id="frontmatter">
+      <titlepage>
+        <author>
+          <personname>Zach Norwood</personname>
+          <department>Department of Mathematics</department>
+          <institution>University of Nebraska-Lincoln</institution>
+        </author>
+        <date>
+          <today />
+        </date>
+      </titlepage>
+
+      <colophon>
+
+        <website>
+          <name>
+            <c>example.org</c>
+          </name>
+          <address>https://example.org</address>
+        </website>
+
+        <copyright>
+          <year>2020<ndash />2023</year>
+          <holder>You</holder>
+          <shortlicense> 
+            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+          </shortlicense>
+        </copyright>
+      </colophon>
+    </frontmatter>
+
+    <chapter xml:id="ch-intro">
+      <title>Complex pre-calculus</title>
+
+      <section xml:id="section-arithmetic">
+        <title>Basic arithmetic and geometry</title>
+        <definition xml:id="def-complex-number">
+          <statement>
+            <p>
+              A <term>complex number</term> is just an ordered pair <m>(x,y)</m> of real numbers.
+              But we write <m>x+iy</m> instead of <m>(x,y)</m>.
+            </p>
+
+            <p>
+              We call <m>x</m> the <term>real part</term> of <m>z</m> and denote it by <m>x = \Re(z)</m>.
+              We call <m>y</m> the <term>imaginary part</term> of <m>z</m> and denote it by <m>\Im(z)</m>.
+            </p>
+            <aside>
+              <p>
+                Notice that <m>\Re(z)</m> and <m>\Im(z)</m> are real numbers! 
+              </p>
+            </aside>
+
+            <p>
+              We write <m>\C</m> for the set of complex numbers.
+            </p>
+            <aside>
+              <p>
+             So yes, <m>\C</m>  is just <m>\R\times\R</m>.
+             But we <em>think</em> of complex numbers as being <em>more than</em> just points in the plane,
+             and it is useful to have notation to reflect this different mode of thinking.
+              </p>
+            </aside>
+          </statement>
+        </definition>>
+        <observation>
+          <title>Innocuous but important fact</title>
+          <p>
+            Two complex numbers <m>z</m> and <m>w</m> are equal if and only if they have the 
+            same real and imaginary parts! In other words...
+          </p>
+          <me>
+            z = w \quad\text{ iff }\quad \Re(z) = \Re(w) \text{ and } \Im(z) = \Im(w).
+          </me>
+        </observation>
+
+
+        <p>
+          We add complex numbers by adding their real and imaginary parts independently:
+        </p>
+        <me>
+          (a+ib) + (c+id) = (a+c) + i(b+d).
+        </me>
+        <p>
+          Notice that this is the same as ordinary addition of points (thought of as vectors) in <m>\R^2</m>:
+        </p>        
+        <me>
+          (a,b) + (c,d) = (a+c, b+d).
+        </me>
+        
+        <p>
+          Because complex numbers are simply point in the plane, added in the familiar way, we can import a lot of our knowledge
+          of geometry and multi-variable calculus to our study of complex numbers.
+        </p>
+        <p>
+          But something must be new! We multiply complex numbers using the following definition,
+          motivated by treating <m>i</m> as an indeterminant and then simplifying using <m>i^2 = -1</m>.
+        </p>
+        <aside>
+          <p>
+            On your own, you should expand <m>(a+bx)(c+dx)</m> and then simplify by assuming <m>x^2 = -1</m>.
+          </p>
+        </aside>
+        <me>
+          (a + ib)(c + id) = (ac - bd) + i(ad + bc)
+        </me>
+        <p>
+        This operation is totally new. Later we will do some work to understand better what is going on.
+        You can go ahead and try to get a feel for things by dragging <m>z</m> and <m>w</m> around on this GeoGebra graph,
+        though.
+        </p>
+        <figure>
+          <caption>GeoGebra: complex multiplications</caption>
+          <interactive xml:id="geogebra-SAS" platform="geogebra" width="80%" aspect="1:1">
+              <slate xml:id="SAS" surface="geogebra" material="nm9tw2mj" aspect="1:1">
+                setCoordSystem(-5,5,-5,5);
+            <!--    centerView((0,0)); -->
+                enableShiftDragZoom(false);
+              </slate>
+              <instructions>
+                  <p>Drag points <m>z</m> and <m>w</m>, and watch how <m>zw</m> changes.</p>
+              </instructions>
+          </interactive>
+        </figure>
+<!--        <interactive geogebra="nm9tw2mj"></interactive> -->
+<!--        <iframe src="https://www.geogebra.org/calculator/b2us9kvy?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe> -->
+        <p>
+          We identify the real number <m>x</m> with the complex number <m>x+i0</m>, corresponding to the point <m>(x,0)</m> on the <m>x</m>-axis.
+          It would be very upsetting if the new complex addition and multiplication we've defined were inconsistent with regular operations on real numbers; luckily this is not the case.
+        </p>
+        <observation>
+          <p> Complex addition and multiplication restrict to ordinary addition and multiplication of real numbers: </p>
+          <md>
+            <mrow>(a+i0) + (c + i0) \amp = (a+c) + i0 </mrow>
+            <mrow>(a+i0) \cdot (c+i0) \amp = (ac - 0) + i(0 + 0) </mrow>
+          </md>
+        </observation>
+        <exercise>
+          <p> Show directly from the definitions that complex addition and multiplication have the following properties. </p>
+          <ol>
+            <li><m>0+z = z</m> <p>(<m>0 = 0+0i</m> is an additive identity)</p></li>
+            <li><m>1\cdot z = z</m> <p>(<m>1 = 1+0i</m> is a multiplicative identity)</p></li>
+            <li> <m>z + w = w + z \text{ and } z\cdot w = w\cdot z</m> 
+              <p> (additional and multiplication are commutative)</p></li>
+            <li> <m>(z+w)+v = z+(w+v) \text{ and } (z w)v = z(wv)</m> <p>(addition and multiplication are associative)</p> </li>
+            <li><m>z(w+v) = zw + zv</m> <p>(multiplication distributes over addition)</p></li>
+          </ol>
+        </exercise>
+        <definition xml:id="def-modulus">
+          <statement>
+            <p>
+              The <term>modulus</term> (aka complex absolute value) of a complex number <m>z = x+iy</m>
+              is defined to be <m>\abs{z} = \sqrt{x^2 + y^2}</m>, its distance from the origin.
+            </p>
+            <p>
+              The <term>conjugate</term> of a complex number <m>z = x+iy </m> is the complex number
+              <m>\bar z = x - iy</m>.
+            </p>
+          </statement>
+        </definition>
+        <figure xml:id="fig-tikz-conjugate">
+          <caption>A complex number and its conjugate</caption>
+          <image width="15%" xml:id="conjugate">
+        
+        <latex-image >
+          \begin {tikzpicture}
+          \draw [-latex] (-1,0) to (4,0) node [above] {Re} ;
+          \draw [-latex] (0,-3) to (0,4) node [right] {Im} ;
+          \coordinate (z) at (3,2) ;
+          \coordinate (zbar) at (3,-2) ;
+          \fill (z) circle (2pt) ;
+          \fill (zbar) circle (2pt) ;
+          \node [above left] at (z) {$z$} ;
+          \node [above left] at (zbar) {$\bar{z}$} ;
+          \draw [dashed] (z) to (zbar) ;
+         \end {tikzpicture}        
+        </latex-image>
+          </image>
+        </figure>
+        <p>
+          Since the modulus is just the usual distance from the origin, and addition of complex numbers
+          is just vector addition, we inherit the triangle inequality from real analysis.
+        </p>
+        <lemma>
+          <title>The Triangle Inequality</title>
+          <p> <m>\abs{z + w} \le \abs{z} + \abs{w}</m> for all <m>z,w\in\C</m>.</p>
+        </lemma>
+        
+
+
+
+      </section>
+
+    </chapter>
+
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+
+    </backmatter>
+
+  </book>
+</pretext>

@@ -603,7 +603,7 @@
 
       <section>
       <title>The Stereographic Projection</title>
-
+        <p> For now, see the typed PDF posted to Canvas. Here are some visual tools: </p>
       <!--https://www.geogebra.org/calculator/svqnw7br-->
       <figure>
         <caption>GeoGebra: stereographic projection</caption>
@@ -629,6 +629,11 @@
           </instructions>
         </interactive>
       </figure>
+      </section>
+
+      <section>
+        <title> Some elementary functions </title>
+        
       </section>
     </chapter>
 

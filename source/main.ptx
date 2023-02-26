@@ -11,6 +11,9 @@
       \newcommand{\abs}[1]{\left| #1 \right|}
       \newcommand\set[2]{\left\{ #1 : #2 \right\}}
       \renewcommand{\bar}{\overline}
+      \newcommand{\Arg}{\operatorname{Arg}}
+      \newcommand{\Log}{\operatorname{Log}}
+      \newcommand{\wo}{\smallsetminus}
     </macros>
     <latax-image-preamble>
       \usepackage{tikz}
@@ -96,8 +99,20 @@
             z = w \quad\text{ iff }\quad \Re(z) = \Re(w) \text{ and } \Im(z) = \Im(w).
           </me>
         </observation>
-
-
+       <!-- https://www.geogebra.org/calculator/rx5rfurz-->
+       <figure>
+        <caption>GeoGebra: the real and imaginary parts of a complex number</caption>
+        <interactive xml:id="geogebra-Re-Im" platform="geogebra" width="80%" aspect="1:1">
+            <slate xml:id="Re-Im" surface="geogebra" material="rx5rfurz" aspect="1:1">
+              setCoordSystem(-4,4,-4,4);
+          <!--    centerView((0,0)); -->
+              <!--enableShiftDragZoom(false);-->
+            </slate>
+            <instructions>
+                <p>Drag the point <m>z</m> around, and see how <m>\Re(z)</m> and <m>\Im(z)</m> change.</p>
+            </instructions>
+        </interactive>
+      </figure> 
         <p>
           We add complex numbers by adding their real and imaginary parts independently:
         </p>
@@ -110,9 +125,23 @@
         <me>
           (a,b) + (c,d) = (a+c, b+d).
         </me>
-        
+<!--        https://www.geogebra.org/calculator/xpmdn6w4
+-->     
+<figure>
+  <caption>GeoGebra: complex addition</caption>
+  <interactive xml:id="geogebra-addition" platform="geogebra" width="80%" aspect="1:1">
+      <slate xml:id="addition" surface="geogebra" material="xpmdn6w4" aspect="1:1">
+        setCoordSystem(-2,5,-2,5);
+    <!--    centerView((0,0)); -->
+        <!--enableShiftDragZoom(false);-->
+      </slate>
+      <instructions>
+          <p>Drag points <m>z</m> and <m>w</m>, and watch how <m>z+w</m> changes.</p>
+      </instructions>
+  </interactive>
+</figure> 
         <p>
-          Because complex numbers are simply point in the plane, added in the familiar way, we can import a lot of our knowledge
+          Because complex numbers are simply points in the plane, added in the familiar way, we can import a lot of our knowledge
           of geometry and multi-variable calculus to our study of complex numbers.
         </p>
         <p>
@@ -160,7 +189,7 @@
         </observation>
         <exercise>
           <p> Show directly from the definitions that complex addition and multiplication have the following properties. </p>
-          <ol>
+          <ol marker="(a)">
             <li><m>0+z = z</m> <p>(<m>0 = 0+0i</m> is an additive identity)</p></li>
             <li><m>1\cdot z = z</m> <p>(<m>1 = 1+0i</m> is a multiplicative identity)</p></li>
             <li> <m>z + w = w + z \text{ and } z\cdot w = w\cdot z</m> 
@@ -178,10 +207,11 @@
             <p>
               The <term>conjugate</term> of a complex number <m>z = x+iy </m> is the complex number
               <m>\bar z = x - iy</m>.
+              (In other words, the conjugate is defined by <m>\Re(\bar z) = \Re(z)</m> and <m>\Im(\bar z) = -\Im(z)</m>.)
             </p>
           </statement>
         </definition>
-        <figure xml:id="fig-tikz-conjugate">
+       <!-- <figure xml:id="fig-tikz-conjugate">
           <caption>A complex number and its conjugate</caption>
           <image width="15%" xml:id="conjugate">
         
@@ -199,6 +229,19 @@
          \end {tikzpicture}        
         </latex-image>
           </image>
+        </figure>-->
+        <figure>
+          <caption>GeoGebra: conjugation</caption>
+          <interactive xml:id="geogebra-conjugate" platform="geogebra" width="80%" aspect="1:1">
+              <slate xml:id="conjugate" surface="geogebra" material="adzdrq5d" aspect="1:1">
+                setCoordSystem(-5,5,-5,5);
+            <!--    centerView((0,0)); -->
+                enableShiftDragZoom(false);
+              </slate>
+              <instructions>
+                  <p>Drag the point <m>z</m>, and watch how <m>\bar z</m> changes. Contrast with <m>-z</m>.</p>
+              </instructions>
+          </interactive>
         </figure>
         <p>
           Since the modulus is just the usual distance from the origin, and addition of complex numbers
@@ -208,12 +251,385 @@
           <title>The Triangle Inequality</title>
           <p> <m>\abs{z + w} \le \abs{z} + \abs{w}</m> for all <m>z,w\in\C</m>.</p>
         </lemma>
-        
+        <p>Written in terms of <m>x</m> and <m>y</m>, the product of a complex number and its conjugate
+        is a difference of squares: </p>
+        <me>
+          z\bar z = (x+iy)(x-iy) = x^2 - (iy)^2 = x^2 + y^2 = \abs{z}^2.
+        </me>
+        <p>Assuming that <m>z</m> is nonzero, we rearrange this equation to obtain a formula for <m>\frac{1}{z}</m>.</p>
+        <lemma>
+          <p>Every nonzero complex number has a multiplicative inverse given by either of the following equivalent formulas.</p>
+          <md>
+            <mrow>\frac{1}{z} \amp = \frac{\bar z}{\abs{z}^2}</mrow>
+            <mrow>\frac{1}{x+iy} \amp = \frac{x - iy}{x^2 + y^2}</mrow>
+          </md>
+        </lemma>
+        <!-- TODO: insert sage calculator for inverse -->
+        <!--https://www.geogebra.org/calculator/x5dtff4z-->
+        <figure>
+          <caption>GeoGebra: reciprocal</caption>
+          <interactive xml:id="geogebra-reciprocal" platform="geogebra" width="80%" aspect="1:1">
+              <slate xml:id="reciprocal" surface="geogebra" material="x5dtff4z" aspect="1:1">
+                setCoordSystem(-3,3,-3,3);
+            <!--    centerView((0,0)); -->
+                enableShiftDragZoom(false);
+              </slate>
+              <instructions>
+                  <p>Drag the point <m>z</m>, and watch how <m>\frac{1}{z}</m> changes. Contrast with <m>-z</m>.
+                  For now, just observe that <m>\frac{1}{z}</m> gets close to <m>0</m> as <m>z</m> moves far away from <m>0</m>,
+                and vice versa.</p>
+              </instructions>
+          </interactive>
+        </figure>        
+        <problem>
+          <p>Prove that the following identities hold for all <m>z,w\in\C</m>.</p>
+          <ol marker="(a)">
+           <li> <m>\Re(z) = \displaystyle\frac{z+\bar z}{2}</m> </li>
+           <li> <m>\Im(z) = \displaystyle\frac{z - \bar z}{2i}</m> </li>
+           <li>
+           <m>\bar{z+w} = \bar z + \bar w</m>  </li>
+           <li>
+           <m>\bar{zw} =  \bar z \cdot \bar w</m>  </li>
+           <li>
+           <m>\abs{z}^2 = z\cdot \bar z</m>  </li>
+           <li>
+           <m>\abs{zw} = \abs z \cdot \abs w</m>  </li>
+           <li>
+           <m>\abs{z+w}^2 = \abs{z}^2 + \abs{w}^2 + 2\Re(z\bar w)</m>  </li>
+          </ol>
+        </problem>
+        <!-- TODO: add the rest of HW 1-->
+        <p>It is clear from our definition that <m>\C</m> has something that <m>\R</m> does not:
+        a square-root of <m>-1</m>!</p>
+        <me>
+          i^2 = (0+i\cdot 1)^2 = (0\cdot 0 - 1\cdot 1) + i(0 + 0) = -1.
+        </me>
+        <p>In fact, as we will show later, <m>\C</m> has roots of all non-constant polynomials.</p>
+        <!-- TODO: add forward ref to FTA-->
+        <theorem xmid="theorem-FTA">
+          <title>Fundamental Theorem of Algebra</title>
+          <p>Every polynomial <m>p(z)</m> with complex coefficients of degree <m>\ge 1</m>
+          has a factorization</p>
+          <me>
+            p(z) = c(z-r_1)^{d_1}(z-r_2)^{d_2}\cdots (z-r_k)^{d_k}
+          </me>
+          <p>where the roots <m>r_j</m> are distinct, and <m>d_j\ge 1</m>.
+          This factorization is unique up to permuting the factors.</p>
+        </theorem>
+        <p>This Theorem follows by induction on degree from...</p>
+        <theorem>
+          <p>Every nonconstant polynomial with complex coefficients has a complex root.</p>
+        </theorem>
+        <p>We will prove this later in the course! Even though it seems like (and is) a theorem of algebra,
+          its proof really needs analytic tools. </p>
+        <example>There is a complex solution to <m>z^7 + z^4 - i = \sqrt2</m>.</example>
+      </section>
+      <section xml:id="section-polar">
+        <title>Polar representation and Euler's Formula</title>
+        <p>As a point in the plane, a complex number has a polar representation: </p>
+        <me> z = x+iy = r(\cos\theta + i\sin\theta) </me>
+        <aside>
+          <p> In precalculus you would've written <m>(x,y) = (r\cos\theta,r\sin\theta)</m>.
+            This is the same thing, just written using 
+           <m>x+iy</m> instead of <m>(x,y)</m>. </p>
+        </aside>
+        <!--https://www.geogebra.org/calculator/zzyx6g7r-->
+        <figure>
+          <caption>GeoGebra: polar representation</caption>
+          <interactive xml:id="geogebra-polar-basic" platform="geogebra" width="80%" aspect="1:1">
+              <slate xml:id="polar-basic" surface="geogebra" material="zzyx6g7r" aspect="1:1">
+                setCoordSystem(-2,4,-2,4);
+            <!--    centerView((0,0)); -->
+                enableShiftDragZoom(false);
+              </slate>
+              <instructions>
+                  <p>Drag the point <m>z</m> and note the change in <m>r = \abs{z}</m> and <m>\theta = \arg{z}</m>.
+                  <em>Warning:</em> This applet is showing the argument between <m>0</m> and <m>2\pi</m>, not the principal argument.</p>
+              </instructions>
+          </interactive>
+        </figure>        
+        <p>
+          Notice that <m>r</m> is simply the modulus of <m>z</m>: <m>r = \abs{z}</m>.
+          The angle <m>\theta</m> between the positive real axis and the ray <m>\overrightarrow{0z}</m>
+          is called the <em>argument</em> of <m>z</m> and is denoted <m>\arg(z)</m>.
+          Notice that <m>\arg(z)</m> is a multivalued function! Adding <m>2\pi</m> to <m>\theta</m> does
+          not change <m>z</m>.
+        </p>
+        <definition xml:id="def-principal-arg">
+          <statement>
+            <p>The <term>principal argument</term> of a complex number <m>z</m>, denoted
+            <m>\Arg(z)</m>, is the value of <m>\theta</m> that satisfies <m>-\pi \lt \theta \le \pi</m>.</p>
+            </statement>
+            <aside>
+              <p>
+                <em>Warning:</em> Some authors use the convention that <m>\Arg(z) \in [0,2\pi)</m>.
+                Use caution when consulting other sources!
+              </p>
+            </aside>
+        </definition>
+        <p>So, for <m>z\in\C\wo\{0\}</m>, the possible values of <m>\arg(z)</m> are <m>\Arg(z) + 2\pi k</m>,
+          where <m>k</m> can be any integer.</p>
+        <example>
+          <m>\Arg(i) = \frac{\pi}{2}</m>, <m>\Arg(1-i) = -\frac{\pi}{4}</m>.
+        </example>
+        <identity>
+          <title>Euler's Formula</title>
+          <p>For now we take the following as a <em>definition</em>; later we will see why it is justified.</p>
+          <me>e^{i\theta} = \cos\theta + i\sin\theta \quad (\theta\in\R)</me>
+        </identity>
+        <!-- TODO: insert geogebra thing with slider for theta-->
+        <p>Using Euler's Formula, we obtain the <em>exponential form</em> of the polar representation
+          of <m>z</m>: </p> <me>z = re^{i\theta} = \abs{z}e^{i\arg(z)}</me>
+        <example>
+          <ul>
+            <li><m>e^{i\pi} = \cos\pi + i\sin\pi = -1 + 0i = -1</m> </li>
+            <li><m> e^{i\pi/2} = \cos(\pi/2) + i\sin(\pi/2) = 0 + i = i</m> </li>
+            <li><m>e^{i\pi/4} = \frac{1}{\sqrt2} + i\frac{1}{\sqrt2} </m> </li>
+          </ul>
+        </example>
+        <exercise>
+          <p> Use trig identities to prove the following identities about <m>e^{i\theta}</m></p>
+          <ol marker="(a)">
+            <li><m>\abs{e^{i\theta}} = 1</m> </li>
+            <li><m>\bar{e^{i\theta}} = e^{-i\theta}</m> </li>
+            <li><m>\frac{1}{e^{i\theta}} = e^{-i\theta}</m> </li>
+          </ol>
+        </exercise>
+        <observation>
+          <p>Let's try applying Euler's Formula to <m>e^{i(\alpha+\beta)}</m> and then separately to <m>e^{i\alpha}e^{i\beta}</m>.</p>
+          <me> e^{i(\alpha+\beta)} = \cos(\alpha + \beta) + i\sin(\alpha+\beta) </me>
+          <me> e^{i\alpha}e^{i\beta} = (\cos(\alpha) + i\sin(\alpha))(\cos(\beta) + i\sin(\beta))
+            = (\cos\alpha\cos\beta - \sin\alpha\sin\beta) + i(\cos\alpha\sin\beta + \cos\beta\sin\alpha) </me>
+          <p> The results of these two activities ought to be the same, and indeed if we identify real and imaginary
+            parts we obtain the familiar addition formulas for sine and cosine! </p>
+          <md>
+            <mrow>\cos(\alpha+\beta) \amp = \cos\alpha\cos\beta - \sin\alpha\sin\beta </mrow>
+            <mrow>\sin(\alpha+\beta) \amp = \cos\alpha\sin\beta + \cos\beta\sin\alpha </mrow>
+          </md>
+          <aside>
+           <p>
+            This is a useful way to derive the addition formulas for sine and cosine without memorizing them.
+            But the way we've presented things is a bit backward; in fact, it's the trig identities
+            that allow us to conclude that <m>e^{i(\alpha+\beta)} = e^{i\alpha}e^{i\beta}</m>.
+           </p>
+          </aside>
+        </observation>
+        <exercise>
+          <p> Use trig identities to prove the following faacts about the argument. </p>
+          <ol marker="(a)">
+           <li><m>\arg \bar z = -\arg z</m></li>
+           <li><m>\arg (\frac{1}{z}) = -\arg z</m></li>
+           <li><m>\arg(zw) = \arg(z) + \arg(w)</m></li>
+          </ol>
+        </exercise>
+        <p>
+         With the help of the polar representation, we are in a position to understand exactly
+         how complex multiplication works. Writing <m>z = re^{i\theta}</m> and <m>w = se^{i\phi}</m>,
+         we have
+        </p>
+        <me>
+          zw = re^{i\theta}se^{i\phi} = rse^{i(\theta+\phi)}.
+        </me>
+        <p>So the product <m>zw</m> has modulus <m>\abs{z}\abs{w}</m> and argument <m>\arg z + \arg w</m>.</p>
+        <!--https://www.geogebra.org/calculator/ss3raptn-->
+        <figure>
+          <caption>GeoGebra: multiplication in polar coordinates</caption>
+          <interactive xml:id="geogebra-mult-polar" platform="geogebra" width="80%" aspect="1:1">
+              <slate xml:id="mult-polar" surface="geogebra" material="ss3raptn" aspect="1:1">
+                setCoordSystem(-4,4,-4,4);
+            <!--    centerView((0,0)); -->
+                enableShiftDragZoom(false);
+              </slate>
+              <instructions>
+                  <p>Drag the points <m>z</m> and <m>w</m> and note how <m>zw</m> changes.
+                  <em>Warning:</em> This applet is showing the argument between <m>0</m> and <m>2\pi</m>, not the principal argument.</p>
+              </instructions>
+          </interactive>
+        </figure>  
+        <subsection xml:id="subsec-de-moivre">
+          <title>De Moivre's Theorem</title>
+          <p>We can identify real and imaginary parts in the following equation to obtain some trig identities.</p>
+          <me>
+            \cos(n\theta) + i\sin(n\theta) = e^{in\theta} = (e^{i\theta})^n = (\cos\theta + i\sin\theta)^n.
+          </me>
+          <p>
+            Let's illustrate this by considering the example <m>n = 3</m>. Identifying real and imaginary parts of the equation
+          </p>
+          <me>
+            (\cos\theta + i\sin\theta)^3 = \cos^3 \theta - 3\cos\theta\sin\theta + i(3\cos^2\theta\sin\theta - \sin^3\theta)
+          </me>
+          <p> gives </p>
+          <md>
+            <mrow> \cos(3\theta) \amp \cos^3\theta - 3\cos\theta\sin^2\theta </mrow>
+            <mrow> \sin(3\theta) \amp 3\cos^2\theta\sin\theta - \sin^3\theta </mrow>
+          </md>
+        </subsection>
+        <subsection>
+          <title>Roots of unity</title>
+          <p>
+            It is a special case of the Fundamental Theorem of Algebra (<xref ref="theorem-fta"/>) that
+            every nonzero complex number <m>w</m> has exactly <m>n</m> <m>n</m><sup>th</sup> roots,
+            i.e., solutions <m>z</m> to <m>z^n = w</m>.
+            The case <m>w = 1</m> is already interesting (and of particular importance), so let's start there. 
+          </p>
 
-
-
+          <p> 
+            Finding the <m>n</m> solutions to <m>z^n = 1</m> is made easier by considering the various polar representations of <m>1</m>:
+          </p>
+          <md>
+            <mrow> 1 \amp = \cdots = e^{-4\pi i} = e^{-2\pi i} = e^{0 i} = e^{2\pi i} = e^{4\pi i} = \cdots </mrow>
+            <mrow>   \amp = e^{2\pi i k}, \quad k\in\mathbb{Z}</mrow>
+          </md>
+          <p>
+            A reasonable guess (which turns out to be correct!) is that we can just
+            divide the exponent on the righthand side by <m>n</m> to obtain the possible values of <m>1^{1/n}</m>.
+          </p>
+          <definition xml:id="def-roots-of-unity">
+            <statement>
+              <p>
+                For an integer <m>n \ge 1</m>, the <term><m>n</m><sup>th</sup> roots of unity</term> 
+                are the complex numbers <m>\omega_0,\dots, \omega_{n-1}</m>, where
+              </p>
+              <men xml:id="eqn-roots">
+                \omega_k = e^{2\pi i k / n}.
+              </men>
+            </statement>
+          </definition>
+          <exercise>
+            <p>
+              Prove that the <m>n</m> numbers <m>\omega_0,\dots,\omega_{n-1}</m> listed in <xref ref="eqn-roots"/>
+              are in fact <m>n</m> different numbers!
+            </p>
+            <p>
+              Explain why they appear equally spaced around the unit circle <m>\abs{z} = 1</m>.
+            </p>
+          </exercise>
+          <example>
+            <p> The <m>4</m>th roots of unity are: </p>
+            <md>
+              <mrow> \omega_0 \amp e^{2\pi i 0 / 4} = 1</mrow>
+              <mrow> \omega_1 \amp e^{2\pi i 1 / 4} = e^{\pi i / 2} = i</mrow>
+              <mrow> \omega_2 \amp e^{2\pi i 2 / 4} = e^{\pi i} = -1</mrow>
+              <mrow> \omega_3 \amp e^{2\pi i 3 / 4} = e^{(3\pi / 2) i} = -i</mrow>
+            </md>
+            <aside>
+              <p>
+                Don't forget Euler's Formula! E.g. 
+                <md>
+                  <mrow> e^{(3\pi/2)i} \amp = \cos(3\pi/2) + i \sin(3\pi/2) </mrow>
+                  <mrow> \amp = 0 + i(-1) </mrow>
+                  <mrow> \amp = -i </mrow>
+                </md>.
+              </p>
+            </aside>
+          </example>
+<!-- TODO: Tikz picture of like 8th roots of unity or something-->
+          <p>
+            We can find the <m>n</m>th roots of any nonzero complex number <m>w = re^{i\theta}</m> in a similar way. 
+            Suppose that <m>\theta</m> is, say, the principal argument of <m>w</m>, and consider the next <m>n-1</m> many
+            arguments:
+          </p>
+          <me>
+            w = re^{i\theta} = re^{i(\theta+2\pi)} = re^{i(\theta+4\pi)} = \cdots = re^{i(\theta+2(n-1)\pi)}.
+          </me>
+          <p>
+            Now simply take each of these <m>n</m> different representations for <m>w</m> to the <m>1/n</m>th power
+            to obtain the following list of <m>n</m>-many <m>n</m>th roots of <m>w</m>.
+          </p>
+          <me>
+           r^{1/n}e^{i\theta/n}, r^{1/n}e^{i\theta/n + 2\pi i /n}, r^{1/n}e^{i\theta/n + 4\pi i / n}, \dots, r^{1/n}e^{i\theta/n + 2(n-1)\pi i / n}
+          </me>
+          <p>
+            Oh, we could instead have obtained this list by finding the first <m>n</m>th root of <m>w</m>
+            and multiplying by all the <m>n</m>th roots of unity!
+            The <m>n</m>th roots of <m>w = re^{i\theta / n}</m> are...
+          </p>
+          <me>
+            r^{1/n}e^{i\theta / n}, \omega_1r^{1/n}e^{i\theta / n}, \dots, \omega_{n-1}r^{1/n}e^{i\theta / n},
+          </me>
+          <p>
+            where <m>\omega_0,\dots,\omega_{n-1}</m> are the <m>n</m>th roots of unity.
+          </p>
+          <!--https://www.geogebra.org/calculator/jzxwdqgr-->
+          <figure>
+            <caption>GeoGebra: nth roots</caption>
+            <interactive xml:id="geogebra-nth-roots" platform="geogebra" width="80%" aspect="1:1">
+                <slate xml:id="nth-roots" surface="geogebra" material="jzxwdqgr" aspect="1:1">
+                  setCoordSystem(-4,4,-4,4);
+              <!--    centerView((0,0)); -->
+                  enableShiftDragZoom(false);
+                </slate>
+                <instructions>
+                    <p>Draw the point <m>w</m> around and watch its <m>6</m>th roots move.</p>
+                </instructions>
+            </interactive>
+          </figure>  
+          <example>
+            <p>
+              Let <m>a\in\R</m> be an unspecified real number. We are going to find the two square roots
+              of the complex number <m>a+i</m> in cartesian form (<m>x+iy</m>).
+            </p>
+            <!--https://www.geogebra.org/calculator/dyexbgez-->
+            <figure>
+              <caption>GeoGebra: roots example</caption>
+              <interactive xml:id="geogebra-roots-example" platform="geogebra" width="80%" aspect="1:1">
+                  <slate xml:id="roots-example" surface="geogebra" material="dyexbgez" aspect="1:1">
+                    setCoordSystem(-4,4,-4,4);
+                <!--    centerView((0,0)); -->
+                    enableShiftDragZoom(false);
+                  </slate>
+              </interactive>
+            </figure>
+            <p>Let's start by defining <m>r</m> and <m>\theta</m>.</p>
+            <md>
+              <mrow> r \amp = \abs{a+i} = \sqrt{a^2 + 1} </mrow>
+              <mrow> \theta \amp = \Arg(a+i) </mrow>
+            </md>
+            <p>So, in polar form, <m>a+i</m> can be written as <m>re^{i(\theta + 2k\pi)}</m> for any <m>k\in\mathbb{Z}</m>.
+              So we should be able to take <m>z_0 = (re^{i\theta})^{1/2} = r^{1/2}e^{i\theta/2}</m>
+          and <m>z_1 = -z_0</m> as our two square-roots. But we still want them in rectangular coordinates, so
+          we use Euler's Formula, some trig identities, and the fact that <m>\cos\theta = a/r</m>.</p>
+          <md>
+            <mrow>z_0 = \sqrt{r} e^{i\theta/2} \amp = \sqrt{r}(\cos(\theta/2) + i\sin(\theta/2)) </mrow>
+            <mrow> \amp = \sqrt{r}\left(\sqrt{\frac{1+\cos\theta}{2}} + i \sqrt{\frac{1-\sin\theta}{2}}\right) </mrow>
+            <mrow> \amp = \sqrt{r}\left(\sqrt{\frac12 (1+\frac{a}{r})} + i\sqrt{\frac{1}{2} (1 - \frac{a}{r})}\right)</mrow>
+            <mrow> \amp = \frac{1}{\sqrt2}(\sqrt{r+a} + i\sqrt{r-a}) </mrow>
+            <mrow> \amp = \frac{1}{\sqrt2}(\sqrt{\sqrt{a^2+1}+a} + i\sqrt{\sqrt{a^2+1}-a}) </mrow>
+          </md>
+          <p>The other square-root is <m>-z_0</m>.</p>
+          </example>
+        </subsection>
       </section>
 
+      <section>
+      <title>The Stereographic Projection</title>
+
+      <!--https://www.geogebra.org/calculator/svqnw7br-->
+      <figure>
+        <caption>GeoGebra: stereographic projection</caption>
+        <interactive xml:id="geogebra-stereo-basic" platform="geogebra" width="80%" aspect="1:1">
+            <slate xml:id="stereo-basic" surface="geogebra" material="svqnw7br" aspect="1:1">
+              <!--setCoordSystem(-4,4,-4,4);-->
+          <!--    centerView((0,0)); -->
+              enableShiftDragZoom(false);
+            </slate>
+        </interactive>
+      </figure>
+      <!--https://www.geogebra.org/calculator/uunuspte-->
+      <figure>
+        <caption>GeoGebra: stereographic projection in cross-section</caption>
+        <interactive xml:id="geogebra-stereo-2d" platform="geogebra" width="80%" aspect="1:1">
+            <slate xml:id="stereo-2d" surface="geogebra" material="uunuspte" aspect="1:1">
+              setCoordSystem(-4,4,-4,4);
+          <!--    centerView((0,0)); -->
+              enableShiftDragZoom(false);
+            </slate>
+          <instructions>
+            You can drag either <m>\bar Q</m> around the circle or <m>P</m> along the line.
+          </instructions>
+        </interactive>
+      </figure>
+      </section>
     </chapter>
 
     <backmatter xml:id="backmatter">

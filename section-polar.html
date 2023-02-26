@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Polar representation and Euler's Formula</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Complex Analysis">
+<meta property="book:author" content="Zach Norwood">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Complex Analysis:</span> <span class="subtitle">Course notes for Math 423 at UNL</span></a></h1>
+<p class="byline">Zach Norwood</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="section-arithmetic.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-intro.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="section-3.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand\set[2]{\left\{ #1 : #2 \right\}}
+\renewcommand{\bar}{\overline}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\wo}{\smallsetminus}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Complex pre-calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic arithmetic and geometry</span></a></div></li>
+<li class="active">
+<div class="toc-item"><a href="section-polar.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Polar representation and Euler's Formula</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-polar.html#subsec-de-moivre" class="internal"><span class="codenumber">1.2.1</span> <span class="title">De Moivre's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="section-polar.html#subsection-2" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Roots of unity</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="section-3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The Stereographic Projection</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-polar"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">Polar representation and Euler's Formula</span>
+</h2>
+<div class="para" id="p-41">As a point in the plane, a complex number has a polar representation:</div>
+<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+\begin{equation*}
+z = x+iy = r(\cos\theta + i\sin\theta) 
+\end{equation*}
+</div>
+<aside class="aside aside-like" id="aside-4"><div class="para" id="p-42">In precalculus you would've written <span class="process-math">\((x,y) = (r\cos\theta,r\sin\theta)\text{.}\)</span> This is the same thing, just written using <span class="process-math">\(x+iy\)</span> instead of <span class="process-math">\((x,y)\text{.}\)</span>
+</div></aside><figure class="figure figure-like" id="figure-6"><iframe id="geogebra-polar-basic" width="480" height="480" src="geogebra-polar-basic-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-6" id="instructions-6"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-6"><div class="solution-like"><div class="para" id="p-43">Drag the point <span class="process-math">\(z\)</span> and note the change in <span class="process-math">\(r = \abs{z}\)</span> and <span class="process-math">\(\theta = \arg{z}\text{.}\)</span> <em class="emphasis">Warning:</em> This applet is showing the argument between <span class="process-math">\(0\)</span> and <span class="process-math">\(2\pi\text{,}\)</span> not the principal argument.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.1<span class="period">.</span></span><span class="space"> </span>GeoGebra: polar representation</figcaption></figure><div class="para" id="p-44">Notice that <span class="process-math">\(r\)</span> is simply the modulus of <span class="process-math">\(z\text{:}\)</span> <span class="process-math">\(r = \abs{z}\text{.}\)</span> The angle <span class="process-math">\(\theta\)</span> between the positive real axis and the ray <span class="process-math">\(\overrightarrow{0z}\)</span> is called the <em class="emphasis">argument</em> of <span class="process-math">\(z\)</span> and is denoted <span class="process-math">\(\arg(z)\text{.}\)</span> Notice that <span class="process-math">\(\arg(z)\)</span> is a multivalued function! Adding <span class="process-math">\(2\pi\)</span> to <span class="process-math">\(\theta\)</span> does not change <span class="process-math">\(z\text{.}\)</span>
+</div>
+<article class="definition definition-like" id="def-principal-arg"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-45">The <dfn class="terminology">principal argument</dfn> of a complex number <span class="process-math">\(z\text{,}\)</span> denoted <span class="process-math">\(\Arg(z)\text{,}\)</span> is the value of <span class="process-math">\(\theta\)</span> that satisfies <span class="process-math">\(-\pi \lt \theta \le \pi\text{.}\)</span>
+</div> <aside class="aside aside-like" id="aside-5"><div class="para" id="p-46">
+<em class="emphasis">Warning:</em> Some authors use the convention that <span class="process-math">\(\Arg(z) \in [0,2\pi)\text{.}\)</span> Use caution when consulting other sources!</div></aside></article><div class="para" id="p-47">So, for <span class="process-math">\(z\in\C\wo\{0\}\text{,}\)</span> the possible values of <span class="process-math">\(\arg(z)\)</span> are <span class="process-math">\(\Arg(z) + 2\pi k\text{,}\)</span> where <span class="process-math">\(k\)</span> can be any integer.</div>
+<article class="example example-like" id="example-2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like"><span class="process-math">\(\Arg(i) = \frac{\pi}{2}\text{,}\)</span> <span class="process-math">\(\Arg(1-i) = -\frac{\pi}{4}\text{.}\)</span></article></div>
+<article class="identity theorem-like" id="identity-1"><h3 class="heading">
+<span class="type">Identity</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Euler's Formula.</span>
+</h3>
+<div class="para" id="p-48">For now we take the following as a <em class="emphasis">definition</em>; later we will see why it is justified.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^{i\theta} = \cos\theta + i\sin\theta \quad (\theta\in\R)
+\end{equation*}
+</div></article><div class="para" id="p-49">Using Euler's Formula, we obtain the <em class="emphasis">exponential form</em> of the polar representation of <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+\begin{equation*}
+z = re^{i\theta} = \abs{z}e^{i\arg(z)}
+\end{equation*}
+</div>
+<article class="example example-like" id="example-3"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.5</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><ul class="disc">
+<li id="li-13"><div class="para" id="p-derived-li-13"><span class="process-math">\(\displaystyle e^{i\pi} = \cos\pi + i\sin\pi = -1 + 0i = -1\)</span></div></li>
+<li id="li-14"><div class="para" id="p-derived-li-14"><span class="process-math">\(\displaystyle e^{i\pi/2} = \cos(\pi/2) + i\sin(\pi/2) = 0 + i = i\)</span></div></li>
+<li id="li-15"><div class="para" id="p-derived-li-15"><span class="process-math">\(\displaystyle e^{i\pi/4} = \frac{1}{\sqrt2} + i\frac{1}{\sqrt2} \)</span></div></li>
+</ul></article></div>
+<article class="exercise exercise-like" id="exercise-2"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-2"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like"><div class="para" id="p-50">Use trig identities to prove the following identities about <span class="process-math">\(e^{i\theta}\)</span>
+</div>
+<ol class="lower-alpha">
+<li id="li-16"><div class="para" id="p-derived-li-16"><span class="process-math">\(\displaystyle \abs{e^{i\theta}} = 1\)</span></div></li>
+<li id="li-17"><div class="para" id="p-derived-li-17"><span class="process-math">\(\displaystyle \bar{e^{i\theta}} = e^{-i\theta}\)</span></div></li>
+<li id="li-18"><div class="para" id="p-derived-li-18"><span class="process-math">\(\displaystyle \frac{1}{e^{i\theta}} = e^{-i\theta}\)</span></div></li>
+</ol></article></div>
+<article class="observation remark-like" id="observation-3"><h3 class="heading">
+<span class="type">Observation</span><span class="space"> </span><span class="codenumber">1.2.7</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-51">Let's try applying Euler's Formula to <span class="process-math">\(e^{i(\alpha+\beta)}\)</span> and then separately to <span class="process-math">\(e^{i\alpha}e^{i\beta}\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^{i(\alpha+\beta)} = \cos(\alpha + \beta) + i\sin(\alpha+\beta) 
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^{i\alpha}e^{i\beta} = (\cos(\alpha) + i\sin(\alpha))(\cos(\beta) + i\sin(\beta))
+= (\cos\alpha\cos\beta - \sin\alpha\sin\beta) + i(\cos\alpha\sin\beta + \cos\beta\sin\alpha) 
+\end{equation*}
+</div>
+<div class="para" id="p-52">The results of these two activities ought to be the same, and indeed if we identify real and imaginary parts we obtain the familiar addition formulas for sine and cosine!</div>
+<div class="displaymath process-math" id="md-3">
+\begin{align*}
+\cos(\alpha+\beta) \amp = \cos\alpha\cos\beta - \sin\alpha\sin\beta \\
+\sin(\alpha+\beta) \amp = \cos\alpha\sin\beta + \cos\beta\sin\alpha 
+\end{align*}
+</div>
+<aside class="aside aside-like" id="aside-6"><div class="para" id="p-53">This is a useful way to derive the addition formulas for sine and cosine without memorizing them. But the way we've presented things is a bit backward; in fact, it's the trig identities that allow us to conclude that <span class="process-math">\(e^{i(\alpha+\beta)} = e^{i\alpha}e^{i\beta}\text{.}\)</span>
+</div></aside></article><article class="exercise exercise-like" id="exercise-3"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-3"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like"><div class="para" id="p-54">Use trig identities to prove the following faacts about the argument.</div>
+<ol class="lower-alpha">
+<li id="li-19"><div class="para" id="p-derived-li-19"><span class="process-math">\(\displaystyle \arg \bar z = -\arg z\)</span></div></li>
+<li id="li-20"><div class="para" id="p-derived-li-20"><span class="process-math">\(\displaystyle \arg (\frac{1}{z}) = -\arg z\)</span></div></li>
+<li id="li-21"><div class="para" id="p-derived-li-21"><span class="process-math">\(\displaystyle \arg(zw) = \arg(z) + \arg(w)\)</span></div></li>
+</ol></article></div>
+<div class="para" id="p-55">With the help of the polar representation, we are in a position to understand exactly how complex multiplication works. Writing <span class="process-math">\(z = re^{i\theta}\)</span> and <span class="process-math">\(w = se^{i\phi}\text{,}\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+\begin{equation*}
+zw = re^{i\theta}se^{i\phi} = rse^{i(\theta+\phi)}.
+\end{equation*}
+</div>
+<div class="para" id="p-56">So the product <span class="process-math">\(zw\)</span> has modulus <span class="process-math">\(\abs{z}\abs{w}\)</span> and argument <span class="process-math">\(\arg z + \arg w\text{.}\)</span>
+</div>
+<figure class="figure figure-like" id="figure-7"><iframe id="geogebra-mult-polar" width="480" height="480" src="geogebra-mult-polar-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-7" id="instructions-7"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-7"><div class="solution-like"><div class="para" id="p-57">Drag the points <span class="process-math">\(z\)</span> and <span class="process-math">\(w\)</span> and note how <span class="process-math">\(zw\)</span> changes. <em class="emphasis">Warning:</em> This applet is showing the argument between <span class="process-math">\(0\)</span> and <span class="process-math">\(2\pi\text{,}\)</span> not the principal argument.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.9<span class="period">.</span></span><span class="space"> </span>GeoGebra: multiplication in polar coordinates</figcaption></figure><section class="subsection" id="subsec-de-moivre"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2.1</span> <span class="title">De Moivre's Theorem</span>
+</h3>
+<div class="para" id="p-58">We can identify real and imaginary parts in the following equation to obtain some trig identities.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cos(n\theta) + i\sin(n\theta) = e^{in\theta} = (e^{i\theta})^n = (\cos\theta + i\sin\theta)^n.
+\end{equation*}
+</div>
+<div class="para" id="p-59">Let's illustrate this by considering the example <span class="process-math">\(n = 3\text{.}\)</span> Identifying real and imaginary parts of the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\cos\theta + i\sin\theta)^3 = \cos^3 \theta - 3\cos\theta\sin\theta + i(3\cos^2\theta\sin\theta - \sin^3\theta)
+\end{equation*}
+</div>
+<div class="para" id="p-60">gives</div>
+<div class="displaymath process-math" id="md-4">
+\begin{align*}
+\cos(3\theta) \amp \cos^3\theta - 3\cos\theta\sin^2\theta \\
+\sin(3\theta) \amp 3\cos^2\theta\sin\theta - \sin^3\theta 
+\end{align*}
+</div></section><section class="subsection" id="subsection-2"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2.2</span> <span class="title">Roots of unity</span>
+</h3>
+<div class="para" id="p-61">It is a special case of the Fundamental Theorem of Algebra (<code class="code-inline tex2jax_ignore">[cross-reference to target(s) "theorem-fta" missing or not unique]</code>) that every nonzero complex number <span class="process-math">\(w\)</span> has exactly <span class="process-math">\(n\)</span> <span class="process-math">\(n\)</span>th roots, i.e., solutions <span class="process-math">\(z\)</span> to <span class="process-math">\(z^n = w\text{.}\)</span> The case <span class="process-math">\(w = 1\)</span> is already interesting (and of particular importance), so let's start there.</div>
+<div class="para" id="p-62">Finding the <span class="process-math">\(n\)</span> solutions to <span class="process-math">\(z^n = 1\)</span> is made easier by considering the various polar representations of <span class="process-math">\(1\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html" id="md-5">
+\begin{align*}
+1 \amp = \cdots = e^{-4\pi i} = e^{-2\pi i} = e^{0 i} = e^{2\pi i} = e^{4\pi i} = \cdots \\
+\amp = e^{2\pi i k}, \quad k\in\mathbb{Z}
+\end{align*}
+</div>
+<div class="para" id="p-63">A reasonable guess (which turns out to be correct!) is that we can just divide the exponent on the righthand side by <span class="process-math">\(n\)</span> to obtain the possible values of <span class="process-math">\(1^{1/n}\text{.}\)</span>
+</div>
+<article class="definition definition-like" id="def-roots-of-unity"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.10</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-64">For an integer <span class="process-math">\(n \ge 1\text{,}\)</span> the <dfn class="terminology"><span class="process-math">\(n\)</span>th roots of unity</dfn> are the complex numbers <span class="process-math">\(\omega_0,\dots, \omega_{n-1}\text{,}\)</span> where</div>
+<div class="displaymath process-math" id="eqn-roots">
+\begin{equation}
+\omega_k = e^{2\pi i k / n}.\tag{1.2.1}
+\end{equation}
+</div></article><article class="exercise exercise-like" id="exercise-4"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-4"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.11</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><div class="para" id="p-65">Prove that the <span class="process-math">\(n\)</span> numbers <span class="process-math">\(\omega_0,\dots,\omega_{n-1}\)</span> listed in <a href="" class="xref" data-knowl="./knowl/eqn-roots.html" title="Equation 1.2.1">(1.2.1)</a> are in fact <span class="process-math">\(n\)</span> different numbers!</div>
+<div class="para" id="p-66">Explain why they appear equally spaced around the unit circle <span class="process-math">\(\abs{z} = 1\text{.}\)</span>
+</div></article></div>
+<article class="example example-like" id="example-4"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.12</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><div class="para" id="p-67">The <span class="process-math">\(4\)</span>th roots of unity are:</div>
+<div class="displaymath process-math" id="md-6">
+\begin{align*}
+\omega_0 \amp e^{2\pi i 0 / 4} = 1\\
+\omega_1 \amp e^{2\pi i 1 / 4} = e^{\pi i / 2} = i\\
+\omega_2 \amp e^{2\pi i 2 / 4} = e^{\pi i} = -1\\
+\omega_3 \amp e^{2\pi i 3 / 4} = e^{(3\pi / 2) i} = -i
+\end{align*}
+</div>
+<aside class="aside aside-like" id="aside-7"><div class="para logical" id="p-68">
+<div class="para">Don't forget Euler's Formula! E.g.</div>
+<div class="displaymath process-math" id="md-7">
+\begin{align*}
+e^{(3\pi/2)i} \amp = \cos(3\pi/2) + i \sin(3\pi/2) \\
+\amp = 0 + i(-1) \\
+\amp = -i \text{.}
+\end{align*}
+</div>
+</div></aside></article></div>
+<div class="para" id="p-69">We can find the <span class="process-math">\(n\)</span>th roots of any nonzero complex number <span class="process-math">\(w = re^{i\theta}\)</span> in a similar way. Suppose that <span class="process-math">\(\theta\)</span> is, say, the principal argument of <span class="process-math">\(w\text{,}\)</span> and consider the next <span class="process-math">\(n-1\)</span> many arguments:</div>
+<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+\begin{equation*}
+w = re^{i\theta} = re^{i(\theta+2\pi)} = re^{i(\theta+4\pi)} = \cdots = re^{i(\theta+2(n-1)\pi)}.
+\end{equation*}
+</div>
+<div class="para" id="p-70">Now simply take each of these <span class="process-math">\(n\)</span> different representations for <span class="process-math">\(w\)</span> to the <span class="process-math">\(1/n\)</span>th power to obtain the following list of <span class="process-math">\(n\)</span>-many <span class="process-math">\(n\)</span>th roots of <span class="process-math">\(w\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+\begin{equation*}
+r^{1/n}e^{i\theta/n}, r^{1/n}e^{i\theta/n + 2\pi i /n}, r^{1/n}e^{i\theta/n + 4\pi i / n}, \dots, r^{1/n}e^{i\theta/n + 2(n-1)\pi i / n}
+\end{equation*}
+</div>
+<div class="para" id="p-71">Oh, we could instead have obtained this list by finding the first <span class="process-math">\(n\)</span>th root of <span class="process-math">\(w\)</span> and multiplying by all the <span class="process-math">\(n\)</span>th roots of unity! The <span class="process-math">\(n\)</span>th roots of <span class="process-math">\(w = re^{i\theta / n}\)</span> are...</div>
+<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+\begin{equation*}
+r^{1/n}e^{i\theta / n}, \omega_1r^{1/n}e^{i\theta / n}, \dots, \omega_{n-1}r^{1/n}e^{i\theta / n},
+\end{equation*}
+</div>
+<div class="para" id="p-72">where <span class="process-math">\(\omega_0,\dots,\omega_{n-1}\)</span> are the <span class="process-math">\(n\)</span>th roots of unity.</div>
+<figure class="figure figure-like" id="figure-8"><iframe id="geogebra-nth-roots" width="480" height="480" src="geogebra-nth-roots-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-8" id="instructions-8"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-8"><div class="solution-like"><div class="para" id="p-73">Draw the point <span class="process-math">\(w\)</span> around and watch its <span class="process-math">\(6\)</span>th roots move.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.13<span class="period">.</span></span><span class="space"> </span>GeoGebra: nth roots</figcaption></figure><article class="example example-like" id="example-5"><a href="" data-knowl="" class="id-ref example-knowl original has-interactive" data-refid="hk-example-5"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.14</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><div class="para" id="p-74">Let <span class="process-math">\(a\in\R\)</span> be an unspecified real number. We are going to find the two square roots of the complex number <span class="process-math">\(a+i\)</span> in cartesian form (<span class="process-math">\(x+iy\)</span>).</div>  <figure class="figure figure-like" id="figure-9"><iframe id="geogebra-roots-example" width="480" height="480" src="geogebra-roots-example-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.15<span class="period">.</span></span><span class="space"> </span>GeoGebra: roots example</figcaption></figure> <div class="para" id="p-75">Let's start by defining <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="md-8">
+\begin{align*}
+r \amp = \abs{a+i} = \sqrt{a^2 + 1} \\
+\theta \amp = \Arg(a+i) 
+\end{align*}
+</div>
+<div class="para" id="p-76">So, in polar form, <span class="process-math">\(a+i\)</span> can be written as <span class="process-math">\(re^{i(\theta + 2k\pi)}\)</span> for any <span class="process-math">\(k\in\mathbb{Z}\text{.}\)</span> So we should be able to take <span class="process-math">\(z_0 = (re^{i\theta})^{1/2} = r^{1/2}e^{i\theta/2}\)</span> and <span class="process-math">\(z_1 = -z_0\)</span> as our two square-roots. But we still want them in rectangular coordinates, so we use Euler's Formula, some trig identities, and the fact that <span class="process-math">\(\cos\theta = a/r\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="md-9">
+\begin{align*}
+z_0 = \sqrt{r} e^{i\theta/2} \amp = \sqrt{r}(\cos(\theta/2) + i\sin(\theta/2)) \\
+\amp = \sqrt{r}\left(\sqrt{\frac{1+\cos\theta}{2}} + i \sqrt{\frac{1-\sin\theta}{2}}\right) \\
+\amp = \sqrt{r}\left(\sqrt{\frac12 (1+\frac{a}{r})} + i\sqrt{\frac{1}{2} (1 - \frac{a}{r})}\right)\\
+\amp = \frac{1}{\sqrt2}(\sqrt{r+a} + i\sqrt{r-a}) \\
+\amp = \frac{1}{\sqrt2}(\sqrt{\sqrt{a^2+1}+a} + i\sqrt{\sqrt{a^2+1}-a}) 
+\end{align*}
+</div>
+<div class="para" id="p-77">The other square-root is <span class="process-math">\(-z_0\text{.}\)</span>
+</div></article></div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="section-arithmetic.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-3.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

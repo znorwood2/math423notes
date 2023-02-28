@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Conformal mappings</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Complex Analysis">
+<meta property="book:author" content="Zach Norwood">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Complex Analysis:</span> <span class="subtitle">Course notes for Math 423 at UNL</span></a></h1>
+<p class="byline">Zach Norwood</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-harmonic.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-analytic-functions.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-flt.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand {\bH}{\mathbb{H}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand\set[2]{\left\{ #1 : #2 \right\}}
+\renewcommand{\bar}{\overline}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\wo}{\smallsetminus}
+\newcommand{\angleop}{\operatorname{angle}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Complex pre-calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic arithmetic and geometry</span></a></div></li>
+<li>
+<div class="toc-item"><a href="section-polar.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Polar representation and Euler's Formula</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-polar.html#subsec-de-moivre" class="internal"><span class="codenumber">1.2.1</span> <span class="title">De Moivre's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="section-polar.html#subsection-2" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Roots of unity</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="section-3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The Stereographic Projection</span></a></div></li>
+<li>
+<div class="toc-item"><a href="section-4.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Some elementary functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-4.html#subsec-mult-add" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Multiplication and addition by a fixed number</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-square-function" class="internal"><span class="codenumber">1.4.2</span> <span class="title">The Square Function</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-square-root" class="internal"><span class="codenumber">1.4.3</span> <span class="title">The Square Root Function</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-exponential" class="internal"><span class="codenumber">1.4.4</span> <span class="title">The Complex Exponential</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-log" class="internal"><span class="codenumber">1.4.5</span> <span class="title">The complex logarithm</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-branches" class="internal"><span class="codenumber">1.4.6</span> <span class="title">Branch cuts and branch points</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-power-functions" class="internal"><span class="codenumber">1.4.7</span> <span class="title">General power functions</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-trig-functions" class="internal"><span class="codenumber">1.4.8</span> <span class="title">Trig functions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-plane-topology.html" class="internal"><span class="codenumber">2</span> <span class="title">Basic topology of the plane</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-regions.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Regions in the plane</span></a></div></li>
+<li><div class="toc-item"><a href="sec-limits-continuity.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Limits and continuity</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-analytic-functions.html" class="internal"><span class="codenumber">3</span> <span class="title">Analytic Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-derivative.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Complex Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cauchy-riemann.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The Cauchy–Riemann Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec-inverse.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Analyticity of inverse functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-harmonic.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Harmonic functions</span></a></div></li>
+<li class="active"><div class="toc-item"><a href="sec-conformal.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Conformal mappings</span></a></div></li>
+<li><div class="toc-item"><a href="sec-flt.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Fractional Linear Transformations</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-conformal"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.5</span> <span class="title">Conformal mappings</span>
+</h2>
+<div class="para" id="p-184">The idea is that a conformal map should be one that “preserves angles”.  To state this precisely, we will need tangent vectors.</div>
+<article class="definition definition-like" id="def-conformal"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-185">Let <span class="process-math">\(\gamma_1,\gamma_2\colon[-1,1]\to\C\)</span> be two continuous differentiable paths that intersect at <span class="process-math">\(0\text{:}\)</span> <span class="process-math">\(\gamma_1(0) = \gamma_2(0)\text{.}\)</span> Suppose also that <span class="process-math">\(\gamma_1'(0) \ne 0\)</span> and <span class="process-math">\(\gamma_2'(0) \ne 0\text{.}\)</span> Define the angle between <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\)</span> as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\angleop(\gamma_1,\gamma_2) = \arg(\gamma_1'(0)) - \arg(\gamma_2'(0)).
+\end{equation*}
+</div>
+<div class="para logical" id="p-186">
+<div class="para">A function <span class="process-math">\(f\colon \C\to\C\)</span> is said to be <dfn class="terminology">conformal</dfn> at <span class="process-math">\(z_0\)</span> if whenever <span class="process-math">\(\gamma_1,\gamma_2\colon[-1,1]\to\C\)</span> are two continuously differentiable curves with <span class="process-math">\(\gamma_1(0) = \gamma_2(0) = z_0\)</span> and <span class="process-math">\(\gamma_1'(0) \ne 0\)</span> and <span class="process-math">\(\gamma_2'(0) \ne 0\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\angleop(\gamma_1,\gamma_2) = \angleop(f\circ \gamma_1, f\circ \gamma_2)
+\end{equation*}
+</div>
+<div class="para">(and <span class="process-math">\((f\circ \gamma_1)'(0)\ne 0\)</span> and <span class="process-math">\((f\circ \gamma_2)'(0) \ne 0\text{,}\)</span> so that <span class="process-math">\(\angleop(f\circ \gamma_1, f\circ \gamma_2\)</span> is defined).</div>
+</div></article><div class="para" id="p-187">The point of all this is the following theorem.</div>
+<article class="theorem theorem-like" id="thm-analytic-conformal"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.5.2</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-188">If <span class="process-math">\(f\colon D\to \C\)</span> is analytic at <span class="process-math">\(z_0 \in D\)</span> and <span class="process-math">\(f'(z_0) \ne 0\text{,}\)</span> then <span class="process-math">\(f\)</span> is conformal at <span class="process-math">\(z_0\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-3"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-3"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-3"><article class="hiddenproof"><div class="para" id="p-189">This is basically just the Chain Rule and the fact that <span class="process-math">\(\arg(z/w) = \arg(z) - \arg(w)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="md-13">
+\begin{align*}
+\angleop( f\circ \gamma_1, f\circ \gamma_2) \amp \arg((f\circ\gamma_1)'(0)) - \arg((f\circ\gamma_2)'(0))\\
+\amp \arg(f'(z_0) \gamma_1'(0)) - \arg(f'(z_0)\gamma_2'(0))\\
+\amp \arg\left( \frac{f'(z_0) \gamma_1'(0)}{f'(z_0)\gamma_2'(0)}\right)\\
+\amp \arg(\gamma_1'(0)) - \arg(\gamma_2'(0))\\
+\amp \angleop(\gamma_1,\gamma_2) 
+\end{align*}
+</div>
+<div class="para" id="p-190">That's it!</div></article></div>
+<div class="para" id="p-191">There is a converse to this theorem that we state for completeness but we won't prove.</div>
+<article class="fact theorem-like" id="fact-conformal-analytic"><h3 class="heading">
+<span class="type">Fact</span><span class="space"> </span><span class="codenumber">3.5.3</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-192">Suppose that <span class="process-math">\(f\)</span> is continuously differentiable and conformal on a domain <span class="process-math">\(D\)</span> with nonzero gradient at every point in <span class="process-math">\(D\text{.}\)</span> Then <span class="process-math">\(f\)</span> is analytic on <span class="process-math">\(D\text{,}\)</span> and <span class="process-math">\(f'(z) \ne 0\)</span> for every <span class="process-math">\(z\in D\text{.}\)</span>
+</div></article><article class="example example-like" id="example-18"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-18"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-18"><article class="example example-like"><div class="para" id="p-193">The squaring function <span class="process-math">\(f(z) = z^2\)</span> is (as a polynomial) analytic everywhere. It maps the sector <span class="process-math">\(\arg z \in (-\theta_0,\theta_0)\)</span> to the sector <span class="process-math">\(\arg z \in (-2\theta_0,2\theta_0)\)</span> of twice the aperture. Notice that this function is not conformal at <span class="process-math">\(0\)</span> since its derivative is zero there!</div></article></div>
+<article class="example example-like" id="example-19"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-19"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.5</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-19"><article class="example example-like"><div class="para" id="p-194">The exponential function <span class="process-math">\(z\mapsto e^z\)</span> is conformal at every <span class="process-math">\(z\in\C\text{.}\)</span> It restricts to a <dfn class="terminology">conformal equivalence</dfn> between the horizontal strip <span class="process-math">\(\Im z \in (-\pi,pi)\)</span> to the slit plane <span class="process-math">\(\C\wo(-\infty,0]\text{.}\)</span>
+</div></article></div>
+<figure class="figure figure-like" id="fig-geogebra-exp-conformal"><iframe id="geogebra-exp-conformal" width="480" height="480" src="geogebra-exp-conformal-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-20" id="instructions-20"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-20"><div class="solution-like"><div class="para" id="p-195">You can view a larger version of this <a class="external" href="https://www.geogebra.org/calculator/rapkxztc" target="_blank">here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-9" id="fn-9"><sup> 1 </sup></a>.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.6<span class="period">.</span></span><span class="space"> </span>GeoGebra: <span class="process-math">\(z\mapsto e^z\)</span></figcaption></figure><article class="definition definition-like" id="def-conformal-equivalence"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.7</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-196">If <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are open subsets of <span class="process-math">\(\C\)</span> and <span class="process-math">\(f\colon U\to V\)</span> is a conformal bijection, then <span class="process-math">\(f\)</span> is called a <dfn class="terminology">conformal equivalence</dfn>.</div></article><article class="investigation project-like" id="investigation-2"><h3 class="heading">
+<span class="type">Investigation</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-197">Don't forget that conformality is equivalent to analytic with derivative <span class="process-math">\(0\text{.}\)</span> So the Inverse Function Theorem implies that a conformal bijection has local conformal inverses, which can be patched together to give a global conformal inverse. All this to say that conformal equivalence is a symmetric relation: if <span class="process-math">\(U\)</span> is conformally equivalent to <span class="process-math">\(V\text{,}\)</span> then <span class="process-math">\(V\)</span> is conformally equivalent to <span class="process-math">\(U\text{.}\)</span>
+</div></article><div class="para" id="p-198">
+<em class="alert">Motivation:</em> Suppose that we want to solve 2D Laplace's Equation on a domain <span class="process-math">\(U\)</span> subject to some boundary conditions. Maybe <span class="process-math">\(U\)</span> isn't so nice. We might try to find a conformally equivalent domain <span class="process-math">\(V\text{,}\)</span> solve Laplace's Equation on <span class="process-math">\(V\text{,}\)</span> and then transfer the solution back to <span class="process-math">\(U\text{.}\)</span>
+</div>
+<div class="para" id="p-199">So it is useful to have a library of conformal equivalences.</div>
+<article class="example example-like" id="example-20"><a href="" data-knowl="" class="id-ref example-knowl original has-interactive" data-refid="hk-example-20"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-20"><article class="example example-like"><div class="para" id="p-200">The map <span class="process-math">\(z\mapsto z^n\text{,}\)</span> <span class="process-math">\(n\ge 2\text{,}\)</span> defines a conformal equivalence</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\set{ z\in \C}{0 \lt \arg(z) \lt \frac{\pi}{n}} \to \bH,
+\end{equation*}
+</div>
+<div class="para" id="p-201">where <span class="process-math">\(\bH\)</span> is the upper halfplane <span class="process-math">\(\Im z &gt; 0\text{.}\)</span>
+</div>  <figure class="figure figure-like" id="fig-geogebra-cube-conformal"><iframe id="geogebra-cube-conformal" width="480" height="480" src="geogebra-cube-conformal-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-21" id="instructions-21"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-21"><div class="solution-like"><div class="para" id="p-202">Here is pictured the case <span class="process-math">\(n = 3\text{.}\)</span> Notice how the rays and circles meet at right angles before applying the map and after! You can view a larger version of this <a class="external" href="https://www.geogebra.org/calculator/hkhebdqt" target="_blank">here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-10" id="fn-10"><sup> 2 </sup></a>.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.9<span class="period">.</span></span><span class="space"> </span>GeoGebra: <span class="process-math">\(z\mapsto z^3\)</span></figcaption></figure></article></div>
+<article class="example example-like" id="example-21"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-21"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.10</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-21"><article class="example example-like"><div class="para" id="p-203">The map <span class="process-math">\(z\mapsto \frac{z-i}{z+i}\)</span> defines a conformal equivalence between <span class="process-math">\(\bH\)</span> and the unit disk <span class="process-math">\(\set{z}{\abs{z} \lt 1}\text{.}\)</span>
+</div> <div class="para" id="p-204">(Why? Well, <span class="process-math">\(z\in \bH\)</span> iff <span class="process-math">\(z\)</span> is closer to <span class="process-math">\(i\)</span> than to <span class="process-math">\(-i\text{,}\)</span> iff <span class="process-math">\(\abs{z-i} \lt \abs{z+i}\text{,}\)</span> iff <span class="process-math">\(\abs{\frac{z-i}{z+i}} \lt 1\text{.}\)</span>)</div> <div class="para" id="p-205">Why is it conformal? Why is it a bijection? For the answers to those and other questions, look to the next Section!!!</div></article></div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-9"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/rapkxztc</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-10"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/hkhebdqt</code></div></div>
+</div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-harmonic.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-flt.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

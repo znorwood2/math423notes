@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.4.1</span><span class="period">.</span>
+</h4>
+<div class="para">If you have seen some linear algebra, it is worth noting that scaling and rotating are linear maps! And you can analyze them using the tools of linear algebra. To do this, we first observe that the standard basis vectors <span class="process-math">\(\begin {bmatrix} 1 \\ 0 \end {bmatrix}\)</span> and <span class="process-math">\(\begin {bmatrix} 0 \\ 1 \end {bmatrix}\)</span> have (respectively) representations <span class="process-math">\(1 = 1+0i\)</span> and <span class="process-math">\(i = 0+1i\)</span> as complex numbers. Since the maps <span class="process-math">\(z\mapsto rz\)</span> and <span class="process-math">\(z\mapsto e^{i\theta}z\)</span> are both linear, their standard matrix representations can be found by looking at where they send the standard basis vectors.</div>  <div class="para">The more interesting of the two maps is the rotation map <span class="process-math">\(z\mapsto e^{i\theta}z\text{,}\)</span> so let's see where it sends the standard basis vectors:</div>
+<div class="displaymath process-math">
+\begin{align*}
+1\cdot e^{i\theta} \amp = e^{i\theta} = \cos\theta + i\sin\theta \\
+i\cdot e^{i\theta} \amp = e^{i\pi/2}e^{i\theta} = \cos(\theta+\tfrac{\pi}{2}) + i\sin(\theta+\tfrac{\pi}{2}) 
+= -\sin(\theta) + i\cos(\theta) 
+\end{align*}
+</div>
+<div class="para">These two results give us the columns of the standard matrix of the linear transformation <span class="process-math">\(1\cdot e^{i\theta} = e^{i\theta} = \cos\theta + i\sin\theta \text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">You might recognize this from linear algebra as a rotation matrix.</div></article><span class="incontext"><a href="section-4.html#exploration-1" class="internal">in-context</a></span>
+</body>
+</html>

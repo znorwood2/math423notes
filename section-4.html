@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Some elementary functions</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Complex Analysis">
+<meta property="book:author" content="Zach Norwood">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Complex Analysis:</span> <span class="subtitle">Course notes for Math 423 at UNL</span></a></h1>
+<p class="byline">Zach Norwood</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="section-3.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-intro.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="ch-plane-topology.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand {\bH}{\mathbb{H}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand\set[2]{\left\{ #1 : #2 \right\}}
+\renewcommand{\bar}{\overline}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\wo}{\smallsetminus}
+\newcommand{\angleop}{\operatorname{angle}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Complex pre-calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic arithmetic and geometry</span></a></div></li>
+<li>
+<div class="toc-item"><a href="section-polar.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Polar representation and Euler's Formula</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-polar.html#subsec-de-moivre" class="internal"><span class="codenumber">1.2.1</span> <span class="title">De Moivre's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="section-polar.html#subsection-2" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Roots of unity</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="section-3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The Stereographic Projection</span></a></div></li>
+<li class="active">
+<div class="toc-item"><a href="section-4.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Some elementary functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-4.html#subsec-mult-add" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Multiplication and addition by a fixed number</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-square-function" class="internal"><span class="codenumber">1.4.2</span> <span class="title">The Square Function</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-square-root" class="internal"><span class="codenumber">1.4.3</span> <span class="title">The Square Root Function</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-exponential" class="internal"><span class="codenumber">1.4.4</span> <span class="title">The Complex Exponential</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-log" class="internal"><span class="codenumber">1.4.5</span> <span class="title">The complex logarithm</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-branches" class="internal"><span class="codenumber">1.4.6</span> <span class="title">Branch cuts and branch points</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-power-functions" class="internal"><span class="codenumber">1.4.7</span> <span class="title">General power functions</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-trig-functions" class="internal"><span class="codenumber">1.4.8</span> <span class="title">Trig functions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-plane-topology.html" class="internal"><span class="codenumber">2</span> <span class="title">Basic topology of the plane</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-regions.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Regions in the plane</span></a></div></li>
+<li><div class="toc-item"><a href="sec-limits-continuity.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Limits and continuity</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-analytic-functions.html" class="internal"><span class="codenumber">3</span> <span class="title">Analytic Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-derivative.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Complex Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cauchy-riemann.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The Cauchy–Riemann Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec-inverse.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Analyticity of inverse functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-harmonic.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Harmonic functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-conformal.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Conformal mappings</span></a></div></li>
+<li><div class="toc-item"><a href="sec-flt.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Fractional Linear Transformations</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="section-4"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.4</span> <span class="title">Some elementary functions</span>
+</h2>
+<div class="para" id="p-80">The rest of the course will be devoted to studying functions of a complex variable, that is, functions <span class="process-math">\(f\colon D\to\C\)</span> where <span class="process-math">\(D \subseteq \C\text{.}\)</span> Because <span class="process-math">\(\C\)</span> is inherently 2-dimensional, we cannot reasonably hope to graph a complex-valued function in the way that we did for functions <span class="process-math">\(\R\to\R\)</span> in calculus. Instead, we think of complex-valued functions geometrically as <em class="emphasis">transformations</em> of the plane. In trying to understand a particular function, we will pay special attention to how familiar geometric shapes like lines and circles are transformed.</div>
+<section class="subsection" id="subsec-mult-add"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.1</span> <span class="title">Multiplication and addition by a fixed number</span>
+</h3>
+<div class="para" id="p-81">The most basic complex-valued functions simply take a <span class="process-math">\(z\in\C\)</span> and add to it, or multiply it by, a fixed complex number <span class="process-math">\(z_0\text{.}\)</span>
+</div>
+<figure class="figure figure-like" id="figure-12"><iframe id="geogebra-translation" width="480" height="480" src="geogebra-translation-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-10" id="instructions-10"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-10"><div class="solution-like"><div class="para" id="p-82">Depicts the transformation <span class="process-math">\(z\mapsto z + z_0\text{.}\)</span> You can change <span class="process-math">\(z_0\text{.}\)</span>
+</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.1<span class="period">.</span></span><span class="space"> </span>GeoGebra: translation</figcaption></figure><div class="para" id="p-83">Addition by a fixed complex number <span class="process-math">\(z_0\)</span> is just vector-translation. Remember that addition of complex numbers is just vector addition from multivariable calculus.</div>
+<figure class="figure figure-like" id="figure-13"><iframe id="geogebra-mult-fixed" width="480" height="480" src="geogebra-mult-fixed-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-11" id="instructions-11"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-11"><div class="solution-like"><div class="para" id="p-84">Depicts the transformation <span class="process-math">\(z\mapsto zz_0\text{.}\)</span> You can change <span class="process-math">\(z_0\text{.}\)</span>
+</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.2<span class="period">.</span></span><span class="space"> </span>GeoGebra: multiplication by a fixed number</figcaption></figure><div class="para" id="p-85">Multiplication by a fixed complex number <span class="process-math">\(z_0 = re^{i\theta}\)</span> is best thought of in polar coordinates, as the composite of two transformations. Notice that <span class="process-math">\(z\mapsto rz\text{,}\)</span> for <span class="process-math">\(r\in\R\text{,}\)</span> just scales every point in the plane by a factor of <span class="process-math">\(r\text{.}\)</span> And the map <span class="process-math">\(z\mapsto e^{i\theta}z\text{,}\)</span> for a fixed <span class="process-math">\(\theta\in\R\text{,}\)</span> rotates the plane counterclockwise by <span class="process-math">\(\theta\)</span> radians. So the map <span class="process-math">\(z\mapsto re^{i\theta}z\)</span> is the composite of these two maps: it scales by a factor of <span class="process-math">\(r\)</span> and rotates by <span class="process-math">\(\theta\)</span> radians.</div>
+<article class="exploration project-like" id="exploration-1"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.4.1</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-86">If you have seen some linear algebra, it is worth noting that scaling and rotating are linear maps! And you can analyze them using the tools of linear algebra. To do this, we first observe that the standard basis vectors <span class="process-math">\(\begin {bmatrix} 1 \\ 0 \end {bmatrix}\)</span> and <span class="process-math">\(\begin {bmatrix} 0 \\ 1 \end {bmatrix}\)</span> have (respectively) representations <span class="process-math">\(1 = 1+0i\)</span> and <span class="process-math">\(i = 0+1i\)</span> as complex numbers. Since the maps <span class="process-math">\(z\mapsto rz\)</span> and <span class="process-math">\(z\mapsto e^{i\theta}z\)</span> are both linear, their standard matrix representations can be found by looking at where they send the standard basis vectors.</div>  <div class="para" id="p-87">The more interesting of the two maps is the rotation map <span class="process-math">\(z\mapsto e^{i\theta}z\text{,}\)</span> so let's see where it sends the standard basis vectors:</div>
+<div class="displaymath process-math" id="md-10">
+\begin{align*}
+1\cdot e^{i\theta} \amp = e^{i\theta} = \cos\theta + i\sin\theta \\
+i\cdot e^{i\theta} \amp = e^{i\pi/2}e^{i\theta} = \cos(\theta+\tfrac{\pi}{2}) + i\sin(\theta+\tfrac{\pi}{2}) 
+= -\sin(\theta) + i\cos(\theta) 
+\end{align*}
+</div>
+<div class="para" id="p-88">These two results give us the columns of the standard matrix of the linear transformation <span class="process-math">\(1\cdot e^{i\theta} = e^{i\theta} = \cos\theta + i\sin\theta \text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para" id="p-89">You might recognize this from linear algebra as a rotation matrix.</div></article></section><section class="subsection" id="subsec-square-function"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.2</span> <span class="title">The Square Function</span>
+</h3>
+<div class="para" id="p-90">One of the simplest nontrivial functions is the squaring function <span class="process-math">\(f(z) = z^2\text{.}\)</span> As we will see in many of these examples, it is useful to consider the map in polar coordinates.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = z^2 = (re^{i\theta})^2 = r^2 e^{i\cdot 2\theta}.
+\end{equation*}
+</div>
+<div class="para" id="p-91">In other words, the function <span class="process-math">\(f\)</span> is defined by declaring <span class="process-math">\(\abs{f(z)} = \abs{z}^2\)</span> and <span class="process-math">\(\arg f(z) = 2\arg z\text{.}\)</span>
+</div>
+<div class="para" id="p-92">The circle <span class="process-math">\(\abs{z} = r_0\)</span> is mapped to the circle <span class="process-math">\(\abs{z} = r_0^2\text{,}\)</span> traversed at double the angular velocity. In particular, the unit circle <span class="process-math">\(\abs{z} = 1\)</span> is mapped to itself, but traversed twice.</div>
+<figure class="figure figure-like" id="figure-14"><iframe id="geogebra-square-1" width="480" height="480" src="geogebra-square-1-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-12" id="instructions-12"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-12"><div class="solution-like"><div class="para" id="p-93">Depicts the transformation <span class="process-math">\(z\mapsto z^2\)</span> and its effect on rays emanating from the origin and circles centered at the origin.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.3<span class="period">.</span></span><span class="space"> </span>GeoGebra: Squaring 1</figcaption></figure><figure class="figure figure-like" id="figure-15"><iframe id="geogebra-square-2" width="1200" height="714" src="geogebra-square-2-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-13" id="instructions-13"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-13"><div class="solution-like"><div class="para" id="p-94">
+<em class="emphasis">Warning:</em> This graphic differs a bit from the previous ones. At any moment in time, the graphic is showing you <span class="process-math">\(z\)</span> on the left and <span class="process-math">\(z^2\)</span> on the right. Notice also that the scales of the two graphs are different. View <a class="external" href="https://www.geogebra.org/classic/zxscu7gg" target="_blank">on a separate page</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-2" id="fn-2"><sup> 1 </sup></a>.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.4<span class="period">.</span></span><span class="space"> </span>GeoGebra: Squaring 2</figcaption></figure></section><section class="subsection" id="subsec-square-root"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.3</span> <span class="title">The Square Root Function</span>
+</h3>
+<div class="para" id="p-95">Every nonzero complex number should have two square-roots. The problem is that we want to choose one in a reasonable way. (We cannot simply choose the 'positive' one as we can with real numbers.) Looking in polar coordinates suggests that we should define</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-geogebra-square-roots.html ./knowl/def-principal-square-root.html">
+\begin{equation*}
+\sqrt{z} = \sqrt{re^{i\theta}} = \sqrt{r} e^{i\theta/2}.
+\end{equation*}
+</div>
+<div class="para" id="p-96">(Notice that the square-root on the right is the ordinary positive square-root of the nonnegative real number <span class="process-math">\(r\text{.}\)</span>)</div>
+<div class="para" id="p-97">But a complex number <span class="process-math">\(z\)</span> has many arguments <span class="process-math">\(\theta\text{!}\)</span> The trouble comes from picking a particular <span class="process-math">\(\theta\text{.}\)</span>
+</div>
+<figure class="figure figure-like" id="fig-geogebra-square-roots"><iframe id="geogebra-square-roots" width="480" height="480" src="geogebra-square-roots-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-14" id="instructions-14"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-14"><div class="solution-like"><div class="para" id="p-98">Drag <span class="process-math">\(z\)</span> around and see how its two square-roots change. Notice that when <span class="process-math">\(z\)</span> crosses the negative real axis, the two square-roots are flipped! You can view a larger version of this <a class="external" href="https://www.geogebra.org/calculator/rnwzc4hk" target="_blank">here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-3" id="fn-3"><sup> 2 </sup></a>.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.5<span class="period">.</span></span><span class="space"> </span>GeoGebra: Square roots</figcaption></figure><div class="para" id="p-99">As you can see in <a href="" class="xref" data-knowl="./knowl/fig-geogebra-square-roots.html" title="Figure 1.4.5">Figure 1.4.5</a>, using the principal argument for <span class="process-math">\(\theta\)</span> introduces a discontinuity at every point along the negative real axis. To fix this, we take a <dfn class="terminology">branch cut</dfn>.</div>
+<article class="definition definition-like" id="def-principal-square-root"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.6</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-100">The <dfn class="terminology">principal branch</dfn> of the square-root function is the function <span class="process-math">\(\C \wo (-\infty,0] \to \C\)</span> defined by <span class="process-math">\(\sqrt{z} = \sqrt{\abs{z}} e^{i\Arg{z}/2}\text{.}\)</span>
+</div></article><div class="para" id="p-101">
+<em class="emphasis">Warning:</em> Negative real numbers still have complex square roots!!! They are excluded from the domain of the principal branch of the square-root function only to ensure that the function is continuous. More about this later.</div>
+<div class="para" id="p-102">(In fact, the formula in <a href="" class="xref" data-knowl="./knowl/def-principal-square-root.html" title="Definition 1.4.6">Definition 1.4.6</a> can be used to get a square-root of a negative real number. Plugging in <span class="process-math">\(z = -1 = 1\cdot e^{i\pi}\text{,}\)</span> we obtain <span class="process-math">\(e^{i\pi / 2} = i\)</span> as a square-root of <span class="process-math">\(-1\text{.}\)</span>)</div>
+<div class="para" id="p-103">So the two square-roots of a complex number <span class="process-math">\(z = re^{i\Arg(z)}\)</span> are <span class="process-math">\(\sqrt r e^{i\Arg(z)/2}\)</span> and <span class="process-math">\(-\sqrt r e^{i\Arg(z)/2}\text{.}\)</span> (The first of these is the principal branch of the square-root, as long as <span class="process-math">\(z\notin (-\infty,0]\text{.}\)</span>)</div>
+<article class="example example-like" id="example-6"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-6"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.7</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-6"><article class="example example-like"><div class="displaymath process-math">
+\begin{equation*}
+\sqrt{i} = \sqrt{e^{i\pi/2}} = e^{i\pi/4} = \frac{1}{\sqrt2} + \frac{1}{\sqrt2}i.
+\end{equation*}
+</div></article></div></section><section class="subsection" id="subsec-exponential"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.4</span> <span class="title">The Complex Exponential</span>
+</h3>
+<div class="para" id="p-104">Euler's Formula tells us how to exponentiate so-called <dfn class="terminology">purely imaginary</dfn> numbers, that is numbers of the form <span class="process-math">\(i y\)</span> where <span class="process-math">\(y\in\R\text{.}\)</span> But what about other complex numbers? Well, just decompose <span class="process-math">\(z\)</span> as <span class="process-math">\(x+iy\text{,}\)</span> the sum of a real number <span class="process-math">\(x\)</span> (which we know how to exponentiate) and a purely imaginary number <span class="process-math">\(iy\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^z = e^{x+iy} = e^x e^{iy} = e^x\cos(y) + ie^x \sin(y).
+\end{equation*}
+</div>
+<div class="para" id="p-105">In other words, <span class="process-math">\(e^{x}e^{iy}\)</span> is the polar representation of <span class="process-math">\(e^z\text{:}\)</span> <span class="process-math">\(\abs{e^z} = e^x = e^{\Re z}\)</span> and <span class="process-math">\(\arg(e^z) = y = \Im(z)\text{.}\)</span>
+</div>
+<article class="observation remark-like" id="observation-4"><h4 class="heading">
+<span class="type">Observation</span><span class="space"> </span><span class="codenumber">1.4.8</span><span class="period">.</span>
+</h4></article><article class="definition definition-like" id="def-period"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.9</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-106">A complex number <span class="process-math">\(\lambda\)</span> is a <dfn class="terminology">period</dfn> of the function <span class="process-math">\(f\colon\C\to\C\)</span> if, for every <span class="process-math">\(z\in\C\text{,}\)</span> we have <span class="process-math">\(f(z) = f(z+\lambda)\text{.}\)</span> A function <span class="process-math">\(f\)</span> is <dfn class="terminology">periodic</dfn> if it has some nonzero period.</div></article><article class="proposition theorem-like" id="prop-exp-periodic"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.4.10</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-107">The complex exponential <span class="process-math">\(z\mapsto e^z\)</span> is <span class="process-math">\(2\pi i\)</span>-periodic.</div></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><div class="para" id="p-108">For all <span class="process-math">\(z = x+iy \in \C\)</span> we have:</div>
+<div class="displaymath process-math" id="md-11">
+\begin{align*}
+e^{z+2\pi i} \amp = e^{x + i(y+2\pi)} \\
+\amp = e^x (\cos(y+2\pi) + i\sin(y+2\pi)) \\
+\amp = e^x (cos(y) + i\sin(y)) \\
+\amp = e^{x+iy} = e^z 
+\end{align*}
+</div></article></div>
+<article class="example example-like" id="example-7"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-7"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.11</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-7"><article class="example example-like"><div class="para" id="p-109">For every real number <span class="process-math">\(r\text{,}\)</span> the quantity <span class="process-math">\(e^{r+2\pi i} = e^r\)</span> is a real number.</div></article></div>
+<figure class="figure figure-like" id="fig-geogebra-exp"><iframe id="geogebra-exponential" width="480" height="480" src="geogebra-exponential-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-15" id="instructions-15"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-15"><div class="solution-like"><div class="para" id="p-110">Drag <span class="process-math">\(z\)</span> around and see how <span class="process-math">\(e^z\)</span> changes. Try dragging <span class="process-math">\(z\)</span> up and down along the line <span class="process-math">\(x = 1\text{,}\)</span> or back and forth along the line <span class="process-math">\(y = 1\text{.}\)</span> You can view a larger version of this <a class="external" href="https://www.geogebra.org/calculator/fnnem4tf" target="_blank">here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-4" id="fn-4"><sup> 3 </sup></a>.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.12<span class="period">.</span></span><span class="space"> </span>GeoGebra: The exponential map</figcaption></figure></section><div class="para" id="p-111">We conclude from our previous discussion that the range of the exponential map <span class="process-math">\(z\mapsto e^z\)</span> is <span class="process-math">\(\C\wo\{0\}\text{.}\)</span> This leads us to wonder about defining a logarithm.</div>
+<section class="subsection" id="subsec-log"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.5</span> <span class="title">The complex logarithm</span>
+</h3>
+<div class="para" id="p-112">We would like to define a log map <span class="process-math">\(\C\wo\{0\} \to \C\)</span> that is inverse to the exponential. As we found with the square-root, we will have to make a branch cut in order to choose a specific log continuously, though.</div>
+<div class="para logical" id="p-113">
+<div class="para">Given <span class="process-math">\(z \ne 0\text{,}\)</span> we want to find a solution to the equation <span class="process-math">\(z = e^w = e^{\Re w} e^{i\Im w}\text{.}\)</span> We need <span class="process-math">\(\abs{z} = e^{\Re w}\)</span> and <span class="process-math">\(\Im w = \arg z\text{.}\)</span> In fact we <em class="emphasis">must</em> have this; all logarithms of <span class="process-math">\(z\)</span> take the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\log z = \ln \abs z + i \arg z  
+\end{equation*}
+</div>
+<div class="para">for some choice of <span class="process-math">\(\arg z\text{.}\)</span> So all logarithms of <span class="process-math">\(z\)</span> take the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\log z = \ln \abs z + i\Arg z + i(2\pi m), \quad m\in\mathbb{Z}.
+\end{equation*}
+</div>
+</div>
+<article class="definition definition-like" id="def-principal-log"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.13</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-114">The <dfn class="terminology">principal branch of the log</dfn> is the function <span class="process-math">\(\Log \colon \C\wo(-\infty,0]\to \C\)</span> defined by <span class="process-math">\(\Log(z) = \ln\abs{z} + i\Arg z\text{.}\)</span>
+</div></article><div class="para" id="p-115">As with the square-root, we have to cut the domain in order for the function <span class="process-math">\(\Log\)</span> to be continuous. And, as with the square-root, negative real numbers still have logarithms!</div>
+<figure class="figure figure-like" id="fig-geogebra-log"><iframe id="geogebra-log" width="480" height="480" src="geogebra-log-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-16" id="instructions-16"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-16"><div class="solution-like"><div class="para" id="p-116">Drag <span class="process-math">\(z\)</span> around and see how <span class="process-math">\(\Log(z)\)</span> and the other possible logs of <span class="process-math">\(z\)</span> change. Notice that the principal choice <span class="process-math">\(Log(z)\)</span> changes discontinuously as <span class="process-math">\(z\)</span> crosses the negative real axis. You can view a larger version of this <a class="external" href="https://www.geogebra.org/calculator/qegzawxm" target="_blank">here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-5" id="fn-5"><sup> 4 </sup></a>.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.14<span class="period">.</span></span><span class="space"> </span>GeoGebra: The log</figcaption></figure><article class="example example-like" id="example-8"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-8"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.15</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like"><div class="displaymath process-math">
+\begin{equation*}
+\Log(1+i) = \Log(\sqrt2 e^{i \pi / 4}) = \ln\sqrt2 + i\pi/4 \approx 0.35 + i\pi/4
+\end{equation*}
+</div>
+<div class="para" id="p-117">All possible logs of <span class="process-math">\(1+i\)</span> are <span class="process-math">\(\log(1+i) = \ln\sqrt2 + i\pi/4 + 2\pi m i\text{,}\)</span> <span class="process-math">\(m\in\mathbb{Z}\text{.}\)</span>
+</div></article></div></section><section class="subsection" id="subsec-branches"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.6</span> <span class="title">Branch cuts and branch points</span>
+</h3>
+<div class="para" id="p-118">We can view the log, for example, as a multi-valued function on <span class="process-math">\(\C\wo\{0\}\text{.}\)</span> Each time we use log, we need to choose a branch (often the principal one).</div>
+<article class="definition definition-like" id="def-cts-branch"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.16</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-119">If <span class="process-math">\(U\subseteq\C\wo\{0\}\)</span> is an open set, then a <dfn class="terminology">branch of the log</dfn> defined on <span class="process-math">\(U\)</span> is a continuous function <span class="process-math">\(f\colon U\to\C\)</span> for which <span class="process-math">\(e^{f(z)} = z\)</span> for all <span class="process-math">\(z\in U\text{.}\)</span>
+</div> <div class="para" id="p-120">A <dfn class="terminology">branch point</dfn> of a multi-valued function <span class="process-math">\(f\)</span> is a point <span class="process-math">\(p\in\C\)</span> such that, for every <span class="process-math">\(\epsilon \gt 0\text{,}\)</span> the function cannot be given a continuous single-valued definition on <span class="process-math">\(B_\epsilon(p) \wo \{p\}\text{.}\)</span>
+</div></article><div class="para" id="p-121">
+<span class="process-math">\(B_\epsilon(p) = \set{ z\in\C }{ \abs{z - p} \lt \epsilon\)</span> is the ball of radius <span class="process-math">\(\epsilon\)</span> centered at <span class="process-math">\(p\text{.}\)</span> Don't worry, we'll discuss these things in more detail in later sections.</div>
+<article class="example example-like" id="example-9"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-9"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.17</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><div class="para" id="p-122">
+<span class="process-math">\(0\)</span> is a branch point of log.</div></article></div>
+<article class="example example-like" id="example-10"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-10"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.18</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like">The function <span class="process-math">\(f(z) = \sqrt{z(z-1)}\)</span> has two branch points, at <span class="process-math">\(z = 0\)</span> and <span class="process-math">\(z = 1\text{.}\)</span> </article></div></section><section class="subsection" id="subsec-power-functions"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.7</span> <span class="title">General power functions</span>
+</h3>
+<div class="para" id="p-123">Now that we have the log, we can define general power functions.</div>
+<article class="definition definition-like" id="def-power-function"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.19</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-124">
+<div class="para">For any <span class="process-math">\(\alpha\in\mathbb{Z}\text{,}\)</span> the <dfn class="terminology">principal branch of the power function</dfn> <span class="process-math">\(z\mapsto z^\alpha\)</span> is the function <span class="process-math">\(\C\wo (-\infty,0] \to \C\)</span> defined as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+z^\alpha = e^{\alpha \Log(z)}
+\end{equation*}
+</div>
+</div></article><article class="example example-like" id="example-11"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-11"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.20</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-11"><article class="example example-like"><div class="para" id="p-125">This agrees with our earlier definition of the principal branch of the square-root function:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+z^{1/2} = e^{\frac12 \Log z} = e^{\frac12 \ln \abs{z} + \frac12 i \Arg z}
+= \abs{z}^{1/2} e^{i\Arg z / 2}
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-12"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-12"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.21</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like"><div class="para" id="p-126">Let's find all possible values of <span class="process-math">\(i^i\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+i^i = e^{i \log i} = e^{i(\ln 1 + i \arg i)} = e^{-\arg i}.
+\end{equation*}
+</div>
+<div class="para" id="p-127">Since the possible values of <span class="process-math">\(\arg i\)</span> are <span class="process-math">\(\frac{\pi}{2} + 2\pi m\text{,}\)</span> <span class="process-math">\(m\in\mathbb{Z}\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+i^i = e^{-\pi/2} = e^{-5\pi / 2} = \cdots
+\end{equation*}
+</div>
+<div class="para" id="p-128">These are all real numbers!!!</div></article></div></section><section class="subsection" id="subsec-trig-functions"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.8</span> <span class="title">Trig functions</span>
+</h3>
+<div class="para" id="p-129">Standard trig functions can be defined in terms of the exponential.</div>
+<article class="definition definition-like" id="def-sine-cosine"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.22</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-130">Sine and cosine are defined at <em class="emphasis">all complex numbers</em> <span class="process-math">\(z\)</span> as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cos(z) = \frac{e^{iz} + e^{-iz}}{2} \quad \sin(z) = \frac{e^{iz} - e^{-iz}}{2i}
+\end{equation*}
+</div></article><aside class="aside aside-like" id="aside-8"><div class="para" id="p-131">Remember your Taylor Series from calculus? Write down the Taylor series for the exponential function, centered at <span class="process-math">\(0\text{,}\)</span> and plug in <span class="process-math">\(iz\)</span> and simplify. Do the same thing but plug in <span class="process-math">\(-iz\)</span> and simplify. You should be very close to a Taylor series for cosine.</div></aside><div class="para" id="p-132">
+<em class="emphasis">Warning:</em> These definitions are motivated by Euler's Formula: e.g. for <span class="process-math">\(x\in\R\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cos(x) \Re(e^{ix}) = \frac{e^{ix} + e^{-ix}}{2}.
+\end{equation*}
+</div>
+<div class="para" id="p-133">But <span class="process-math">\(\cos(z) \ne \Re(e^{iz})\)</span> in general! In particular, the quantity on the right is real-valued, whereas <span class="process-math">\(\cos(z)\)</span> is not. And we can just expand out <span class="process-math">\(e^{iz}\)</span> and examine its real and imaginary parts:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^{iz} = e^{i(x+iy)} = e^{-y + ix} = e^{-y}(\cos x + i\sin x).
+\end{equation*}
+</div>
+<div class="para" id="p-134">So <span class="process-math">\(\Re(e^{iz}) = e^{-y}\cos x\text{,}\)</span> which does not typically equal <span class="process-math">\(\cos z\text{.}\)</span>
+</div>
+<div class="para" id="p-135">The tangent function can be defined by <span class="process-math">\(\tan z = \frac{\sin z}{\cos z}\text{,}\)</span> and hyperbolic trig functions can also be defined. You will explore all this on the homework.</div></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/classic/zxscu7gg</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/rnwzc4hk</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/fnnem4tf</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/qegzawxm</code></div></div>
+</div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="section-3.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-plane-topology.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

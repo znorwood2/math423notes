@@ -8,12 +8,14 @@
       \renewcommand{\Re}{\operatorname{Re}}
       \renewcommand{\Im}{\operatorname{Im}}
       \renewcommand{\C}{\mathbb{C}}
+      \newcommand {\bH}{\mathbb{H}}
       \newcommand{\abs}[1]{\left| #1 \right|}
       \newcommand\set[2]{\left\{ #1 : #2 \right\}}
       \renewcommand{\bar}{\overline}
       \newcommand{\Arg}{\operatorname{Arg}}
       \newcommand{\Log}{\operatorname{Log}}
       \newcommand{\wo}{\smallsetminus}
+      \newcommand{\angleop}{\operatorname{angle}}
     </macros>
     <latax-image-preamble>
       \usepackage{tikz}
@@ -625,7 +627,7 @@
               enableShiftDragZoom(false);
             </slate>
           <instructions>
-            You can drag either <m>\bar Q</m> around the circle or <m>P</m> along the line.
+            <p> You can drag either <m>\bar Q</m> around the circle or <m>P</m> along the line. </p>
           </instructions>
         </interactive>
       </figure>
@@ -633,8 +635,1056 @@
 
       <section>
         <title> Some elementary functions </title>
-        
+        <p>
+          The rest of the course will be devoted to studying functions of a complex variable,
+          that is, functions <m>f\colon D\to\C</m> where <m>D \subseteq \C</m>.
+          Because <m>\C</m> is inherently 2-dimensional, we cannot reasonably hope to graph 
+          a complex-valued function in the way that we did for functions <m>\R\to\R</m> in calculus.
+          Instead, we think of complex-valued functions geometrically as <em>transformations</em> of the plane.
+          In trying to understand a particular function,
+          we will pay special attention to how familiar geometric shapes like lines and circles
+          are transformed.
+        </p>
+        <subsection xml:id="subsec-mult-add">
+          <title>Multiplication and addition by a fixed number</title>
+          <p>
+            The most basic complex-valued functions simply take a <m>z\in\C</m>
+            and add to it, or multiply it by, a fixed complex number <m>z_0</m>.
+          </p>
+          <!--https://www.geogebra.org/calculator/bp7edpuw-->
+          <figure>
+            <caption>GeoGebra: translation</caption>
+            <interactive xml:id="geogebra-translation" platform="geogebra" width="80%" aspect="1:1">
+                <slate xml:id="translation" surface="geogebra" material="bp7edpuw" aspect="1:1">
+                  setCoordSystem(-8,8,-8,8);
+              <!--    centerView((0,0)); -->
+                  <!--enableShiftDragZoom(false);-->
+                </slate>
+              <instructions>
+                <p> Depicts the transformation <m>z\mapsto z + z_0</m>. You can change <m>z_0</m>. </p>
+              </instructions>
+            </interactive>
+          </figure>
+          <p>
+            Addition by a fixed complex number <m>z_0</m> is just vector-translation.
+            Remember that addition of complex numbers is just vector addition from multivariable calculus.
+          </p>
+          <!--https://www.geogebra.org/calculator/s7myaay7-->
+          <figure>
+            <caption>GeoGebra: multiplication by a fixed number</caption>
+            <interactive xml:id="geogebra-mult-fixed" platform="geogebra" width="80%" aspect="1:1">
+                <slate xml:id="mult-fixed" surface="geogebra" material="s7myaay7" aspect="1:1">
+                  setCoordSystem(-10,6,-8,8);
+              <!--    centerView((0,0)); -->
+                  <!--enableShiftDragZoom(false);-->
+                </slate>
+              <instructions>
+                <p> Depicts the transformation <m>z\mapsto zz_0</m>. You can change <m>z_0</m>. </p>
+              </instructions>
+            </interactive>
+          </figure>
+          <p>
+            Multiplication by a fixed complex number <m>z_0 = re^{i\theta}</m>
+            is best thought of in polar coordinates, as the composite of two transformations.
+            Notice that <m>z\mapsto rz</m>, for <m>r\in\R</m>, just scales every point in the plane by a factor
+            of <m>r</m>. And the map <m>z\mapsto e^{i\theta}z</m>, for a fixed <m>\theta\in\R</m>,
+            rotates the plane counterclockwise by <m>\theta</m> radians.
+            So the map <m>z\mapsto re^{i\theta}z</m> is the composite of these two maps:
+            it scales by a factor of <m>r</m> and rotates by <m>\theta</m> radians.
+          </p>
+          <!-- TODO: figure out how to knowl (=hide) this "exploration"-->
+          <exploration>
+            <p>  
+            If you have seen some linear algebra, it is worth noting that scaling and rotating
+            are linear maps! And you can analyze them using the tools of linear algebra.
+            To do this, we first observe that the standard basis vectors <m>\begin {bmatrix} <![CDATA[1 \\ 0]]> \end {bmatrix}</m>
+            and <m>\begin {bmatrix} <![CDATA[0 \\ 1]]> \end {bmatrix}</m>
+            have (respectively) representations <m>1 = 1+0i</m> and <m>i = 0+1i</m> as complex numbers.
+            Since the maps <m>z\mapsto rz</m> and <m>z\mapsto e^{i\theta}z</m>
+            are both linear, their standard matrix representations can be found by looking at where they
+            send the standard basis vectors.
+            </p>
+<!--            \begin{bmatrix}
+<![CDATA[1 & 4 & 2 & 3 & 4\\]]>
+<![CDATA[-3 & 2 & 0 & 1 & -2\\]]>
+<![CDATA[1 & 6 & -3 & -1 & 5]]>
+\end{bmatrix}
+            <m>\begin {bmatrix} 1 \\ 0\end {bmatrix}</m>
+            and <m>\begin {bmatrix} 0 \\ 1 \end {bmatrix}</m>-->
+            <p>
+              The more interesting of the two maps is the rotation map <m>z\mapsto e^{i\theta}z</m>,
+              so let's see where it sends the standard basis vectors:
+            </p>
+            <md>
+              <mrow> 1\cdot e^{i\theta} \amp = e^{i\theta} = \cos\theta + i\sin\theta </mrow>
+              <mrow> i\cdot e^{i\theta} \amp = e^{i\pi/2}e^{i\theta} = \cos(\theta+\tfrac{\pi}{2}) + i\sin(\theta+\tfrac{\pi}{2}) 
+                  = -\sin(\theta) + i\cos(\theta) </mrow>
+            </md>
+            <p>
+              These two results give us the columns of the standard matrix of the linear transformation 
+              <m> 1\cdot e^{i\theta} = e^{i\theta} = \cos\theta + i\sin\theta </m>:
+            </p>
+            <me>
+              \begin{bmatrix}
+              <![CDATA[\cos\theta & -\sin\theta\\]]>
+              <![CDATA[\sin\theta & \cos\theta]]>
+              \end{bmatrix}
+            </me>
+            <p>
+              You might recognize this from linear algebra as a rotation matrix.
+            </p>
+          </exploration>
+        </subsection>
+        <subsection xml:id="subsec-square-function">
+          <title>The Square Function</title>
+          <p>
+            One of the simplest nontrivial functions is the squaring function <m>f(z) = z^2</m>.
+            As we will see in many of these examples, it is useful to consider the map in polar coordinates.
+          </p>
+          <me>
+            f(z) = z^2 = (re^{i\theta})^2 = r^2 e^{i\cdot 2\theta}.
+          </me>
+          <p>
+            In other words, the function <m>f</m> is defined by declaring <m>\abs{f(z)} = \abs{z}^2</m>
+            and <m>\arg f(z) = 2\arg z</m>.
+          </p>
+          <p>
+            The circle <m>\abs{z} = r_0</m> is mapped to the circle <m>\abs{z} = r_0^2</m>,
+            traversed at double the angular velocity.
+            In particular, the unit circle <m>\abs{z} = 1</m> is mapped to itself, but traversed twice.
+          </p>
+          <!--https://www.geogebra.org/calculator/rtq3fjvt-->
+          <figure>
+            <caption>GeoGebra: Squaring 1</caption>
+            <interactive xml:id="geogebra-square-1" platform="geogebra" width="80%" aspect="1:1">
+                <slate xml:id="square-1" surface="geogebra" material="rtq3fjvt" aspect="1:1">
+                  setCoordSystem(-20,20,-20,20);
+              <!--    centerView((0,0)); -->
+                  <!--enableShiftDragZoom(false);-->
+                </slate>
+              <instructions>
+                <p> Depicts the transformation <m>z\mapsto z^2</m> and its effect on rays emanating from
+                the origin and circles centered at the origin. </p>
+              </instructions>
+            </interactive>
+          </figure>
+          <!--https://www.geogebra.org/classic/zxscu7gg-->
+          <figure>
+            <caption>GeoGebra: Squaring 2</caption>
+            <interactive xml:id="geogebra-square-2" platform="geogebra" width="200%" aspect="1363:811">
+              <slate xml:id="square-2" surface="geogebra" material="zxscu7gg" aspect="1363:811">
+                <!--width="1363px" height="811px"-->
+                <!--setWidth(1440)  -->
+                <!--setCoordSystem(-20,20,-20,20);-->
+              <!--    centerView((0,0)); -->
+                  <!--enableShiftDragZoom(false);-->
+              </slate>
+              <instructions>
+                <p> <em>Warning:</em> This graphic differs a bit from the previous ones.
+                At any moment in time, the graphic is showing you <m>z</m> on the left and <m>z^2</m> 
+              on the right. Notice also that the scales of the two graphs are different.
+             View <url href="https://www.geogebra.org/classic/zxscu7gg">on a separate page</url>. 
+            </p>
+              </instructions>
+            </interactive>
+          </figure>
+          <!-- TODO: add thing about image of vertical line-->
+        </subsection>
+        <subsection xml:id="subsec-square-root">
+          <title>The Square Root Function </title>
+          <p>
+            Every nonzero complex number should have two square-roots. The problem is that we
+            want to choose one in a reasonable way. (We cannot simply choose the 'positive' one as we can
+            with real numbers.)
+            Looking in polar coordinates suggests that we should define
+          </p>
+          <me>
+            \sqrt{z} = \sqrt{re^{i\theta}} = \sqrt{r} e^{i\theta/2}.
+          </me>
+          <p>
+            (Notice that the square-root on the right is the ordinary positive square-root
+            of the nonnegative real number <m>r</m>.)
+          </p>
+          <p>
+            But a complex number <m>z</m> has many arguments <m>\theta</m>!
+            The trouble comes from picking a particular <m>\theta</m>.
+          </p>
+          <!--https://www.geogebra.org/calculator/rnwzc4hk-->
+          <figure xml:id="fig-geogebra-square-roots">
+            <caption>GeoGebra: Square roots</caption>
+            <interactive xml:id="geogebra-square-roots" platform="geogebra" width="80%" aspect="1:1">
+                <slate xml:id="square-roots" surface="geogebra" material="rnwzc4hk" aspect="1:1">
+                  setCoordSystem(-10,10,-10,10);
+              <!--    centerView((0,0)); -->
+                  <!--enableShiftDragZoom(false);-->
+                </slate>
+              <instructions>
+                <p> 
+                 Drag <m>z</m> around and see how its two square-roots change. Notice that when 
+                 <m>z</m> crosses the negative real axis, the two square-roots are flipped!
+                 You can view a larger version of this <url href="https://www.geogebra.org/calculator/rnwzc4hk">here</url>.
+                </p>
+              </instructions>
+            </interactive>
+          </figure>
+          <p>
+            As you can see in <xref ref="fig-geogebra-square-roots"/>, using the principal argument
+            for <m>\theta</m> introduces a discontinuity at every point along the negative real axis.
+            To fix this, we take a <term>branch cut</term>.
+          </p>
+          <definition xml:id="def-principal-square-root">
+            <statement>
+              <p>
+                The <term>principal branch</term> of the square-root function
+                is the function <m>\C \wo (-\infty,0] \to \C</m> defined by
+                <m>\sqrt{z} = \sqrt{\abs{z}} e^{i\Arg{z}/2}</m>.
+              </p>
+            </statement>
+          </definition>
+          <p>
+            <em>Warning:</em> Negative real numbers still have complex square roots!!! They are excluded from
+            the domain of the principal branch of the square-root function
+            only to ensure that the function is continuous. More about this later.
+          </p>
+          <p>
+            (In fact, the formula in <xref ref="def-principal-square-root"/> can be used to get a 
+            square-root of a negative real number. Plugging in <m>z = -1 = 1\cdot e^{i\pi}</m>,
+            we obtain <m>e^{i\pi / 2} = i</m> as a square-root of <m>-1</m>.)
+          </p>
+
+          <p>
+            So the two square-roots of a complex number <m>z = re^{i\Arg(z)}</m>
+            are <m>\sqrt r e^{i\Arg(z)/2}</m> and <m>-\sqrt r e^{i\Arg(z)/2}</m>.
+            (The first of these is the principal branch of the square-root, as long as
+            <m>z\notin (-\infty,0]</m>.)
+          </p>
+          <example>
+            <me>
+              \sqrt{i} = \sqrt{e^{i\pi/2}} = e^{i\pi/4} = \frac{1}{\sqrt2} + \frac{1}{\sqrt2}i.
+            </me>
+          </example>
+          <!-- TODO: add a lot-->
+        </subsection>
+        <subsection xml:id="subsec-exponential">
+          <title>The Complex Exponential</title>
+          <p>
+            Euler's Formula tells us how to exponentiate so-called <term>purely imaginary</term>
+            numbers, that is numbers of the form <m>i y</m> where <m>y\in\R</m>.
+            But what about other complex numbers? Well, just decompose <m>z</m> as <m>x+iy</m>,
+            the sum of a real number <m>x</m> (which we know how to exponentiate) and a purely imaginary number <m>iy</m>:
+          </p>
+          <me>
+            e^z = e^{x+iy} = e^x e^{iy} = e^x\cos(y) + ie^x \sin(y).
+          </me>
+          <p>
+            In other words, <m>e^{x}e^{iy}</m> is the polar representation of <m>e^z</m>:
+            <m>\abs{e^z} = e^x = e^{\Re z}</m> and <m>\arg(e^z) = y = \Im(z)</m>.
+          </p>
+          <observation>
+            <!-- TODO insert observations-->
+          </observation>
+          <definition xml:id="def-period">
+            <statement>
+              <p>
+                A complex number <m>\lambda</m> is a <term>period</term> of the function 
+                <m>f\colon\C\to\C</m> if, for every <m>z\in\C</m>, we have <m>f(z) = f(z+\lambda)</m>.
+                A function <m>f</m> is <term>periodic</term> if it has some nonzero period.
+              </p>
+            </statement>
+          </definition>
+          <proposition xml:id="prop-exp-periodic">
+            <statement>
+              <p>
+                The complex exponential <m>z\mapsto e^z</m> is <m>2\pi i</m>-periodic.
+              </p>
+            </statement>
+          </proposition>
+          <proof>
+            <p>
+              For all <m>z = x+iy \in \C</m> we have:
+            </p>
+             <md>
+               <mrow> e^{z+2\pi i} \amp = e^{x + i(y+2\pi)} </mrow>
+               <mrow>              \amp = e^x (\cos(y+2\pi) + i\sin(y+2\pi)) </mrow>
+               <mrow>  \amp = e^x (cos(y) + i\sin(y)) </mrow>
+               <mrow> \amp = e^{x+iy} = e^z </mrow>
+            </md>
+          </proof>
+          <example>
+            <p>
+              For every real number <m>r</m>, the quantity <m>e^{r+2\pi i} = e^r</m> is a real number.
+            </p>
+          </example>
+          <!-- TODO: insert images of horizontal and vertical lines-->
+          <!--https://www.geogebra.org/calculator/fnnem4tf-->
+          <figure xml:id="fig-geogebra-exp">
+            <caption>GeoGebra: The exponential map</caption>
+            <interactive xml:id="geogebra-exponential" platform="geogebra" width="80%" aspect="1:1">
+                <slate xml:id="exponential" surface="geogebra" material="fnnem4tf" aspect="1:1">
+                  setCoordSystem(-3,3,-3,3);
+              <!--    centerView((0,0)); -->
+                  <!--enableShiftDragZoom(false);-->
+                </slate>
+              <instructions>
+                <p> 
+                 Drag <m>z</m> around and see how <m>e^z</m> changes. 
+                 Try dragging <m>z</m> up and down along the line <m>x = 1</m>,
+                 or back and forth along the line <m>y = 1</m>.
+                 You can view a larger version of this <url href="https://www.geogebra.org/calculator/fnnem4tf">here</url>.
+                </p>
+              </instructions>
+            </interactive>
+          </figure>
+        </subsection>
+        <p>
+          We conclude from our previous discussion that the range of the exponential map
+          <m>z\mapsto e^z</m> is <m>\C\wo\{0\}</m>. This leads us to wonder about defining a logarithm.
+        </p>
+        <subsection xml:id="subsec-log">
+          <title>The complex logarithm</title>
+          <p>
+            We would like to define a log map <m>\C\wo\{0\} \to \C</m> that is inverse to the exponential.
+            As we found with the square-root, we will have to make a branch cut in order to choose a specific
+            log continuously, though.
+          </p>
+          <p>
+            Given <m>z \ne 0</m>, we want to find a solution to the equation <m>z = e^w = e^{\Re w} e^{i\Im w}</m>.
+            We need <m>\abs{z} = e^{\Re w}</m> and <m>\Im w = \arg z</m>. In fact we <em>must</em> have this;
+            all logarithms of <m>z</m> take the form
+            <me>
+              \log z = \ln \abs z + i \arg z  
+             </me>
+             for some choice of <m>\arg z</m>.
+            So all logarithms of <m>z</m> take the form
+            <me>
+              \log z = \ln \abs z + i\Arg z + i(2\pi m), \quad m\in\mathbb{Z}.
+            </me>
+          </p>
+          <definition xml:id="def-principal-log">
+            <statement>
+              <p>
+                The <term>principal branch of the log</term> is the function <m>\Log \colon \C\wo(-\infty,0]\to \C</m>
+                defined by <m>\Log(z) = \ln\abs{z} + i\Arg z</m>.
+              </p>
+            </statement>
+          </definition>
+          <p>
+            As with the square-root, we have to cut the domain in order for the function <m>\Log</m> to be continuous.
+            And, as with the square-root, negative real numbers still have logarithms!
+          </p>
+          <!--https://www.geogebra.org/calculator/qegzawxm-->
+          <figure xml:id="fig-geogebra-log">
+            <caption>GeoGebra: The log</caption>
+            <interactive xml:id="geogebra-log" platform="geogebra" width="80%" aspect="1:1">
+                <slate xml:id="log" surface="geogebra" material="qegzawxm" aspect="1:1">
+                  setCoordSystem(-20,20,-20,20);
+              <!--    centerView((0,0)); -->
+                  <!--enableShiftDragZoom(false);-->
+                </slate>
+              <instructions>
+                <p> 
+                 Drag <m>z</m> around and see how <m>\Log(z)</m> and the other possible logs of <m>z</m> change. 
+                 Notice that the principal choice <m>Log(z)</m> changes discontinuously as <m>z</m>
+                 crosses the negative real axis.
+                 You can view a larger version of this <url href="https://www.geogebra.org/calculator/qegzawxm">here</url>.
+                </p>
+              </instructions>
+            </interactive>
+          </figure>
+          <example>
+            <me>
+              \Log(1+i) = \Log(\sqrt2 e^{i \pi / 4}) = \ln\sqrt2 + i\pi/4 \approx 0.35 + i\pi/4
+            </me>
+            <p>
+              All possible logs of <m>1+i</m> are <m>\log(1+i) = \ln\sqrt2 + i\pi/4 + 2\pi m i</m>, <m>m\in\mathbb{Z}</m>.
+            </p>
+          </example>
+          <!--TODO: add images of lines etc-->
+          <!--TODO: add examples showing 2Log(z) ne Log(z^2)-->
+        </subsection>
+        <subsection xml:id="subsec-branches">
+          <title>Branch cuts and branch points</title>
+          <p>
+            We can view the log, for example, as a multi-valued function on <m>\C\wo\{0\}</m>.
+            Each time we use log, we need to choose a branch (often the principal one).
+          </p>
+          <definition xml:id="def-cts-branch">
+            <statement>
+              <p>
+                If <m>U\subseteq\C\wo\{0\}</m> is an open set, then a <term>branch of the log</term>
+                defined on <m>U</m> is a continuous function <m>f\colon U\to\C</m>
+                for which <m>e^{f(z)} = z</m> for all <m>z\in U</m>.
+              </p>
+              <p>
+                A <term>branch point</term> of a multi-valued function <m>f</m> is a point <m>p\in\C</m>
+                such that, for every <m>\epsilon \gt 0</m>, the function cannot be 
+                given a continuous single-valued definition on <m>B_\epsilon(p) \wo \{p\}</m>.
+              </p>
+            </statement>
+          </definition>
+          <p>
+            <m>B_\epsilon(p) = \set{ z\in\C }{ \abs{z - p} \lt \epsilon</m> is the ball of radius
+            <m>\epsilon</m> centered at <m>p</m>.
+            Don't worry, we'll discuss these things in more detail in later sections.
+          </p>
+          <example>
+            <p>
+              <m>0</m> is a branch point of log.
+            </p>
+          </example>
+          <example>
+            The function <m>f(z) = \sqrt{z(z-1)}</m> has two branch points, at <m>z = 0</m>
+            and <m>z = 1</m>.
+            <!-- TODO: Say more!-->
+          </example>
+        </subsection>
+        <subsection xml:id="subsec-power-functions">
+          <title>General power functions</title>
+          <p>
+            Now that we have the log, we can define general power functions.
+          </p>
+          <definition xml:id="def-power-function">
+            <statement>
+              <p>
+               For any <m>\alpha\in\mathbb{Z}</m>, the <term>principal branch of the power function</term>
+               <m>z\mapsto z^\alpha</m> is the function <m>\C\wo (-\infty,0] \to \C</m> defined as follows.
+               <me>
+                z^\alpha = e^{\alpha \Log(z)}
+               </me>
+              </p>
+            </statement>
+          </definition>
+          <example>
+            <p>
+              This agrees with our earlier definition of the principal branch of the square-root function:
+            </p>
+            <me>
+              z^{1/2} = e^{\frac12 \Log z} = e^{\frac12 \ln \abs{z} + \frac12 i \Arg z}
+              = \abs{z}^{1/2} e^{i\Arg z / 2}
+            </me>
+          </example>
+          <example>
+            <p>
+              Let's find all possible values of <m>i^i</m>.
+            </p>
+            <me>
+              i^i = e^{i \log i} = e^{i(\ln 1 + i \arg i)} = e^{-\arg i}.
+            </me>
+            <p>
+              Since the possible values of <m>\arg i</m> are <m>\frac{\pi}{2} + 2\pi m</m>, <m>m\in\mathbb{Z}</m>,
+              we have
+            </p>
+            <me>
+              i^i = e^{-\pi/2} = e^{-5\pi / 2} = \cdots
+            </me>
+            <p>
+              These are all real numbers!!!
+            </p>
+          </example>
+        </subsection>
+         <subsection xml:id="subsec-trig-functions">
+           <title>Trig functions</title>
+           <p>
+            Standard trig functions can be defined in terms of the exponential.
+          </p>
+          <definition xml:id="def-sine-cosine">
+            <statement>
+              <p>
+                Sine and cosine are defined at <em>all complex numbers</em> <m>z</m> as follows.
+              </p>
+              <me>
+                \cos(z) = \frac{e^{iz} + e^{-iz}}{2} \quad \sin(z) = \frac{e^{iz} - e^{-iz}}{2i}
+              </me>
+            </statement>
+          </definition>
+          <aside>
+            <p>
+              Remember your Taylor Series from calculus? 
+              Write down the Taylor series for the exponential function, centered at <m>0</m>,
+              and plug in <m>iz</m> and simplify. Do the same thing but plug in <m>-iz</m> and simplify.
+              You should be very close to a Taylor series for cosine.
+            </p>
+          </aside>
+          <p>
+            <em>Warning:</em> These definitions are motivated by Euler's Formula: e.g. for <m>x\in\R</m>,
+          </p>
+          <me>
+            \cos(x) \Re(e^{ix}) = \frac{e^{ix} + e^{-ix}}{2}.
+          </me>
+          <p>
+            But <m>\cos(z) \ne \Re(e^{iz})</m> in general! In particular, the quantity on the right is real-valued, 
+            whereas <m>\cos(z)</m> is not.
+            And we can just expand out <m>e^{iz}</m> and examine its real and imaginary parts:
+          </p>          
+          <me>
+            e^{iz} = e^{i(x+iy)} = e^{-y + ix} = e^{-y}(\cos x + i\sin x).
+          </me>
+          <p>
+            So <m>\Re(e^{iz}) = e^{-y}\cos x</m>, which does not typically equal <m>\cos z</m>.
+          </p>
+          <p>
+            The tangent function can be defined by <m>\tan z = \frac{\sin z}{\cos z}</m>,
+            and hyperbolic trig functions can also be defined. You will explore all this on the homework.
+          </p>
+         </subsection>
       </section>
+    </chapter>
+    <chapter xml:id="ch-plane-topology">
+      <title>Basic topology of the plane</title>
+      <section xml:id="sec-regions">
+        <title>Regions in the plane</title>
+        <p>
+          We need to survey some basic topology of the plane and introduce some definitions.
+          This will be very familiar to some of you and less familiar to others.
+          Rest assured that we will not do any serious <m>\epsilon-\delta</m> proofs in this course.
+        </p>
+        <definition xml:id="def-open">
+          <statement>
+            <p>
+              For <m>\epsilon \gt 0</m> and <m>p\in\C</m> we define
+              <me>
+                B_\epsilon(p) = \set{z\in\C}{ \abs{z - p} \lt \epsilon},
+              </me>
+              the <term>ball</term> or disk of radius <m>\epsilon</m> centered at <m>p</m>.
+            </p>
+            <p>
+              A set <m>U\subseteq \C</m> is <term>open</term> if for every <m>p\in U</m> there is
+              <m>\epsilon \gt 0</m> for which <m>B_\epsilon(p) \subseteq U</m>.
+              A set <m>F\subseteq \C</m> is <term>closed</term> if its complement <m>\C \wo U</m> is open.
+            </p>
+            <aside>
+              <p>
+               If you have seen sequential limits before, you should check that <m>F</m> is closed
+               if and only if every convergent sequence of elements of <m>F</m> has a limit in <m>F</m>.
+              </p>
+            </aside>
+          </statement>
+        </definition>
+        <!--https://www.geogebra.org/calculator/fhvdmyaf-->
+        <figure xml:id="fig-geogebra-open-ball">
+          <caption>GeoGebra: <m>\epsilon</m> balls</caption>
+          <interactive xml:id="geogebra-open-ball" platform="geogebra" width="80%" aspect="1:1">
+              <slate xml:id="open-ball" surface="geogebra" material="fhvdmyaf" aspect="1:1">
+                setCoordSystem(-6,6,-6,6);
+            <!--    centerView((0,0)); -->
+                <!--enableShiftDragZoom(false);-->
+              </slate>
+            <instructions>
+              <p> 
+               Drag <m>p</m> around and change <m>\epsilon</m> to see various disks of radius <m>\epsilon</m>
+               centered at <m>p</m>.
+               You can view a larger version of this <url href="https://www.geogebra.org/calculator/fhvdmyaf">here</url>.
+              </p>
+            </instructions>
+          </interactive>
+        </figure>
+        <!--https://www.geogebra.org/calculator/fqjanwm3-->
+        <figure xml:id="fig-geogebra-open-rectangle">
+          <caption>GeoGebra: <m>\epsilon</m> balls</caption>
+          <interactive xml:id="geogebra-open-rectangle" platform="geogebra" width="80%" aspect="1:1">
+              <slate xml:id="open-rectangle" surface="geogebra" material="fqjanwm3" aspect="1:1">
+                setCoordSystem(-6,6,-6,6);
+            <!--    centerView((0,0)); -->
+                <!--enableShiftDragZoom(false);-->
+              </slate>
+            <instructions>
+              <p> 
+               The rectangular region defined by <m>-2 \lt x \lt 5</m> and <m>-3 \lt y \ln 5</m> is an open set.
+               Look at the picture: as you drag <m>p</m> around, there is always a small choice of <m>\epsilon</m>
+               (computed for you in the applet) so that <m>B_\epsilon(p)</m> remains totally within the rectangle.
+               You can view a larger version of this <url href="https://www.geogebra.org/calculator/fqjanwm3">here</url>.
+              </p>
+            </instructions>
+          </interactive>
+        </figure>
+        <example>
+          <ol marker="(a)">
+            <li>
+              <p>
+                The unbounded sector <m>\set{z\in\C}{ \arg z \in (\frac{\pi}{6},\frac{\pi}{4})}</m>
+                is open.
+              </p>
+            </li>
+            <li>
+              <p>
+                The vertical strip <m>\set{z\in\C}{\Re(z)\in (1,2)}</m> is open.
+              </p>
+            </li>
+            <li>
+              <p>
+                The closed annulus <m>\set{z\in\C}{ 1\le \abs{z} \le 2}</m> is closed.
+              </p>
+            </li>
+          </ol>
+          <aside>
+            <p>
+              If you have seen some topology, you might recognize that these are all continuous
+              preimages of open or closed sets.
+            </p>
+          </aside>
+        </example>
+        <definition xml:id="def-path-connected">
+          <statement>
+            <p>
+              A set <m>U\subseteq \C</m> is <term>path-connected</term> iff any two points in <m>U</m>
+              can be joined by a continuous path that does not leave <m>U</m>;
+              that is, iff for all <m>z,w\in U</m> there is a continuous function <m>\gamma\colon[0,1]\to U</m>
+              with <m>\gamma(0) = z</m> and <m>\gamma(1) = w</m>.
+            </p>
+            <p>
+              A <term>domain</term> is a set that is both open and path-connected.
+            </p>
+          </statement>
+        </definition>
+        <!-- TODO: add picture of gamma and z and w-->
+        <example>
+          <p>
+            <m>\C</m> is path-connected!
+            For any <m>z,w\in\C</m> we can take <m>\gamma(t) = tw +(1-t)z</m>, the standard
+            parametrization of the line segment from <m>z</m> to <m>w</m>.
+          </p>
+          <p>
+            But <m>\C\wo\R</m> is not path-connected.
+            No continuous path starting in the upper half-plane can reach the lower half-plane
+            without crossing the real axis.
+            <aside>
+              <p>
+                How do you prove this carefully? Intermediate Value Theorem...
+              </p>
+            </aside>
+          </p>
+        </example>
+        <definition xml:id="def-star-shaped">
+          <statement>
+            <p>
+              If <m>X\subseteq \C</m> and <m>z_0\in X</m>, then <m>X</m> is 
+              <term>star-shaped with respect to <m>z_0</m></term> iff 
+              for all <m>z\in X</m> the straight line segment connecting <m>z_0</m> to <m>z</m>
+              lies completely in <m>X</m>.
+              <aside>
+                <p>
+                  You could state this precisely by using the standard parametrization of the line segment.
+                  '<m>X</m> is star-shaped wrt <m>z_0</m> iff for all <m>t\in [0,1]</m>
+                  we have <m>(1-t)z_0 + tz \in X</m>.'
+                </p>
+              </aside>
+            </p>
+            <p>
+              A set <m>X</m> is <term>convex</term> if <m>X</m> is star-shaped with respect to every
+              one of its elements.
+              We just say that <m>X</m> is <term>star-shaped</term> if there is at least one <m>p \in X</m>
+              with respect to which <m>X</m> is star-shaped.
+            </p>
+          </statement>
+        </definition>
+        <!--https://www.geogebra.org/calculator/u75uczxg-->
+        <figure xml:id="fig-geogebra-star-shaped">
+          <caption>GeoGebra: star-shaped regions</caption>
+          <interactive xml:id="geogebra-star-shaped" platform="geogebra" width="80%" aspect="1:1">
+              <slate xml:id="star-shaped" surface="geogebra" material="u75uczxg" aspect="1:1">
+                setCoordSystem(-10,10,-10,10);
+            <!--    centerView((0,0)); -->
+                <!--enableShiftDragZoom(false);-->
+              </slate>
+            <instructions>
+              <p> 
+               This star-ish region is star-shaped wrt <m>z_0</m> but not wrt <m>z_1</m>.
+               You can view a larger version of this <url href="https://www.geogebra.org/calculator/u75uczxg">here</url>.
+              </p>
+            </instructions>
+          </interactive>
+        </figure>
+        <example>
+          <!--TODO add pictures-->
+          <p>
+            The slit disk <m>\set{z}{\abs{z} \lt 1 \text{ and } z\notin [0,1]}</m> is star-shaped wrt
+            <m>-1/2</m> but not wrt any point in the fourth quadrant (e.g. <m>0.1-0.1i</m>).
+          </p>
+          <p>
+            An annulus (e.g. <m>1 \le \abs z \le 2</m>) is not star-shaped. 
+          </p>
+        </example>
+        <exercise>
+          <p>
+            Make sure you understand that for nonempty sets <m>X</m>, the following implications hold.
+          </p>
+          <me>
+            \text{convex} \Longrightarrow \text{star-shaped} \Longrightarrow \text{path-connected}
+          </me>
+          <p>
+            Give examples to show that neither of these implications reverses.
+          </p>
+        </exercise>
+      </section>
+      <section xml:id="sec-limits-continuity">
+        <title>Limits and continuity</title>
+        <p>
+          import definitions from multivariable calculus
+        </p>
+      </section>
+    </chapter>
+    <chapter xml:id="ch-analytic-functions">
+      <title>Analytic Functions</title>
+      <section xml:id="sec-derivative">
+        <title>The Complex Derivative</title>
+        
+      <definition xml:id="def-deriv">
+        <statement>
+          <p>
+            A function <m>f\colon U\to \C</m> defined on a domain <m>U</m>
+            is <term>differentiable</term> at <m>z_0 \in U</m> if the following limit exists.
+          </p>
+          <me>
+            \lim_{z\to z_0} \frac{f(z) - f(z_0)}{z-z_0}
+          </me>
+          <p>
+            The value of the limit is written <m>f'(z_0)</m> or <m>\frac{df}{dz} (z_0)</m>.
+          </p>
+          <p>
+            We say that <m>f</m> is <term>analytic</term> (or holomorphic) at <m>z_0</m>
+            if there is <m>\epsilon \gt 0</m> such that <m>f</m> is differentiable at every
+            <m>z\in B_\epsilon(z_0)</m>.
+          </p>
+          <p>
+            If <m>f</m> is analytic at every point in <m>\C</m>, then we say that <m>f</m> is 
+            <term>entire</term>. (In particular this means <m>f</m> is defined at every point in <m>\C</m>.)
+          </p>
+        </statement>
+      </definition>
+      <p>
+        <alert>NB.</alert> This looks like the definition of derivative from calculus,
+        and indeed we will discover many similarities between the complex derivative and real derivatives.
+        However, a function <m>f\colon \C\to \C</m> can be thought of as a function <m>\R^2\to\R^2</m>, and there
+        is a notion of real-differentiability for such functions. 
+        Complex-differentiability of <m>f</m> as a function <m>\C\to\C</m> is
+        <alert>much stronger</alert> than real-differentiability as a function <m>\R^2\to\R^2</m>.
+        This should become clearer as we discover some general properties of analytic functions,
+        especially the Cauchy–Riemann Equations.
+      </p>
+      <investigation>
+        <p>
+          A function <m>f\colon\R^2\to\R^2</m> can be decomposed into two component functions
+          <m>f_1</m> and <m>f_2</m> so that <m>f(x,y) = (f_1(x,y),f_2(x,y))</m>.
+          Notice that <m>f_1</m> and <m>f_2</m> are functions <m>\R^2\to\R</m>: their graphs are surfaces,
+          just like in multivariable calculus.
+          Then <m>f</m> is real-differentiable if and only if both <m>f_1</m> and <m>f_2</m>
+          are differentiable (meaning that they have well-defined tangent planes).
+          (This is not usually taken as the <em>definition</em>, but it is equivalent.)
+        </p>
+      </investigation>
+<!-- TODO: insert examples etc.-->
+<!-- TODO: insert graphic illustrating idea of the derivative-->
+    </section>
+    <section xml:id="sec-cauchy-riemann">
+      <title>The Cauchy–Riemann Equations</title>
+      
+    </section>
+    <section xml:id="sec-inverse">
+      <title>Analyticity of inverse functions</title>
+      
+    </section>
+    <section xml:id="sec-harmonic">
+      <title>Harmonic functions</title>
+      <p>
+        Motivated by Laplace's Equation
+        <me>
+          \Delta u = \frac{\partial^2 u}{\partial x_1^2} + \cdots + \frac{\partial^2 u}{\partial x_n^2} = 0,
+        </me>
+        which is very important in mathematical physics, we make the following definition.
+      </p>
+      <definition xml:id="def-harmonic">
+        <statement>
+          <p>
+            A function <m>u = u(x,y)\colon \R^2 \to \R</m> is <term>harmonic</term>
+            if the partial derivatives <m>u_x, u_y,u_{xx}, u_{xy}, u_{yx}, u_{yy}</m>
+            all exist and are continuous, and <m>\Delta u = 0</m>, i.e.,
+            <m>u_{xx} + u_{yy} = 0</m>.
+          </p>
+        </statement>
+      </definition>
+      <theorem xml:id="thm-analytic-harmonic">
+        <statement>
+          <p>
+            If <m>u+iv</m> is analytic, then <m>u</m> and <m>v</m> are harmonic functions.
+          </p>
+        </statement>
+      </theorem>
+      <proof>
+        <p>
+          Later we will show that the real and imaginary parts of analytic functions have 
+          continuous partial derivatives of all orders. So let's not worry about that part for now.
+        </p>
+        <p>
+          This is just an application of the Cauchy–Riemann Equations and equality of mixed partials
+          (sometimes called Clairaut's Theorem by calculus textbooks):
+        </p>
+        <md>
+          <mrow> u_{xx} \amp = \frac{\partial}{\partial x} u_x  \amp\amp </mrow>
+          <mrow> \amp = \frac{\partial}{\partial x} v_y         \amp\amp \text{(CR)} </mrow>
+          <mrow> \amp = \frac{\partial}{\partial y} v_x         \amp\amp \text{(Clairaut)} </mrow> 
+          <mrow> \amp = \frac{\partial}{\partial y} (-u_y)       \amp\amp \text{(CR)} </mrow>
+          <mrow> \amp = -u_{yy}</mrow>
+        </md>
+        <p>
+          Rearranging gives <m>u_{xx} + u_{yy} = 0</m>. A very similar proof works for <m>v</m>.
+        </p>
+      </proof>
+      <example>
+        <p>
+          The function <m>u(x,y) = e^x \cos(y)</m> is harmonic, since it is the real part of the 
+          analytic function <m>f(z) = e^z</m>.
+        </p>
+      </example>
+      <definition xml:id="def-harmonic-conjugate">
+        <statement>
+          <p>
+            If <m>u</m> is harmonic on a domain <m>D</m> and <m>v</m> is a function for which
+            <m>u + iv</m> is analytic on <m>D</m>, then we say that <m>v</m> is a <term>harmonic conjugate</term>
+            of <m>u</m>.
+          </p>
+        </statement>
+      </definition>
+      <exercise>
+        <p>
+          State and prove something to the effect that harmonic conjugates are unique up to an additive constant. 
+        </p>
+        <solution>
+          <p>
+            Suppose that <m>u+iv</m> and <m>u + iw</m> are both analytic. Then 
+            <m>\frac{i(v - w)}{2}</m> is analytic too, but it is also real-valued.
+            So <m>v - w</m> is constant.
+          </p>
+        </solution>
+      </exercise>
+      <example xml:id="example-harmonic-conjugate">
+        <p>
+          Find a harmonic conjugate for <m>u(x,y) = xy</m>.
+        </p>
+        <solution>
+          <p>
+            First notice that <m>\frac{\partial^2}{\partial x^2} xy = 0 = -\frac{\partial^2}{\partial y^2} xy</m>,
+            so <m>u</m> is harmonic.
+          </p>
+          <p>
+            Solve the CR equations. Starting with
+            <me>
+              y = u_x = v_y
+            </me>
+            we conclude that <m>v(x,y) = \frac{y^2}{2} + h(x)</m> for some function <m>h</m>.
+            Differentiating wrt <m>x</m> and using the CR equations again gives
+            <me>
+              x = u_y = -v_x = h'(x),
+            </me>
+            which means (calculus) that <m>h(x) = -\frac{x^2}{2} + C</m>.
+            We conclude that <m>v(x,y) = \frac{y^2}{2} - \frac{x^2}{2} + C</m>.
+          </p>
+          <p>
+            What analytic function is <m>u+iv</m>? Look:
+          </p>
+          <me>
+            f(z) = f(x+iy) = xy + \left( \frac{y^2}{2} - \frac{x^2}{2} + C \right)i = -i\frac{z^2}{2} + C.
+          </me>
+        </solution>
+      </example>
+      <p>
+        An abstract version of the method used in <xref ref="example-harmonic-conjugate"/> can be used to prove the following general theorem.
+      </p>
+      <theorem xml:id="thm-harmonic-conjugates">
+        <statement>
+          <p>
+            Let <m>D</m> be an open disk or an open (filled-in) rectangle.
+            Let <m>u = u(x,y)</m> be a harmonic function on <m>D</m>.
+            Then <m>u</m> has a harmonic conjugate <m>v</m> on <m>D</m>, unique up to adding a constant.
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        The <q>right</q> class of domains <m>D</m> to which <xref ref="thm-harmonic-conjugates"/> applies is the class of
+        <term>simply connected</term> domains. A domain is simply connected if and only if every 
+        loop in <m>D</m> can be shrunk continuously to a point without leaving <m>D</m>.
+        E.g. a disk is simply connected but an annulus is not.
+      </p>
+      <p>
+        <alert>NB.</alert> <xref ref="thm-harmonic-conjugates"/> does not hold in general for domains
+        that are not simply connected, e.g. <m>D</m> an annulus or <m>D = \C \wo\{0\}</m>.
+        For example, consider <m>u(x,y) = \log\sqrt{x^2 + y^2}</m>. You will probably be asked on the homework
+        to explore this example.
+      </p>
+    </section>
+    <section xml:id="sec-conformal">
+      <title>Conformal mappings</title>
+      <p>
+        The idea is that a conformal map should be one that <q>preserves angles</q>.
+        <!-- TODO: insert picture-->
+        To state this precisely, we will need tangent vectors.
+      </p>
+      <definition xml:id="def-conformal">
+        <statement>
+          <p>
+            Let <m>\gamma_1,\gamma_2\colon[-1,1]\to\C</m> be two continuous differentiable paths that 
+            intersect at <m>0</m>: <m>\gamma_1(0) = \gamma_2(0)</m>. 
+            Suppose also that <m>\gamma_1'(0) \ne 0</m> and <m>\gamma_2'(0) \ne 0</m>.
+            Define the angle between <m>\gamma_1</m> and <m>\gamma_2</m> as follows.
+          </p>
+          <me>
+            \angleop(\gamma_1,\gamma_2) = \arg(\gamma_1'(0)) - \arg(\gamma_2'(0)).
+          </me>
+          <p>
+            A function <m>f\colon \C\to\C</m> is said to be <term>conformal</term> at <m>z_0</m>
+            if whenever <m>\gamma_1,\gamma_2\colon[-1,1]\to\C</m> are two continuously differentiable
+            curves with <m>\gamma_1(0) = \gamma_2(0) = z_0</m> and <m>\gamma_1'(0) \ne 0</m> and <m>\gamma_2'(0) \ne 0</m>,
+            then 
+            <me>
+              \angleop(\gamma_1,\gamma_2) = \angleop(f\circ \gamma_1, f\circ \gamma_2)
+            </me>
+            (and <m>(f\circ \gamma_1)'(0)\ne 0</m> and <m>(f\circ \gamma_2)'(0) \ne 0</m>,
+            so that <m>\angleop(f\circ \gamma_1, f\circ \gamma_2</m> is defined).
+          </p>
+        </statement>
+      </definition>
+      <p>
+        The point of all this is the following theorem.
+      </p>
+      <theorem xml:id="thm-analytic-conformal">
+        <statement>
+          <p>
+            If <m>f\colon D\to \C</m> is analytic at <m>z_0 \in D</m> and <m>f'(z_0) \ne 0</m>,
+            then <m>f</m> is conformal at <m>z_0</m>.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            This is basically just the Chain Rule and the fact that <m>\arg(z/w) = \arg(z) - \arg(w)</m>.
+          </p>
+          <md>
+            <mrow> \angleop( f\circ \gamma_1, f\circ \gamma_2) \amp \arg((f\circ\gamma_1)'(0)) - \arg((f\circ\gamma_2)'(0))</mrow>
+            <mrow> \amp \arg(f'(z_0) \gamma_1'(0)) - \arg(f'(z_0)\gamma_2'(0))</mrow>
+            <mrow> \amp \arg\left( \frac{f'(z_0) \gamma_1'(0)}{f'(z_0)\gamma_2'(0)}\right)</mrow>
+            <mrow> \amp \arg(\gamma_1'(0)) - \arg(\gamma_2'(0))</mrow>
+            <mrow> \amp \angleop(\gamma_1,\gamma_2) </mrow>
+          </md>
+          <p>
+            That's it!
+          </p>
+        </proof>
+      </theorem>
+      <p>
+        There is a converse to this theorem that we state for completeness but we won't prove.
+      </p>
+      <fact xml:id="fact-conformal-analytic">
+        <statement>
+          <p>
+            Suppose that <m>f</m> is continuously differentiable and conformal on a domain <m>D</m>
+            with nonzero gradient at every point in <m>D</m>.
+            Then <m>f</m> is analytic on <m>D</m>, and <m>f'(z) \ne 0</m> for every <m>z\in D</m>.
+          </p>
+        </statement>
+      </fact>
+      <example>
+        <p>
+          The squaring function <m>f(z) = z^2</m> is (as a polynomial) analytic everywhere.
+         It maps the sector <m>\arg z \in (-\theta_0,\theta_0)</m> to the sector 
+         <m>\arg z \in (-2\theta_0,2\theta_0)</m> of twice the aperture.
+         Notice that this function is not conformal at <m>0</m> since its derivative is zero there!
+        </p>
+      </example>
+      <example>
+        <p>
+         The exponential function <m>z\mapsto e^z</m> is conformal at every <m>z\in\C</m>.
+         It restricts to a <term>conformal equivalence</term> between the horizontal strip
+         <m>\Im z \in (-\pi,pi)</m> to the slit plane <m>\C\wo(-\infty,0]</m>.
+        </p>
+      </example>
+      <!--https://www.geogebra.org/calculator/rapkxztc-->
+      <figure xml:id="fig-geogebra-exp-conformal">
+        <caption>GeoGebra: <m>z\mapsto e^z</m></caption>
+        <interactive xml:id="geogebra-exp-conformal" platform="geogebra" width="80%" aspect="1:1">
+            <slate xml:id="exp-conformal" surface="geogebra" material="rapkxztc" aspect="1:1">
+              setCoordSystem(-10,10,-10,10);
+          <!--    centerView((0,0)); -->
+              <!--enableShiftDragZoom(false);-->
+            </slate>
+          <instructions>
+            <p> 
+             You can view a larger version of this <url href="https://www.geogebra.org/calculator/rapkxztc">here</url>.
+            </p>
+          </instructions>
+        </interactive>
+      </figure>
+      <definition xml:id="def-conformal-equivalence">
+        <statement>
+          <p>
+            If <m>U</m> and <m>V</m> are open subsets of <m>\C</m> and <m>f\colon U\to V</m>
+            is a conformal bijection, then <m>f</m> is called a <term>conformal equivalence</term>.
+          </p>
+        </statement>
+      </definition>
+      <investigation>
+        <p>
+          Don't forget that conformality is equivalent to analytic with derivative <m>0</m>.
+          So the Inverse Function Theorem implies that a conformal bijection has local conformal inverses,
+          which can be patched together to give a global conformal inverse. All this to say that 
+          conformal equivalence is a symmetric relation: if <m>U</m> is conformally equivalent to <m>V</m>,
+          then <m>V</m> is conformally equivalent to <m>U</m>.
+        </p>
+      </investigation>
+      <p>
+        <alert>Motivation:</alert> Suppose that we want to solve 2D Laplace's Equation
+        on a domain <m>U</m> subject to some boundary conditions. 
+        Maybe <m>U</m> isn't so nice. We might try to find a conformally equivalent domain <m>V</m>,
+        solve Laplace's Equation on <m>V</m>, and then transfer the solution back to <m>U</m>.
+      </p>
+      <p>
+        So it is useful to have a library of conformal equivalences.
+      </p>
+      <example>
+        <p>
+        The map <m>z\mapsto z^n</m>, <m>n\ge 2</m>, defines a conformal equivalence
+        </p>
+        <me>
+          \set{ z\in \C}{0 \lt \arg(z) \lt \frac{\pi}{n}} \to \bH,
+        </me>
+        <p>
+          where <m>\bH</m> is the upper halfplane <m>\Im z > 0</m>.
+        </p>
+        <!--https://www.geogebra.org/calculator/hkhebdqt-->
+        <figure xml:id="fig-geogebra-cube-conformal">
+          <caption>GeoGebra: <m>z\mapsto z^3</m></caption>
+          <interactive xml:id="geogebra-cube-conformal" platform="geogebra" width="80%" aspect="1:1">
+              <slate xml:id="cube-conformal" surface="geogebra" material="hkhebdqt" aspect="1:1">
+                setCoordSystem(-8,8,-3,13);
+            <!--    centerView((0,0)); -->
+                <!--enableShiftDragZoom(false);-->
+              </slate>
+            <instructions>
+              <p> 
+               Here is pictured the case <m>n = 3</m>. Notice how the rays and circles meet at right angles
+               before applying the map and after!
+               You can view a larger version of this <url href="https://www.geogebra.org/calculator/hkhebdqt">here</url>.
+              </p>
+            </instructions>
+          </interactive>
+        </figure>
+      </example>
+      <example>
+        <p>
+          The map <m>z\mapsto \frac{z-i}{z+i}</m> defines a conformal equivalence
+          between <m>\bH</m> and the unit disk <m>\set{z}{\abs{z} \lt 1}</m>.
+        </p>
+        <p>
+          (Why? Well, <m>z\in \bH</m> iff <m>z</m> is closer to <m>i</m> than to <m>-i</m>,
+          iff <m>\abs{z-i} \lt \abs{z+i}</m>, iff <m>\abs{\frac{z-i}{z+i}} \lt 1</m>.)
+        </p>
+        <p>
+          Why is it conformal? Why is it a bijection? For the answers to those and other questions,
+          look to the next Section!!!
+        </p>
+      </example>
+    </section>
+    <section xml:id="sec-flt">
+      <title>Fractional Linear Transformations</title>
+      
+    </section>
     </chapter>
 
     <backmatter xml:id="backmatter">

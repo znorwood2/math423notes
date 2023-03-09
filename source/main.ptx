@@ -1372,8 +1372,27 @@
           (This is not usually taken as the <em>definition</em>, but it is equivalent.)
         </p>
       </investigation>
+      
 <!-- TODO: insert examples etc.-->
 <!-- TODO: insert graphic illustrating idea of the derivative-->
+<!--https://www.geogebra.org/calculator/rveqzyzb <<< this is it-->
+<figure xml:id="fig-geogebra-idea-of-deriv">
+  <caption>GeoGebra: The idea of the derivative</caption>
+  <interactive xml:id="geogebra-idea-of-deriv" platform="geogebra" width="80%" aspect="1:1">
+      <slate xml:id="idea-of-deriv" surface="geogebra" material="rveqzyzb" aspect="1:1">
+        setCoordSystem(-2,8,-4,6);
+    <!--    centerView((0,0)); -->
+        <!--enableShiftDragZoom(false);-->
+      </slate>
+    <instructions>
+      <p> 
+       You can drag to change <m>dz</m>. Notice how <m>df</m> is a constant multiple of <m>dz</m>:
+       there are fixed <m>\theta_0</m> and <m>r_0</m> such that <m>df = r_0e^{i\theta_0} dz</m>.
+       You can view a larger version of this <url href="https://www.geogebra.org/calculator/rveqzyzb">here</url>.
+      </p>
+    </instructions>
+  </interactive>
+</figure>
     </section>
     <section xml:id="sec-cauchy-riemann">
       <title>The Cauchy–Riemann Equations</title>
@@ -1588,6 +1607,38 @@
          Notice that this function is not conformal at <m>0</m> since its derivative is zero there!
         </p>
       </example>
+      <!--https://www.geogebra.org/calculator/c3xacyh7-->
+      <figure xml:id="fig-geogebra-square-conformal-1">
+        <caption>GeoGebra: <m>z\mapsto z^2</m> transforms some curves conformally</caption>
+        <interactive xml:id="geogebra-square-conformal-1" platform="geogebra" width="80%" aspect="1:1">
+            <slate xml:id="square-conformal-1" surface="geogebra" material="c3xacyh7" aspect="1:1">
+              setCoordSystem(-70,70,-70,70);
+          <!--    centerView((0,0)); -->
+              <!--enableShiftDragZoom(false);-->
+            </slate>
+          <instructions>
+            <p> 
+             You can view a larger version of this <url href="https://www.geogebra.org/calculator/c3xacyh7">here</url>.
+            </p>
+          </instructions>
+        </interactive>
+      </figure>
+      <!--https://www.geogebra.org/calculator/cankttgf-->
+      <figure xml:id="fig-geogebra-square-conformal-2">
+        <caption>GeoGebra: <m>z\mapsto z^2</m> transforms some curves conformally</caption>
+        <interactive xml:id="geogebra-square-conformal-2" platform="geogebra" width="80%" aspect="1:1">
+            <slate xml:id="square-conformal-2" surface="geogebra" material="cankttgf" aspect="1:1">
+              setCoordSystem(-10,10,-10,10);
+          <!--    centerView((0,0)); -->
+              <!--enableShiftDragZoom(false);-->
+            </slate>
+          <instructions>
+            <p> 
+             You can view a larger version of this <url href="https://www.geogebra.org/calculator/cankttgf">here</url>.
+            </p>
+          </instructions>
+        </interactive>
+      </figure>
       <example>
         <p>
          The exponential function <m>z\mapsto e^z</m> is conformal at every <m>z\in\C</m>.
@@ -1666,13 +1717,14 @@
           </interactive>
         </figure>
       </example>
-      <example>
+      <example xml:id="example-baby-FLT">
         <p>
           The map <m>z\mapsto \frac{z-i}{z+i}</m> defines a conformal equivalence
           between <m>\bH</m> and the unit disk <m>\set{z}{\abs{z} \lt 1}</m>.
         </p>
         <p>
-          (Why? Well, <m>z\in \bH</m> iff <m>z</m> is closer to <m>i</m> than to <m>-i</m>,
+          (Why does this function even send the upper halfplane to the disk? 
+          Well, <m>z\in \bH</m> iff <m>z</m> is closer to <m>i</m> than to <m>-i</m>,
           iff <m>\abs{z-i} \lt \abs{z+i}</m>, iff <m>\abs{\frac{z-i}{z+i}} \lt 1</m>.)
         </p>
         <p>
@@ -1683,6 +1735,425 @@
     </section>
     <section xml:id="sec-flt">
       <title>Fractional Linear Transformations</title>
+      <p>
+        In <xref ref="example-baby-FLT"/> we saw an example of a conformal equivalence.
+        This was in fact our second example of a <term>Möbius Transformation</term>,
+        aka <term>Fractional-linear Transformation (FLT)</term>.
+      </p>
+      <definition xml:id="def-FLT">
+        <statement>
+          <p>
+            A <term>Fractional-linear Transformation</term> 
+            (aka <term>FLT</term> aka <term>Möbius Transformation</term>)
+            is a function <m>f\colon \C\to\C</m> of the form
+            <me>
+              f(z) = \frac{az + b}{cz + d}
+            </me>
+            where <m>a,b,c,d</m> are complex numbers satisfying <m>ad-bc \ne 0</m>.
+          </p>
+        </statement>
+      </definition>
+      <p>
+        (Notice that if we allowed <m>ad-bc = 0</m> then we'd simply get a constant map.
+        Some authors allow this and call constant maps <term>singular</term> FLTs,
+        so that ours would be <term>non-singular</term> FLTs.)
+      </p>
+      <example>
+        <ol marker="(a)">
+          <li>
+            <p>
+              The function from <xref ref="example-baby-FLT"/> is the FLT
+              with <m>a = 1</m>, <m>b = -i</m>, <m>c = 1</m>, and <m>d = i</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Complex inversion <m>z \mapsto \frac{1}{z}</m>
+              is the FLT with <m>a = 0</m>, <m>b = 1</m>, <m>c = 1</m>, and <m>d = 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The affine transformation <m>z \mapsto az + b </m>
+              is the FLT with <m>c = 0</m>, <m>d = 1</m>, and <m>a \ne 0</m>.
+            </p>
+          </li>
+        </ol>
+      </example>
+      <p>
+        It is convenient to regard an FLT <m>f(z) = \frac{az+b}{cz + d}</m> as a 
+        transformation <m>\C\cup\{\infty\} \to \C \cup \{\infty\}</m> of the extended complex plane
+        by introducing the following conventions.
+      </p>
+      <p>
+        If <m>c = 0</m> then define <m>f(\infty) = \infty</m>.
+      </p>
+      <p>
+        If <m>c \ne 0</m> then set <m>f(-d/c) = \infty</m>
+        and set <m>f(\infty) = \frac{a}{c}</m>.
+      </p>
+      <aside>
+        <p>
+          Where does <m>\frac{a}{c}</m> come from? Divide the numerator and denominator of 
+          <m>\frac{az + b}{cz + d}</m> by <m>z</m> and imagine what happens when <m>z</m>
+          tends toward <m>\infty</m>.
+        </p>
+      </aside>
+      <p>
+        If you have seen some linear algebra, then it is impossible to look at the condition
+        <q><m>ad-bc \ne 0</m></q> in the definition of FLT and not wonder whether this has something
+        to do with determinants. We are about to see that it does!
+      </p>
+      <proposition xml:id="prop-FLT-homom">
+        <statement>
+          <ol marker="(a)">
+            <li>
+              <p>
+                Every FLT is invertible, and its inverse is another FLT.
+              </p>
+            </li>
+            <li>
+              <p>
+                The composite of two FLTs is another FLT.
+              </p>
+            </li>
+          </ol>
+        </statement>
+        <proof>
+          <p>
+            Consider an FLT <m>f(z) = \frac{az+b}{cz+d}</m>.
+            We will show more than what is stated in the Proposition.
+            For the first part, define
+          </p>
+          <me>
+             g(z) = \frac{1}{ad-bc} \frac{-dz + b}{cz - a}.
+          </me>
+          <p>
+            (Notice that these parameters are exactly the same as the entries of the matrix
+            inverse of the matrix <m>\displaystyle \begin {bmatrix} a \amp b \\ c \amp d \end {bmatrix}</m>!)
+          </p>
+          <p>
+            You can check that <m>g(f(z)) = z</m>. (In fact, this follows from the next part of the proof.)
+          </p>
+          <p>
+            For part (b), consider FLTs <m>f</m> and <m>g</m> given by
+            <me>
+              f(z) = \frac{az+b}{cz+d}  \quad \text{and}  \quad g(z) = \frac{pz + q}{rz + s}.
+            </me>
+            You might guess that <m>f(g(z))</m> corresponds to the product of the matrices
+            <m>\displaystyle \begin {bmatrix} a \amp b \\ c \amp d \end {bmatrix}</m>
+            and <m>\displaystyle \begin {bmatrix} p \amp q \\ r \amp s \end {bmatrix}</m>,
+            and you'd be correct!
+          </p>
+          <p>
+            Check that 
+            <me>
+             f(g(z)) = \frac{(ap + br)z + (aq + bs)}{(cp + dr)z + (cq + ds)}
+            </me>
+            and use linear algebra to explain why the new parameters <m>A,B,C,D</m> satisfy the non-singular condition
+            <m>AD - BC \ne 0</m>.
+          </p>
+        </proof>
+      </proposition>
+      <investigation>
+        <p>
+          What's really going on? 
+          The map
+          <me>
+            \begin{bmatrix} a \amp b \\ c \amp d \end {bmatrix} \mapsto \left(z \mapsto \frac{az + b}{cz + d}\right)
+          </me>
+          defines a <term>group homomorphism</term>
+          <m>\operatorname{GL}_2(\C) \to \operatorname{Aut}(\C\cup\{\infty\})</m>.
+          (You don't need to know for this class what these things mean, but you might have seen them in 
+          other classes.)
+        </p>
+      </investigation>
+      <theorem xml:id="thm-FLT-decomp">
+        <statement>
+          <p>
+            Every FLT can be expressed as 
+            a composite of dilations (<m>z \mapsto az</m>), translations (<m>z\mapsto z + b</m>)
+            and inversions (<m>z\mapsto \frac{1}{z}</m>).
+          </p>
+        </statement>
+        <proof>
+          <p>
+            Consider <m>f(z) = \frac{az + b}{cz + d}</m>.
+            Again, we consider separately the cases where <m>c = 0</m> and <m>c \ne 0</m>.
+          </p>
+          <p>
+            If <m>c = 0</m> then <m>f(z) = \frac{a}{d} z + \frac{b}{d} = a(z + \frac{b}{a})</m>.
+            This is the translation <m>z \mapsto z+ \frac{b}{a}</m> postcomposed by the dilation <m>z \mapsto az</m>.
+          </p>
+          <p>
+            Now suppose that <m>c \ne 0</m>.
+            Divide the numerator and denominator by <m>c</m> in order to assume <m>c = 1</m>:
+          </p>
+          <me>
+            f(z) = \frac{az+b}{cz + d} = \frac{\frac{a}{c}z + \frac{b}{c}}{z + \frac{d}{c}}
+            = \frac{A z + B}{z + D}.
+          </me>
+          <p>
+            Now do some fraction arithmetic to get
+          </p>
+          <me>
+            f(z) = A + \frac{B - AD}{Z + D}.
+          </me>
+          <p>Now <m>f</m> can be written as a composite of translations, inversions, and translations. Look:</p>
+          <md>
+            <mrow>z \amp \mapsto z + D  \amp\amp \text{(translation)}</mrow>
+            <mrow> \amp \mapsto \frac{1}{z + D} \amp\amp \text{(inversion)} </mrow>
+            <mrow> \amp \mapsto \frac{B - AD}{z + D} \amp\amp \text{(dilation)}</mrow>
+            <mrow> \amp \mapsto A + \frac{B-AD}{z+D}  \amp\amp \text{(translation)}</mrow>
+          </md>
+          <p> The proof is complete. </p>
+        </proof>
+      </theorem>
+      <p>
+        <xref ref="thm-FLT-decomp"/> has the following important geometric corollary.
+      </p>
+      <corollary xml:id="cor-FLT-preserve-circles">
+        <statement>
+          <p>
+            Every FLT is circle-preserving.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            It is intuitively clear (and straightforward to check carefully)
+            that dilations and translations are circle-preserving.
+            And we already proved that the complex inversion map <m>z\mapsto 1/z</m>
+            preserves circles by considering it as a transformation of the Riemann Sphere!
+            <!--TODO: insert ref to this theorem in SP section-->
+          </p>
+        </proof>
+      </corollary>
+      <proposition xml:id="prop-FLT-fixed-pts">
+        <title>Fixed-Point Property of FLTs</title>
+        <statement>
+          <p>
+            Every FLT other than the identity map has either one or two fixed points 
+            (counting the point at <m>\infty</m>).
+            That is, there are either one or two solutions to <m>f(z) = z</m>.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            As usual, we consider separately the cases where <m>c=0</m> and <m>c \ne 0</m>.
+            Suppose first that <m>c = 0</m>, so that our FLT can be written as <m>f(z) = az + b</m>.
+            One fixed point is <m>\infty</m>. If <m>a\ne 1</m> then 
+            <m>z = \frac{b}{1-a}</m> is another:
+          </p>
+          <me>
+            f(\frac{b}{1-a}) = a\frac{b}{1-a} + b = \frac{b}{1-a}.
+          </me>
+          <p>
+            If <m>a=1</m> then <m>b\ne 0</m>, and so <m>z+b = z</m> has no solutions other than <m>z = \infty</m>.
+          </p>
+          <p>
+            Now suppose that <m>c \ne 0</m>. Then <m>f(\infty) = \frac{a}{c} \ne \infty</m>, so <m>\infty</m>
+            is not a fixed point.
+            The equation
+           <me>
+             z = \frac{az + b}{cz + d}
+           </me>
+            can be rearranged into the quadratic equation <m>cz^2 - (a-d)z - b = 0</m>,
+            which has two solutions
+            <me>
+              z = \frac{a-d \pm \sqrt{(a-d)^2 + 4bc}}{2c}
+            </me>
+            if <m>(a-d)^2 + 4bc \ne 0</m>. Otherwise the two solutions coalesce into just one fixed point:
+            <m>\frac{a-d}{2c}</m>.
+          </p>
+        </proof>
+      </proposition>
+      <example>
+        <ol>
+          <li>
+            <p>
+              The FLT <m>f(z) = \frac{1}{z}</m> has two fixed points <m>z = \pm 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The FLT <m>f(z) = \frac{-1}{z}</m> has two fixed points <m>z = \pm i</m>.
+            </p>
+          </li>
+        </ol>
+      </example>
+      <corollary xml:id="cor-FLT-three">
+        <title>Three Points Property</title>
+        <statement>
+          <p>
+            If <m>f</m> and <m>g</m> are FLTs with three common values, i.e.,
+            <me>
+              f(z_1) = g(z_1) \text{ and } f(z_2) = g(z_2) \text{ and } f(z_3) = g(z_3),
+            </me>
+            then <m>f = g</m>.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            The function <m>g^{-1} \circ f</m> (is an FLT by <xref ref="prop-FLT-homom"/> and)
+          has three fixed points so by <xref ref="prop-FLT-fixed-pts"/> must be the identity map.
+          </p>
+        </proof>
+      </corollary>
+      <theorem xml:id="thm-FLT-three-pts">
+        <statement>
+          <p>
+            For all distinct <m>q,r,s</m> and all distinct <m>q', r', s'</m>
+            there is a <em>unique</em> FLT <m>f</m> satisfying
+            <m>f(q) = q'</m>, <m>f(r) = r'</m>, and <m>f(s) = s'</m>.
+          </p>
+          <proof>
+            <p>
+              Let's start with <m>q' = 0</m>, <m>r' = 1</m>, and <m>s' = \infty</m>.
+              (It is not obvious that this is what we should do, but hang in there and you'll see.)
+            </p>
+            <claim xml:id="claim-FLT-three-pts-special">
+              <statement>
+                <p>
+                  For all distinct complex numbers <m>q,r,s</m> there is a unique FLT <m>f</m>
+                  satisfying <m>f(q) = 0</m>, <m>f(r) = 1</m>, and <m>f(s) = \infty</m>.
+                </p>
+              </statement>
+              <proof>
+                <p>
+                  In order for <m>f</m> to send <m>q</m> to <m>0</m> and <m>s</m> to <m>\infty</m>,
+                  <m>f(z)</m> must be proportional to <m>\frac{z - q}{z - s}</m>.
+                  That is, <m>f(z) = k\left( \frac{z-q}{z-s} \right)</m> for some <m>k</m>.
+                  We plug in <m>r</m> and to solve for <m>k</m>.
+                  <me>
+                    1 = r' = f(r) = k\left( \frac{r - q}{r-s} \right),
+                  </me>
+                  so <m>k = \frac{r-s}{r-q}</m>.
+                  We conclude that the following FLT <m>f</m> will do the trick:
+                </p>
+                <me>
+                  f(z) = \left( \frac{r-s}{r-q} \right)\left( \frac{z-q}{z-s} \right).
+                </me>
+                (Remember that <m>z</m> is the only variable in this expression.
+                So the parameters of <m>f</m> are e.g. <m>b = \frac{r-s}{r-q}(-q)</m>.
+                These have to be interpreted appropriately when you plug in <m>\infty</m>
+                or get <m>0</m> in the denominator.)
+              </proof>
+            </claim>
+            By the Claim we can find a FLT <m>f</m> that sends <m>q,r,s</m> to <m>0,1,\infty</m>
+            (respectively) and another FLT <m>g</m> that sends <m>q',r',s'</m> to <m>0,1,\infty</m> (respectively).
+            Now <m>g^{-1} \circ f</m> sends <m>q,r,s</m> to <m>q',r',s'</m>.
+          </proof>
+        </statement>
+      </theorem>
+          <definition xml:id="def-cross-ratio">
+            <statement>
+              <p>
+                We define the <term>cross ratio</term> 
+                of four complex numbers <m>z,q,r,s</m> to be
+                <me>
+                  [z : q : r : s] = \left( \frac{r-s}{r-q} \right)\left( \frac{z-q}{z-s} \right),
+                </me>
+                which is the image of <m>z</m> under the unique FLT sending 
+                <m>q,r,s</m> to <m>0,1,\infty</m>.
+              </p>
+              <aside>
+                <p>
+                  Warning: different textbooks use different conventions for the cross ratio.
+                </p>
+              </aside>
+            </statement>
+          </definition>
+          <p>
+            It is often useful to have an explicit form for the unique FLT
+            sending <m>q,r,s</m> to <m>q',r',s'</m>. It is given by solving the following equation
+            for <m>w</m> as a function of <m>z</m>, after making appropriate changes to deal with <m>\infty</m>:
+          </p>
+          <me>
+            \frac{(r'-s')(w-q')}{(r'-q')(w-s')} = [w : q' : r' : s'] = [z : q : r : s] = \frac{(r-s)(z-q)}{(r-q)(z-s)}.
+          </me>
+          <example>
+            <p>
+              Let's find the unique FLT <m>f</m> sending <m>(i,\infty,-i)</m> to <m>(0,1,\infty)</m>.
+              We solve
+              <me>
+                \frac{w-0}{1-0} = \frac{z-i}{z+i}
+              </me>
+              for <m>w</m>. Easy! Get <m>w = f(z) = \frac{z-i}{z+i}</m>. 
+              Hey, this is the example from <xref ref="example-baby-FLT"/>!
+            </p>
+          </example>
+          <example>
+            <p>
+              Let's find the unique FLT <m>f</m> sending <m>(\infty,i,0)</m> to <m>(-1,\infty,1)</m>.
+              We solve the following equation for <m>w</m>.
+              <me>
+                \frac{w+1}{w-1} = \frac{i-0}{1}\left( \frac{1}{z-0} \right) = \frac{i}{z}.
+              </me>
+              We get
+            </p>
+              <me>
+                f(z) = w = \frac{-1-\frac{i}{z}}{1 - \frac{i}{z}} = \frac{-z - i}{z - i}.
+              </me>
+          </example>
+      <lemma xml:id="lem-FLT-only">
+        <statement>
+          <ol>
+            <li>
+              <p>
+                If <m>f</m> is a FLT whose only fixed point is <m>\infty</m>,
+                then there is a nonzero <m>\beta \in \C</m> for which <m>f(z) = z + \beta</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>g</m> is a FLT whose fixed points are <m>0</m> and <m>\infty</m>,
+                then there is <m>\gamma\ne 1</m> for which <m>g(z) = \gamma z</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+        <proof>
+          <p>
+            Write <m>f(z) = \frac{az + b}{cz + d}</m>.
+            Notice that <m>c = 0</m> since <m>\infty</m> is a fixed point of 
+            <m>f</m>. (This follows from how we defined the extension of an FLT
+            to the point at infinity.) So by changing names of constants we can write
+            <m>f(z) = az + b</m>. If <m>b=0</m>, then <m>0</m> would be a fixed point of <m>f</m>, 
+            contradicting our assumption. So <m>b\ne 0</m>. If <m>a \ne 1</m>
+            then <m>\frac{b}{1-a}</m> would be another fixed point of <m>f</m>.
+            So <m>a=1</m>; that is, <m>f(z) = z + b</m>, as desired.
+          </p>
+          <p>
+            For the second part, notice that <m>g</m> must be the unique FLT
+            that sends <m>0</m> to <m>0</m>, <m>\infty</m> to <m>\infty</m>,
+            and <m>1</m> to <m>g(1)</m>. But <m>z \mapsto g(1) z</m> also has these properties,
+            so <m>g(z) = g(1) z</m>. And <m>g(1) \ne 1</m>, since <m>g</m> has exactly
+            two fixed points (and is therefore not the identity map).
+          </p>
+        </proof>
+      </lemma>
+      <lemma xml:id="lem-FLTs-preserve-cross-ratios">
+        <statement>
+          <p>
+            FLTs preserve cross ratios.
+            That is, if <m>f</m> is an FLT then
+          </p>
+          <me>
+            [f(z) : f(q) : f(r) : f(s)] = [z : q : r : s].
+          </me>
+        </statement>
+        <proof>
+          <p>
+            The lefthand side of the equation
+            is <m>g(f(z))</m> where <m>g</m> is the unique
+            FLT sending <m>(f(q),f(r),f(s))</m> to <m>(0,1,\infty)</m>.
+            The righthand side of the equation is <m>h(z)</m>, where <m>h</m> is the unique
+            FLT sending <m>(q,r,s)</m> to <m>(0,1,\infty)</m>.
+            But <m>g \circ f</m> is also an FLT sending <m>(q,r,s)</m> to <m>(0,1,\infty)</m>,
+            so it must be that <m>h = g\circ f</m>. In particular, <m>h(z) = g(f(z))</m>.
+          </p>
+        </proof>
+      </lemma>
       
     </section>
     </chapter>

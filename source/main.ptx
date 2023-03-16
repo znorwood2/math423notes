@@ -5,11 +5,17 @@
   <docinfo>
     <macros>
       \newcommand{\R}{\mathbb R}
+      \newcommand{\N}{\mathbb N}
       \renewcommand{\Re}{\operatorname{Re}}
       \renewcommand{\Im}{\operatorname{Im}}
       \renewcommand{\C}{\mathbb{C}}
       \newcommand {\bH}{\mathbb{H}}
+      \newcommand {\bF} {\mathbf{F}}
+      \newcommand {\bG} {\mathbf{G}}
+      \newcommand {\bN} {\mathbf{N}}
+      \newcommand {\bT} {\mathbf{T}}
       \newcommand{\abs}[1]{\left| #1 \right|}
+      \newcommand{\angs}[1]{\langle #1 \rangle}
       \newcommand\set[2]{\left\{ #1 : #2 \right\}}
       \renewcommand{\bar}{\overline}
       \newcommand{\Arg}{\operatorname{Arg}}
@@ -2087,6 +2093,24 @@
               </aside>
             </statement>
           </definition>
+          <!--https://www.geogebra.org/calculator/ftf2ykuf-->
+          <figure xml:id="fig-geogebra-cross-ratio">
+            <caption>GeoGebra: a basic path <m>\gamma</m></caption>
+            <interactive xml:id="geogebra-cross-ratio" platform="geogebra" width="80%" aspect="1:1">
+                <slate xml:id="cross-ratio" surface="geogebra" material="ftf2ykuf" aspect="1:1">
+                  setCoordSystem(-3,3,-3,3);
+              <!--    centerView((0,0)); -->
+                  <!--enableShiftDragZoom(false);-->
+                </slate>
+              <instructions>
+                <p> 
+                 Move <m>z,q,r,s</m> around and watch the cross ratio <m>[z : q : r : s]</m> change.
+                 The circle through <m>q,r</m> and <m>s</m> is shown for your convenience.
+                 You can view a larger version of this <url href="https://www.geogebra.org/calculator/ftf2ykuf">here</url>.
+                </p>
+              </instructions>
+            </interactive>
+          </figure>
           <p>
             It is often useful to have an explicit form for the unique FLT
             sending <m>q,r,s</m> to <m>q',r',s'</m>. It is given by solving the following equation
@@ -2217,7 +2241,7 @@
           <caption>GeoGebra: a basic path <m>\gamma</m></caption>
           <interactive xml:id="geogebra-basic-path" platform="geogebra" width="80%" aspect="1:1">
               <slate xml:id="basic-path" surface="geogebra" material="tesbbp6a" aspect="1:1">
-                <!--setCoordSystem(-8,8,-3,13);-->
+                setCoordSystem(-3,3,-3,3);
             <!--    centerView((0,0)); -->
                 <!--enableShiftDragZoom(false);-->
               </slate>
@@ -2329,7 +2353,487 @@
       </section>
       <section xml:id="sec-basic-integral-props">
         <title>Basic properties and the Fundamental Theorem</title>
+        <lemma xml:id="lem-integral-reparametrize">
+          <statement>
+            <p>
+              The integral <m>\int_\gamma f(z)\, dz</m> is independent of parametrization.
+              That is, if <m>\gamma\colon [a,b]\to\C</m>, <m>\delta\colon [a',b']\to\C</m>,
+              and <m>\phi\colon [a',b']\to[a,b]</m> satisfy <m>\delta = \gamma \circ \phi</m>,
+              then
+            </p>
+            <me>
+              \int_\gamma f(z)\,dz = \int_\delta f(z)\,dz.
+            </me>
+          </statement>
+          <proof>
+            <p>
+              This follows from the definition of the contour integral and the substitution
+              rule (aka <q>u-sub</q>) for the usual Calc I integral:
+            </p>
+            <md>
+              <mrow> \int_\delta f(z)\,dz \amp = \int_{a'}^{b'} f(\gamma(\phi(t)))(\gamma\circ\phi)'(t)\,dt</mrow>
+              <mrow> \amp = \int_{a'}^{b'} f(\gamma(\phi(t))) \gamma'(\phi(t)) \phi'(t)\,dt </mrow>
+              <mrow> \amp = \int_a^b f(\gamma(u)) \gamma'(u) \,du </mrow>
+              <mrow> \amp = \int_\gamma f(z)\,dz</mrow>
+            </md>
+            (For the third equality, we did a u-substitution with <m>u = \gamma(\phi(t))</m>.)
+          </proof>
+        </lemma>
+        <lemma xml:id="lem-integral-basic-props">
+          <statement>
+            <ol marker="(a)">
+              <li>
+                <p>
+                  <m>\int_\gamma f(z) + g(z)\,dz = \int_\gamma f(z)\,dz + \int_\gamma g(z)\,dz</m>
+                  and <m>\int_\gamma cf(z)\,dz = c \int_\gamma f(z)\,dz</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose that <m>\gamma\colon[a,b]\to\C</m> is a contour and that <m>c\in [a,b]</m>.
+                  Let <m>\gamma_{\text{start}}</m> be the restriction of <m>\gamma</m> to <m>[a,c]</m>
+                  and let <m>\gamma_{\text{end}}</m> be the restriction of <m>\gamma</m> to <m>[c,b]</m>.
+                  Then
+                </p>
+                <me>
+                  \int_\gamma f(z)\,dz = \int_{\gamma_{\text{start}}} f(z)\,dz + \int_{\gamma_{\text{end}}} f(z)\,dz
+                </me>
+              </li>
+              <li>
+                <me>
+                  \int_{-\gamma} f(z)\,dz = -\int_\gamma f(z)\,dz
+                </me>
+                <p>
+                  where <m>-\gamma\colon [a,b] \to \C</m> is the reverse of <m>\gamma</m> defined by 
+                  <m>(-\gamma)(t) = a+b - t </m>.
+                </p>
+              </li>
+              <li xml:id="integral-basic-props-max">
+                <me>
+                  \abs{\int_\gamma f(z)\,dz} \le \operatorname{length}(\gamma) \cdot \sup \abs{f(\gamma(t))},
+                </me>
+                <p>
+                  where <m>\operatorname{length}(\gamma) = \int_a^b \abs{\gamma'(t)}\,dt</m>. 
+                  (This is the same definition of arclength from multivariable calculus.)
+                </p>
+              </li>
+            </ol>
+          </statement>
+          <proof>
+            <p>
+              We'll prove <xref ref="integral-basic-props-max"/>, but the proofs of the remaining properties
+              are left as exercises.
+            </p>
+            <p>
+              Property <xref ref="integral-basic-props-max"/> follows from the definition and the 
+              similar <q>bounding box property</q> of standard Calc I integrals:
+            </p>
+            <md>
+              <mrow> \abs{\int_\gamma f(z)\,dz} \amp = \abs{\int_a^b f(\gamma(t))\gamma'(t)\,dt} </mrow>
+              <mrow> \amp \le \int_a^b \abs{f(\gamma(t))} \abs{\gamma'(t)}\,dt </mrow>
+              <mrow> \amp \le \left( \sup_{t\in [a,b]} \abs{f(\gamma(t))} \right) \int_a^b \abs{\gamma'(t)}\,dt</mrow>
+            </md>
+            <p>
+              That's what we wanted to prove.
+            </p>
+          </proof>
+        </lemma>
+        <example xml:id="example-power-function">
+          <p>
+            Take the standard parametrization of the unit circle:
+            <m>\gamma\colon [0,2\pi]\to\C</m>, <m>\gamma(\theta) = e^{i\theta}</m>.
+            Let <m>f(z) = z^n</m> for an unspecified <m>n\in\mathbb{Z}</m>.
+            Let's compute <m>\int_\gamma f(z)\,dz</m>:
+          </p>
+          <me>
+            \int_\gamma f(z)\,dz = \int_0^{2pi} (e^{i\theta})^n \cdot i e^{i\theta} \, d\theta
+            = i\int_0^{2\pi} e^{i(n+1)\theta}\,d\theta,
+          </me>
+          <p>
+            which equals <m>2\pi i</m> if <m>n = -1</m> and <m>0</m> otherwise.
+          </p>          
+        </example>
+        <p>
+          We aim to prove a version of the Fundamental Theorem of Calculus for contour integrals.
+          First we need a simple version for functions <m>g\colon [a,b] \to \C</m>:
+        </p>
+        <lemma xml:id="lem-FTC-easy">
+          <statement>
+            <p>
+              Suppose that <m>g(t) = u(t) + iv(t)</m> and <m>G(t) = U(t) + iV(t)</m>
+              are two paths <m>[a,b]\to\C</m> for which <m>G'(t) = g(t)</m>.
+              Then <m>\int_a^b g(t)\,dt = G(b) - G(a)</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              This follows immediately from the defintion of integrals for paths like this
+              and the Fundamental Theorem of Calculus.
+            </p>
+            <me>
+              \int_a^b g(t)\,dt = \int_a^b u(t)\,dt + i\int_a^b v(t)\,dt = U(b) - U(a) + i(V(b) - V(a))
+              = G(b) - G(a).
+            </me>
+          </proof>
+        </lemma>
+        <theorem xml:id="thm-FTC">
+          <statement>
+            <p>
+              If <m>F'(z) = f(z)</m> on a domain <m>U</m> and <m>\gamma \colon [a,b]\to U</m> is a contour,
+              then <m>\int_\gamma f(z)\,dz = F(\gamma(b)) - F(\gamma(a))</m>.
+            </p>
+          </statement>
+        </theorem>
+        <proof>
+          <p>
+            Apply <xref ref="lem-FTC-easy"/> to <m>G = F\circ \gamma</m> and <m>g = f</m>.
+          </p>
+        </proof>
+        <example>
+          <p>
+          Let's revisit <xref ref="example-power-function"/>. 
+          We're considering <m>f(z) = z^n</m> and <m>\gamma(t) = e^{it}</m> for <m>t \in [0,2\pi]</m>.
+          If <m>n\ne -1</m>, then <m>F(z) = \frac{z^{n+1}}{n+1}</m> is an antiderivative of <m>f</m> on <m>\C</m>.
+          So <m>\int_\gamma z^n \, dz = F(0) - F(0) = 0</m>.
+          </p>
+          <p>
+          On the other hand, if <m>n = -1</m>, then <m>f(z) = \frac{d}{dz} \log(z)</m>, but the complex
+          logarithm can be defined continuously only on a slit plane.
+          In fact, because <m>\int \frac{1}{z} \, dz</m> does not vanish on the unit circle,
+          there <alert>cannot</alert> be a continuous branch of the log defined on any domain <m>U</m> that
+          includes the unit circle. Now we have a <em>proof</em> of that fact!
+          </p>
+        </example>
+        <p>
+          An especially important consequence of the FTC for contour integrals
+          is that if <m>f</m> has an antiderivative, then <m>f</m> integrates to <m>0</m>
+          over any closed curve. As we will see in the next section, this implication reverses!
+        </p>
+      </section>
+      <section xml:id="sec-cauchys-thm">
+        <title>Cauchy's Theorem</title>
+        <theorem xml:id="thm-antiderivative-conditions">
+          <statement>
+            <p>
+              Suppose that <m>f</m> is a continuous function defined on a domain <m>D</m>. The following are equivalent:
+            </p>
+            <ol marker="(a)">
+              <li xml:id="thm-item-antiderivative">
+                <p>
+                  <m>f</m> has an antiderivative <m>F</m> on <m>D</m>;
+                </p>
+              </li>
+              <li xml:id="thm-item-path-ind"><p>for all <m>z_1,z_2\in D</m> the integral <m>\int_{z_1}^{z_2} f(z)\,dz</m> 
+              is <term>independent of path</term>, meaning that for all contours <m>\gamma,\delta\colon [a,b]\to D</m>
+            with <m>\gamma(a) = \delta(a) = z_1</m> and <m>\gamma(b) = \delta(b) = z_2</m> we have
+          <m>\int_\gamma f(z)\,dz = \int_\delta f(z)\,dz</m>; </p> </li>
+          <li xml:id="thm-item-closed">
+            <p>
+              for all closed paths <m>\gamma \colon [a,b]\to D</m> we have <m>\int_\gamma f(z)\,dz = 0</m>.
+            </p>
+          </li>
+            </ol>
+          </statement>
+          <proof>
+            <p>
+              We'll give the proofs of all the easy directions here and leave the difficult direction for
+              a separate proposition.
+            </p>
+            <p>
+              First, notice that we already observed that <xref ref="thm-item-antiderivative"/> implies <xref ref="thm-item-path-ind"/>
+              after our discussion of the FTC for contour integrals.
+              It is not too difficult to see that conditions <xref ref="thm-item-path-ind"/> and <xref ref="thm-item-closed"/> are 
+              equivalent. Assume <xref ref="thm-item-path-ind"/> and suppose that <m>\gamma</m> is closed.
+              Divide <m>\gamma</m> into two paths, <m>\gamma_1</m> from <m>z_1</m> to <m>z_2</m> and <m>\gamma_2</m> from
+              <m>z_2</m> back to <m>z_1</m>. (It does not matter where this division happens.) 
+              Using path-independence and the basic properties of contour integrals, we have
+             </p>
+             <me>
+              \int_{\gamma_1} f(z)\,dz = \int_{\gamma_2} f(z)\,dz = -\int_{\gamma_2} f(z)\,dz,
+             </me>
+             <p>
+              from which we conclude that
+              <me>
+                \int_\gamma f(z)\,dz = \int_{\gamma_1 + -\gamma_2} f(z)\,dz = 0.
+              </me>
+              So <xref ref="thm-item-path-ind"/> implies <xref ref="thm-item-closed"/>.
+              The proof of the converse uses similar ideas and is left as an exercise.
+             </p>
+             <p>
+              So it remains to show that <xref ref="thm-item-path-ind"/> implies <xref ref="thm-item-antiderivative"/>,
+              which we leave to <xref ref="FILLINLATER"/> because it will be useful to have a refinement of this result.
+             </p>
+          </proof>
+        </theorem>
+        <p>
+          Notice that when we say that <m>f</m> has an <term>antiderivative</term> here, we mean that it has a complex
+          antiderivative, i.e., a function <m>F</m> for which <m>\frac{d}{dz} F(z) = f(z)</m>.
+        </p>        
+        <p>
+          <xref ref="thm-antiderivative-conditions"/> should remind you of a theorem from multivariable calculus.
+          In fact you can use one to prove the other; see <xref ref="exercise-antiderivative-conditions-multi"/>.
+        </p>
+        <proposition xml:id="prop-triangles-antiderivative">
+          <statement>
+            <p>
+              Suppose that <m>U</m> is a star-shaped domain, <m>f\colon U\to \C</m> is continuous,
+              and <m>\int_{\partial T} f(z)\,dz = 0</m> for all triangles <m>T \subseteq U</m>.
+              Then <m>f</m> has an antiderivative on <m>U</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Let <m>a_0 \in U</m> be a point of <m>U</m> with respect to which <m>U</m> is star-shaped.
+              For <m>w\in U</m> define <m>F(w) = \int_{[a_0,w]} f(z)\,dz</m>,
+              where <m>[a_0,w]</m> is the straight-line path from <m>a_0</m> to <m>w</m>.
+              (Notice that <m>[a_0,w]</m> lies completely in <m>U</m>, since <m>U</m> is star-shaped wrt <m>a_0</m>.)
+            </p>
+            <!--https://www.geogebra.org/calculator/gjscszrk-->
+            <figure xml:id="fig-geogebra-star-shaped-antiderivative">
+              <caption>GeoGebra: a basic path <m>\gamma</m></caption>
+              <interactive xml:id="geogebra-star-shaped-antiderivative" platform="geogebra" width="80%" aspect="1:1">
+                  <slate xml:id="star-shaped-antiderivative" surface="geogebra" material="gjscszrk" aspect="1:1">
+                    <!--setCoordSystem(-3,3,-3,3);-->
+                <!--    centerView((0,0)); -->
+                    <!--enableShiftDragZoom(false);-->
+                  </slate>
+                <instructions>
+                  <p> 
+                   You can move <m>w</m> around freely.
+                    You can view a larger version of this <url href="https://www.geogebra.org/calculator/gjscszrk">here</url>.
+                  </p>
+                </instructions>
+              </interactive>
+            </figure>
+            <p>
+              We aim to show that <m>F'(w) = f(w)</m>. Since <m>U</m> is open, there is <m>\epsilon \gt 0</m>
+              for which <m>B_\epsilon(w) \subseteq U</m>. Let <m>\Delta w \lt \epsilon</m>.
+              Let <m>T</m> be the triangle formed by <m>a_0, w</m>, and <m>w+\Delta w</m>, with boundary oriented counterclockwise.
+              Notice that <m>T</m> is completely included in <m>U</m>, since every point on the line segment 
+              <m>[w,w+\Delta w]</m> is (by choice of <m>\Delta w</m>), and since <m>U</m> is star-shaped wrt <m>a_0</m>.
+              We can therefore apply our assumption to conclude that <m>\int_{[a_0,w] + [w,w+\Delta w] + [w+\Delta w,a_0]} f(z)\,dz = 0</m>.
+              On the other hand, this expression also equals <m>F(w+\Delta w) - \int_{[w,w + \Delta w]} f(z)\,dz - F(w)</m>,
+              so we rearrange to obtain
+            </p>
+            <me>
+              F(w + \Delta w) - F(w) = \int_{[w + \Delta w,w] f(z)\,dz}.
+            </me>
+            <p>
+              What we'd really like to estimate is the difference quotient <m>\frac{F(w + \Delta w) - F(w)}{\Delta w}</m>, so we 
+              rearrange further.
+            </p>
+            <me>
+              F(w + \Delta w) - F(w) - \Delta w f(w) = \int_{[w+\Delta w,w] (f(z) - f(w))\, dz}
+            </me>
+            <p>
+            Now we are in a position to make the final estimate.
+            </p>
+            <md>
+              <mrow> \abs{\frac{F(w + \Delta w) - F(w)}{\Delta w} - f(w)} \amp \le \frac{1}{\abs{\Delta w}} \abs{\int_{[w + \Delta w, w]} (f(z) - f(w)) \, dz} </mrow>
+              <mrow> \amp \le \frac{1}{\abs{\Delta w}} \abs{\Delta w} \sup_{[w + \Delta w,w]} \abs{f(z) - f(w)},</mrow>
+            </md>
+            <p>
+              which tends to <m>0</m> as <m>\Delta w</m> tends to <m>0</m>, since <m>f</m> is continuous.
+            </p>
+          </proof>
+        </proposition>
+        <exercise>
+          <p>
+            Redo the proof of <xref ref="prop-triangles-antiderivative"/> without the assumption that <m>U</m> is star-shaped,
+            but assuming that <m>\oint_\gamma f(z)\,dz = 0</m> for all closed contours <m>\gamma</m> (not only triangles)
+            in <m>U</m>. (Choose <m>a_0</m> to be <em>any</em> element of <m>U</m>, and take <m>[a_0,w]</m> to be any path
+            from <m>a_0</m> to <m>w</m> that lies completely inside <m>U</m>.)
+          </p>
+          <p>
+            Make sure you have a complete proof of <xref ref="thm-antiderivative-conditions"/>.
+          </p>
+        </exercise>
+        <p>
+          The goal now is to prove Cauchy's Theorem for star-shaped domains, which says that if <m>U</m> is a 
+          star-shaped domain and <m>f</m> is analytic on <m>U</m>, then <m>\oint_\gamma f(z)\,dz = 0</m> for all
+          closed contours <m>\gamma</m> in <m>U</m>.
+          In light of <xref ref="prop-triangles-antiderivative"/> and <xref ref="thm-antiderivative-conditions"/>,
+          it suffices to prove the special case where <m>\gamma</m> is triangular.
+        </p>
+        <theorem xml:id="thm-cauchy-triangles">
+          <title>Cauchy's Theorem for Triangles</title>
+          <statement>
+            <p>
+              Suppose that <m>U</m> is a domain and that <m>f\colon U \to \C</m> is analytic on <m>U</m>.
+              If <m>T\subseteq U</m> is a triangle, then <m>\oint_{\partial T} f(z)\,dz = 0</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              This is a serious proof! Fix a triangle <m>T</m> and put <m>I = \abs{\int_{\partial T} f(z)\,dz}</m>.
+              Also write <m>\ell</m> for the perimeter of <m>T</m>.
+              Our plan is to bound <m>I</m>, showing that <m>I \lt \epsilon</m> for all <m>\epsilon \gt 0</m>.
+              Divide <m>T = T^0</m> into four subtriangles <m>T^0_a, T^0_b, T^0_c, T^0_d</m> by taking the midpoints
+              of each of the three sides.
+              As indicated by the picture, these four subtriangles can be oriented in such a way that
+            </p>
+            <!--TODO: insert picture of triangle subdivision-->
+            <me>
+              \int_{\partial T^0} f = \int_{\partial T^0_a} f + \int_{\partial T^0_b} f + \int_{\partial T^0_c} f + \int_{\partial T^0_d} f
+            </me>
+            <p>
+              It follows that one of the four satisfies <m>\abs{\int_{\partial T^0_\bullet f(z)\,dz} \ge \frac{I}{4}</m>.
+              Call that one <m>T^1</m>. Notice that the four subtriangles are each similar (in the sense of geometry)
+              to <m>T^0</m> with edge-lengths halved, so <m>\operatorname{perimeter}(T^1) = \frac{\ell}{2}</m>.
+            </p>
+            <p>
+              Iterate this process. At stage <m>n</m> we have <m>2^n</m> triangles each of perimeter <m>\frac{\ell}{2}</m>
+              and a particular one <m>T^n</m> with <m>\abs{\int_{\partial T^n} f(z)\,dz} \ge \frac{I}{4^n}</m>.
+              These triangles form a nested sequence <m>T^0 \supseteq T^1 \supseteq \cdots</m> of closed sets of diameter
+              tending to <m>0</m>, so by Compactness there is a unique point <m>z_0 \in \bigcap_{m\in\N} T^n</m>.
+              We assumed that <m>f</m> was analytic at <m>z_0</m>, so, fixing arbitrary <m>\epsilon > 0</m>, we must have
+              a <m>\delta > 0</m> for which the following inequality holds for every <m>w\in  B_\delta(z_0)</m>.
+            </p>
+            <me>
+              \abs{\frac{f(w) - f(z_0)}{w - z_0} - f'(z_0)} \lt \epsilon.
+            </me>
+            <p>
+              Rearrange:
+            </p>
+            <me>
+              \abs{f(w) - f(z_0) - f'(z_0)(w - z_0)} \lt \epsilon \abs{w - z_0}.
+            </me>
+            <p>
+              Let <m>n</m> be large enough that <m>T^n \subseteq B_\delta(z_0)</m>.
+              We rewrite <m>\int_{\partial T^n} f(z)\,dz</m> in the following non-obvious way, using the fact
+              that constant functions integrate to <m>0</m> over closed contours by the FTC.
+            </p>
+            <md>
+              <mrow> \int_{\partial T^n} f(z)\,dz \amp = \int_{\partial T^n} f(z)\,dz + \int_{\partial T^n} -f(z_0)\,dz
+                + \int_{\partial T^n} -(z-z_0)f'(z_0)\,dz </mrow>
+              <mrow> \amp = \int_{\partial T^n} (f(z) - f(z_0) - (z-z_0)f'(z_0))\,dz </mrow>
+            </md>
+            <p>
+              Now we just need to do an ML estimate:
+            </p>
+            <md>
+              <mrow> \abs{\int_{\partial T^n} f(z)\,dz} \amp \le \int_{\partial T^n} \abs{f(z) - f(z_0) - (z-z_0)f'(z_0)}\,dz </mrow>
+              <mrow> \amp \le \int_{\partial T^n} \epsilon \abs{z - z_0} \,dz </mrow>
+              <mrow> \amp \le \operatorname{length}(\partial T^n) \cdot \epsilon \sup_{z\in \partial T^n} \abs{z - z_0} </mrow>
+              <mrow> \amp \le \epsilon \operatorname{length}(\partial T^n)^2 </mrow>
+            </md>
+            <p>
+              (In the second line we used the fact that <m>T^n \subseteq B_\delta(z_0)</m>; in the third we used an ML inequality;
+              and in the fourth we used the fact that the distance between any two points of a triangle is at most its perimeter.)
+            </p>
+            <p>
+              Putting everything together, we obtain the following.
+            </p>
+            <me>
+              I \le 4^n \abs{ \int_{\partial T^n} f(z)\,dz} \le 4^n \epsilon \left( \frac{\ell}{2^n}\right)^2 = \epsilon \ell^2.
+            </me>
+            <p>
+              But <m>\epsilon \gt 0</m> was arbitrary and <m>\ell</m> is fixed, so <m>I = 0</m>.
+            </p>
+          </proof>
+        </theorem>
+        <corollary xml:id="cor-cauchys-thm">
+          <title>Cauchy's Theorem for star-shaped domains</title>
+          <statement>
+            <p>
+              Suppose that <m>U</m> is star-shaped and <m>f\colon U \to \C</m> is analytic on <m>U</m>.
+              Then for any closed contour <m>\gamma</m> in <m>U</m>, we have <m>\oint_\gamma f(z)\,dz = 0</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Apply <xref ref="thm-cauchy-triangles"/> to conclude that <m>f</m> integrates to <m>0</m> over any triangle in <m>U</m>.
+              Then apply <xref ref="prop-triangles-antiderivative"/> to conclude that <m>f</m> has an antiderivative on <m>U</m>.
+              Finally, we can apply <xref ref="thm-antiderivative-conditions"/> to conclude that 
+              for any closed contour <m>\gamma</m> in <m>U</m>, we have <m>\oint_\gamma f(z)\,dz = 0</m>.
+            </p>
+          </proof>
+        </corollary>
+        <p>
+          <alert>NB.</alert> Cauchy's Theorem holds for all simply connected domains, not just star-shaped domains.
+          But notice that for example <m>\frac{1}{z}</m> integrates to a nonzero value over the unit circle,
+          so Cauchy's Theorem does not extend to all domains.
+        </p>
+        <p>
+          For a short proof of Cauchy's Theorem that uses Green's Theorem, see
+          <xref ref="thm-Cauchy-green"/>.
+        </p>
         
+      </section>
+      <section xml:id="sec-connections-to-multivariable">
+        <title>Connections to multivariable calculus</title>
+        <p>
+          After reading the sections about contour integrals, you probably can't help noticing
+          a strong resemblance to the theory of line integrals from multivariable calculus.
+          First, notice that unlike a real line integral, the value of a contour integral <m>\int_\gamma f(z)\,dz</m>
+          is a complex number, i.e., a point in the plane!
+          The key to making connections to multivariable calculus is to decompose this into its real and
+          imaginary parts:
+        </p>
+        <md>
+          <mrow> f(\gamma(t))\gamma'(t) \amp = (u + iv)(x' + iy') </mrow>
+          <mrow> \amp = (ux' - vy') + i(vx' + uy') </mrow>
+          <mrow> \amp = (u(x(t),y(t))x'(t) - v(x(t),y(t))y'(t)) + i(v(x(t),y(t))x'(t) + u(x(t),y(t))y'(t)) </mrow>
+        </md>
+        <p>
+          so we can use this to decompose the contour integral into two multivariable-calculus
+          circulation integrals:
+        </p>
+        <md>
+          <mrow> \int_a^b f(\gamma(t))\gamma'(t)\,dt \amp = \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i \int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt </mrow>
+          <mrow xml:id="re-im-integral" number="yes"> \amp = \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy </mrow>
+          <mrow> \amp = \int_\gamma \angs{u,-v} \cdot d\mathbf{r} + i\int_\gamma \angs{v,u}\cdot d\mathbf{r} </mrow>
+        </md>
+        <exercise>
+          <p>
+            Let <m>\bar\bF</m> be the vector field <m>\angs{u,-v}</m> associated to the conjugate of <m>f = u + iv</m>.
+            Prove that
+            <me>
+              \int_\gamma f(z)\,dz = \operatorname{Work}(\bar\bF,\gamma) + i\operatorname{Flux}(\bar\bF,\gamma),
+            </me>
+            where
+          </p>
+          <md>
+            <mrow> \operatorname{Work}(\bG,\gamma)	\amp =	\int_\gamma (\bG \cdot \bT) \, ds  \quad \text{and}</mrow>
+            <mrow> \operatorname{Flux}(\bG,\gamma)	\amp =	\int_\gamma (\bG \cdot \bN) \, ds  </mrow>
+          </md>
+        </exercise>
+        <p>
+          Let's give an alternative proof of Cauchy's Theorem using Green's Theorem.
+          (The reason for giving a separate, much longer, proof in class is that most of you haven't seen a 
+          proof of Green's Theorem!)
+        </p>
+        <theorem xml:id="thm-Cauchy-green">
+          <statement>
+            <p>
+              If <m>f</m> is analytic on a simply connected domain <m>D</m>, then <m>\int_\gamma f(z)\,dz = 0 </m>
+              for every closed path <m>\gamma</m> in <m>D</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              The key is <xref ref="re-im-integral"/>, which decomposes <m>\int_\gamma f(z)\,dz</m> into its
+              real and imaginary parts. Each of those parts is a vector integral to which we can apply
+              Green's Theorem. Writing <m>R</m> for the region enclosed by <m>\gamma</m>, we have the following.
+            </p>
+            <md>
+              <mrow> \text{Real part:}\quad \int_\gamma u\,dx - v\,dy \amp = \iint_R (- v_x - u_y)\,dxdy = \iint 0 = 0 </mrow>
+              <mrow> \text{Imaginary part:}\quad \int_\gamma v\,dx + u\,dy \amp = \iint_R (u_x - v_y)\,dxdy = \iint 0 = 0 </mrow>
+            </md>
+            <p>
+              (Notice that we used the Cauchy–Riemann Equations in each line.)
+              We conclude that <m>\int_\gamma f(z)\,dz = 0+0i = 0 </m>.
+            </p>
+          </proof>
+        </theorem>
+        <exercise xml:id="exercise-antiderivative-conditions-multi">
+          <p>
+            Give a proof along similar lines that a function <m>f\colon \C\to\C</m> that 
+            integrates to <m>0</m> along every closed contour must have an antiderivative.
+            Use the theorem from multivariable calculus that a circulation-free vector field must have a 
+            potential function.
+          </p>
+        </exercise>
       </section>
     </chapter>
     <backmatter xml:id="backmatter">

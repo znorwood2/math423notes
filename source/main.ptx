@@ -1876,6 +1876,12 @@
             and inversions (<m>z\mapsto \frac{1}{z}</m>).
           </p>
         </statement>
+        <aside>
+          <p><q>Dilation</q> is a misnomer, since in the expression <m>z \mapsto az</m> we allow 
+          <m>a</m> to be any complex number. Remember that multiplication by a fixed complex
+        number <m>a</m> is really amplification by <m>\abs{a}</m> followed by rotation by 
+      <m>\arg(a)</m>.</p>
+        </aside>
         <proof>
           <p>
             Consider <m>f(z) = \frac{az + b}{cz + d}</m>.
@@ -1928,6 +1934,24 @@
           </p>
         </proof>
       </corollary>
+      <p>Before we move on to other geometric properties of FLTs,
+        we should not forget that we know some calculus! What happens when we differentiate
+        an FLT?
+      </p>
+      <me>
+        \frac{d}{dz}\left() \frac{az + b}{cz + d} \right)
+         = \frac{(cz+d)(a) - (az+b)(c)}{(cz+d)^2}
+         = \frac{ad - bc}{(cz + d)^2}
+      </me>
+      <p>Notice that this is always nonzero, by our non-singularity condition!
+        Together with the observation that an FLT is analytic everywhere it is defined
+        (it is a rational function!), this amounts to a proof of the following Lemma.
+      </p>
+      <lemma>
+        <statement>
+          An FLT is analytic wherever it is defined, and it is conformal.
+        </statement>
+      </lemma>
       <proposition xml:id="prop-FLT-fixed-pts">
         <title>Fixed-Point Property of FLTs</title>
         <statement>
@@ -1945,7 +1969,7 @@
             <m>z = \frac{b}{1-a}</m> is another:
           </p>
           <me>
-            f(\frac{b}{1-a}) = a\frac{b}{1-a} + b = \frac{b}{1-a}.
+            f\left( \frac{b}{1-a} \right) = a\frac{b}{1-a} + b = \frac{b}{1-a}.
           </me>
           <p>
             If <m>a=1</m> then <m>b\ne 0</m>, and so <m>z+b = z</m> has no solutions other than <m>z = \infty</m>.
@@ -2154,10 +2178,160 @@
           </p>
         </proof>
       </lemma>
-      
     </section>
     </chapter>
-
+    <chapter xml:id="ch-complex-integration">
+      <title>Complex Integration
+      </title>
+      <section xml:id="sec-def-contour-integrals">
+        <title>Defining the contour integral</title>
+        <p>
+          The integral <m>\int_a^b f(x)\,dx</m> from single-variable calculus 
+          is defined over an interval <m>[a,b]</m> of real numbers.
+          An integral of a complex-valued function <m>f\colon \C\to\C</m>
+          from a complex number <m>p</m> to another complex number <m>q</m>
+          will more closely resemble integrals from multivariable calculus,
+          since <m>\C</m> is inherently two-dimensional!
+          In particular, the definition will depend on what path we choose to take from <m>p</m>
+          to <m>q</m>.
+        </p>
+        <definition xml:id="def-paths">
+          <statement>
+            <p>
+              A <term>path</term> is a continuous function <m>\gamma\colon [a,b]\to\C</m>
+              for some <m>a,b\in\R</m>.
+              A path <m>\gamma</m> is <term>simple</term> if it doesn't cross itself, except possibly
+              at its endpoints. That is, <m>\gamma\colon[a,b]\to\C</m> is 
+              simple if whenever <m>\gamma(t_1) = \gamma(t_2)</m>
+              then either <m>t_1 = t_2</m> or <m>\{t_1,t_2\} = \{a,b\}</m>.
+              A path <m>\gamma</m> is <term>closed</term> if <m>\gamma(a) = \gamma(b)</m>.
+              A <term>contour</term> is a path that is <term>piecewise <m>C^1</m></term>,
+              i.e., a path that can be divided into finitely many paths
+              each of which is continuously differentiable.
+            </p>
+            <!-- TODO: insert picture of a piecewise C^1 path-->
+          </statement>
+        </definition>
+        <!--https://www.geogebra.org/calculator/tesbbp6a-->
+        <figure xml:id="fig-geogebra-basic-path">
+          <caption>GeoGebra: a basic path <m>\gamma</m></caption>
+          <interactive xml:id="geogebra-basic-path" platform="geogebra" width="80%" aspect="1:1">
+              <slate xml:id="basic-path" surface="geogebra" material="tesbbp6a" aspect="1:1">
+                <!--setCoordSystem(-8,8,-3,13);-->
+            <!--    centerView((0,0)); -->
+                <!--enableShiftDragZoom(false);-->
+              </slate>
+            <instructions>
+              <p> 
+               You can view a larger version of this <url href="https://www.geogebra.org/calculator/tesbbp6a">here</url>.
+              </p>
+            </instructions>
+          </interactive>
+        </figure>
+        <definition xml:id="def-contour-integral">
+          <statement>
+            <p>
+              We first define the complex integral for paths in the complex plane.
+              If <m>g\colon [a,b]\to \C</m> is continuous, then we integrate <m>g</m> by 
+              integrating its real and imaginary parts separately:
+              <me>
+                \int_a^b g(t)\,dt = \int_a^b \Re(g(t))\,dt + i \int_a^b \Im(g(t))\,dt.
+              </me>
+              Notice that the result is a complex number.
+              But this is really just a prelude to the main event:
+            </p>
+            <p>
+              For a <m>C^1</m> path <m>\gamma\colon[a,b]\to U\subseteq \C</m>
+              and a continuous function <m>f\colon U\to \C</m>, we define the <term>integral</term>
+              of <m>f</m> over <m>\gamma</m> as follows.
+              <me>
+                \int_\gamma f(z)\, dz = \int_a^b f(\gamma(t))\gamma'(t)\,dt.
+              </me>
+              Notice that the integral on the righthand side is defined by the first part 
+              of this definition (with <m>g(t) = f(\gamma(t))\gamma'(t)</m>)
+              to be
+              <me>
+                \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i\int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt.
+              </me>
+              The definition naturally extends to contours <m>\gamma</m> by adding integrals
+              over <m>C^1</m> pieces.
+            </p>
+          </statement>
+        </definition>
+        <p>
+          First, we emphasize two points: the product <m>f(\gamma(t))\gamma'(t)</m>
+          is <alert>complex multiplication</alert>, as we will see in the next paragraph. 
+          Even though this looks a lot like a definition you saw in multivariable calculus,
+          it is not literally the same definition. (In the next section and on the homework
+          you will untangle the connection, though.)
+        </p>
+        <p>
+          Second, notice that the result of integrating a complex-valued function over a
+          curve will be a complex number, which is fundamentally two-dimensional! So it is not 
+          totally clear how to interpret an integral as a physical quantity. Like, what should its
+          units be? We will start exploring this in the next section, and you will take the 
+          exploration further on the homework.
+        </p>
+        <p>
+          It is natural to wonder whether we've made a reasonable definition here, so let's
+          give some motivation. Writing <m>f(z) = u(z) + iv(z)</m>, <m>\gamma(t) = x(t) + iy(t)</m>,
+          and <m>dz = dx + idy</m>, we discover the following.
+        </p>
+        <md>
+          <mrow>\int_\gamma f(z)\,dz \amp \int_a^b (u(x,y) + iv(x,y))(dx + idy) </mrow>
+          <mrow> \amp \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy </mrow>
+        </md>
+        <p>
+          On the other hand...
+        </p>
+        <md>
+          <mrow> \int_a^b f(\gamma(t))\gamma'(t)\,dt \amp \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i \int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt </mrow>
+          <mrow> \amp \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy </mrow>
+        </md>
+        <p>
+          (We have omitted some calculations, which you should do carefully!)
+        </p>
+        <example>
+          <p>
+            Compute <m>\int_{C_1} \frac{dz}{z}</m>, where <m>C_1</m> is the top half of the unit
+            circle traversed from <m>1</m> to <m>-1</m>.
+            (We will see below that value of the integral does not depend on the parametrization
+            of the curve, so feel free to use any parametrization of <m>C_1</m> here.)
+          </p>
+          <p>
+            The given curve <m>C_1</m> is parametrized by <m>\gamma(t) = e^{it}</m>
+            for <m>t\in [0,\pi]</m>.
+            We see that <m>\gamma(t) = ie^{it}</m> and <m>f(\gamma(t)) = \frac{1}{e^{it}}</m>.
+            That is all we need to compute the integral:
+            <me>
+              \int_{C_1} \frac{dz}{z} = \int_{t=0}^{\pi} \frac{1}{e^{it}} ie^{it} \,dt = i\int_0^{\pi} dt = \pi i.
+            </me>
+          </p>
+        </example>
+        <example>
+          <p>
+            Compute <m>\int_{OABO} f(z)\,dz</m> over the triangular curve through the points
+            <m>O = 0</m>, <m>A = i</m>, and<m>B = 1+i</m>,
+            where <m>f(x+iy) = (y-x) -3ix^2</m>.
+          </p>
+          <!--TODO: insert picture of OABO-->
+          <p>
+            We parametrize the three sides of the triangle and integrate along each 
+            piece separately; then we add the results together.
+          </p>
+          <p>
+            Along <m>OA</m> you should get <m>\frac{i}{2}</m>.
+            Along <m>AB</m> you should get <m>\frac12 - i</m>.
+            Along <m>BO</m> you should get <m>1-i</m>.
+            The total is <m>\frac{i - 1}{2}</m>.
+          </p>
+        </example>
+      </section>
+      <section xml:id="sec-basic-integral-props">
+        <title>Basic properties and the Fundamental Theorem</title>
+        
+      </section>
+    </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
 

@@ -96,16 +96,16 @@
               </p>
             </aside>
           </statement>
-        </definition>>
+        </definition>
         <observation>
           <title>Innocuous but important fact</title>
           <p>
             Two complex numbers <m>z</m> and <m>w</m> are equal if and only if they have the 
             same real and imaginary parts! In other words...
-          </p>
           <me>
             z = w \quad\text{ iff }\quad \Re(z) = \Re(w) \text{ and } \Im(z) = \Im(w).
           </me>
+        </p>
         </observation>
        <!-- https://www.geogebra.org/calculator/rx5rfurz-->
        <figure>

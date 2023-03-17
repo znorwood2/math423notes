@@ -8,7 +8,7 @@
       \newcommand{\N}{\mathbb N}
       \renewcommand{\Re}{\operatorname{Re}}
       \renewcommand{\Im}{\operatorname{Im}}
-      \renewcommand{\C}{\mathbb{C}}
+      \newcommand{\C}{\mathbb{C}}
       \newcommand {\bH}{\mathbb{H}}
       \newcommand {\bF} {\mathbf{F}}
       \newcommand {\bG} {\mathbf{G}}
@@ -25,6 +25,8 @@
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
+      \usetikzlibrary {calc}
+      \usetikzlibrary {decorations.markings}
     </latex-image-preamble>
   </docinfo>
 
@@ -330,7 +332,7 @@
         </theorem>
         <p>We will prove this later in the course! Even though it seems like (and is) a theorem of algebra,
           its proof really needs analytic tools. </p>
-        <example>There is a complex solution to <m>z^7 + z^4 - i = \sqrt2</m>.</example>
+        <example><p>There is a complex solution to <m>z^7 + z^4 - i = \sqrt2</m>.</p></example>
       </section>
       <section xml:id="section-polar">
         <title>Polar representation and Euler's Formula</title>
@@ -1041,8 +1043,10 @@
             </p>
           </example>
           <example>
-            The function <m>f(z) = \sqrt{z(z-1)}</m> has two branch points, at <m>z = 0</m>
+            <p>
+              The function <m>f(z) = \sqrt{z(z-1)}</m> has two branch points, at <m>z = 0</m>
             and <m>z = 1</m>.
+            </p>
             <!-- TODO: Say more!-->
           </example>
         </subsection>
@@ -1957,7 +1961,9 @@
       </p>
       <lemma>
         <statement>
-          An FLT is analytic wherever it is defined, and it is conformal.
+          <p>
+            An FLT is analytic wherever it is defined, and it is conformal.
+          </p>
         </statement>
       </lemma>
       <proposition xml:id="prop-FLT-fixed-pts">
@@ -2065,15 +2071,19 @@
                 <me>
                   f(z) = \left( \frac{r-s}{r-q} \right)\left( \frac{z-q}{z-s} \right).
                 </me>
+                <p>
                 (Remember that <m>z</m> is the only variable in this expression.
                 So the parameters of <m>f</m> are e.g. <m>b = \frac{r-s}{r-q}(-q)</m>.
                 These have to be interpreted appropriately when you plug in <m>\infty</m>
                 or get <m>0</m> in the denominator.)
+                </p>
               </proof>
             </claim>
-            By the Claim we can find a FLT <m>f</m> that sends <m>q,r,s</m> to <m>0,1,\infty</m>
+            <p>
+              By the Claim we can find a FLT <m>f</m> that sends <m>q,r,s</m> to <m>0,1,\infty</m>
             (respectively) and another FLT <m>g</m> that sends <m>q',r',s'</m> to <m>0,1,\infty</m> (respectively).
             Now <m>g^{-1} \circ f</m> sends <m>q,r,s</m> to <m>q',r',s'</m>.
+            </p>
           </proof>
         </statement>
       </theorem>
@@ -2378,7 +2388,9 @@
               <mrow> \amp = \int_a^b f(\gamma(u)) \gamma'(u) \,du </mrow>
               <mrow> \amp = \int_\gamma f(z)\,dz</mrow>
             </md>
+            <p>
             (For the third equality, we did a u-substitution with <m>u = \gamma(\phi(t))</m>.)
+            </p>
           </proof>
         </lemma>
         <lemma xml:id="lem-integral-basic-props">
@@ -2732,6 +2744,105 @@
             <p>
               But <m>\epsilon \gt 0</m> was arbitrary and <m>\ell</m> is fixed, so <m>I = 0</m>.
             </p>
+            <figure width="90%" xml:id="fig-cauchy-triangles">
+              <caption>Subdivided triangles.</caption>
+              <image xml:id="latex-im-cauchy-triangles">
+                <description>Subdivided triangles</description>
+                <latex-image>
+                  \begin {tikzpicture}
+                  \coordinate (N) at (0,3) ;
+                  \coordinate (W) at (-2,0) ;
+                  \coordinate (E) at (3,1) ;
+                  \draw (N) -- (W) -- (E) -- (N) ;
+                  \coordinate (NW1) at ($(N)!0.5!(W)$) ;
+                  \coordinate (WE1) at ($(W)!0.5!(E)$) ;
+                  \coordinate (NE1) at ($(E)!0.5!(N)$) ;
+                  \draw (NW1) -- (WE1) -- (NE1) -- (NW1) ;
+                 \begin {scope}[decoration={
+                 markings,
+                 mark=at position 0.55 with {\arrow{latex}}}
+                 ]
+                  \draw [postaction={decorate}] (NE1) to (N) ;
+                  \draw [postaction={decorate}] (N)  to (NW1) ;
+                  \draw [postaction={decorate}] (NW1)  to (W) ;
+                  \draw [postaction={decorate}]  (W)  to (WE1) ;
+                  \draw [postaction={decorate}] (WE1)  to (E) ;
+                  \draw [postaction={decorate}] (E) to (NE1);
+                  \draw [postaction={decorate}] (NW1) to (NE1) ;
+                  \draw [postaction={decorate}] (NE1) to (WE1) ;
+                  \draw [postaction={decorate}] (WE1) to (NW1) ;
+                \end {scope}
+                 \end {tikzpicture}
+                 \begin {tikzpicture}
+                 \coordinate (N) at (0,3) ;
+                 \coordinate (W) at (-2,0) ;
+                 \coordinate (E) at (3,1) ;
+                 \draw (N) -- (W) -- (E) -- (N) ;
+                 \coordinate (NW) at ($(N)!0.5!(W)$) ;
+                 \coordinate (WE) at ($(W)!0.5!(E)$) ;
+                 \coordinate (NE) at ($(E)!0.5!(N)$) ;
+                 \coordinate (NNE) at ($(N)!0.5!(NE1)$) ;
+                 \coordinate (NEE) at ($(NE)!0.5!(E)$) ;
+                 \coordinate (EWE) at ($(E)!0.5!(WE)$) ;
+                 \coordinate (WEW) at ($(WE)!0.5!(W)$) ;
+                 \coordinate (WNW) at ($(W)!0.5!(NW)$) ;
+                 \coordinate (NWWE) at ($(NW)!0.5!(WE)$) ;
+                 \coordinate (WENE) at ($(WE)!0.5!(NE)$) ;
+                 \coordinate (NWN) at ($(N)!0.5!(NW)$) ;
+                 \coordinate (NWNE) at ($(NW)!0.5!(NE)$) ;
+                 \draw (NWN) -- (NNE) -- (NWNE) -- (NWN) ;
+                 \draw (WNW) -- (NWWE) -- (WEW) -- (WNW) ;
+                 \draw (NWWE) -- (NWNE) -- (WENE) -- (NWWE) ;
+                 \draw (WENE) -- (NEE) -- (EWE) -- (WENE) ;
+                 \draw (NW) -- (WE) -- (NE) -- (NW) ;  
+                \begin {scope}[decoration={
+                markings,
+                mark=at position 0.55 with {\arrow{latex}}}
+                ]
+                % exterior
+                 \draw [postaction={decorate}] (N) to (NWN) ;
+                 \draw [postaction={decorate}] (NWN) to (NW) ;
+                  \draw [postaction={decorate}] (NW) to (WNW) ;
+                 \draw [postaction={decorate}] (WNW) to (W) ;
+                 \draw [postaction={decorate}] (W) to (WEW) ;
+                  \draw [postaction={decorate}] (WEW) to (WE) ;
+                 \draw [postaction={decorate}] (WE) to (EWE) ;
+                 \draw [postaction={decorate}] (EWE) to (E) ;
+                 \draw [postaction={decorate}] (E) to (NEE) ;
+                 \draw [postaction={decorate}] (NEE) to (NE) ;
+                 \draw [postaction={decorate}] (NE) to (NNE) ;
+                  \draw [postaction={decorate}] (NNE) to (N) ;
+                 \draw [postaction={decorate}] (NWN) to (NNE) ;
+                 % second row
+                 \draw [postaction={decorate}] (NW) to (NWNE) ;
+                 \draw [postaction={decorate}] (NWNE) to (NE) ;
+                 % third row
+                 \draw [postaction={decorate}] (WNW) to (NWWE) ;
+                 \draw [postaction={decorate}] (NWWE) to (WENE) ;
+                 \draw [postaction={decorate}] (WENE) to (NEE) ;
+                 % first column, bottom left to top right
+                 \draw [postaction={decorate}] (WEW) to (WNW) ;
+                 % second column
+                 \draw [postaction={decorate}] (WE) to (NWWE) ;
+                 \draw [postaction={decorate}] (NWWE) to (NW) ;
+                 % third column
+                  \draw [postaction={decorate}] (EWE) to (WENE) ;
+                 \draw [postaction={decorate}] (WENE) to (NWNE) ;
+                 \draw [postaction={decorate}] (NWNE) to (NWN) ;
+                 % first column, bottom right to top left
+                 \draw [postaction={decorate}] (NEE) to (EWE) ;
+                % second column
+                 \draw [postaction={decorate}] (NE) to (WENE) ;
+                 \draw [postaction={decorate}] (WENE) to (WE) ;
+                 % third column
+                 \draw [postaction={decorate}] (NNE) to (NWNE) ;
+                 \draw [postaction={decorate}] (NWNE) to (NWWE) ;
+                 \draw [postaction={decorate}] (NWWE) to (WEW) ;
+               \end {scope}
+                \end {tikzpicture}
+                </latex-image>
+              </image>
+            </figure>
           </proof>
         </theorem>
         <corollary xml:id="cor-cauchys-thm">
@@ -2836,9 +2947,6 @@
             potential function.
           </p>
         </exercise>
-        <p>This is a test.</p>
-        <p>Are these changes syncing?
-        </p>
       </section>
     </chapter>
     <backmatter xml:id="backmatter">

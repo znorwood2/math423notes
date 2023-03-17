@@ -23,9 +23,9 @@
       \newcommand{\wo}{\smallsetminus}
       \newcommand{\angleop}{\operatorname{angle}}
     </macros>
-    <latax-image-preamble>
+    <latex-image-preamble>
       \usepackage{tikz}
-    </latax-image-preamble>
+    </latex-image-preamble>
   </docinfo>
 
   <book xml:id="my-great-book">
@@ -378,7 +378,9 @@
         <p>So, for <m>z\in\C\wo\{0\}</m>, the possible values of <m>\arg(z)</m> are <m>\Arg(z) + 2\pi k</m>,
           where <m>k</m> can be any integer.</p>
         <example>
+          <p>
           <m>\Arg(i) = \frac{\pi}{2}</m>, <m>\Arg(1-i) = -\frac{\pi}{4}</m>.
+          </p>
         </example>
         <identity>
           <title>Euler's Formula</title>

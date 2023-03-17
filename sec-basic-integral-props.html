@@ -183,7 +183,7 @@ window.MathJax = {
 \newcommand{\N}{\mathbb N}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
-\renewcommand{\C}{\mathbb{C}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand {\bH}{\mathbb{H}}
 \newcommand {\bF} {\mathbf{F}}
 \newcommand {\bG} {\mathbf{G}}
@@ -268,12 +268,12 @@ window.MathJax = {
 <article class="lemma theorem-like" id="lem-integral-reparametrize"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-280">The integral <span class="process-math">\(\int_\gamma f(z)\, dz\)</span> is independent of parametrization. That is, if <span class="process-math">\(\gamma\colon [a,b]\to\C\text{,}\)</span> <span class="process-math">\(\delta\colon [a',b']\to\C\text{,}\)</span> and <span class="process-math">\(\phi\colon [a',b']\to[a,b]\)</span> satisfy <span class="process-math">\(\delta = \gamma \circ \phi\text{,}\)</span> then</div>
+<div class="para" id="p-286">The integral <span class="process-math">\(\int_\gamma f(z)\, dz\)</span> is independent of parametrization. That is, if <span class="process-math">\(\gamma\colon [a,b]\to\C\text{,}\)</span> <span class="process-math">\(\delta\colon [a',b']\to\C\text{,}\)</span> and <span class="process-math">\(\phi\colon [a',b']\to[a,b]\)</span> satisfy <span class="process-math">\(\delta = \gamma \circ \phi\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int_\gamma f(z)\,dz = \int_\delta f(z)\,dz.
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-13"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof"><div class="para" id="p-281">This follows from the definition of the contour integral and the substitution rule (aka “u-sub”) for the usual Calc I integral:</div>
+</div></article><article class="hiddenproof" id="proof-13"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof"><div class="para" id="p-287">This follows from the definition of the contour integral and the substitution rule (aka “u-sub”) for the usual Calc I integral:</div>
 <div class="displaymath process-math" id="md-17">
 \begin{align*}
 \int_\delta f(z)\,dz \amp = \int_{a'}^{b'} f(\gamma(\phi(t)))(\gamma\circ\phi)'(t)\,dt\\
@@ -281,16 +281,17 @@ window.MathJax = {
 \amp = \int_a^b f(\gamma(u)) \gamma'(u) \,du \\
 \amp = \int_\gamma f(z)\,dz
 \end{align*}
-</div>(For the third equality, we did a u-substitution with <span class="process-math">\(u = \gamma(\phi(t))\text{.}\)</span>)</article></div>
+</div>
+<div class="para" id="p-288">(For the third equality, we did a u-substitution with <span class="process-math">\(u = \gamma(\phi(t))\text{.}\)</span>)</div></article></div>
 <article class="lemma theorem-like" id="lem-integral-basic-props"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span>
 </h3>
 <ol class="lower-alpha">
-<li id="li-34"><div class="para" id="p-282">
+<li id="li-34"><div class="para" id="p-289">
 <span class="process-math">\(\int_\gamma f(z) + g(z)\,dz = \int_\gamma f(z)\,dz + \int_\gamma g(z)\,dz\)</span> and <span class="process-math">\(\int_\gamma cf(z)\,dz = c \int_\gamma f(z)\,dz\text{.}\)</span>
 </div></li>
 <li id="li-35">
-<div class="para" id="p-283">Suppose that <span class="process-math">\(\gamma\colon[a,b]\to\C\)</span> is a contour and that <span class="process-math">\(c\in [a,b]\text{.}\)</span> Let <span class="process-math">\(\gamma_{\text{start}}\)</span> be the restriction of <span class="process-math">\(\gamma\)</span> to <span class="process-math">\([a,c]\)</span> and let <span class="process-math">\(\gamma_{\text{end}}\)</span> be the restriction of <span class="process-math">\(\gamma\)</span> to <span class="process-math">\([c,b]\text{.}\)</span> Then</div>
+<div class="para" id="p-290">Suppose that <span class="process-math">\(\gamma\colon[a,b]\to\C\)</span> is a contour and that <span class="process-math">\(c\in [a,b]\text{.}\)</span> Let <span class="process-math">\(\gamma_{\text{start}}\)</span> be the restriction of <span class="process-math">\(\gamma\)</span> to <span class="process-math">\([a,c]\)</span> and let <span class="process-math">\(\gamma_{\text{end}}\)</span> be the restriction of <span class="process-math">\(\gamma\)</span> to <span class="process-math">\([c,b]\text{.}\)</span> Then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int_\gamma f(z)\,dz = \int_{\gamma_{\text{start}}} f(z)\,dz + \int_{\gamma_{\text{end}}} f(z)\,dz
@@ -303,7 +304,7 @@ window.MathJax = {
 \int_{-\gamma} f(z)\,dz = -\int_\gamma f(z)\,dz
 \end{equation*}
 </div>
-<div class="para" id="p-284">where <span class="process-math">\(-\gamma\colon [a,b] \to \C\)</span> is the reverse of <span class="process-math">\(\gamma\)</span> defined by <span class="process-math">\((-\gamma)(t) = a+b - t \text{.}\)</span>
+<div class="para" id="p-291">where <span class="process-math">\(-\gamma\colon [a,b] \to \C\)</span> is the reverse of <span class="process-math">\(\gamma\)</span> defined by <span class="process-math">\((-\gamma)(t) = a+b - t \text{.}\)</span>
 </div>
 </li>
 <li id="integral-basic-props-max">
@@ -312,9 +313,9 @@ window.MathJax = {
 \abs{\int_\gamma f(z)\,dz} \le \operatorname{length}(\gamma) \cdot \sup \abs{f(\gamma(t))},
 \end{equation*}
 </div>
-<div class="para" id="p-285">where <span class="process-math">\(\operatorname{length}(\gamma) = \int_a^b \abs{\gamma'(t)}\,dt\text{.}\)</span> (This is the same definition of arclength from multivariable calculus.)</div>
+<div class="para" id="p-292">where <span class="process-math">\(\operatorname{length}(\gamma) = \int_a^b \abs{\gamma'(t)}\,dt\text{.}\)</span> (This is the same definition of arclength from multivariable calculus.)</div>
 </li>
-</ol></article><article class="hiddenproof" id="proof-14"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-14"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-14"><article class="hiddenproof"><div class="para" id="p-286">We'll prove <a href="" class="xref" data-knowl="./knowl/integral-basic-props-max.html" title="Item d">Item d</a>, but the proofs of the remaining properties are left as exercises.</div> <div class="para" id="p-287">Property <a href="" class="xref" data-knowl="./knowl/integral-basic-props-max.html" title="Item d">Item d</a> follows from the definition and the similar “bounding box property” of standard Calc I integrals:</div>
+</ol></article><article class="hiddenproof" id="proof-14"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-14"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-14"><article class="hiddenproof"><div class="para" id="p-293">We'll prove <a href="" class="xref" data-knowl="./knowl/integral-basic-props-max.html" title="Item d">Item d</a>, but the proofs of the remaining properties are left as exercises.</div> <div class="para" id="p-294">Property <a href="" class="xref" data-knowl="./knowl/integral-basic-props-max.html" title="Item d">Item d</a> follows from the definition and the similar “bounding box property” of standard Calc I integrals:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/integral-basic-props-max.html ./knowl/integral-basic-props-max.html" id="md-18">
 \begin{align*}
 \abs{\int_\gamma f(z)\,dz} \amp = \abs{\int_a^b f(\gamma(t))\gamma'(t)\,dt} \\
@@ -322,10 +323,10 @@ window.MathJax = {
 \amp \le \left( \sup_{t\in [a,b]} \abs{f(\gamma(t))} \right) \int_a^b \abs{\gamma'(t)}\,dt
 \end{align*}
 </div>
-<div class="para" id="p-288">That's what we wanted to prove.</div></article></div>
+<div class="para" id="p-295">That's what we wanted to prove.</div></article></div>
 <article class="example example-like" id="example-power-function"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-power-function"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-power-function"><article class="example example-like"><div class="para" id="p-289">Take the standard parametrization of the unit circle: <span class="process-math">\(\gamma\colon [0,2\pi]\to\C\text{,}\)</span> <span class="process-math">\(\gamma(\theta) = e^{i\theta}\text{.}\)</span> Let <span class="process-math">\(f(z) = z^n\)</span> for an unspecified <span class="process-math">\(n\in\mathbb{Z}\text{.}\)</span> Let's compute <span class="process-math">\(\int_\gamma f(z)\,dz\text{:}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-power-function"><article class="example example-like"><div class="para" id="p-296">Take the standard parametrization of the unit circle: <span class="process-math">\(\gamma\colon [0,2\pi]\to\C\text{,}\)</span> <span class="process-math">\(\gamma(\theta) = e^{i\theta}\text{.}\)</span> Let <span class="process-math">\(f(z) = z^n\)</span> for an unspecified <span class="process-math">\(n\in\mathbb{Z}\text{.}\)</span> Let's compute <span class="process-math">\(\int_\gamma f(z)\,dz\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -333,14 +334,14 @@ window.MathJax = {
 = i\int_0^{2\pi} e^{i(n+1)\theta}\,d\theta,
 \end{equation*}
 </div>
-<div class="para" id="p-290">which equals <span class="process-math">\(2\pi i\)</span> if <span class="process-math">\(n = -1\)</span> and <span class="process-math">\(0\)</span> otherwise.</div></article></div>
-<div class="para" id="p-291">We aim to prove a version of the Fundamental Theorem of Calculus for contour integrals. First we need a simple version for functions <span class="process-math">\(g\colon [a,b] \to \C\text{:}\)</span>
+<div class="para" id="p-297">which equals <span class="process-math">\(2\pi i\)</span> if <span class="process-math">\(n = -1\)</span> and <span class="process-math">\(0\)</span> otherwise.</div></article></div>
+<div class="para" id="p-298">We aim to prove a version of the Fundamental Theorem of Calculus for contour integrals. First we need a simple version for functions <span class="process-math">\(g\colon [a,b] \to \C\text{:}\)</span>
 </div>
 <article class="lemma theorem-like" id="lem-FTC-easy"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-292">Suppose that <span class="process-math">\(g(t) = u(t) + iv(t)\)</span> and <span class="process-math">\(G(t) = U(t) + iV(t)\)</span> are two paths <span class="process-math">\([a,b]\to\C\)</span> for which <span class="process-math">\(G'(t) = g(t)\text{.}\)</span> Then <span class="process-math">\(\int_a^b g(t)\,dt = G(b) - G(a)\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-15"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof"><div class="para" id="p-293">This follows immediately from the defintion of integrals for paths like this and the Fundamental Theorem of Calculus.</div>
+<div class="para" id="p-299">Suppose that <span class="process-math">\(g(t) = u(t) + iv(t)\)</span> and <span class="process-math">\(G(t) = U(t) + iV(t)\)</span> are two paths <span class="process-math">\([a,b]\to\C\)</span> for which <span class="process-math">\(G'(t) = g(t)\text{.}\)</span> Then <span class="process-math">\(\int_a^b g(t)\,dt = G(b) - G(a)\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-15"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof"><div class="para" id="p-300">This follows immediately from the defintion of integrals for paths like this and the Fundamental Theorem of Calculus.</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int_a^b g(t)\,dt = \int_a^b u(t)\,dt + i\int_a^b v(t)\,dt = U(b) - U(a) + i(V(b) - V(a))
@@ -350,14 +351,14 @@ window.MathJax = {
 <article class="theorem theorem-like" id="thm-FTC"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.5</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-294">If <span class="process-math">\(F'(z) = f(z)\)</span> on a domain <span class="process-math">\(U\)</span> and <span class="process-math">\(\gamma \colon [a,b]\to U\)</span> is a contour, then <span class="process-math">\(\int_\gamma f(z)\,dz = F(\gamma(b)) - F(\gamma(a))\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-16"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"><div class="para" id="p-295">Apply <a href="" class="xref" data-knowl="./knowl/lem-FTC-easy.html" title="Lemma 4.2.4">Lemma 4.2.4</a> to <span class="process-math">\(G = F\circ \gamma\)</span> and <span class="process-math">\(g = f\text{.}\)</span>
+<div class="para" id="p-301">If <span class="process-math">\(F'(z) = f(z)\)</span> on a domain <span class="process-math">\(U\)</span> and <span class="process-math">\(\gamma \colon [a,b]\to U\)</span> is a contour, then <span class="process-math">\(\int_\gamma f(z)\,dz = F(\gamma(b)) - F(\gamma(a))\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-16"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"><div class="para" id="p-302">Apply <a href="" class="xref" data-knowl="./knowl/lem-FTC-easy.html" title="Lemma 4.2.4">Lemma 4.2.4</a> to <span class="process-math">\(G = F\circ \gamma\)</span> and <span class="process-math">\(g = f\text{.}\)</span>
 </div></article></div>
 <article class="example example-like" id="example-29"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-29"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like"><div class="para" id="p-296">Let's revisit <a href="" class="xref" data-knowl="./knowl/example-power-function.html" title="Example 4.2.3">Example 4.2.3</a>. We're considering <span class="process-math">\(f(z) = z^n\)</span> and <span class="process-math">\(\gamma(t) = e^{it}\)</span> for <span class="process-math">\(t \in [0,2\pi]\text{.}\)</span> If <span class="process-math">\(n\ne -1\text{,}\)</span> then <span class="process-math">\(F(z) = \frac{z^{n+1}}{n+1}\)</span> is an antiderivative of <span class="process-math">\(f\)</span> on <span class="process-math">\(\C\text{.}\)</span> So <span class="process-math">\(\int_\gamma z^n \, dz = F(0) - F(0) = 0\text{.}\)</span>
-</div> <div class="para" id="p-297">On the other hand, if <span class="process-math">\(n = -1\text{,}\)</span> then <span class="process-math">\(f(z) = \frac{d}{dz} \log(z)\text{,}\)</span> but the complex logarithm can be defined continuously only on a slit plane. In fact, because <span class="process-math">\(\int \frac{1}{z} \, dz\)</span> does not vanish on the unit circle, there <em class="alert">cannot</em> be a continuous branch of the log defined on any domain <span class="process-math">\(U\)</span> that includes the unit circle. Now we have a <em class="emphasis">proof</em> of that fact!</div></article></div>
-<div class="para" id="p-298">An especially important consequence of the FTC for contour integrals is that if <span class="process-math">\(f\)</span> has an antiderivative, then <span class="process-math">\(f\)</span> integrates to <span class="process-math">\(0\)</span> over any closed curve. As we will see in the next section, this implication reverses!</div></section></div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like"><div class="para" id="p-303">Let's revisit <a href="" class="xref" data-knowl="./knowl/example-power-function.html" title="Example 4.2.3">Example 4.2.3</a>. We're considering <span class="process-math">\(f(z) = z^n\)</span> and <span class="process-math">\(\gamma(t) = e^{it}\)</span> for <span class="process-math">\(t \in [0,2\pi]\text{.}\)</span> If <span class="process-math">\(n\ne -1\text{,}\)</span> then <span class="process-math">\(F(z) = \frac{z^{n+1}}{n+1}\)</span> is an antiderivative of <span class="process-math">\(f\)</span> on <span class="process-math">\(\C\text{.}\)</span> So <span class="process-math">\(\int_\gamma z^n \, dz = F(0) - F(0) = 0\text{.}\)</span>
+</div> <div class="para" id="p-304">On the other hand, if <span class="process-math">\(n = -1\text{,}\)</span> then <span class="process-math">\(f(z) = \frac{d}{dz} \log(z)\text{,}\)</span> but the complex logarithm can be defined continuously only on a slit plane. In fact, because <span class="process-math">\(\int \frac{1}{z} \, dz\)</span> does not vanish on the unit circle, there <em class="alert">cannot</em> be a continuous branch of the log defined on any domain <span class="process-math">\(U\)</span> that includes the unit circle. Now we have a <em class="emphasis">proof</em> of that fact!</div></article></div>
+<div class="para" id="p-305">An especially important consequence of the FTC for contour integrals is that if <span class="process-math">\(f\)</span> has an antiderivative, then <span class="process-math">\(f\)</span> integrates to <span class="process-math">\(0\)</span> over any closed curve. As we will see in the next section, this implication reverses!</div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-def-contour-integrals.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-cauchys-thm.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

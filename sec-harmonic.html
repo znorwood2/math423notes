@@ -183,7 +183,7 @@ window.MathJax = {
 \newcommand{\N}{\mathbb N}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
-\renewcommand{\C}{\mathbb{C}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand {\bH}{\mathbb{H}}
 \newcommand {\bF} {\mathbf{F}}
 \newcommand {\bG} {\mathbf{G}}
@@ -265,7 +265,7 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-harmonic"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.4</span> <span class="title">Harmonic functions</span>
 </h2>
-<div class="para logical" id="p-167">
+<div class="para logical" id="p-170">
 <div class="para">Motivated by Laplace's Equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -277,11 +277,11 @@ window.MathJax = {
 <article class="definition definition-like" id="def-harmonic"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.1</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-168">A function <span class="process-math">\(u = u(x,y)\colon \R^2 \to \R\)</span> is <dfn class="terminology">harmonic</dfn> if the partial derivatives <span class="process-math">\(u_x, u_y,u_{xx}, u_{xy}, u_{yx}, u_{yy}\)</span> all exist and are continuous, and <span class="process-math">\(\Delta u = 0\text{,}\)</span> i.e., <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span>
+<div class="para" id="p-171">A function <span class="process-math">\(u = u(x,y)\colon \R^2 \to \R\)</span> is <dfn class="terminology">harmonic</dfn> if the partial derivatives <span class="process-math">\(u_x, u_y,u_{xx}, u_{xy}, u_{yx}, u_{yy}\)</span> all exist and are continuous, and <span class="process-math">\(\Delta u = 0\text{,}\)</span> i.e., <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span>
 </div></article><article class="theorem theorem-like" id="thm-analytic-harmonic"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.2</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-169">If <span class="process-math">\(u+iv\)</span> is analytic, then <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> are harmonic functions.</div></article><article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><div class="para" id="p-170">Later we will show that the real and imaginary parts of analytic functions have continuous partial derivatives of all orders. So let's not worry about that part for now.</div> <div class="para" id="p-171">This is just an application of the Cauchy–Riemann Equations and equality of mixed partials (sometimes called Clairaut's Theorem by calculus textbooks):</div>
+<div class="para" id="p-172">If <span class="process-math">\(u+iv\)</span> is analytic, then <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> are harmonic functions.</div></article><article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><div class="para" id="p-173">Later we will show that the real and imaginary parts of analytic functions have continuous partial derivatives of all orders. So let's not worry about that part for now.</div> <div class="para" id="p-174">This is just an application of the Cauchy–Riemann Equations and equality of mixed partials (sometimes called Clairaut's Theorem by calculus textbooks):</div>
 <div class="displaymath process-math" id="md-12">
 \begin{align*}
 u_{xx} \amp = \frac{\partial}{\partial x} u_x  \amp\amp \\
@@ -291,25 +291,25 @@ u_{xx} \amp = \frac{\partial}{\partial x} u_x  \amp\amp \\
 \amp = -u_{yy}
 \end{align*}
 </div>
-<div class="para" id="p-172">Rearranging gives <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span> A very similar proof works for <span class="process-math">\(v\text{.}\)</span>
+<div class="para" id="p-175">Rearranging gives <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span> A very similar proof works for <span class="process-math">\(v\text{.}\)</span>
 </div></article></div>
 <article class="example example-like" id="example-16"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-16"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like"><div class="para" id="p-173">The function <span class="process-math">\(u(x,y) = e^x \cos(y)\)</span> is harmonic, since it is the real part of the analytic function <span class="process-math">\(f(z) = e^z\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like"><div class="para" id="p-176">The function <span class="process-math">\(u(x,y) = e^x \cos(y)\)</span> is harmonic, since it is the real part of the analytic function <span class="process-math">\(f(z) = e^z\text{.}\)</span>
 </div></article></div>
 <article class="definition definition-like" id="def-harmonic-conjugate"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.4</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-174">If <span class="process-math">\(u\)</span> is harmonic on a domain <span class="process-math">\(D\)</span> and <span class="process-math">\(v\)</span> is a function for which <span class="process-math">\(u + iv\)</span> is analytic on <span class="process-math">\(D\text{,}\)</span> then we say that <span class="process-math">\(v\)</span> is a <dfn class="terminology">harmonic conjugate</dfn> of <span class="process-math">\(u\text{.}\)</span>
+<div class="para" id="p-177">If <span class="process-math">\(u\)</span> is harmonic on a domain <span class="process-math">\(D\)</span> and <span class="process-math">\(v\)</span> is a function for which <span class="process-math">\(u + iv\)</span> is analytic on <span class="process-math">\(D\text{,}\)</span> then we say that <span class="process-math">\(v\)</span> is a <dfn class="terminology">harmonic conjugate</dfn> of <span class="process-math">\(u\text{.}\)</span>
 </div></article><article class="exercise exercise-like" id="exercise-6"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-6"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-6"><article class="exercise exercise-like"><div class="para" id="p-175">State and prove something to the effect that harmonic conjugates are unique up to an additive constant.</div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like"><div class="para" id="p-176">Suppose that <span class="process-math">\(u+iv\)</span> and <span class="process-math">\(u + iw\)</span> are both analytic. Then <span class="process-math">\(\frac{i(v - w)}{2}\)</span> is analytic too, but it is also real-valued. So <span class="process-math">\(v - w\)</span> is constant.</div></div></div></article></div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-6"><article class="exercise exercise-like"><div class="para" id="p-178">State and prove something to the effect that harmonic conjugates are unique up to an additive constant.</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like"><div class="para" id="p-179">Suppose that <span class="process-math">\(u+iv\)</span> and <span class="process-math">\(u + iw\)</span> are both analytic. Then <span class="process-math">\(\frac{i(v - w)}{2}\)</span> is analytic too, but it is also real-valued. So <span class="process-math">\(v - w\)</span> is constant.</div></div></div></article></div>
 <article class="example example-like" id="example-harmonic-conjugate"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-harmonic-conjugate"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-harmonic-conjugate"><article class="example example-like"><div class="para" id="p-177">Find a harmonic conjugate for <span class="process-math">\(u(x,y) = xy\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-harmonic-conjugate"><article class="example example-like"><div class="para" id="p-180">Find a harmonic conjugate for <span class="process-math">\(u(x,y) = xy\text{.}\)</span>
 </div> <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">
-<div class="para" id="p-178">First notice that <span class="process-math">\(\frac{\partial^2}{\partial x^2} xy = 0 = -\frac{\partial^2}{\partial y^2} xy\text{,}\)</span> so <span class="process-math">\(u\)</span> is harmonic.</div> <div class="para logical" id="p-179">
+<div class="para" id="p-181">First notice that <span class="process-math">\(\frac{\partial^2}{\partial x^2} xy = 0 = -\frac{\partial^2}{\partial y^2} xy\text{,}\)</span> so <span class="process-math">\(u\)</span> is harmonic.</div> <div class="para logical" id="p-182">
 <div class="para">Solve the CR equations. Starting with</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -324,19 +324,19 @@ x = u_y = -v_x = h'(x),
 </div>
 <div class="para">which means (calculus) that <span class="process-math">\(h(x) = -\frac{x^2}{2} + C\text{.}\)</span> We conclude that <span class="process-math">\(v(x,y) = \frac{y^2}{2} - \frac{x^2}{2} + C\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-180">What analytic function is <span class="process-math">\(u+iv\text{?}\)</span> Look:</div>
+</div> <div class="para" id="p-183">What analytic function is <span class="process-math">\(u+iv\text{?}\)</span> Look:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 f(z) = f(x+iy) = xy + \left( \frac{y^2}{2} - \frac{x^2}{2} + C \right)i = -i\frac{z^2}{2} + C.
 \end{equation*}
 </div>
 </div></div></article></div>
-<div class="para" id="p-181">An abstract version of the method used in <a href="" class="xref" data-knowl="./knowl/example-harmonic-conjugate.html" title="Example 3.4.6">Example 3.4.6</a> can be used to prove the following general theorem.</div>
+<div class="para" id="p-184">An abstract version of the method used in <a href="" class="xref" data-knowl="./knowl/example-harmonic-conjugate.html" title="Example 3.4.6">Example 3.4.6</a> can be used to prove the following general theorem.</div>
 <article class="theorem theorem-like" id="thm-harmonic-conjugates"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.7</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-182">Let <span class="process-math">\(D\)</span> be an open disk or an open (filled-in) rectangle. Let <span class="process-math">\(u = u(x,y)\)</span> be a harmonic function on <span class="process-math">\(D\text{.}\)</span> Then <span class="process-math">\(u\)</span> has a harmonic conjugate <span class="process-math">\(v\)</span> on <span class="process-math">\(D\text{,}\)</span> unique up to adding a constant.</div></article><div class="para" id="p-183">The “right” class of domains <span class="process-math">\(D\)</span> to which <a href="" class="xref" data-knowl="./knowl/thm-harmonic-conjugates.html" title="Theorem 3.4.7">Theorem 3.4.7</a> applies is the class of <dfn class="terminology">simply connected</dfn> domains. A domain is simply connected if and only if every loop in <span class="process-math">\(D\)</span> can be shrunk continuously to a point without leaving <span class="process-math">\(D\text{.}\)</span> E.g. a disk is simply connected but an annulus is not.</div>
-<div class="para" id="p-184">
+<div class="para" id="p-185">Let <span class="process-math">\(D\)</span> be an open disk or an open (filled-in) rectangle. Let <span class="process-math">\(u = u(x,y)\)</span> be a harmonic function on <span class="process-math">\(D\text{.}\)</span> Then <span class="process-math">\(u\)</span> has a harmonic conjugate <span class="process-math">\(v\)</span> on <span class="process-math">\(D\text{,}\)</span> unique up to adding a constant.</div></article><div class="para" id="p-186">The “right” class of domains <span class="process-math">\(D\)</span> to which <a href="" class="xref" data-knowl="./knowl/thm-harmonic-conjugates.html" title="Theorem 3.4.7">Theorem 3.4.7</a> applies is the class of <dfn class="terminology">simply connected</dfn> domains. A domain is simply connected if and only if every loop in <span class="process-math">\(D\)</span> can be shrunk continuously to a point without leaving <span class="process-math">\(D\text{.}\)</span> E.g. a disk is simply connected but an annulus is not.</div>
+<div class="para" id="p-187">
 <em class="alert">NB.</em> <a href="" class="xref" data-knowl="./knowl/thm-harmonic-conjugates.html" title="Theorem 3.4.7">Theorem 3.4.7</a> does not hold in general for domains that are not simply connected, e.g. <span class="process-math">\(D\)</span> an annulus or <span class="process-math">\(D = \C \wo\{0\}\text{.}\)</span> For example, consider <span class="process-math">\(u(x,y) = \log\sqrt{x^2 + y^2}\text{.}\)</span> You will probably be asked on the homework to explore this example.</div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-inverse.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-conformal.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

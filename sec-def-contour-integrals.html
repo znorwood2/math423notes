@@ -183,7 +183,7 @@ window.MathJax = {
 \newcommand{\N}{\mathbb N}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
-\renewcommand{\C}{\mathbb{C}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand {\bH}{\mathbb{H}}
 \newcommand {\bF} {\mathbf{F}}
 \newcommand {\bG} {\mathbf{G}}
@@ -266,18 +266,18 @@ window.MathJax = {
 <section class="section" id="sec-def-contour-integrals"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.1</span> <span class="title">Defining the contour integral</span>
 </h2>
-<div class="para" id="p-265">The integral <span class="process-math">\(\int_a^b f(x)\,dx\)</span> from single-variable calculus is defined over an interval <span class="process-math">\([a,b]\)</span> of real numbers. An integral of a complex-valued function <span class="process-math">\(f\colon \C\to\C\)</span> from a complex number <span class="process-math">\(p\)</span> to another complex number <span class="process-math">\(q\)</span> will more closely resemble integrals from multivariable calculus, since <span class="process-math">\(\C\)</span> is inherently two-dimensional! In particular, the definition will depend on what path we choose to take from <span class="process-math">\(p\)</span> to <span class="process-math">\(q\text{.}\)</span>
+<div class="para" id="p-271">The integral <span class="process-math">\(\int_a^b f(x)\,dx\)</span> from single-variable calculus is defined over an interval <span class="process-math">\([a,b]\)</span> of real numbers. An integral of a complex-valued function <span class="process-math">\(f\colon \C\to\C\)</span> from a complex number <span class="process-math">\(p\)</span> to another complex number <span class="process-math">\(q\)</span> will more closely resemble integrals from multivariable calculus, since <span class="process-math">\(\C\)</span> is inherently two-dimensional! In particular, the definition will depend on what path we choose to take from <span class="process-math">\(p\)</span> to <span class="process-math">\(q\text{.}\)</span>
 </div>
 <article class="definition definition-like" id="def-paths"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-266">A <dfn class="terminology">path</dfn> is a continuous function <span class="process-math">\(\gamma\colon [a,b]\to\C\)</span> for some <span class="process-math">\(a,b\in\R\text{.}\)</span> A path <span class="process-math">\(\gamma\)</span> is <dfn class="terminology">simple</dfn> if it doesn't cross itself, except possibly at its endpoints. That is, <span class="process-math">\(\gamma\colon[a,b]\to\C\)</span> is simple if whenever <span class="process-math">\(\gamma(t_1) = \gamma(t_2)\)</span> then either <span class="process-math">\(t_1 = t_2\)</span> or <span class="process-math">\(\{t_1,t_2\} = \{a,b\}\text{.}\)</span> A path <span class="process-math">\(\gamma\)</span> is <dfn class="terminology">closed</dfn> if <span class="process-math">\(\gamma(a) = \gamma(b)\text{.}\)</span> A <dfn class="terminology">contour</dfn> is a path that is <dfn class="terminology">piecewise <span class="process-math">\(C^1\)</span></dfn>, i.e., a path that can be divided into finitely many paths each of which is continuously differentiable.</div> </article><figure class="figure figure-like" id="fig-geogebra-basic-path"><iframe id="geogebra-basic-path" width="480" height="480" src="geogebra-basic-path-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-26" id="instructions-26"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-26"><div class="solution-like"><div class="para" id="p-267">You can view a larger version of this <a class="external" href="https://www.geogebra.org/calculator/tesbbp6a" target="_blank">here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-15" id="fn-15"><sup> 1 </sup></a>.</div></div></div>
+<div class="para" id="p-272">A <dfn class="terminology">path</dfn> is a continuous function <span class="process-math">\(\gamma\colon [a,b]\to\C\)</span> for some <span class="process-math">\(a,b\in\R\text{.}\)</span> A path <span class="process-math">\(\gamma\)</span> is <dfn class="terminology">simple</dfn> if it doesn't cross itself, except possibly at its endpoints. That is, <span class="process-math">\(\gamma\colon[a,b]\to\C\)</span> is simple if whenever <span class="process-math">\(\gamma(t_1) = \gamma(t_2)\)</span> then either <span class="process-math">\(t_1 = t_2\)</span> or <span class="process-math">\(\{t_1,t_2\} = \{a,b\}\text{.}\)</span> A path <span class="process-math">\(\gamma\)</span> is <dfn class="terminology">closed</dfn> if <span class="process-math">\(\gamma(a) = \gamma(b)\text{.}\)</span> A <dfn class="terminology">contour</dfn> is a path that is <dfn class="terminology">piecewise <span class="process-math">\(C^1\)</span></dfn>, i.e., a path that can be divided into finitely many paths each of which is continuously differentiable.</div> </article><figure class="figure figure-like" id="fig-geogebra-basic-path"><iframe id="geogebra-basic-path" width="480" height="480" src="geogebra-basic-path-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-26" id="instructions-26"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-26"><div class="solution-like"><div class="para" id="p-273">You can view a larger version of this <a class="external" href="https://www.geogebra.org/calculator/tesbbp6a" target="_blank">here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-15" id="fn-15"><sup> 1 </sup></a>.</div></div></div>
 </div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.2<span class="period">.</span></span><span class="space"> </span>GeoGebra: a basic path <span class="process-math">\(\gamma\)</span></figcaption></figure><article class="definition definition-like" id="def-contour-integral"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-268">
+<div class="para logical" id="p-274">
 <div class="para">We first define the complex integral for paths in the complex plane. If <span class="process-math">\(g\colon [a,b]\to \C\)</span> is continuous, then we integrate <span class="process-math">\(g\)</span> by integrating its real and imaginary parts separately:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -285,7 +285,7 @@ window.MathJax = {
 \end{equation*}
 </div>
 <div class="para">Notice that the result is a complex number. But this is really just a prelude to the main event:</div>
-</div> <div class="para logical" id="p-269">
+</div> <div class="para logical" id="p-275">
 <div class="para">For a <span class="process-math">\(C^1\)</span> path <span class="process-math">\(\gamma\colon[a,b]\to U\subseteq \C\)</span> and a continuous function <span class="process-math">\(f\colon U\to \C\text{,}\)</span> we define the <dfn class="terminology">integral</dfn> of <span class="process-math">\(f\)</span> over <span class="process-math">\(\gamma\)</span> as follows.</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -299,26 +299,26 @@ window.MathJax = {
 \end{equation*}
 </div>
 <div class="para">The definition naturally extends to contours <span class="process-math">\(\gamma\)</span> by adding integrals over <span class="process-math">\(C^1\)</span> pieces.</div>
-</div></article><div class="para" id="p-270">First, we emphasize two points: the product <span class="process-math">\(f(\gamma(t))\gamma'(t)\)</span> is <em class="alert">complex multiplication</em>, as we will see in the next paragraph. Even though this looks a lot like a definition you saw in multivariable calculus, it is not literally the same definition. (In the next section and on the homework you will untangle the connection, though.)</div>
-<div class="para" id="p-271">Second, notice that the result of integrating a complex-valued function over a curve will be a complex number, which is fundamentally two-dimensional! So it is not totally clear how to interpret an integral as a physical quantity. Like, what should its units be? We will start exploring this in the next section, and you will take the exploration further on the homework.</div>
-<div class="para" id="p-272">It is natural to wonder whether we've made a reasonable definition here, so let's give some motivation. Writing <span class="process-math">\(f(z) = u(z) + iv(z)\text{,}\)</span> <span class="process-math">\(\gamma(t) = x(t) + iy(t)\text{,}\)</span> and <span class="process-math">\(dz = dx + idy\text{,}\)</span> we discover the following.</div>
+</div></article><div class="para" id="p-276">First, we emphasize two points: the product <span class="process-math">\(f(\gamma(t))\gamma'(t)\)</span> is <em class="alert">complex multiplication</em>, as we will see in the next paragraph. Even though this looks a lot like a definition you saw in multivariable calculus, it is not literally the same definition. (In the next section and on the homework you will untangle the connection, though.)</div>
+<div class="para" id="p-277">Second, notice that the result of integrating a complex-valued function over a curve will be a complex number, which is fundamentally two-dimensional! So it is not totally clear how to interpret an integral as a physical quantity. Like, what should its units be? We will start exploring this in the next section, and you will take the exploration further on the homework.</div>
+<div class="para" id="p-278">It is natural to wonder whether we've made a reasonable definition here, so let's give some motivation. Writing <span class="process-math">\(f(z) = u(z) + iv(z)\text{,}\)</span> <span class="process-math">\(\gamma(t) = x(t) + iy(t)\text{,}\)</span> and <span class="process-math">\(dz = dx + idy\text{,}\)</span> we discover the following.</div>
 <div class="displaymath process-math" id="md-15">
 \begin{align*}
 \int_\gamma f(z)\,dz \amp \int_a^b (u(x,y) + iv(x,y))(dx + idy) \\
 \amp \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy 
 \end{align*}
 </div>
-<div class="para" id="p-273">On the other hand...</div>
+<div class="para" id="p-279">On the other hand...</div>
 <div class="displaymath process-math" id="md-16">
 \begin{align*}
 \int_a^b f(\gamma(t))\gamma'(t)\,dt \amp \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i \int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt \\
 \amp \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy 
 \end{align*}
 </div>
-<div class="para" id="p-274">(We have omitted some calculations, which you should do carefully!)</div>
+<div class="para" id="p-280">(We have omitted some calculations, which you should do carefully!)</div>
 <article class="example example-like" id="example-26"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-26"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-26"><article class="example example-like"><div class="para" id="p-275">Compute <span class="process-math">\(\int_{C_1} \frac{dz}{z}\text{,}\)</span> where <span class="process-math">\(C_1\)</span> is the top half of the unit circle traversed from <span class="process-math">\(1\)</span> to <span class="process-math">\(-1\text{.}\)</span> (We will see below that value of the integral does not depend on the parametrization of the curve, so feel free to use any parametrization of <span class="process-math">\(C_1\)</span> here.)</div> <div class="para logical" id="p-276">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-26"><article class="example example-like"><div class="para" id="p-281">Compute <span class="process-math">\(\int_{C_1} \frac{dz}{z}\text{,}\)</span> where <span class="process-math">\(C_1\)</span> is the top half of the unit circle traversed from <span class="process-math">\(1\)</span> to <span class="process-math">\(-1\text{.}\)</span> (We will see below that value of the integral does not depend on the parametrization of the curve, so feel free to use any parametrization of <span class="process-math">\(C_1\)</span> here.)</div> <div class="para logical" id="p-282">
 <div class="para">The given curve <span class="process-math">\(C_1\)</span> is parametrized by <span class="process-math">\(\gamma(t) = e^{it}\)</span> for <span class="process-math">\(t\in [0,\pi]\text{.}\)</span> We see that <span class="process-math">\(\gamma(t) = ie^{it}\)</span> and <span class="process-math">\(f(\gamma(t)) = \frac{1}{e^{it}}\text{.}\)</span> That is all we need to compute the integral:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -328,8 +328,8 @@ window.MathJax = {
 </div></article></div>
 <article class="example example-like" id="example-27"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-27"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-27"><article class="example example-like"><div class="para" id="p-277">Compute <span class="process-math">\(\int_{OABO} f(z)\,dz\)</span> over the triangular curve through the points <span class="process-math">\(O = 0\text{,}\)</span> <span class="process-math">\(A = i\text{,}\)</span> and<span class="process-math">\(B = 1+i\text{,}\)</span> where <span class="process-math">\(f(x+iy) = (y-x) -3ix^2\text{.}\)</span>
-</div>  <div class="para" id="p-278">We parametrize the three sides of the triangle and integrate along each piece separately; then we add the results together.</div> <div class="para" id="p-279">Along <span class="process-math">\(OA\)</span> you should get <span class="process-math">\(\frac{i}{2}\text{.}\)</span> Along <span class="process-math">\(AB\)</span> you should get <span class="process-math">\(\frac12 - i\text{.}\)</span> Along <span class="process-math">\(BO\)</span> you should get <span class="process-math">\(1-i\text{.}\)</span> The total is <span class="process-math">\(\frac{i - 1}{2}\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-27"><article class="example example-like"><div class="para" id="p-283">Compute <span class="process-math">\(\int_{OABO} f(z)\,dz\)</span> over the triangular curve through the points <span class="process-math">\(O = 0\text{,}\)</span> <span class="process-math">\(A = i\text{,}\)</span> and<span class="process-math">\(B = 1+i\text{,}\)</span> where <span class="process-math">\(f(x+iy) = (y-x) -3ix^2\text{.}\)</span>
+</div>  <div class="para" id="p-284">We parametrize the three sides of the triangle and integrate along each piece separately; then we add the results together.</div> <div class="para" id="p-285">Along <span class="process-math">\(OA\)</span> you should get <span class="process-math">\(\frac{i}{2}\text{.}\)</span> Along <span class="process-math">\(AB\)</span> you should get <span class="process-math">\(\frac12 - i\text{.}\)</span> Along <span class="process-math">\(BO\)</span> you should get <span class="process-math">\(1-i\text{.}\)</span> The total is <span class="process-math">\(\frac{i - 1}{2}\text{.}\)</span>
 </div></article></div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-15"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/tesbbp6a</code></div></div>
 </div>
 <div class="ptx-content-footer">

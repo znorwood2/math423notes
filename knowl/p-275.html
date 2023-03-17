@@ -12,7 +12,21 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Compute <span class="process-math">\(\int_{C_1} \frac{dz}{z}\text{,}\)</span> where <span class="process-math">\(C_1\)</span> is the top half of the unit circle traversed from <span class="process-math">\(1\)</span> to <span class="process-math">\(-1\text{.}\)</span> (We will see below that value of the integral does not depend on the parametrization of the curve, so feel free to use any parametrization of <span class="process-math">\(C_1\)</span> here.)</div>
+<div class="para logical">
+<div class="para">For a <span class="process-math">\(C^1\)</span> path <span class="process-math">\(\gamma\colon[a,b]\to U\subseteq \C\)</span> and a continuous function <span class="process-math">\(f\colon U\to \C\text{,}\)</span> we define the <dfn class="terminology">integral</dfn> of <span class="process-math">\(f\)</span> over <span class="process-math">\(\gamma\)</span> as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\gamma f(z)\, dz = \int_a^b f(\gamma(t))\gamma'(t)\,dt.
+\end{equation*}
+</div>
+<div class="para">Notice that the integral on the righthand side is defined by the first part of this definition (with <span class="process-math">\(g(t) = f(\gamma(t))\gamma'(t)\)</span>) to be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i\int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt.
+\end{equation*}
+</div>
+<div class="para">The definition naturally extends to contours <span class="process-math">\(\gamma\)</span> by adding integrals over <span class="process-math">\(C^1\)</span> pieces.</div>
+</div>
 <span class="incontext"><a href="sec-def-contour-integrals.html#p-275" class="internal">in-context</a></span>
 </body>
 </html>

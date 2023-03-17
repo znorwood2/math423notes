@@ -183,7 +183,7 @@ window.MathJax = {
 \newcommand{\N}{\mathbb N}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
-\renewcommand{\C}{\mathbb{C}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand {\bH}{\mathbb{H}}
 \newcommand {\bF} {\mathbf{F}}
 \newcommand {\bG} {\mathbf{G}}
@@ -265,36 +265,38 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-polar"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">Polar representation and Euler's Formula</span>
 </h2>
-<div class="para" id="p-41">As a point in the plane, a complex number has a polar representation:</div>
+<div class="para" id="p-42">As a point in the plane, a complex number has a polar representation:</div>
 <div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
 \begin{equation*}
 z = x+iy = r(\cos\theta + i\sin\theta) 
 \end{equation*}
 </div>
-<aside class="aside aside-like" id="aside-4"><div class="para" id="p-42">In precalculus you would've written <span class="process-math">\((x,y) = (r\cos\theta,r\sin\theta)\text{.}\)</span> This is the same thing, just written using <span class="process-math">\(x+iy\)</span> instead of <span class="process-math">\((x,y)\text{.}\)</span>
+<aside class="aside aside-like" id="aside-4"><div class="para" id="p-43">In precalculus you would've written <span class="process-math">\((x,y) = (r\cos\theta,r\sin\theta)\text{.}\)</span> This is the same thing, just written using <span class="process-math">\(x+iy\)</span> instead of <span class="process-math">\((x,y)\text{.}\)</span>
 </div></aside><figure class="figure figure-like" id="figure-6"><iframe id="geogebra-polar-basic" width="480" height="480" src="geogebra-polar-basic-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-6" id="instructions-6"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-6"><div class="solution-like"><div class="para" id="p-43">Drag the point <span class="process-math">\(z\)</span> and note the change in <span class="process-math">\(r = \abs{z}\)</span> and <span class="process-math">\(\theta = \arg{z}\text{.}\)</span> <em class="emphasis">Warning:</em> This applet is showing the argument between <span class="process-math">\(0\)</span> and <span class="process-math">\(2\pi\text{,}\)</span> not the principal argument.</div></div></div>
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-6" id="instructions-6"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-6"><div class="solution-like"><div class="para" id="p-44">Drag the point <span class="process-math">\(z\)</span> and note the change in <span class="process-math">\(r = \abs{z}\)</span> and <span class="process-math">\(\theta = \arg{z}\text{.}\)</span> <em class="emphasis">Warning:</em> This applet is showing the argument between <span class="process-math">\(0\)</span> and <span class="process-math">\(2\pi\text{,}\)</span> not the principal argument.</div></div></div>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.1<span class="period">.</span></span><span class="space"> </span>GeoGebra: polar representation</figcaption></figure><div class="para" id="p-44">Notice that <span class="process-math">\(r\)</span> is simply the modulus of <span class="process-math">\(z\text{:}\)</span> <span class="process-math">\(r = \abs{z}\text{.}\)</span> The angle <span class="process-math">\(\theta\)</span> between the positive real axis and the ray <span class="process-math">\(\overrightarrow{0z}\)</span> is called the <em class="emphasis">argument</em> of <span class="process-math">\(z\)</span> and is denoted <span class="process-math">\(\arg(z)\text{.}\)</span> Notice that <span class="process-math">\(\arg(z)\)</span> is a multivalued function! Adding <span class="process-math">\(2\pi\)</span> to <span class="process-math">\(\theta\)</span> does not change <span class="process-math">\(z\text{.}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.1<span class="period">.</span></span><span class="space"> </span>GeoGebra: polar representation</figcaption></figure><div class="para" id="p-45">Notice that <span class="process-math">\(r\)</span> is simply the modulus of <span class="process-math">\(z\text{:}\)</span> <span class="process-math">\(r = \abs{z}\text{.}\)</span> The angle <span class="process-math">\(\theta\)</span> between the positive real axis and the ray <span class="process-math">\(\overrightarrow{0z}\)</span> is called the <em class="emphasis">argument</em> of <span class="process-math">\(z\)</span> and is denoted <span class="process-math">\(\arg(z)\text{.}\)</span> Notice that <span class="process-math">\(\arg(z)\)</span> is a multivalued function! Adding <span class="process-math">\(2\pi\)</span> to <span class="process-math">\(\theta\)</span> does not change <span class="process-math">\(z\text{.}\)</span>
 </div>
 <article class="definition definition-like" id="def-principal-arg"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-45">The <dfn class="terminology">principal argument</dfn> of a complex number <span class="process-math">\(z\text{,}\)</span> denoted <span class="process-math">\(\Arg(z)\text{,}\)</span> is the value of <span class="process-math">\(\theta\)</span> that satisfies <span class="process-math">\(-\pi \lt \theta \le \pi\text{.}\)</span>
-</div> <aside class="aside aside-like" id="aside-5"><div class="para" id="p-46">
-<em class="emphasis">Warning:</em> Some authors use the convention that <span class="process-math">\(\Arg(z) \in [0,2\pi)\text{.}\)</span> Use caution when consulting other sources!</div></aside></article><div class="para" id="p-47">So, for <span class="process-math">\(z\in\C\wo\{0\}\text{,}\)</span> the possible values of <span class="process-math">\(\arg(z)\)</span> are <span class="process-math">\(\Arg(z) + 2\pi k\text{,}\)</span> where <span class="process-math">\(k\)</span> can be any integer.</div>
+<div class="para" id="p-46">The <dfn class="terminology">principal argument</dfn> of a complex number <span class="process-math">\(z\text{,}\)</span> denoted <span class="process-math">\(\Arg(z)\text{,}\)</span> is the value of <span class="process-math">\(\theta\)</span> that satisfies <span class="process-math">\(-\pi \lt \theta \le \pi\text{.}\)</span>
+</div> <aside class="aside aside-like" id="aside-5"><div class="para" id="p-47">
+<em class="emphasis">Warning:</em> Some authors use the convention that <span class="process-math">\(\Arg(z) \in [0,2\pi)\text{.}\)</span> Use caution when consulting other sources!</div></aside></article><div class="para" id="p-48">So, for <span class="process-math">\(z\in\C\wo\{0\}\text{,}\)</span> the possible values of <span class="process-math">\(\arg(z)\)</span> are <span class="process-math">\(\Arg(z) + 2\pi k\text{,}\)</span> where <span class="process-math">\(k\)</span> can be any integer.</div>
 <article class="example example-like" id="example-2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-2"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like"><span class="process-math">\(\Arg(i) = \frac{\pi}{2}\text{,}\)</span> <span class="process-math">\(\Arg(1-i) = -\frac{\pi}{4}\text{.}\)</span></article></div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like"><div class="para" id="p-49">
+<span class="process-math">\(\Arg(i) = \frac{\pi}{2}\text{,}\)</span> <span class="process-math">\(\Arg(1-i) = -\frac{\pi}{4}\text{.}\)</span>
+</div></article></div>
 <article class="identity theorem-like" id="identity-1"><h3 class="heading">
 <span class="type">Identity</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Euler's Formula.</span>
 </h3>
-<div class="para" id="p-48">For now we take the following as a <em class="emphasis">definition</em>; later we will see why it is justified.</div>
+<div class="para" id="p-50">For now we take the following as a <em class="emphasis">definition</em>; later we will see why it is justified.</div>
 <div class="displaymath process-math">
 \begin{equation*}
 e^{i\theta} = \cos\theta + i\sin\theta \quad (\theta\in\R)
 \end{equation*}
-</div></article><div class="para" id="p-49">Using Euler's Formula, we obtain the <em class="emphasis">exponential form</em> of the polar representation of <span class="process-math">\(z\text{:}\)</span>
+</div></article><div class="para" id="p-51">Using Euler's Formula, we obtain the <em class="emphasis">exponential form</em> of the polar representation of <span class="process-math">\(z\text{:}\)</span>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
 \begin{equation*}
@@ -310,7 +312,7 @@ z = re^{i\theta} = \abs{z}e^{i\arg(z)}
 </ul></article></div>
 <article class="exercise exercise-like" id="exercise-2"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-2"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like"><div class="para" id="p-50">Use trig identities to prove the following identities about <span class="process-math">\(e^{i\theta}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like"><div class="para" id="p-52">Use trig identities to prove the following identities about <span class="process-math">\(e^{i\theta}\)</span>
 </div>
 <ol class="lower-alpha">
 <li id="li-16"><div class="para" id="p-derived-li-16"><span class="process-math">\(\displaystyle \abs{e^{i\theta}} = 1\)</span></div></li>
@@ -320,7 +322,7 @@ z = re^{i\theta} = \abs{z}e^{i\arg(z)}
 <article class="observation remark-like" id="observation-3"><h3 class="heading">
 <span class="type">Observation</span><span class="space"> </span><span class="codenumber">1.2.7</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-51">Let's try applying Euler's Formula to <span class="process-math">\(e^{i(\alpha+\beta)}\)</span> and then separately to <span class="process-math">\(e^{i\alpha}e^{i\beta}\text{.}\)</span>
+<div class="para" id="p-53">Let's try applying Euler's Formula to <span class="process-math">\(e^{i(\alpha+\beta)}\)</span> and then separately to <span class="process-math">\(e^{i\alpha}e^{i\beta}\text{.}\)</span>
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -333,49 +335,49 @@ e^{i\alpha}e^{i\beta} = (\cos(\alpha) + i\sin(\alpha))(\cos(\beta) + i\sin(\beta
 = (\cos\alpha\cos\beta - \sin\alpha\sin\beta) + i(\cos\alpha\sin\beta + \cos\beta\sin\alpha) 
 \end{equation*}
 </div>
-<div class="para" id="p-52">The results of these two activities ought to be the same, and indeed if we identify real and imaginary parts we obtain the familiar addition formulas for sine and cosine!</div>
+<div class="para" id="p-54">The results of these two activities ought to be the same, and indeed if we identify real and imaginary parts we obtain the familiar addition formulas for sine and cosine!</div>
 <div class="displaymath process-math" id="md-3">
 \begin{align*}
 \cos(\alpha+\beta) \amp = \cos\alpha\cos\beta - \sin\alpha\sin\beta \\
 \sin(\alpha+\beta) \amp = \cos\alpha\sin\beta + \cos\beta\sin\alpha 
 \end{align*}
 </div>
-<aside class="aside aside-like" id="aside-6"><div class="para" id="p-53">This is a useful way to derive the addition formulas for sine and cosine without memorizing them. But the way we've presented things is a bit backward; in fact, it's the trig identities that allow us to conclude that <span class="process-math">\(e^{i(\alpha+\beta)} = e^{i\alpha}e^{i\beta}\text{.}\)</span>
+<aside class="aside aside-like" id="aside-6"><div class="para" id="p-55">This is a useful way to derive the addition formulas for sine and cosine without memorizing them. But the way we've presented things is a bit backward; in fact, it's the trig identities that allow us to conclude that <span class="process-math">\(e^{i(\alpha+\beta)} = e^{i\alpha}e^{i\beta}\text{.}\)</span>
 </div></aside></article><article class="exercise exercise-like" id="exercise-3"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-3"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.8</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like"><div class="para" id="p-54">Use trig identities to prove the following faacts about the argument.</div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like"><div class="para" id="p-56">Use trig identities to prove the following faacts about the argument.</div>
 <ol class="lower-alpha">
 <li id="li-19"><div class="para" id="p-derived-li-19"><span class="process-math">\(\displaystyle \arg \bar z = -\arg z\)</span></div></li>
 <li id="li-20"><div class="para" id="p-derived-li-20"><span class="process-math">\(\displaystyle \arg (\frac{1}{z}) = -\arg z\)</span></div></li>
 <li id="li-21"><div class="para" id="p-derived-li-21"><span class="process-math">\(\displaystyle \arg(zw) = \arg(z) + \arg(w)\)</span></div></li>
 </ol></article></div>
-<div class="para" id="p-55">With the help of the polar representation, we are in a position to understand exactly how complex multiplication works. Writing <span class="process-math">\(z = re^{i\theta}\)</span> and <span class="process-math">\(w = se^{i\phi}\text{,}\)</span> we have</div>
+<div class="para" id="p-57">With the help of the polar representation, we are in a position to understand exactly how complex multiplication works. Writing <span class="process-math">\(z = re^{i\theta}\)</span> and <span class="process-math">\(w = se^{i\phi}\text{,}\)</span> we have</div>
 <div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
 \begin{equation*}
 zw = re^{i\theta}se^{i\phi} = rse^{i(\theta+\phi)}.
 \end{equation*}
 </div>
-<div class="para" id="p-56">So the product <span class="process-math">\(zw\)</span> has modulus <span class="process-math">\(\abs{z}\abs{w}\)</span> and argument <span class="process-math">\(\arg z + \arg w\text{.}\)</span>
+<div class="para" id="p-58">So the product <span class="process-math">\(zw\)</span> has modulus <span class="process-math">\(\abs{z}\abs{w}\)</span> and argument <span class="process-math">\(\arg z + \arg w\text{.}\)</span>
 </div>
 <figure class="figure figure-like" id="figure-7"><iframe id="geogebra-mult-polar" width="480" height="480" src="geogebra-mult-polar-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-7" id="instructions-7"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-7"><div class="solution-like"><div class="para" id="p-57">Drag the points <span class="process-math">\(z\)</span> and <span class="process-math">\(w\)</span> and note how <span class="process-math">\(zw\)</span> changes. <em class="emphasis">Warning:</em> This applet is showing the argument between <span class="process-math">\(0\)</span> and <span class="process-math">\(2\pi\text{,}\)</span> not the principal argument.</div></div></div>
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-7" id="instructions-7"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-7"><div class="solution-like"><div class="para" id="p-59">Drag the points <span class="process-math">\(z\)</span> and <span class="process-math">\(w\)</span> and note how <span class="process-math">\(zw\)</span> changes. <em class="emphasis">Warning:</em> This applet is showing the argument between <span class="process-math">\(0\)</span> and <span class="process-math">\(2\pi\text{,}\)</span> not the principal argument.</div></div></div>
 </div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.9<span class="period">.</span></span><span class="space"> </span>GeoGebra: multiplication in polar coordinates</figcaption></figure><section class="subsection" id="subsec-de-moivre"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.2.1</span> <span class="title">De Moivre's Theorem</span>
 </h3>
-<div class="para" id="p-58">We can identify real and imaginary parts in the following equation to obtain some trig identities.</div>
+<div class="para" id="p-60">We can identify real and imaginary parts in the following equation to obtain some trig identities.</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \cos(n\theta) + i\sin(n\theta) = e^{in\theta} = (e^{i\theta})^n = (\cos\theta + i\sin\theta)^n.
 \end{equation*}
 </div>
-<div class="para" id="p-59">Let's illustrate this by considering the example <span class="process-math">\(n = 3\text{.}\)</span> Identifying real and imaginary parts of the equation</div>
+<div class="para" id="p-61">Let's illustrate this by considering the example <span class="process-math">\(n = 3\text{.}\)</span> Identifying real and imaginary parts of the equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
 (\cos\theta + i\sin\theta)^3 = \cos^3 \theta - 3\cos\theta\sin\theta + i(3\cos^2\theta\sin\theta - \sin^3\theta)
 \end{equation*}
 </div>
-<div class="para" id="p-60">gives</div>
+<div class="para" id="p-62">gives</div>
 <div class="displaymath process-math" id="md-4">
 \begin{align*}
 \cos(3\theta) \amp \cos^3\theta - 3\cos\theta\sin^2\theta \\
@@ -384,8 +386,8 @@ zw = re^{i\theta}se^{i\phi} = rse^{i(\theta+\phi)}.
 </div></section><section class="subsection" id="subsection-2"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.2.2</span> <span class="title">Roots of unity</span>
 </h3>
-<div class="para" id="p-61">It is a special case of the Fundamental Theorem of Algebra (<code class="code-inline tex2jax_ignore">[cross-reference to target(s) "theorem-fta" missing or not unique]</code>) that every nonzero complex number <span class="process-math">\(w\)</span> has exactly <span class="process-math">\(n\)</span> <span class="process-math">\(n\)</span>th roots, i.e., solutions <span class="process-math">\(z\)</span> to <span class="process-math">\(z^n = w\text{.}\)</span> The case <span class="process-math">\(w = 1\)</span> is already interesting (and of particular importance), so let's start there.</div>
-<div class="para" id="p-62">Finding the <span class="process-math">\(n\)</span> solutions to <span class="process-math">\(z^n = 1\)</span> is made easier by considering the various polar representations of <span class="process-math">\(1\text{:}\)</span>
+<div class="para" id="p-63">It is a special case of the Fundamental Theorem of Algebra (<code class="code-inline tex2jax_ignore">[cross-reference to target(s) "theorem-fta" missing or not unique]</code>) that every nonzero complex number <span class="process-math">\(w\)</span> has exactly <span class="process-math">\(n\)</span> <span class="process-math">\(n\)</span>th roots, i.e., solutions <span class="process-math">\(z\)</span> to <span class="process-math">\(z^n = w\text{.}\)</span> The case <span class="process-math">\(w = 1\)</span> is already interesting (and of particular importance), so let's start there.</div>
+<div class="para" id="p-64">Finding the <span class="process-math">\(n\)</span> solutions to <span class="process-math">\(z^n = 1\)</span> is made easier by considering the various polar representations of <span class="process-math">\(1\text{:}\)</span>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html" id="md-5">
 \begin{align*}
@@ -393,24 +395,24 @@ zw = re^{i\theta}se^{i\phi} = rse^{i(\theta+\phi)}.
 \amp = e^{2\pi i k}, \quad k\in\mathbb{Z}
 \end{align*}
 </div>
-<div class="para" id="p-63">A reasonable guess (which turns out to be correct!) is that we can just divide the exponent on the righthand side by <span class="process-math">\(n\)</span> to obtain the possible values of <span class="process-math">\(1^{1/n}\text{.}\)</span>
+<div class="para" id="p-65">A reasonable guess (which turns out to be correct!) is that we can just divide the exponent on the righthand side by <span class="process-math">\(n\)</span> to obtain the possible values of <span class="process-math">\(1^{1/n}\text{.}\)</span>
 </div>
 <article class="definition definition-like" id="def-roots-of-unity"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.10</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-64">For an integer <span class="process-math">\(n \ge 1\text{,}\)</span> the <dfn class="terminology"><span class="process-math">\(n\)</span>th roots of unity</dfn> are the complex numbers <span class="process-math">\(\omega_0,\dots, \omega_{n-1}\text{,}\)</span> where</div>
+<div class="para" id="p-66">For an integer <span class="process-math">\(n \ge 1\text{,}\)</span> the <dfn class="terminology"><span class="process-math">\(n\)</span>th roots of unity</dfn> are the complex numbers <span class="process-math">\(\omega_0,\dots, \omega_{n-1}\text{,}\)</span> where</div>
 <div class="displaymath process-math" id="eqn-roots">
 \begin{equation}
 \omega_k = e^{2\pi i k / n}.\tag{1.2.1}
 \end{equation}
 </div></article><article class="exercise exercise-like" id="exercise-4"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-4"><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.2.11</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><div class="para" id="p-65">Prove that the <span class="process-math">\(n\)</span> numbers <span class="process-math">\(\omega_0,\dots,\omega_{n-1}\)</span> listed in <a href="" class="xref" data-knowl="./knowl/eqn-roots.html" title="Equation 1.2.1">(1.2.1)</a> are in fact <span class="process-math">\(n\)</span> different numbers!</div>
-<div class="para" id="p-66">Explain why they appear equally spaced around the unit circle <span class="process-math">\(\abs{z} = 1\text{.}\)</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><div class="para" id="p-67">Prove that the <span class="process-math">\(n\)</span> numbers <span class="process-math">\(\omega_0,\dots,\omega_{n-1}\)</span> listed in <a href="" class="xref" data-knowl="./knowl/eqn-roots.html" title="Equation 1.2.1">(1.2.1)</a> are in fact <span class="process-math">\(n\)</span> different numbers!</div>
+<div class="para" id="p-68">Explain why they appear equally spaced around the unit circle <span class="process-math">\(\abs{z} = 1\text{.}\)</span>
 </div></article></div>
 <article class="example example-like" id="example-4"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.12</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><div class="para" id="p-67">The <span class="process-math">\(4\)</span>th roots of unity are:</div>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><div class="para" id="p-69">The <span class="process-math">\(4\)</span>th roots of unity are:</div>
 <div class="displaymath process-math" id="md-6">
 \begin{align*}
 \omega_0 \amp e^{2\pi i 0 / 4} = 1\\
@@ -419,7 +421,7 @@ zw = re^{i\theta}se^{i\phi} = rse^{i(\theta+\phi)}.
 \omega_3 \amp e^{2\pi i 3 / 4} = e^{(3\pi / 2) i} = -i
 \end{align*}
 </div>
-<aside class="aside aside-like" id="aside-7"><div class="para logical" id="p-68">
+<aside class="aside aside-like" id="aside-7"><div class="para logical" id="p-70">
 <div class="para">Don't forget Euler's Formula! E.g.</div>
 <div class="displaymath process-math" id="md-7">
 \begin{align*}
@@ -429,32 +431,32 @@ e^{(3\pi/2)i} \amp = \cos(3\pi/2) + i \sin(3\pi/2) \\
 \end{align*}
 </div>
 </div></aside></article></div>
-<div class="para" id="p-69">We can find the <span class="process-math">\(n\)</span>th roots of any nonzero complex number <span class="process-math">\(w = re^{i\theta}\)</span> in a similar way. Suppose that <span class="process-math">\(\theta\)</span> is, say, the principal argument of <span class="process-math">\(w\text{,}\)</span> and consider the next <span class="process-math">\(n-1\)</span> many arguments:</div>
+<div class="para" id="p-71">We can find the <span class="process-math">\(n\)</span>th roots of any nonzero complex number <span class="process-math">\(w = re^{i\theta}\)</span> in a similar way. Suppose that <span class="process-math">\(\theta\)</span> is, say, the principal argument of <span class="process-math">\(w\text{,}\)</span> and consider the next <span class="process-math">\(n-1\)</span> many arguments:</div>
 <div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
 \begin{equation*}
 w = re^{i\theta} = re^{i(\theta+2\pi)} = re^{i(\theta+4\pi)} = \cdots = re^{i(\theta+2(n-1)\pi)}.
 \end{equation*}
 </div>
-<div class="para" id="p-70">Now simply take each of these <span class="process-math">\(n\)</span> different representations for <span class="process-math">\(w\)</span> to the <span class="process-math">\(1/n\)</span>th power to obtain the following list of <span class="process-math">\(n\)</span>-many <span class="process-math">\(n\)</span>th roots of <span class="process-math">\(w\text{.}\)</span>
+<div class="para" id="p-72">Now simply take each of these <span class="process-math">\(n\)</span> different representations for <span class="process-math">\(w\)</span> to the <span class="process-math">\(1/n\)</span>th power to obtain the following list of <span class="process-math">\(n\)</span>-many <span class="process-math">\(n\)</span>th roots of <span class="process-math">\(w\text{.}\)</span>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
 \begin{equation*}
 r^{1/n}e^{i\theta/n}, r^{1/n}e^{i\theta/n + 2\pi i /n}, r^{1/n}e^{i\theta/n + 4\pi i / n}, \dots, r^{1/n}e^{i\theta/n + 2(n-1)\pi i / n}
 \end{equation*}
 </div>
-<div class="para" id="p-71">Oh, we could instead have obtained this list by finding the first <span class="process-math">\(n\)</span>th root of <span class="process-math">\(w\)</span> and multiplying by all the <span class="process-math">\(n\)</span>th roots of unity! The <span class="process-math">\(n\)</span>th roots of <span class="process-math">\(w = re^{i\theta / n}\)</span> are...</div>
+<div class="para" id="p-73">Oh, we could instead have obtained this list by finding the first <span class="process-math">\(n\)</span>th root of <span class="process-math">\(w\)</span> and multiplying by all the <span class="process-math">\(n\)</span>th roots of unity! The <span class="process-math">\(n\)</span>th roots of <span class="process-math">\(w = re^{i\theta / n}\)</span> are...</div>
 <div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
 \begin{equation*}
 r^{1/n}e^{i\theta / n}, \omega_1r^{1/n}e^{i\theta / n}, \dots, \omega_{n-1}r^{1/n}e^{i\theta / n},
 \end{equation*}
 </div>
-<div class="para" id="p-72">where <span class="process-math">\(\omega_0,\dots,\omega_{n-1}\)</span> are the <span class="process-math">\(n\)</span>th roots of unity.</div>
+<div class="para" id="p-74">where <span class="process-math">\(\omega_0,\dots,\omega_{n-1}\)</span> are the <span class="process-math">\(n\)</span>th roots of unity.</div>
 <figure class="figure figure-like" id="figure-8"><iframe id="geogebra-nth-roots" width="480" height="480" src="geogebra-nth-roots-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-8" id="instructions-8"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-8"><div class="solution-like"><div class="para" id="p-73">Draw the point <span class="process-math">\(w\)</span> around and watch its <span class="process-math">\(6\)</span>th roots move.</div></div></div>
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-8" id="instructions-8"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-8"><div class="solution-like"><div class="para" id="p-75">Draw the point <span class="process-math">\(w\)</span> around and watch its <span class="process-math">\(6\)</span>th roots move.</div></div></div>
 </div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.13<span class="period">.</span></span><span class="space"> </span>GeoGebra: nth roots</figcaption></figure><article class="example example-like" id="example-5"><a href="" data-knowl="" class="id-ref example-knowl original has-interactive" data-refid="hk-example-5"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.14</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><div class="para" id="p-74">Let <span class="process-math">\(a\in\R\)</span> be an unspecified real number. We are going to find the two square roots of the complex number <span class="process-math">\(a+i\)</span> in cartesian form (<span class="process-math">\(x+iy\)</span>).</div>  <figure class="figure figure-like" id="figure-9"><iframe id="geogebra-roots-example" width="480" height="480" src="geogebra-roots-example-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.15<span class="period">.</span></span><span class="space"> </span>GeoGebra: roots example</figcaption></figure> <div class="para" id="p-75">Let's start by defining <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\text{.}\)</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><div class="para" id="p-76">Let <span class="process-math">\(a\in\R\)</span> be an unspecified real number. We are going to find the two square roots of the complex number <span class="process-math">\(a+i\)</span> in cartesian form (<span class="process-math">\(x+iy\)</span>).</div>  <figure class="figure figure-like" id="figure-9"><iframe id="geogebra-roots-example" width="480" height="480" src="geogebra-roots-example-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.15<span class="period">.</span></span><span class="space"> </span>GeoGebra: roots example</figcaption></figure> <div class="para" id="p-77">Let's start by defining <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\text{.}\)</span>
 </div>
 <div class="displaymath process-math" id="md-8">
 \begin{align*}
@@ -462,7 +464,7 @@ r \amp = \abs{a+i} = \sqrt{a^2 + 1} \\
 \theta \amp = \Arg(a+i) 
 \end{align*}
 </div>
-<div class="para" id="p-76">So, in polar form, <span class="process-math">\(a+i\)</span> can be written as <span class="process-math">\(re^{i(\theta + 2k\pi)}\)</span> for any <span class="process-math">\(k\in\mathbb{Z}\text{.}\)</span> So we should be able to take <span class="process-math">\(z_0 = (re^{i\theta})^{1/2} = r^{1/2}e^{i\theta/2}\)</span> and <span class="process-math">\(z_1 = -z_0\)</span> as our two square-roots. But we still want them in rectangular coordinates, so we use Euler's Formula, some trig identities, and the fact that <span class="process-math">\(\cos\theta = a/r\text{.}\)</span>
+<div class="para" id="p-78">So, in polar form, <span class="process-math">\(a+i\)</span> can be written as <span class="process-math">\(re^{i(\theta + 2k\pi)}\)</span> for any <span class="process-math">\(k\in\mathbb{Z}\text{.}\)</span> So we should be able to take <span class="process-math">\(z_0 = (re^{i\theta})^{1/2} = r^{1/2}e^{i\theta/2}\)</span> and <span class="process-math">\(z_1 = -z_0\)</span> as our two square-roots. But we still want them in rectangular coordinates, so we use Euler's Formula, some trig identities, and the fact that <span class="process-math">\(\cos\theta = a/r\text{.}\)</span>
 </div>
 <div class="displaymath process-math" id="md-9">
 \begin{align*}
@@ -473,7 +475,7 @@ z_0 = \sqrt{r} e^{i\theta/2} \amp = \sqrt{r}(\cos(\theta/2) + i\sin(\theta/2)) \
 \amp = \frac{1}{\sqrt2}(\sqrt{\sqrt{a^2+1}+a} + i\sqrt{\sqrt{a^2+1}-a}) 
 \end{align*}
 </div>
-<div class="para" id="p-77">The other square-root is <span class="process-math">\(-z_0\text{.}\)</span>
+<div class="para" id="p-79">The other square-root is <span class="process-math">\(-z_0\text{.}\)</span>
 </div></article></div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="section-arithmetic.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-3.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

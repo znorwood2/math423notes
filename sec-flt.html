@@ -44,7 +44,7 @@ window.MathJax = {
     )}
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
 <script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -177,14 +177,20 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-conformal.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-analytic-functions.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-conformal.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-analytic-functions.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="ch-complex-integration.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 \renewcommand{\C}{\mathbb{C}}
 \newcommand {\bH}{\mathbb{H}}
+\newcommand {\bF} {\mathbf{F}}
+\newcommand {\bG} {\mathbf{G}}
+\newcommand {\bN} {\mathbf{N}}
+\newcommand {\bT} {\mathbf{T}}
 \newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\angs}[1]{\langle #1 \rangle}
 \newcommand\set[2]{\left\{ #1 : #2 \right\}}
 \renewcommand{\bar}{\overline}
 \newcommand{\Arg}{\operatorname{Arg}}
@@ -245,19 +251,287 @@ window.MathJax = {
 <li class="active"><div class="toc-item"><a href="sec-flt.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Fractional Linear Transformations</span></a></div></li>
 </ul>
 </li>
+<li>
+<div class="toc-item"><a href="ch-complex-integration.html" class="internal"><span class="codenumber">4</span> <span class="title">Complex Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-def-contour-integrals.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Defining the contour integral</span></a></div></li>
+<li><div class="toc-item"><a href="sec-basic-integral-props.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Basic properties and the Fundamental Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cauchys-thm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-connections-to-multivariable.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Connections to multivariable calculus</span></a></div></li>
+</ul>
+</li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-flt"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-flt"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.6</span> <span class="title">Fractional Linear Transformations</span>
-</h2></section></div>
+</h2>
+<div class="para" id="p-209">In <a href="" class="xref" data-knowl="./knowl/example-baby-FLT.html" title="Example 3.5.12">Example 3.5.12</a> we saw an example of a conformal equivalence. This was in fact our second example of a <dfn class="terminology">Möbius Transformation</dfn>, aka <dfn class="terminology">Fractional-linear Transformation (FLT)</dfn>.</div>
+<article class="definition definition-like" id="def-FLT"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.6.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-210">
+<div class="para">A <dfn class="terminology">Fractional-linear Transformation</dfn> (aka <dfn class="terminology">FLT</dfn> aka <dfn class="terminology">Möbius Transformation</dfn>) is a function <span class="process-math">\(f\colon \C\to\C\)</span> of the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{az + b}{cz + d}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(a,b,c,d\)</span> are complex numbers satisfying <span class="process-math">\(ad-bc \ne 0\text{.}\)</span>
+</div>
+</div></article><div class="para" id="p-211">(Notice that if we allowed <span class="process-math">\(ad-bc = 0\)</span> then we'd simply get a constant map. Some authors allow this and call constant maps <dfn class="terminology">singular</dfn> FLTs, so that ours would be <dfn class="terminology">non-singular</dfn> FLTs.)</div>
+<article class="example example-like" id="example-22"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-22"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.6.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-22"><article class="example example-like"><ol class="lower-alpha">
+<li id="li-25"><div class="para" id="p-212">The function from <a href="" class="xref" data-knowl="./knowl/example-baby-FLT.html" title="Example 3.5.12">Example 3.5.12</a> is the FLT with <span class="process-math">\(a = 1\text{,}\)</span> <span class="process-math">\(b = -i\text{,}\)</span> <span class="process-math">\(c = 1\text{,}\)</span> and <span class="process-math">\(d = i\text{.}\)</span>
+</div></li>
+<li id="li-26"><div class="para" id="p-213">Complex inversion <span class="process-math">\(z \mapsto \frac{1}{z}\)</span> is the FLT with <span class="process-math">\(a = 0\text{,}\)</span> <span class="process-math">\(b = 1\text{,}\)</span> <span class="process-math">\(c = 1\text{,}\)</span> and <span class="process-math">\(d = 0\text{.}\)</span>
+</div></li>
+<li id="li-27"><div class="para" id="p-214">The affine transformation <span class="process-math">\(z \mapsto az + b \)</span> is the FLT with <span class="process-math">\(c = 0\text{,}\)</span> <span class="process-math">\(d = 1\text{,}\)</span> and <span class="process-math">\(a \ne 0\text{.}\)</span>
+</div></li>
+</ol></article></div>
+<div class="para" id="p-215">It is convenient to regard an FLT <span class="process-math">\(f(z) = \frac{az+b}{cz + d}\)</span> as a transformation <span class="process-math">\(\C\cup\{\infty\} \to \C \cup \{\infty\}\)</span> of the extended complex plane by introducing the following conventions.</div>
+<div class="para" id="p-216">If <span class="process-math">\(c = 0\)</span> then define <span class="process-math">\(f(\infty) = \infty\text{.}\)</span>
+</div>
+<div class="para" id="p-217">If <span class="process-math">\(c \ne 0\)</span> then set <span class="process-math">\(f(-d/c) = \infty\)</span> and set <span class="process-math">\(f(\infty) = \frac{a}{c}\text{.}\)</span>
+</div>
+<aside class="aside aside-like" id="aside-13"><div class="para" id="p-218">Where does <span class="process-math">\(\frac{a}{c}\)</span> come from? Divide the numerator and denominator of <span class="process-math">\(\frac{az + b}{cz + d}\)</span> by <span class="process-math">\(z\)</span> and imagine what happens when <span class="process-math">\(z\)</span> tends toward <span class="process-math">\(\infty\text{.}\)</span>
+</div></aside><div class="para" id="p-219">If you have seen some linear algebra, then it is impossible to look at the condition “<span class="process-math">\(ad-bc \ne 0\)</span>” in the definition of FLT and not wonder whether this has something to do with determinants. We are about to see that it does!</div>
+<article class="proposition theorem-like" id="prop-FLT-homom"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.6.3</span><span class="period">.</span>
+</h3>
+<ol class="lower-alpha">
+<li id="li-28"><div class="para" id="p-220">Every FLT is invertible, and its inverse is another FLT.</div></li>
+<li id="li-29"><div class="para" id="p-221">The composite of two FLTs is another FLT.</div></li>
+</ol></article><article class="hiddenproof" id="proof-4"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><div class="para" id="p-222">Consider an FLT <span class="process-math">\(f(z) = \frac{az+b}{cz+d}\text{.}\)</span> We will show more than what is stated in the Proposition. For the first part, define</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) = \frac{1}{ad-bc} \frac{-dz + b}{cz - a}.
+\end{equation*}
+</div>
+<div class="para" id="p-223">(Notice that these parameters are exactly the same as the entries of the matrix inverse of the matrix <span class="process-math">\(\displaystyle \begin {bmatrix} a \amp b \\ c \amp d \end {bmatrix}\text{!}\)</span>)</div> <div class="para" id="p-224">You can check that <span class="process-math">\(g(f(z)) = z\text{.}\)</span> (In fact, this follows from the next part of the proof.)</div> <div class="para logical" id="p-225">
+<div class="para">For part (b), consider FLTs <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{az+b}{cz+d}  \quad \text{and}  \quad g(z) = \frac{pz + q}{rz + s}.
+\end{equation*}
+</div>
+<div class="para">You might guess that <span class="process-math">\(f(g(z))\)</span> corresponds to the product of the matrices <span class="process-math">\(\displaystyle \begin {bmatrix} a \amp b \\ c \amp d \end {bmatrix}\)</span> and <span class="process-math">\(\displaystyle \begin {bmatrix} p \amp q \\ r \amp s \end {bmatrix}\text{,}\)</span> and you'd be correct!</div>
+</div> <div class="para logical" id="p-226">
+<div class="para">Check that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(g(z)) = \frac{(ap + br)z + (aq + bs)}{(cp + dr)z + (cq + ds)}
+\end{equation*}
+</div>
+<div class="para">and use linear algebra to explain why the new parameters <span class="process-math">\(A,B,C,D\)</span> satisfy the non-singular condition <span class="process-math">\(AD - BC \ne 0\text{.}\)</span>
+</div>
+</div></article></div>
+<article class="investigation project-like" id="investigation-3"><h3 class="heading">
+<span class="type">Investigation</span><span class="space"> </span><span class="codenumber">3.6.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-227">
+<div class="para">What's really going on? The map</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix} a \amp b \\ c \amp d \end {bmatrix} \mapsto \left(z \mapsto \frac{az + b}{cz + d}\right)
+\end{equation*}
+</div>
+<div class="para">defines a <dfn class="terminology">group homomorphism</dfn> <span class="process-math">\(\operatorname{GL}_2(\C) \to \operatorname{Aut}(\C\cup\{\infty\})\text{.}\)</span> (You don't need to know for this class what these things mean, but you might have seen them in other classes.)</div>
+</div></article><article class="theorem theorem-like" id="thm-FLT-decomp"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.6.4</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-228">Every FLT can be expressed as a composite of dilations (<span class="process-math">\(z \mapsto az\)</span>), translations (<span class="process-math">\(z\mapsto z + b\)</span>) and inversions (<span class="process-math">\(z\mapsto \frac{1}{z}\)</span>).</div>
+<aside class="aside aside-like" id="aside-14"><div class="para" id="p-229">“Dilation” is a misnomer, since in the expression <span class="process-math">\(z \mapsto az\)</span> we allow <span class="process-math">\(a\)</span> to be any complex number. Remember that multiplication by a fixed complex number <span class="process-math">\(a\)</span> is really amplification by <span class="process-math">\(\abs{a}\)</span> followed by rotation by <span class="process-math">\(\arg(a)\text{.}\)</span>
+</div></aside></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"><div class="para" id="p-230">Consider <span class="process-math">\(f(z) = \frac{az + b}{cz + d}\text{.}\)</span> Again, we consider separately the cases where <span class="process-math">\(c = 0\)</span> and <span class="process-math">\(c \ne 0\text{.}\)</span>
+</div> <div class="para" id="p-231">If <span class="process-math">\(c = 0\)</span> then <span class="process-math">\(f(z) = \frac{a}{d} z + \frac{b}{d} = a(z + \frac{b}{a})\text{.}\)</span> This is the translation <span class="process-math">\(z \mapsto z+ \frac{b}{a}\)</span> postcomposed by the dilation <span class="process-math">\(z \mapsto az\text{.}\)</span>
+</div> <div class="para" id="p-232">Now suppose that <span class="process-math">\(c \ne 0\text{.}\)</span> Divide the numerator and denominator by <span class="process-math">\(c\)</span> in order to assume <span class="process-math">\(c = 1\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{az+b}{cz + d} = \frac{\frac{a}{c}z + \frac{b}{c}}{z + \frac{d}{c}}
+= \frac{A z + B}{z + D}.
+\end{equation*}
+</div>
+<div class="para" id="p-233">Now do some fraction arithmetic to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = A + \frac{B - AD}{Z + D}.
+\end{equation*}
+</div>
+<div class="para" id="p-234">Now <span class="process-math">\(f\)</span> can be written as a composite of translations, inversions, and translations. Look:</div>
+<div class="displaymath process-math" id="md-14">
+\begin{align*}
+z \amp \mapsto z + D  \amp\amp \text{(translation)}\\
+\amp \mapsto \frac{1}{z + D} \amp\amp \text{(inversion)} \\
+\amp \mapsto \frac{B - AD}{z + D} \amp\amp \text{(dilation)}\\
+\amp \mapsto A + \frac{B-AD}{z+D}  \amp\amp \text{(translation)}
+\end{align*}
+</div>
+<div class="para" id="p-235">The proof is complete.</div></article></div>
+<div class="para" id="p-236">
+<a href="" class="xref" data-knowl="./knowl/thm-FLT-decomp.html" title="Theorem 3.6.4">Theorem 3.6.4</a> has the following important geometric corollary.</div>
+<article class="corollary theorem-like" id="cor-FLT-preserve-circles"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">3.6.5</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-237">Every FLT is circle-preserving.</div></article><article class="hiddenproof" id="proof-6"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"><div class="para" id="p-238">It is intuitively clear (and straightforward to check carefully) that dilations and translations are circle-preserving. And we already proved that the complex inversion map <span class="process-math">\(z\mapsto 1/z\)</span> preserves circles by considering it as a transformation of the Riemann Sphere! </div></article></div>
+<div class="para" id="p-239">Before we move on to other geometric properties of FLTs, we should not forget that we know some calculus! What happens when we differentiate an FLT?</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/example-baby-FLT.html ./knowl/example-baby-FLT.html ./knowl/thm-FLT-decomp.html ./knowl/prop-FLT-homom.html ./knowl/prop-FLT-fixed-pts.html ./knowl/example-baby-FLT.html">
+\begin{equation*}
+\frac{d}{dz}\left() \frac{az + b}{cz + d} \right)
+= \frac{(cz+d)(a) - (az+b)(c)}{(cz+d)^2}
+= \frac{ad - bc}{(cz + d)^2}
+\end{equation*}
+</div>
+<div class="para" id="p-240">Notice that this is always nonzero, by our non-singularity condition! Together with the observation that an FLT is analytic everywhere it is defined (it is a rational function!), this amounts to a proof of the following Lemma.</div>
+<article class="lemma theorem-like" id="lemma-3"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.6.6</span><span class="period">.</span>
+</h3>An FLT is analytic wherever it is defined, and it is conformal.</article><article class="proposition theorem-like" id="prop-FLT-fixed-pts"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.6.7</span><span class="period">.</span><span class="space"> </span><span class="title">Fixed-Point Property of FLTs.</span>
+</h3>
+<div class="para" id="p-241">Every FLT other than the identity map has either one or two fixed points (counting the point at <span class="process-math">\(\infty\)</span>). That is, there are either one or two solutions to <span class="process-math">\(f(z) = z\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-7"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"><div class="para" id="p-242">As usual, we consider separately the cases where <span class="process-math">\(c=0\)</span> and <span class="process-math">\(c \ne 0\text{.}\)</span> Suppose first that <span class="process-math">\(c = 0\text{,}\)</span> so that our FLT can be written as <span class="process-math">\(f(z) = az + b\text{.}\)</span> One fixed point is <span class="process-math">\(\infty\text{.}\)</span> If <span class="process-math">\(a\ne 1\)</span> then <span class="process-math">\(z = \frac{b}{1-a}\)</span> is another:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f\left( \frac{b}{1-a} \right) = a\frac{b}{1-a} + b = \frac{b}{1-a}.
+\end{equation*}
+</div>
+<div class="para" id="p-243">If <span class="process-math">\(a=1\)</span> then <span class="process-math">\(b\ne 0\text{,}\)</span> and so <span class="process-math">\(z+b = z\)</span> has no solutions other than <span class="process-math">\(z = \infty\text{.}\)</span>
+</div> <div class="para logical" id="p-244">
+<div class="para">Now suppose that <span class="process-math">\(c \ne 0\text{.}\)</span> Then <span class="process-math">\(f(\infty) = \frac{a}{c} \ne \infty\text{,}\)</span> so <span class="process-math">\(\infty\)</span> is not a fixed point. The equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+z = \frac{az + b}{cz + d}
+\end{equation*}
+</div>
+<div class="para">can be rearranged into the quadratic equation <span class="process-math">\(cz^2 - (a-d)z - b = 0\text{,}\)</span> which has two solutions</div>
+<div class="displaymath process-math">
+\begin{equation*}
+z = \frac{a-d \pm \sqrt{(a-d)^2 + 4bc}}{2c}
+\end{equation*}
+</div>
+<div class="para">if <span class="process-math">\((a-d)^2 + 4bc \ne 0\text{.}\)</span> Otherwise the two solutions coalesce into just one fixed point: <span class="process-math">\(\frac{a-d}{2c}\text{.}\)</span>
+</div>
+</div></article></div>
+<article class="example example-like" id="example-23"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-23"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.6.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-23"><article class="example example-like"><ol class="decimal">
+<li id="li-30"><div class="para" id="p-245">The FLT <span class="process-math">\(f(z) = \frac{1}{z}\)</span> has two fixed points <span class="process-math">\(z = \pm 1\text{.}\)</span>
+</div></li>
+<li id="li-31"><div class="para" id="p-246">The FLT <span class="process-math">\(f(z) = \frac{-1}{z}\)</span> has two fixed points <span class="process-math">\(z = \pm i\text{.}\)</span>
+</div></li>
+</ol></article></div>
+<article class="corollary theorem-like" id="cor-FLT-three"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">3.6.9</span><span class="period">.</span><span class="space"> </span><span class="title">Three Points Property.</span>
+</h3>
+<div class="para logical" id="p-247">
+<div class="para">If <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are FLTs with three common values, i.e.,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z_1) = g(z_1) \text{ and } f(z_2) = g(z_2) \text{ and } f(z_3) = g(z_3),
+\end{equation*}
+</div>
+<div class="para">then <span class="process-math">\(f = g\text{.}\)</span>
+</div>
+</div></article><article class="hiddenproof" id="proof-8"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><div class="para" id="p-248">The function <span class="process-math">\(g^{-1} \circ f\)</span> (is an FLT by <a href="" class="xref" data-knowl="./knowl/prop-FLT-homom.html" title="Proposition 3.6.3">Proposition 3.6.3</a> and) has three fixed points so by <a href="" class="xref" data-knowl="./knowl/prop-FLT-fixed-pts.html" title="Proposition 3.6.7: Fixed-Point Property of FLTs">Proposition 3.6.7</a> must be the identity map.</div></article></div>
+<article class="theorem theorem-like" id="thm-FLT-three-pts"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.6.10</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-249">For all distinct <span class="process-math">\(q,r,s\)</span> and all distinct <span class="process-math">\(q', r', s'\)</span> there is a <em class="emphasis">unique</em> FLT <span class="process-math">\(f\)</span> satisfying <span class="process-math">\(f(q) = q'\text{,}\)</span> <span class="process-math">\(f(r) = r'\text{,}\)</span> and <span class="process-math">\(f(s) = s'\text{.}\)</span>
+</div> <article class="hiddenproof" id="proof-9"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-9"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-9"><article class="hiddenproof"><div class="para" id="p-250">Let's start with <span class="process-math">\(q' = 0\text{,}\)</span> <span class="process-math">\(r' = 1\text{,}\)</span> and <span class="process-math">\(s' = \infty\text{.}\)</span> (It is not obvious that this is what we should do, but hang in there and you'll see.)</div> <article class="claim theorem-like" id="claim-FLT-three-pts-special"><h4 class="heading">
+<span class="type">Claim</span><span class="space"> </span><span class="codenumber">3.6.11</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-251">For all distinct complex numbers <span class="process-math">\(q,r,s\)</span> there is a unique FLT <span class="process-math">\(f\)</span> satisfying <span class="process-math">\(f(q) = 0\text{,}\)</span> <span class="process-math">\(f(r) = 1\text{,}\)</span> and <span class="process-math">\(f(s) = \infty\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-10"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-10"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-10"><article class="hiddenproof"><div class="para logical" id="p-252">
+<div class="para">In order for <span class="process-math">\(f\)</span> to send <span class="process-math">\(q\)</span> to <span class="process-math">\(0\)</span> and <span class="process-math">\(s\)</span> to <span class="process-math">\(\infty\text{,}\)</span> <span class="process-math">\(f(z)\)</span> must be proportional to <span class="process-math">\(\frac{z - q}{z - s}\text{.}\)</span> That is, <span class="process-math">\(f(z) = k\left( \frac{z-q}{z-s} \right)\)</span> for some <span class="process-math">\(k\text{.}\)</span> We plug in <span class="process-math">\(r\)</span> and to solve for <span class="process-math">\(k\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+1 = r' = f(r) = k\left( \frac{r - q}{r-s} \right),
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\(k = \frac{r-s}{r-q}\text{.}\)</span> We conclude that the following FLT <span class="process-math">\(f\)</span> will do the trick:</div>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \left( \frac{r-s}{r-q} \right)\left( \frac{z-q}{z-s} \right).
+\end{equation*}
+</div>(Remember that <span class="process-math">\(z\)</span> is the only variable in this expression. So the parameters of <span class="process-math">\(f\)</span> are e.g. <span class="process-math">\(b = \frac{r-s}{r-q}(-q)\text{.}\)</span> These have to be interpreted appropriately when you plug in <span class="process-math">\(\infty\)</span> or get <span class="process-math">\(0\)</span> in the denominator.)</article></div> By the Claim we can find a FLT <span class="process-math">\(f\)</span> that sends <span class="process-math">\(q,r,s\)</span> to <span class="process-math">\(0,1,\infty\)</span> (respectively) and another FLT <span class="process-math">\(g\)</span> that sends <span class="process-math">\(q',r',s'\)</span> to <span class="process-math">\(0,1,\infty\)</span> (respectively). Now <span class="process-math">\(g^{-1} \circ f\)</span> sends <span class="process-math">\(q,r,s\)</span> to <span class="process-math">\(q',r',s'\text{.}\)</span></article></div></article><article class="definition definition-like" id="def-cross-ratio"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.6.12</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-253">
+<div class="para">We define the <dfn class="terminology">cross ratio</dfn> of four complex numbers <span class="process-math">\(z,q,r,s\)</span> to be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+[z : q : r : s] = \left( \frac{r-s}{r-q} \right)\left( \frac{z-q}{z-s} \right),
+\end{equation*}
+</div>
+<div class="para">which is the image of <span class="process-math">\(z\)</span> under the unique FLT sending <span class="process-math">\(q,r,s\)</span> to <span class="process-math">\(0,1,\infty\text{.}\)</span>
+</div>
+</div> <aside class="aside aside-like" id="aside-15"><div class="para" id="p-254">Warning: different textbooks use different conventions for the cross ratio.</div></aside></article><figure class="figure figure-like" id="fig-geogebra-cross-ratio"><iframe id="geogebra-cross-ratio" width="480" height="480" src="geogebra-cross-ratio-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-25" id="instructions-25"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-25"><div class="solution-like"><div class="para" id="p-255">Move <span class="process-math">\(z,q,r,s\)</span> around and watch the cross ratio <span class="process-math">\([z : q : r : s]\)</span> change. The circle through <span class="process-math">\(q,r\)</span> and <span class="process-math">\(s\)</span> is shown for your convenience. You can view a larger version of this <a class="external" href="https://www.geogebra.org/calculator/ftf2ykuf" target="_blank">here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-14" id="fn-14"><sup> 1 </sup></a>.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.6.13<span class="period">.</span></span><span class="space"> </span>GeoGebra: a basic path <span class="process-math">\(\gamma\)</span></figcaption></figure><div class="para" id="p-256">It is often useful to have an explicit form for the unique FLT sending <span class="process-math">\(q,r,s\)</span> to <span class="process-math">\(q',r',s'\text{.}\)</span> It is given by solving the following equation for <span class="process-math">\(w\)</span> as a function of <span class="process-math">\(z\text{,}\)</span> after making appropriate changes to deal with <span class="process-math">\(\infty\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/example-baby-FLT.html ./knowl/example-baby-FLT.html ./knowl/thm-FLT-decomp.html ./knowl/prop-FLT-homom.html ./knowl/prop-FLT-fixed-pts.html ./knowl/example-baby-FLT.html">
+\begin{equation*}
+\frac{(r'-s')(w-q')}{(r'-q')(w-s')} = [w : q' : r' : s'] = [z : q : r : s] = \frac{(r-s)(z-q)}{(r-q)(z-s)}.
+\end{equation*}
+</div>
+<article class="example example-like" id="example-24"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-24"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.6.14</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-24"><article class="example example-like"><div class="para logical" id="p-257">
+<div class="para">Let's find the unique FLT <span class="process-math">\(f\)</span> sending <span class="process-math">\((i,\infty,-i)\)</span> to <span class="process-math">\((0,1,\infty)\text{.}\)</span> We solve</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/example-baby-FLT.html">
+\begin{equation*}
+\frac{w-0}{1-0} = \frac{z-i}{z+i}
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(w\text{.}\)</span> Easy! Get <span class="process-math">\(w = f(z) = \frac{z-i}{z+i}\text{.}\)</span> Hey, this is the example from <a href="" class="xref" data-knowl="./knowl/example-baby-FLT.html" title="Example 3.5.12">Example 3.5.12</a>!</div>
+</div></article></div>
+<article class="example example-like" id="example-25"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-25"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.6.15</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-25"><article class="example example-like"><div class="para logical" id="p-258">
+<div class="para">Let's find the unique FLT <span class="process-math">\(f\)</span> sending <span class="process-math">\((\infty,i,0)\)</span> to <span class="process-math">\((-1,\infty,1)\text{.}\)</span> We solve the following equation for <span class="process-math">\(w\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{w+1}{w-1} = \frac{i-0}{1}\left( \frac{1}{z-0} \right) = \frac{i}{z}.
+\end{equation*}
+</div>
+<div class="para">We get</div>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = w = \frac{-1-\frac{i}{z}}{1 - \frac{i}{z}} = \frac{-z - i}{z - i}.
+\end{equation*}
+</div></article></div>
+<article class="lemma theorem-like" id="lem-FLT-only"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.6.16</span><span class="period">.</span>
+</h3>
+<ol class="decimal">
+<li id="li-32"><div class="para" id="p-259">If <span class="process-math">\(f\)</span> is a FLT whose only fixed point is <span class="process-math">\(\infty\text{,}\)</span> then there is a nonzero <span class="process-math">\(\beta \in \C\)</span> for which <span class="process-math">\(f(z) = z + \beta\text{.}\)</span>
+</div></li>
+<li id="li-33"><div class="para" id="p-260">If <span class="process-math">\(g\)</span> is a FLT whose fixed points are <span class="process-math">\(0\)</span> and <span class="process-math">\(\infty\text{,}\)</span> then there is <span class="process-math">\(\gamma\ne 1\)</span> for which <span class="process-math">\(g(z) = \gamma z\text{.}\)</span>
+</div></li>
+</ol></article><article class="hiddenproof" id="proof-11"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-11"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-11"><article class="hiddenproof"><div class="para" id="p-261">Write <span class="process-math">\(f(z) = \frac{az + b}{cz + d}\text{.}\)</span> Notice that <span class="process-math">\(c = 0\)</span> since <span class="process-math">\(\infty\)</span> is a fixed point of <span class="process-math">\(f\text{.}\)</span> (This follows from how we defined the extension of an FLT to the point at infinity.) So by changing names of constants we can write <span class="process-math">\(f(z) = az + b\text{.}\)</span> If <span class="process-math">\(b=0\text{,}\)</span> then <span class="process-math">\(0\)</span> would be a fixed point of <span class="process-math">\(f\text{,}\)</span> contradicting our assumption. So <span class="process-math">\(b\ne 0\text{.}\)</span> If <span class="process-math">\(a \ne 1\)</span> then <span class="process-math">\(\frac{b}{1-a}\)</span> would be another fixed point of <span class="process-math">\(f\text{.}\)</span> So <span class="process-math">\(a=1\text{;}\)</span> that is, <span class="process-math">\(f(z) = z + b\text{,}\)</span> as desired.</div> <div class="para" id="p-262">For the second part, notice that <span class="process-math">\(g\)</span> must be the unique FLT that sends <span class="process-math">\(0\)</span> to <span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(\infty\)</span> to <span class="process-math">\(\infty\text{,}\)</span> and <span class="process-math">\(1\)</span> to <span class="process-math">\(g(1)\text{.}\)</span> But <span class="process-math">\(z \mapsto g(1) z\)</span> also has these properties, so <span class="process-math">\(g(z) = g(1) z\text{.}\)</span> And <span class="process-math">\(g(1) \ne 1\text{,}\)</span> since <span class="process-math">\(g\)</span> has exactly two fixed points (and is therefore not the identity map).</div></article></div>
+<article class="lemma theorem-like" id="lem-FLTs-preserve-cross-ratios"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.6.17</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-263">FLTs preserve cross ratios. That is, if <span class="process-math">\(f\)</span> is an FLT then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+[f(z) : f(q) : f(r) : f(s)] = [z : q : r : s].
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-12"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-12"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-12"><article class="hiddenproof"><div class="para" id="p-264">The lefthand side of the equation is <span class="process-math">\(g(f(z))\)</span> where <span class="process-math">\(g\)</span> is the unique FLT sending <span class="process-math">\((f(q),f(r),f(s))\)</span> to <span class="process-math">\((0,1,\infty)\text{.}\)</span> The righthand side of the equation is <span class="process-math">\(h(z)\text{,}\)</span> where <span class="process-math">\(h\)</span> is the unique FLT sending <span class="process-math">\((q,r,s)\)</span> to <span class="process-math">\((0,1,\infty)\text{.}\)</span> But <span class="process-math">\(g \circ f\)</span> is also an FLT sending <span class="process-math">\((q,r,s)\)</span> to <span class="process-math">\((0,1,\infty)\text{,}\)</span> so it must be that <span class="process-math">\(h = g\circ f\text{.}\)</span> In particular, <span class="process-math">\(h(z) = g(f(z))\text{.}\)</span>
+</div></article></div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-14"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/ftf2ykuf</code></div></div>
+</div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-conformal.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="sec-conformal.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-complex-integration.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
-<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>

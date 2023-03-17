@@ -682,7 +682,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.1",
   "title": "The Complex Derivative",
-  "body": " The Complex Derivative    A function defined on a domain is differentiable at if the following limit exists.   The value of the limit is written or .  We say that is analytic (or holomorphic) at if there is such that is differentiable at every .  If is analytic at every point in , then we say that is entire . (In particular this means is defined at every point in .)     NB. This looks like the definition of derivative from calculus, and indeed we will discover many similarities between the complex derivative and real derivatives. However, a function can be thought of as a function , and there is a notion of real-differentiability for such functions. Complex-differentiability of as a function is much stronger than real-differentiability as a function . This should become clearer as we discover some general properties of analytic functions, especially the Cauchy–Riemann Equations.   A function can be decomposed into two component functions and so that . Notice that and are functions : their graphs are surfaces, just like in multivariable calculus. Then is real-differentiable if and only if both and are differentiable (meaning that they have well-defined tangent planes). (This is not usually taken as the definition , but it is equivalent.)     "
+  "body": " The Complex Derivative    A function defined on a domain is differentiable at if the following limit exists.   The value of the limit is written or .  We say that is analytic (or holomorphic) at if there is such that is differentiable at every .  If is analytic at every point in , then we say that is entire . (In particular this means is defined at every point in .)     NB. This looks like the definition of derivative from calculus, and indeed we will discover many similarities between the complex derivative and real derivatives. However, a function can be thought of as a function , and there is a notion of real-differentiability for such functions. Complex-differentiability of as a function is much stronger than real-differentiability as a function . This should become clearer as we discover some general properties of analytic functions, especially the Cauchy–Riemann Equations.   A function can be decomposed into two component functions and so that . Notice that and are functions : their graphs are surfaces, just like in multivariable calculus. Then is real-differentiable if and only if both and are differentiable (meaning that they have well-defined tangent planes). (This is not usually taken as the definition , but it is equivalent.)       GeoGebra: The idea of the derivative    "
 },
 {
   "id": "def-deriv",
@@ -701,6 +701,15 @@ var ptx_lunr_docs = [
   "number": "3.1.1",
   "title": "",
   "body": " A function can be decomposed into two component functions and so that . Notice that and are functions : their graphs are surfaces, just like in multivariable calculus. Then is real-differentiable if and only if both and are differentiable (meaning that they have well-defined tangent planes). (This is not usually taken as the definition , but it is equivalent.)  "
+},
+{
+  "id": "fig-geogebra-idea-of-deriv",
+  "level": "2",
+  "url": "sec-derivative.html#fig-geogebra-idea-of-deriv",
+  "type": "Figure",
+  "number": "3.1.2",
+  "title": "",
+  "body": " GeoGebra: The idea of the derivative   "
 },
 {
   "id": "sec-cauchy-riemann",
@@ -802,9 +811,9 @@ var ptx_lunr_docs = [
   "body": "  Let be an open disk or an open (filled-in) rectangle. Let be a harmonic function on . Then has a harmonic conjugate on , unique up to adding a constant.   "
 },
 {
-  "id": "p-182",
+  "id": "p-183",
   "level": "2",
-  "url": "sec-harmonic.html#p-182",
+  "url": "sec-harmonic.html#p-183",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -817,7 +826,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.5",
   "title": "Conformal mappings",
-  "body": " Conformal mappings  The idea is that a conformal map should be one that preserves angles . To state this precisely, we will need tangent vectors.    Let be two continuous differentiable paths that intersect at : . Suppose also that and . Define the angle between and as follows.   A function is said to be conformal at if whenever are two continuously differentiable curves with and and , then (and and , so that is defined).    The point of all this is the following theorem.    If is analytic at and , then is conformal at .    This is basically just the Chain Rule and the fact that .   That's it!    There is a converse to this theorem that we state for completeness but we won't prove.    Suppose that is continuously differentiable and conformal on a domain with nonzero gradient at every point in . Then is analytic on , and for every .     The squaring function is (as a polynomial) analytic everywhere. It maps the sector to the sector of twice the aperture. Notice that this function is not conformal at since its derivative is zero there!    The exponential function is conformal at every . It restricts to a conformal equivalence between the horizontal strip to the slit plane .     GeoGebra:      If and are open subsets of and is a conformal bijection, then is called a conformal equivalence .     Don't forget that conformality is equivalent to analytic with derivative . So the Inverse Function Theorem implies that a conformal bijection has local conformal inverses, which can be patched together to give a global conformal inverse. All this to say that conformal equivalence is a symmetric relation: if is conformally equivalent to , then is conformally equivalent to .    Motivation: Suppose that we want to solve 2D Laplace's Equation on a domain subject to some boundary conditions. Maybe isn't so nice. We might try to find a conformally equivalent domain , solve Laplace's Equation on , and then transfer the solution back to .  So it is useful to have a library of conformal equivalences.   The map , , defines a conformal equivalence   where is the upper halfplane .    GeoGebra:      The map defines a conformal equivalence between and the unit disk .  (Why? Well, iff is closer to than to , iff , iff .)  Why is it conformal? Why is it a bijection? For the answers to those and other questions, look to the next Section!!!   "
+  "body": " Conformal mappings  The idea is that a conformal map should be one that preserves angles . To state this precisely, we will need tangent vectors.    Let be two continuous differentiable paths that intersect at : . Suppose also that and . Define the angle between and as follows.   A function is said to be conformal at if whenever are two continuously differentiable curves with and and , then (and and , so that is defined).    The point of all this is the following theorem.    If is analytic at and , then is conformal at .    This is basically just the Chain Rule and the fact that .   That's it!    There is a converse to this theorem that we state for completeness but we won't prove.    Suppose that is continuously differentiable and conformal on a domain with nonzero gradient at every point in . Then is analytic on , and for every .     The squaring function is (as a polynomial) analytic everywhere. It maps the sector to the sector of twice the aperture. Notice that this function is not conformal at since its derivative is zero there!     GeoGebra: transforms some curves conformally      GeoGebra: transforms some curves conformally     The exponential function is conformal at every . It restricts to a conformal equivalence between the horizontal strip to the slit plane .     GeoGebra:      If and are open subsets of and is a conformal bijection, then is called a conformal equivalence .     Don't forget that conformality is equivalent to analytic with derivative . So the Inverse Function Theorem implies that a conformal bijection has local conformal inverses, which can be patched together to give a global conformal inverse. All this to say that conformal equivalence is a symmetric relation: if is conformally equivalent to , then is conformally equivalent to .    Motivation: Suppose that we want to solve 2D Laplace's Equation on a domain subject to some boundary conditions. Maybe isn't so nice. We might try to find a conformally equivalent domain , solve Laplace's Equation on , and then transfer the solution back to .  So it is useful to have a library of conformal equivalences.   The map , , defines a conformal equivalence   where is the upper halfplane .    GeoGebra:      The map defines a conformal equivalence between and the unit disk .  (Why does this function even send the upper halfplane to the disk? Well, iff is closer to than to , iff , iff .)  Why is it conformal? Why is it a bijection? For the answers to those and other questions, look to the next Section!!!   "
 },
 {
   "id": "def-conformal",
@@ -856,11 +865,29 @@ var ptx_lunr_docs = [
   "body": " The squaring function is (as a polynomial) analytic everywhere. It maps the sector to the sector of twice the aperture. Notice that this function is not conformal at since its derivative is zero there!  "
 },
 {
+  "id": "fig-geogebra-square-conformal-1",
+  "level": "2",
+  "url": "sec-conformal.html#fig-geogebra-square-conformal-1",
+  "type": "Figure",
+  "number": "3.5.5",
+  "title": "",
+  "body": " GeoGebra: transforms some curves conformally   "
+},
+{
+  "id": "fig-geogebra-square-conformal-2",
+  "level": "2",
+  "url": "sec-conformal.html#fig-geogebra-square-conformal-2",
+  "type": "Figure",
+  "number": "3.5.6",
+  "title": "",
+  "body": " GeoGebra: transforms some curves conformally   "
+},
+{
   "id": "example-19",
   "level": "2",
   "url": "sec-conformal.html#example-19",
   "type": "Example",
-  "number": "3.5.5",
+  "number": "3.5.7",
   "title": "",
   "body": " The exponential function is conformal at every . It restricts to a conformal equivalence between the horizontal strip to the slit plane .  "
 },
@@ -869,7 +896,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-conformal.html#fig-geogebra-exp-conformal",
   "type": "Figure",
-  "number": "3.5.6",
+  "number": "3.5.8",
   "title": "",
   "body": " GeoGebra:   "
 },
@@ -878,7 +905,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-conformal.html#def-conformal-equivalence",
   "type": "Definition",
-  "number": "3.5.7",
+  "number": "3.5.9",
   "title": "",
   "body": "  If and are open subsets of and is a conformal bijection, then is called a conformal equivalence .   "
 },
@@ -896,18 +923,18 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-conformal.html#example-20",
   "type": "Example",
-  "number": "3.5.8",
+  "number": "3.5.10",
   "title": "",
   "body": " The map , , defines a conformal equivalence   where is the upper halfplane .    GeoGebra:    "
 },
 {
-  "id": "example-21",
+  "id": "example-baby-FLT",
   "level": "2",
-  "url": "sec-conformal.html#example-21",
+  "url": "sec-conformal.html#example-baby-FLT",
   "type": "Example",
-  "number": "3.5.10",
+  "number": "3.5.12",
   "title": "",
-  "body": " The map defines a conformal equivalence between and the unit disk .  (Why? Well, iff is closer to than to , iff , iff .)  Why is it conformal? Why is it a bijection? For the answers to those and other questions, look to the next Section!!!  "
+  "body": " The map defines a conformal equivalence between and the unit disk .  (Why does this function even send the upper halfplane to the disk? Well, iff is closer to than to , iff , iff .)  Why is it conformal? Why is it a bijection? For the answers to those and other questions, look to the next Section!!!  "
 },
 {
   "id": "sec-flt",
@@ -916,7 +943,403 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.6",
   "title": "Fractional Linear Transformations",
-  "body": " Fractional Linear Transformations  "
+  "body": " Fractional Linear Transformations  In we saw an example of a conformal equivalence. This was in fact our second example of a Möbius Transformation , aka Fractional-linear Transformation (FLT) .    A Fractional-linear Transformation (aka FLT aka Möbius Transformation ) is a function of the form where are complex numbers satisfying .    (Notice that if we allowed then we'd simply get a constant map. Some authors allow this and call constant maps singular FLTs, so that ours would be non-singular FLTs.)     The function from is the FLT with , , , and .    Complex inversion is the FLT with , , , and .    The affine transformation is the FLT with , , and .     It is convenient to regard an FLT as a transformation of the extended complex plane by introducing the following conventions.  If then define .  If then set and set .   Where does come from? Divide the numerator and denominator of by and imagine what happens when tends toward .   If you have seen some linear algebra, then it is impossible to look at the condition in the definition of FLT and not wonder whether this has something to do with determinants. We are about to see that it does!      Every FLT is invertible, and its inverse is another FLT.    The composite of two FLTs is another FLT.      Consider an FLT . We will show more than what is stated in the Proposition. For the first part, define   (Notice that these parameters are exactly the same as the entries of the matrix inverse of the matrix !)  You can check that . (In fact, this follows from the next part of the proof.)  For part (b), consider FLTs and given by You might guess that corresponds to the product of the matrices and , and you'd be correct!  Check that and use linear algebra to explain why the new parameters satisfy the non-singular condition .     What's really going on? The map defines a group homomorphism  . (You don't need to know for this class what these things mean, but you might have seen them in other classes.)     Every FLT can be expressed as a composite of dilations ( ), translations ( ) and inversions ( ).    Dilation is a misnomer, since in the expression we allow to be any complex number. Remember that multiplication by a fixed complex number is really amplification by followed by rotation by .    Consider . Again, we consider separately the cases where and .  If then . This is the translation postcomposed by the dilation .  Now suppose that . Divide the numerator and denominator by in order to assume :   Now do some fraction arithmetic to get   Now can be written as a composite of translations, inversions, and translations. Look:   The proof is complete.     has the following important geometric corollary.    Every FLT is circle-preserving.    It is intuitively clear (and straightforward to check carefully) that dilations and translations are circle-preserving. And we already proved that the complex inversion map preserves circles by considering it as a transformation of the Riemann Sphere!     Before we move on to other geometric properties of FLTs, we should not forget that we know some calculus! What happens when we differentiate an FLT?   Notice that this is always nonzero, by our non-singularity condition! Together with the observation that an FLT is analytic everywhere it is defined (it is a rational function!), this amounts to a proof of the following Lemma.   An FLT is analytic wherever it is defined, and it is conformal.    Fixed-Point Property of FLTs   Every FLT other than the identity map has either one or two fixed points (counting the point at ). That is, there are either one or two solutions to .    As usual, we consider separately the cases where and . Suppose first that , so that our FLT can be written as . One fixed point is . If then is another:   If then , and so has no solutions other than .  Now suppose that . Then , so is not a fixed point. The equation can be rearranged into the quadratic equation , which has two solutions if . Otherwise the two solutions coalesce into just one fixed point: .       The FLT has two fixed points .    The FLT has two fixed points .      Three Points Property   If and are FLTs with three common values, i.e., then .    The function (is an FLT by and) has three fixed points so by must be the identity map.      For all distinct and all distinct there is a unique FLT satisfying , , and .   Let's start with , , and . (It is not obvious that this is what we should do, but hang in there and you'll see.)    For all distinct complex numbers there is a unique FLT satisfying , , and .    In order for to send to and to , must be proportional to . That is, for some . We plug in and to solve for . so . We conclude that the following FLT will do the trick:  (Remember that is the only variable in this expression. So the parameters of are e.g. . These have to be interpreted appropriately when you plug in or get in the denominator.)  By the Claim we can find a FLT that sends to (respectively) and another FLT that sends to (respectively). Now sends to .      We define the cross ratio of four complex numbers to be which is the image of under the unique FLT sending to .   Warning: different textbooks use different conventions for the cross ratio.       GeoGebra: a basic path    It is often useful to have an explicit form for the unique FLT sending to . It is given by solving the following equation for as a function of , after making appropriate changes to deal with :    Let's find the unique FLT sending to . We solve for . Easy! Get . Hey, this is the example from !    Let's find the unique FLT sending to . We solve the following equation for . We get        If is a FLT whose only fixed point is , then there is a nonzero for which .    If is a FLT whose fixed points are and , then there is for which .      Write . Notice that since is a fixed point of . (This follows from how we defined the extension of an FLT to the point at infinity.) So by changing names of constants we can write . If , then would be a fixed point of , contradicting our assumption. So . If then would be another fixed point of . So ; that is, , as desired.  For the second part, notice that must be the unique FLT that sends to , to , and to . But also has these properties, so . And , since has exactly two fixed points (and is therefore not the identity map).      FLTs preserve cross ratios. That is, if is an FLT then     The lefthand side of the equation is where is the unique FLT sending to . The righthand side of the equation is , where is the unique FLT sending to . But is also an FLT sending to , so it must be that . In particular, .    "
+},
+{
+  "id": "p-209",
+  "level": "2",
+  "url": "sec-flt.html#p-209",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Möbius Transformation Fractional-linear Transformation (FLT) "
+},
+{
+  "id": "def-FLT",
+  "level": "2",
+  "url": "sec-flt.html#def-FLT",
+  "type": "Definition",
+  "number": "3.6.1",
+  "title": "",
+  "body": "  A Fractional-linear Transformation (aka FLT aka Möbius Transformation ) is a function of the form where are complex numbers satisfying .   "
+},
+{
+  "id": "p-211",
+  "level": "2",
+  "url": "sec-flt.html#p-211",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "singular non-singular "
+},
+{
+  "id": "example-22",
+  "level": "2",
+  "url": "sec-flt.html#example-22",
+  "type": "Example",
+  "number": "3.6.2",
+  "title": "",
+  "body": "   The function from is the FLT with , , , and .    Complex inversion is the FLT with , , , and .    The affine transformation is the FLT with , , and .    "
+},
+{
+  "id": "prop-FLT-homom",
+  "level": "2",
+  "url": "sec-flt.html#prop-FLT-homom",
+  "type": "Proposition",
+  "number": "3.6.3",
+  "title": "",
+  "body": "    Every FLT is invertible, and its inverse is another FLT.    The composite of two FLTs is another FLT.      Consider an FLT . We will show more than what is stated in the Proposition. For the first part, define   (Notice that these parameters are exactly the same as the entries of the matrix inverse of the matrix !)  You can check that . (In fact, this follows from the next part of the proof.)  For part (b), consider FLTs and given by You might guess that corresponds to the product of the matrices and , and you'd be correct!  Check that and use linear algebra to explain why the new parameters satisfy the non-singular condition .   "
+},
+{
+  "id": "investigation-3",
+  "level": "2",
+  "url": "sec-flt.html#investigation-3",
+  "type": "Investigation",
+  "number": "3.6.1",
+  "title": "",
+  "body": " What's really going on? The map defines a group homomorphism  . (You don't need to know for this class what these things mean, but you might have seen them in other classes.)  "
+},
+{
+  "id": "thm-FLT-decomp",
+  "level": "2",
+  "url": "sec-flt.html#thm-FLT-decomp",
+  "type": "Theorem",
+  "number": "3.6.4",
+  "title": "",
+  "body": "  Every FLT can be expressed as a composite of dilations ( ), translations ( ) and inversions ( ).    Dilation is a misnomer, since in the expression we allow to be any complex number. Remember that multiplication by a fixed complex number is really amplification by followed by rotation by .    Consider . Again, we consider separately the cases where and .  If then . This is the translation postcomposed by the dilation .  Now suppose that . Divide the numerator and denominator by in order to assume :   Now do some fraction arithmetic to get   Now can be written as a composite of translations, inversions, and translations. Look:   The proof is complete.   "
+},
+{
+  "id": "cor-FLT-preserve-circles",
+  "level": "2",
+  "url": "sec-flt.html#cor-FLT-preserve-circles",
+  "type": "Corollary",
+  "number": "3.6.5",
+  "title": "",
+  "body": "  Every FLT is circle-preserving.    It is intuitively clear (and straightforward to check carefully) that dilations and translations are circle-preserving. And we already proved that the complex inversion map preserves circles by considering it as a transformation of the Riemann Sphere!    "
+},
+{
+  "id": "lemma-3",
+  "level": "2",
+  "url": "sec-flt.html#lemma-3",
+  "type": "Lemma",
+  "number": "3.6.6",
+  "title": "",
+  "body": " An FLT is analytic wherever it is defined, and it is conformal.  "
+},
+{
+  "id": "prop-FLT-fixed-pts",
+  "level": "2",
+  "url": "sec-flt.html#prop-FLT-fixed-pts",
+  "type": "Proposition",
+  "number": "3.6.7",
+  "title": "Fixed-Point Property of FLTs.",
+  "body": " Fixed-Point Property of FLTs   Every FLT other than the identity map has either one or two fixed points (counting the point at ). That is, there are either one or two solutions to .    As usual, we consider separately the cases where and . Suppose first that , so that our FLT can be written as . One fixed point is . If then is another:   If then , and so has no solutions other than .  Now suppose that . Then , so is not a fixed point. The equation can be rearranged into the quadratic equation , which has two solutions if . Otherwise the two solutions coalesce into just one fixed point: .   "
+},
+{
+  "id": "example-23",
+  "level": "2",
+  "url": "sec-flt.html#example-23",
+  "type": "Example",
+  "number": "3.6.8",
+  "title": "",
+  "body": "   The FLT has two fixed points .    The FLT has two fixed points .    "
+},
+{
+  "id": "cor-FLT-three",
+  "level": "2",
+  "url": "sec-flt.html#cor-FLT-three",
+  "type": "Corollary",
+  "number": "3.6.9",
+  "title": "Three Points Property.",
+  "body": " Three Points Property   If and are FLTs with three common values, i.e., then .    The function (is an FLT by and) has three fixed points so by must be the identity map.   "
+},
+{
+  "id": "thm-FLT-three-pts",
+  "level": "2",
+  "url": "sec-flt.html#thm-FLT-three-pts",
+  "type": "Theorem",
+  "number": "3.6.10",
+  "title": "",
+  "body": "  For all distinct and all distinct there is a unique FLT satisfying , , and .   Let's start with , , and . (It is not obvious that this is what we should do, but hang in there and you'll see.)    For all distinct complex numbers there is a unique FLT satisfying , , and .    In order for to send to and to , must be proportional to . That is, for some . We plug in and to solve for . so . We conclude that the following FLT will do the trick:  (Remember that is the only variable in this expression. So the parameters of are e.g. . These have to be interpreted appropriately when you plug in or get in the denominator.)  By the Claim we can find a FLT that sends to (respectively) and another FLT that sends to (respectively). Now sends to .   "
+},
+{
+  "id": "def-cross-ratio",
+  "level": "2",
+  "url": "sec-flt.html#def-cross-ratio",
+  "type": "Definition",
+  "number": "3.6.12",
+  "title": "",
+  "body": "  We define the cross ratio of four complex numbers to be which is the image of under the unique FLT sending to .   Warning: different textbooks use different conventions for the cross ratio.    "
+},
+{
+  "id": "fig-geogebra-cross-ratio",
+  "level": "2",
+  "url": "sec-flt.html#fig-geogebra-cross-ratio",
+  "type": "Figure",
+  "number": "3.6.13",
+  "title": "",
+  "body": " GeoGebra: a basic path   "
+},
+{
+  "id": "example-24",
+  "level": "2",
+  "url": "sec-flt.html#example-24",
+  "type": "Example",
+  "number": "3.6.14",
+  "title": "",
+  "body": " Let's find the unique FLT sending to . We solve for . Easy! Get . Hey, this is the example from !  "
+},
+{
+  "id": "example-25",
+  "level": "2",
+  "url": "sec-flt.html#example-25",
+  "type": "Example",
+  "number": "3.6.15",
+  "title": "",
+  "body": " Let's find the unique FLT sending to . We solve the following equation for . We get   "
+},
+{
+  "id": "lem-FLT-only",
+  "level": "2",
+  "url": "sec-flt.html#lem-FLT-only",
+  "type": "Lemma",
+  "number": "3.6.16",
+  "title": "",
+  "body": "    If is a FLT whose only fixed point is , then there is a nonzero for which .    If is a FLT whose fixed points are and , then there is for which .      Write . Notice that since is a fixed point of . (This follows from how we defined the extension of an FLT to the point at infinity.) So by changing names of constants we can write . If , then would be a fixed point of , contradicting our assumption. So . If then would be another fixed point of . So ; that is, , as desired.  For the second part, notice that must be the unique FLT that sends to , to , and to . But also has these properties, so . And , since has exactly two fixed points (and is therefore not the identity map).   "
+},
+{
+  "id": "lem-FLTs-preserve-cross-ratios",
+  "level": "2",
+  "url": "sec-flt.html#lem-FLTs-preserve-cross-ratios",
+  "type": "Lemma",
+  "number": "3.6.17",
+  "title": "",
+  "body": "  FLTs preserve cross ratios. That is, if is an FLT then     The lefthand side of the equation is where is the unique FLT sending to . The righthand side of the equation is , where is the unique FLT sending to . But is also an FLT sending to , so it must be that . In particular, .   "
+},
+{
+  "id": "sec-def-contour-integrals",
+  "level": "1",
+  "url": "sec-def-contour-integrals.html",
+  "type": "Section",
+  "number": "4.1",
+  "title": "Defining the contour integral",
+  "body": " Defining the contour integral  The integral from single-variable calculus is defined over an interval of real numbers. An integral of a complex-valued function from a complex number to another complex number will more closely resemble integrals from multivariable calculus, since is inherently two-dimensional! In particular, the definition will depend on what path we choose to take from to .    A path is a continuous function for some . A path is simple if it doesn't cross itself, except possibly at its endpoints. That is, is simple if whenever then either or . A path is closed if . A contour is a path that is piecewise , i.e., a path that can be divided into finitely many paths each of which is continuously differentiable.       GeoGebra: a basic path      We first define the complex integral for paths in the complex plane. If is continuous, then we integrate by integrating its real and imaginary parts separately: Notice that the result is a complex number. But this is really just a prelude to the main event:  For a path and a continuous function , we define the integral of over as follows. Notice that the integral on the righthand side is defined by the first part of this definition (with ) to be The definition naturally extends to contours by adding integrals over pieces.    First, we emphasize two points: the product is complex multiplication , as we will see in the next paragraph. Even though this looks a lot like a definition you saw in multivariable calculus, it is not literally the same definition. (In the next section and on the homework you will untangle the connection, though.)  Second, notice that the result of integrating a complex-valued function over a curve will be a complex number, which is fundamentally two-dimensional! So it is not totally clear how to interpret an integral as a physical quantity. Like, what should its units be? We will start exploring this in the next section, and you will take the exploration further on the homework.  It is natural to wonder whether we've made a reasonable definition here, so let's give some motivation. Writing , , and , we discover the following.   On the other hand...   (We have omitted some calculations, which you should do carefully!)   Compute , where is the top half of the unit circle traversed from to . (We will see below that value of the integral does not depend on the parametrization of the curve, so feel free to use any parametrization of here.)  The given curve is parametrized by for . We see that and . That is all we need to compute the integral:     Compute over the triangular curve through the points , , and , where .   We parametrize the three sides of the triangle and integrate along each piece separately; then we add the results together.  Along you should get . Along you should get . Along you should get . The total is .   "
+},
+{
+  "id": "def-paths",
+  "level": "2",
+  "url": "sec-def-contour-integrals.html#def-paths",
+  "type": "Definition",
+  "number": "4.1.1",
+  "title": "",
+  "body": "  A path is a continuous function for some . A path is simple if it doesn't cross itself, except possibly at its endpoints. That is, is simple if whenever then either or . A path is closed if . A contour is a path that is piecewise , i.e., a path that can be divided into finitely many paths each of which is continuously differentiable.    "
+},
+{
+  "id": "fig-geogebra-basic-path",
+  "level": "2",
+  "url": "sec-def-contour-integrals.html#fig-geogebra-basic-path",
+  "type": "Figure",
+  "number": "4.1.2",
+  "title": "",
+  "body": " GeoGebra: a basic path   "
+},
+{
+  "id": "def-contour-integral",
+  "level": "2",
+  "url": "sec-def-contour-integrals.html#def-contour-integral",
+  "type": "Definition",
+  "number": "4.1.3",
+  "title": "",
+  "body": "  We first define the complex integral for paths in the complex plane. If is continuous, then we integrate by integrating its real and imaginary parts separately: Notice that the result is a complex number. But this is really just a prelude to the main event:  For a path and a continuous function , we define the integral of over as follows. Notice that the integral on the righthand side is defined by the first part of this definition (with ) to be The definition naturally extends to contours by adding integrals over pieces.   "
+},
+{
+  "id": "example-26",
+  "level": "2",
+  "url": "sec-def-contour-integrals.html#example-26",
+  "type": "Example",
+  "number": "4.1.4",
+  "title": "",
+  "body": " Compute , where is the top half of the unit circle traversed from to . (We will see below that value of the integral does not depend on the parametrization of the curve, so feel free to use any parametrization of here.)  The given curve is parametrized by for . We see that and . That is all we need to compute the integral:   "
+},
+{
+  "id": "example-27",
+  "level": "2",
+  "url": "sec-def-contour-integrals.html#example-27",
+  "type": "Example",
+  "number": "4.1.5",
+  "title": "",
+  "body": " Compute over the triangular curve through the points , , and , where .   We parametrize the three sides of the triangle and integrate along each piece separately; then we add the results together.  Along you should get . Along you should get . Along you should get . The total is .  "
+},
+{
+  "id": "sec-basic-integral-props",
+  "level": "1",
+  "url": "sec-basic-integral-props.html",
+  "type": "Section",
+  "number": "4.2",
+  "title": "Basic properties and the Fundamental Theorem",
+  "body": " Basic properties and the Fundamental Theorem    The integral is independent of parametrization. That is, if , , and satisfy , then     This follows from the definition of the contour integral and the substitution rule (aka u-sub ) for the usual Calc I integral:  (For the third equality, we did a u-substitution with .)        and .    Suppose that is a contour and that . Let be the restriction of to and let be the restriction of to . Then      where is the reverse of defined by .     where . (This is the same definition of arclength from multivariable calculus.)      We'll prove , but the proofs of the remaining properties are left as exercises.  Property follows from the definition and the similar bounding box property of standard Calc I integrals:   That's what we wanted to prove.     Take the standard parametrization of the unit circle: , . Let for an unspecified . Let's compute :   which equals if and otherwise.   We aim to prove a version of the Fundamental Theorem of Calculus for contour integrals. First we need a simple version for functions :    Suppose that and are two paths for which . Then .    This follows immediately from the defintion of integrals for paths like this and the Fundamental Theorem of Calculus.       If on a domain and is a contour, then .     Apply to and .    Let's revisit . We're considering and for . If , then is an antiderivative of on . So .  On the other hand, if , then , but the complex logarithm can be defined continuously only on a slit plane. In fact, because does not vanish on the unit circle, there cannot be a continuous branch of the log defined on any domain that includes the unit circle. Now we have a proof of that fact!   An especially important consequence of the FTC for contour integrals is that if has an antiderivative, then integrates to over any closed curve. As we will see in the next section, this implication reverses!  "
+},
+{
+  "id": "lem-integral-reparametrize",
+  "level": "2",
+  "url": "sec-basic-integral-props.html#lem-integral-reparametrize",
+  "type": "Lemma",
+  "number": "4.2.1",
+  "title": "",
+  "body": "  The integral is independent of parametrization. That is, if , , and satisfy , then     This follows from the definition of the contour integral and the substitution rule (aka u-sub ) for the usual Calc I integral:  (For the third equality, we did a u-substitution with .)  "
+},
+{
+  "id": "lem-integral-basic-props",
+  "level": "2",
+  "url": "sec-basic-integral-props.html#lem-integral-basic-props",
+  "type": "Lemma",
+  "number": "4.2.2",
+  "title": "",
+  "body": "     and .    Suppose that is a contour and that . Let be the restriction of to and let be the restriction of to . Then      where is the reverse of defined by .     where . (This is the same definition of arclength from multivariable calculus.)      We'll prove , but the proofs of the remaining properties are left as exercises.  Property follows from the definition and the similar bounding box property of standard Calc I integrals:   That's what we wanted to prove.   "
+},
+{
+  "id": "example-power-function",
+  "level": "2",
+  "url": "sec-basic-integral-props.html#example-power-function",
+  "type": "Example",
+  "number": "4.2.3",
+  "title": "",
+  "body": " Take the standard parametrization of the unit circle: , . Let for an unspecified . Let's compute :   which equals if and otherwise.  "
+},
+{
+  "id": "lem-FTC-easy",
+  "level": "2",
+  "url": "sec-basic-integral-props.html#lem-FTC-easy",
+  "type": "Lemma",
+  "number": "4.2.4",
+  "title": "",
+  "body": "  Suppose that and are two paths for which . Then .    This follows immediately from the defintion of integrals for paths like this and the Fundamental Theorem of Calculus.    "
+},
+{
+  "id": "thm-FTC",
+  "level": "2",
+  "url": "sec-basic-integral-props.html#thm-FTC",
+  "type": "Theorem",
+  "number": "4.2.5",
+  "title": "",
+  "body": "  If on a domain and is a contour, then .   "
+},
+{
+  "id": "proof-16",
+  "level": "2",
+  "url": "sec-basic-integral-props.html#proof-16",
+  "type": "Proof",
+  "number": "4.2.1",
+  "title": "",
+  "body": " Apply to and .  "
+},
+{
+  "id": "example-29",
+  "level": "2",
+  "url": "sec-basic-integral-props.html#example-29",
+  "type": "Example",
+  "number": "4.2.6",
+  "title": "",
+  "body": " Let's revisit . We're considering and for . If , then is an antiderivative of on . So .  On the other hand, if , then , but the complex logarithm can be defined continuously only on a slit plane. In fact, because does not vanish on the unit circle, there cannot be a continuous branch of the log defined on any domain that includes the unit circle. Now we have a proof of that fact!  "
+},
+{
+  "id": "sec-cauchys-thm",
+  "level": "1",
+  "url": "sec-cauchys-thm.html",
+  "type": "Section",
+  "number": "4.3",
+  "title": "Cauchy's Theorem",
+  "body": " Cauchy's Theorem    Suppose that is a continuous function defined on a domain . The following are equivalent:     has an antiderivative on ;   for all the integral is independent of path , meaning that for all contours with and we have ;    for all closed paths we have .      We'll give the proofs of all the easy directions here and leave the difficult direction for a separate proposition.  First, notice that we already observed that implies after our discussion of the FTC for contour integrals. It is not too difficult to see that conditions and are equivalent. Assume and suppose that is closed. Divide into two paths, from to and from back to . (It does not matter where this division happens.) Using path-independence and the basic properties of contour integrals, we have   from which we conclude that So implies . The proof of the converse uses similar ideas and is left as an exercise.  So it remains to show that implies , which we leave to because it will be useful to have a refinement of this result.    Notice that when we say that has an antiderivative here, we mean that it has a complex antiderivative, i.e., a function for which .   should remind you of a theorem from multivariable calculus. In fact you can use one to prove the other; see .    Suppose that is a star-shaped domain, is continuous, and for all triangles . Then has an antiderivative on .    Let be a point of with respect to which is star-shaped. For define , where is the straight-line path from to . (Notice that lies completely in , since is star-shaped wrt .)    GeoGebra: a basic path    We aim to show that . Since is open, there is for which . Let . Let be the triangle formed by , and , with boundary oriented counterclockwise. Notice that is completely included in , since every point on the line segment is (by choice of ), and since is star-shaped wrt . We can therefore apply our assumption to conclude that . On the other hand, this expression also equals , so we rearrange to obtain   What we'd really like to estimate is the difference quotient , so we rearrange further.   Now we are in a position to make the final estimate.   which tends to as tends to , since is continuous.    Redo the proof of without the assumption that is star-shaped, but assuming that for all closed contours (not only triangles) in . (Choose to be any element of , and take to be any path from to that lies completely inside .) Make sure you have a complete proof of .  The goal now is to prove Cauchy's Theorem for star-shaped domains, which says that if is a star-shaped domain and is analytic on , then for all closed contours in . In light of and , it suffices to prove the special case where is triangular.   Cauchy's Theorem for Triangles   Suppose that is a domain and that is analytic on . If is a triangle, then .    This is a serious proof! Fix a triangle and put . Also write for the perimeter of . Our plan is to bound , showing that for all . Divide into four subtriangles by taking the midpoints of each of the three sides. As indicated by the picture, these four subtriangles can be oriented in such a way that    It follows that one of the four satisfies . Call that one . Notice that the four subtriangles are each similar (in the sense of geometry) to with edge-lengths halved, so .  Iterate this process. At stage we have triangles each of perimeter and a particular one with . These triangles form a nested sequence of closed sets of diameter tending to , so by Compactness there is a unique point . We assumed that was analytic at , so, fixing arbitrary , we must have a for which the following inequality holds for every .   Rearrange:   Let be large enough that . We rewrite in the following non-obvious way, using the fact that constant functions integrate to over closed contours by the FTC.   Now we just need to do an ML estimate:   (In the second line we used the fact that ; in the third we used an ML inequality; and in the fourth we used the fact that the distance between any two points of a triangle is at most its perimeter.)  Putting everything together, we obtain the following.   But was arbitrary and is fixed, so .     Cauchy's Theorem for star-shaped domains   Suppose that is star-shaped and is analytic on . Then for any closed contour in , we have .    Apply to conclude that integrates to over any triangle in . Then apply to conclude that has an antiderivative on . Finally, we can apply to conclude that for any closed contour in , we have .     NB. Cauchy's Theorem holds for all simply connected domains, not just star-shaped domains. But notice that for example integrates to a nonzero value over the unit circle, so Cauchy's Theorem does not extend to all domains.  For a short proof of Cauchy's Theorem that uses Green's Theorem, see .  "
+},
+{
+  "id": "thm-antiderivative-conditions",
+  "level": "2",
+  "url": "sec-cauchys-thm.html#thm-antiderivative-conditions",
+  "type": "Theorem",
+  "number": "4.3.1",
+  "title": "",
+  "body": "  Suppose that is a continuous function defined on a domain . The following are equivalent:     has an antiderivative on ;   for all the integral is independent of path , meaning that for all contours with and we have ;    for all closed paths we have .      We'll give the proofs of all the easy directions here and leave the difficult direction for a separate proposition.  First, notice that we already observed that implies after our discussion of the FTC for contour integrals. It is not too difficult to see that conditions and are equivalent. Assume and suppose that is closed. Divide into two paths, from to and from back to . (It does not matter where this division happens.) Using path-independence and the basic properties of contour integrals, we have   from which we conclude that So implies . The proof of the converse uses similar ideas and is left as an exercise.  So it remains to show that implies , which we leave to because it will be useful to have a refinement of this result.   "
+},
+{
+  "id": "p-307",
+  "level": "2",
+  "url": "sec-cauchys-thm.html#p-307",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "antiderivative "
+},
+{
+  "id": "prop-triangles-antiderivative",
+  "level": "2",
+  "url": "sec-cauchys-thm.html#prop-triangles-antiderivative",
+  "type": "Proposition",
+  "number": "4.3.2",
+  "title": "",
+  "body": "  Suppose that is a star-shaped domain, is continuous, and for all triangles . Then has an antiderivative on .    Let be a point of with respect to which is star-shaped. For define , where is the straight-line path from to . (Notice that lies completely in , since is star-shaped wrt .)    GeoGebra: a basic path    We aim to show that . Since is open, there is for which . Let . Let be the triangle formed by , and , with boundary oriented counterclockwise. Notice that is completely included in , since every point on the line segment is (by choice of ), and since is star-shaped wrt . We can therefore apply our assumption to conclude that . On the other hand, this expression also equals , so we rearrange to obtain   What we'd really like to estimate is the difference quotient , so we rearrange further.   Now we are in a position to make the final estimate.   which tends to as tends to , since is continuous.   "
+},
+{
+  "id": "exercise-7",
+  "level": "2",
+  "url": "sec-cauchys-thm.html#exercise-7",
+  "type": "Checkpoint",
+  "number": "4.3.4",
+  "title": "",
+  "body": "Redo the proof of without the assumption that is star-shaped, but assuming that for all closed contours (not only triangles) in . (Choose to be any element of , and take to be any path from to that lies completely inside .) Make sure you have a complete proof of . "
+},
+{
+  "id": "thm-cauchy-triangles",
+  "level": "2",
+  "url": "sec-cauchys-thm.html#thm-cauchy-triangles",
+  "type": "Theorem",
+  "number": "4.3.5",
+  "title": "Cauchy's Theorem for Triangles.",
+  "body": " Cauchy's Theorem for Triangles   Suppose that is a domain and that is analytic on . If is a triangle, then .    This is a serious proof! Fix a triangle and put . Also write for the perimeter of . Our plan is to bound , showing that for all . Divide into four subtriangles by taking the midpoints of each of the three sides. As indicated by the picture, these four subtriangles can be oriented in such a way that    It follows that one of the four satisfies . Call that one . Notice that the four subtriangles are each similar (in the sense of geometry) to with edge-lengths halved, so .  Iterate this process. At stage we have triangles each of perimeter and a particular one with . These triangles form a nested sequence of closed sets of diameter tending to , so by Compactness there is a unique point . We assumed that was analytic at , so, fixing arbitrary , we must have a for which the following inequality holds for every .   Rearrange:   Let be large enough that . We rewrite in the following non-obvious way, using the fact that constant functions integrate to over closed contours by the FTC.   Now we just need to do an ML estimate:   (In the second line we used the fact that ; in the third we used an ML inequality; and in the fourth we used the fact that the distance between any two points of a triangle is at most its perimeter.)  Putting everything together, we obtain the following.   But was arbitrary and is fixed, so .   "
+},
+{
+  "id": "cor-cauchys-thm",
+  "level": "2",
+  "url": "sec-cauchys-thm.html#cor-cauchys-thm",
+  "type": "Corollary",
+  "number": "4.3.6",
+  "title": "Cauchy's Theorem for star-shaped domains.",
+  "body": " Cauchy's Theorem for star-shaped domains   Suppose that is star-shaped and is analytic on . Then for any closed contour in , we have .    Apply to conclude that integrates to over any triangle in . Then apply to conclude that has an antiderivative on . Finally, we can apply to conclude that for any closed contour in , we have .   "
+},
+{
+  "id": "sec-connections-to-multivariable",
+  "level": "1",
+  "url": "sec-connections-to-multivariable.html",
+  "type": "Section",
+  "number": "4.4",
+  "title": "Connections to multivariable calculus",
+  "body": " Connections to multivariable calculus  After reading the sections about contour integrals, you probably can't help noticing a strong resemblance to the theory of line integrals from multivariable calculus. First, notice that unlike a real line integral, the value of a contour integral is a complex number, i.e., a point in the plane! The key to making connections to multivariable calculus is to decompose this into its real and imaginary parts:   so we can use this to decompose the contour integral into two multivariable-calculus circulation integrals:   Let be the vector field associated to the conjugate of . Prove that where  Let's give an alternative proof of Cauchy's Theorem using Green's Theorem. (The reason for giving a separate, much longer, proof in class is that most of you haven't seen a proof of Green's Theorem!)    If is analytic on a simply connected domain , then for every closed path in .    The key is , which decomposes into its real and imaginary parts. Each of those parts is a vector integral to which we can apply Green's Theorem. Writing for the region enclosed by , we have the following.   (Notice that we used the Cauchy–Riemann Equations in each line.) We conclude that .    Give a proof along similar lines that a function that integrates to along every closed contour must have an antiderivative. Use the theorem from multivariable calculus that a circulation-free vector field must have a potential function.  "
+},
+{
+  "id": "exercise-8",
+  "level": "2",
+  "url": "sec-connections-to-multivariable.html#exercise-8",
+  "type": "Checkpoint",
+  "number": "4.4.1",
+  "title": "",
+  "body": "Let be the vector field associated to the conjugate of . Prove that where "
+},
+{
+  "id": "thm-Cauchy-green",
+  "level": "2",
+  "url": "sec-connections-to-multivariable.html#thm-Cauchy-green",
+  "type": "Theorem",
+  "number": "4.4.2",
+  "title": "",
+  "body": "  If is analytic on a simply connected domain , then for every closed path in .    The key is , which decomposes into its real and imaginary parts. Each of those parts is a vector integral to which we can apply Green's Theorem. Writing for the region enclosed by , we have the following.   (Notice that we used the Cauchy–Riemann Equations in each line.) We conclude that .   "
+},
+{
+  "id": "exercise-antiderivative-conditions-multi",
+  "level": "2",
+  "url": "sec-connections-to-multivariable.html#exercise-antiderivative-conditions-multi",
+  "type": "Checkpoint",
+  "number": "4.4.3",
+  "title": "",
+  "body": "Give a proof along similar lines that a function that integrates to along every closed contour must have an antiderivative. Use the theorem from multivariable calculus that a circulation-free vector field must have a potential function. "
 },
 {
   "id": "colophon-2",

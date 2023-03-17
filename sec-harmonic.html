@@ -44,7 +44,7 @@ window.MathJax = {
     )}
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
 <script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -180,11 +180,17 @@ window.MathJax = {
 </ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-inverse.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-analytic-functions.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-conformal.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 \renewcommand{\C}{\mathbb{C}}
 \newcommand {\bH}{\mathbb{H}}
+\newcommand {\bF} {\mathbf{F}}
+\newcommand {\bG} {\mathbf{G}}
+\newcommand {\bN} {\mathbf{N}}
+\newcommand {\bT} {\mathbf{T}}
 \newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\angs}[1]{\langle #1 \rangle}
 \newcommand\set[2]{\left\{ #1 : #2 \right\}}
 \renewcommand{\bar}{\overline}
 \newcommand{\Arg}{\operatorname{Arg}}
@@ -245,12 +251,21 @@ window.MathJax = {
 <li><div class="toc-item"><a href="sec-flt.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Fractional Linear Transformations</span></a></div></li>
 </ul>
 </li>
+<li>
+<div class="toc-item"><a href="ch-complex-integration.html" class="internal"><span class="codenumber">4</span> <span class="title">Complex Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-def-contour-integrals.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Defining the contour integral</span></a></div></li>
+<li><div class="toc-item"><a href="sec-basic-integral-props.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Basic properties and the Fundamental Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cauchys-thm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-connections-to-multivariable.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Connections to multivariable calculus</span></a></div></li>
+</ul>
+</li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-harmonic"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.4</span> <span class="title">Harmonic functions</span>
 </h2>
-<div class="para logical" id="p-166">
+<div class="para logical" id="p-167">
 <div class="para">Motivated by Laplace's Equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -262,11 +277,11 @@ window.MathJax = {
 <article class="definition definition-like" id="def-harmonic"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.1</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-167">A function <span class="process-math">\(u = u(x,y)\colon \R^2 \to \R\)</span> is <dfn class="terminology">harmonic</dfn> if the partial derivatives <span class="process-math">\(u_x, u_y,u_{xx}, u_{xy}, u_{yx}, u_{yy}\)</span> all exist and are continuous, and <span class="process-math">\(\Delta u = 0\text{,}\)</span> i.e., <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span>
+<div class="para" id="p-168">A function <span class="process-math">\(u = u(x,y)\colon \R^2 \to \R\)</span> is <dfn class="terminology">harmonic</dfn> if the partial derivatives <span class="process-math">\(u_x, u_y,u_{xx}, u_{xy}, u_{yx}, u_{yy}\)</span> all exist and are continuous, and <span class="process-math">\(\Delta u = 0\text{,}\)</span> i.e., <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span>
 </div></article><article class="theorem theorem-like" id="thm-analytic-harmonic"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.2</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-168">If <span class="process-math">\(u+iv\)</span> is analytic, then <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> are harmonic functions.</div></article><article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><div class="para" id="p-169">Later we will show that the real and imaginary parts of analytic functions have continuous partial derivatives of all orders. So let's not worry about that part for now.</div> <div class="para" id="p-170">This is just an application of the Cauchy–Riemann Equations and equality of mixed partials (sometimes called Clairaut's Theorem by calculus textbooks):</div>
+<div class="para" id="p-169">If <span class="process-math">\(u+iv\)</span> is analytic, then <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> are harmonic functions.</div></article><article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><div class="para" id="p-170">Later we will show that the real and imaginary parts of analytic functions have continuous partial derivatives of all orders. So let's not worry about that part for now.</div> <div class="para" id="p-171">This is just an application of the Cauchy–Riemann Equations and equality of mixed partials (sometimes called Clairaut's Theorem by calculus textbooks):</div>
 <div class="displaymath process-math" id="md-12">
 \begin{align*}
 u_{xx} \amp = \frac{\partial}{\partial x} u_x  \amp\amp \\
@@ -276,25 +291,25 @@ u_{xx} \amp = \frac{\partial}{\partial x} u_x  \amp\amp \\
 \amp = -u_{yy}
 \end{align*}
 </div>
-<div class="para" id="p-171">Rearranging gives <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span> A very similar proof works for <span class="process-math">\(v\text{.}\)</span>
+<div class="para" id="p-172">Rearranging gives <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span> A very similar proof works for <span class="process-math">\(v\text{.}\)</span>
 </div></article></div>
 <article class="example example-like" id="example-16"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-16"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like"><div class="para" id="p-172">The function <span class="process-math">\(u(x,y) = e^x \cos(y)\)</span> is harmonic, since it is the real part of the analytic function <span class="process-math">\(f(z) = e^z\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like"><div class="para" id="p-173">The function <span class="process-math">\(u(x,y) = e^x \cos(y)\)</span> is harmonic, since it is the real part of the analytic function <span class="process-math">\(f(z) = e^z\text{.}\)</span>
 </div></article></div>
 <article class="definition definition-like" id="def-harmonic-conjugate"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.4</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-173">If <span class="process-math">\(u\)</span> is harmonic on a domain <span class="process-math">\(D\)</span> and <span class="process-math">\(v\)</span> is a function for which <span class="process-math">\(u + iv\)</span> is analytic on <span class="process-math">\(D\text{,}\)</span> then we say that <span class="process-math">\(v\)</span> is a <dfn class="terminology">harmonic conjugate</dfn> of <span class="process-math">\(u\text{.}\)</span>
+<div class="para" id="p-174">If <span class="process-math">\(u\)</span> is harmonic on a domain <span class="process-math">\(D\)</span> and <span class="process-math">\(v\)</span> is a function for which <span class="process-math">\(u + iv\)</span> is analytic on <span class="process-math">\(D\text{,}\)</span> then we say that <span class="process-math">\(v\)</span> is a <dfn class="terminology">harmonic conjugate</dfn> of <span class="process-math">\(u\text{.}\)</span>
 </div></article><article class="exercise exercise-like" id="exercise-6"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-6"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-6"><article class="exercise exercise-like"><div class="para" id="p-174">State and prove something to the effect that harmonic conjugates are unique up to an additive constant.</div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like"><div class="para" id="p-175">Suppose that <span class="process-math">\(u+iv\)</span> and <span class="process-math">\(u + iw\)</span> are both analytic. Then <span class="process-math">\(\frac{i(v - w)}{2}\)</span> is analytic too, but it is also real-valued. So <span class="process-math">\(v - w\)</span> is constant.</div></div></div></article></div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-6"><article class="exercise exercise-like"><div class="para" id="p-175">State and prove something to the effect that harmonic conjugates are unique up to an additive constant.</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like"><div class="para" id="p-176">Suppose that <span class="process-math">\(u+iv\)</span> and <span class="process-math">\(u + iw\)</span> are both analytic. Then <span class="process-math">\(\frac{i(v - w)}{2}\)</span> is analytic too, but it is also real-valued. So <span class="process-math">\(v - w\)</span> is constant.</div></div></div></article></div>
 <article class="example example-like" id="example-harmonic-conjugate"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-harmonic-conjugate"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-harmonic-conjugate"><article class="example example-like"><div class="para" id="p-176">Find a harmonic conjugate for <span class="process-math">\(u(x,y) = xy\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-harmonic-conjugate"><article class="example example-like"><div class="para" id="p-177">Find a harmonic conjugate for <span class="process-math">\(u(x,y) = xy\text{.}\)</span>
 </div> <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">
-<div class="para" id="p-177">First notice that <span class="process-math">\(\frac{\partial^2}{\partial x^2} xy = 0 = -\frac{\partial^2}{\partial y^2} xy\text{,}\)</span> so <span class="process-math">\(u\)</span> is harmonic.</div> <div class="para logical" id="p-178">
+<div class="para" id="p-178">First notice that <span class="process-math">\(\frac{\partial^2}{\partial x^2} xy = 0 = -\frac{\partial^2}{\partial y^2} xy\text{,}\)</span> so <span class="process-math">\(u\)</span> is harmonic.</div> <div class="para logical" id="p-179">
 <div class="para">Solve the CR equations. Starting with</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -309,28 +324,26 @@ x = u_y = -v_x = h'(x),
 </div>
 <div class="para">which means (calculus) that <span class="process-math">\(h(x) = -\frac{x^2}{2} + C\text{.}\)</span> We conclude that <span class="process-math">\(v(x,y) = \frac{y^2}{2} - \frac{x^2}{2} + C\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-179">What analytic function is <span class="process-math">\(u+iv\text{?}\)</span> Look:</div>
+</div> <div class="para" id="p-180">What analytic function is <span class="process-math">\(u+iv\text{?}\)</span> Look:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 f(z) = f(x+iy) = xy + \left( \frac{y^2}{2} - \frac{x^2}{2} + C \right)i = -i\frac{z^2}{2} + C.
 \end{equation*}
 </div>
 </div></div></article></div>
-<div class="para" id="p-180">An abstract version of the method used in <a href="" class="xref" data-knowl="./knowl/example-harmonic-conjugate.html" title="Example 3.4.6">Example 3.4.6</a> can be used to prove the following general theorem.</div>
+<div class="para" id="p-181">An abstract version of the method used in <a href="" class="xref" data-knowl="./knowl/example-harmonic-conjugate.html" title="Example 3.4.6">Example 3.4.6</a> can be used to prove the following general theorem.</div>
 <article class="theorem theorem-like" id="thm-harmonic-conjugates"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.7</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-181">Let <span class="process-math">\(D\)</span> be an open disk or an open (filled-in) rectangle. Let <span class="process-math">\(u = u(x,y)\)</span> be a harmonic function on <span class="process-math">\(D\text{.}\)</span> Then <span class="process-math">\(u\)</span> has a harmonic conjugate <span class="process-math">\(v\)</span> on <span class="process-math">\(D\text{,}\)</span> unique up to adding a constant.</div></article><div class="para" id="p-182">The “right” class of domains <span class="process-math">\(D\)</span> to which <a href="" class="xref" data-knowl="./knowl/thm-harmonic-conjugates.html" title="Theorem 3.4.7">Theorem 3.4.7</a> applies is the class of <dfn class="terminology">simply connected</dfn> domains. A domain is simply connected if and only if every loop in <span class="process-math">\(D\)</span> can be shrunk continuously to a point without leaving <span class="process-math">\(D\text{.}\)</span> E.g. a disk is simply connected but an annulus is not.</div>
-<div class="para" id="p-183">
+<div class="para" id="p-182">Let <span class="process-math">\(D\)</span> be an open disk or an open (filled-in) rectangle. Let <span class="process-math">\(u = u(x,y)\)</span> be a harmonic function on <span class="process-math">\(D\text{.}\)</span> Then <span class="process-math">\(u\)</span> has a harmonic conjugate <span class="process-math">\(v\)</span> on <span class="process-math">\(D\text{,}\)</span> unique up to adding a constant.</div></article><div class="para" id="p-183">The “right” class of domains <span class="process-math">\(D\)</span> to which <a href="" class="xref" data-knowl="./knowl/thm-harmonic-conjugates.html" title="Theorem 3.4.7">Theorem 3.4.7</a> applies is the class of <dfn class="terminology">simply connected</dfn> domains. A domain is simply connected if and only if every loop in <span class="process-math">\(D\)</span> can be shrunk continuously to a point without leaving <span class="process-math">\(D\text{.}\)</span> E.g. a disk is simply connected but an annulus is not.</div>
+<div class="para" id="p-184">
 <em class="alert">NB.</em> <a href="" class="xref" data-knowl="./knowl/thm-harmonic-conjugates.html" title="Theorem 3.4.7">Theorem 3.4.7</a> does not hold in general for domains that are not simply connected, e.g. <span class="process-math">\(D\)</span> an annulus or <span class="process-math">\(D = \C \wo\{0\}\text{.}\)</span> For example, consider <span class="process-math">\(u(x,y) = \log\sqrt{x^2 + y^2}\text{.}\)</span> You will probably be asked on the homework to explore this example.</div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-inverse.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-conformal.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
-<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>

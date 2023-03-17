@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><div class="para">This follows from the definition of the contour integral and the substitution rule (aka “u-sub”) for the usual Calc I integral:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_\delta f(z)\,dz \amp = \int_{a'}^{b'} f(\gamma(\phi(t)))(\gamma\circ\phi)'(t)\,dt\\
+\amp = \int_{a'}^{b'} f(\gamma(\phi(t))) \gamma'(\phi(t)) \phi'(t)\,dt \\
+\amp = \int_a^b f(\gamma(u)) \gamma'(u) \,du \\
+\amp = \int_\gamma f(z)\,dz
+\end{align*}
+</div>(For the third equality, we did a u-substitution with <span class="process-math">\(u = \gamma(\phi(t))\text{.}\)</span>)</article></body>
+</html>

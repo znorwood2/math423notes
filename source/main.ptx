@@ -22,6 +22,7 @@
       \newcommand{\Log}{\operatorname{Log}}
       \newcommand{\wo}{\smallsetminus}
       \newcommand{\angleop}{\operatorname{angle}}
+      \newcommand {\grad} {\nabla}
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
@@ -1118,10 +1119,10 @@
             </p>
           </aside>
           <p>
-            <em>Warning:</em> These definitions are motivated by Euler's Formula: e.g. for <m>x\in\R</m>,
+            <alert>Warning:</alert> These definitions are motivated by Euler's Formula: e.g. for <m>x\in\R</m>,
           </p>
           <me>
-            \cos(x) \Re(e^{ix}) = \frac{e^{ix} + e^{-ix}}{2}.
+            \cos(x) = \Re(e^{ix}) = \frac{e^{ix} + e^{-ix}}{2}.
           </me>
           <p>
             But <m>\cos(z) \ne \Re(e^{iz})</m> in general! In particular, the quantity on the right is real-valued, 
@@ -1136,7 +1137,7 @@
           </p>
           <p>
             The tangent function can be defined by <m>\tan z = \frac{\sin z}{\cos z}</m>,
-            and hyperbolic trig functions can also be defined. You will explore all this on the homework.
+            and hyperbolic trig functions can be defined similarly. You will explore all this on the homework.
           </p>
          </subsection>
       </section>
@@ -1408,10 +1409,317 @@
     </section>
     <section xml:id="sec-cauchy-riemann">
       <title>The Cauchy–Riemann Equations</title>
-      
+      <p>
+        The limit of the difference quotient from the definition of derivative
+      </p>
+      <me>
+        \lim_{\Delta z \to 0} \frac{f(z + \Delta z) - f(z)}{\Delta z}
+      </me>
+      <p>
+        is really a multivariable calculus limit:
+      </p>
+      <me>
+        \lim_{(\Delta x, \Delta y) \to (0,0)} \frac{f((x + \Delta x) + i(y + \Delta y)) - f(x + iy)}{\Delta x + i\Delta y}
+      </me>
+      <p>
+        If this limit exists (meaning that <m>f = u + iv</m> is differentiable at <m>z</m>),
+        then it must exist along the two coordinate directions. That is, in the special
+        cases <m>\Delta z = \Delta x</m> and <m>\Delta z = i\Delta y</m> we must get the same result.
+        Let's explore that.
+      </p>
+      <md>
+        <mrow> \frac{f(z + \Delta x) - f(z)}{\Delta x} \amp = \frac{u(z + \Delta x,y) + iv(x + \Delta x,y) - u(x,y) - iv(x,y)}{\Delta x} </mrow>
+        <mrow xml:id="item-partial-deriv-x" number="yes"> \amp = \frac{u(x + \Delta x,y) - u(x,y)}{\Delta x} + i \frac{v(x + \Delta x,y) - v(x,y)}{\Delta x} </mrow>
+      </md>
+      <p>
+        If <m>f'(z)</m> exists, then as <m>\Delta x</m> tends to <m>0</m>
+        the expression in <xref ref="item-partial-deriv-x"/> must tend toward <m>f'(z)</m>.
+        But it must also equal <m>\frac{\partial u}{\partial x}(x,y) + i \frac{\partial v}{\partial x}(x,y)</m>,
+        by the definition of partial derivatives! In other words, for <m>f = u + iv</m> and <m>z = x + iy</m>,
+      </p>
+      <me>
+        f'(z) = \frac{\partial u}{\partial x}(x,y) + i \frac{\partial v}{\partial x} (x,y).
+      </me>
+      <p>
+        Do the same thing in the <m>y</m>-direction with <m>\Delta z = i \Delta y</m> and you'll get the following.
+      </p>
+      <md>
+        <mrow> \frac{f(z + i\Delta y) - f(z)}{i \Delta y} \amp = \frac{v(x,y + \Delta y) - v(x,y)}{\Delta y} - i \frac{u(x,y + \Delta y) - u(x,y)}{\Delta y} </mrow>
+        <mrow> \amp \underset{\Delta y \to 0}{\longrightarrow} \frac{\partial v}{\partial y} (x,y) - i \frac{\partial u}{\partial y}(x,y) </mrow>
+      </md>
+      <p>
+        More compactly, <m>f'(z) = u_x + iv_x = v_y - iu_y</m>. Identifying real and imaginary parts, we obtain
+        the Cauchy–Riemann Equations.
+      </p>
+      <theorem xml:id="thm-cauchy-riemann">
+        <title>Cauchy–Riemann Equations</title>
+        <statement>
+          <p>
+            Suppose that <m>f = u + iv</m> is defined on a domain <m>U\subseteq \C</m>
+            and that <m>z = x + iy \in U</m>.
+            Then <m>f</m> is (complex-)differentiable at <m>z</m> if and only if
+            <m>u</m> and <m>v</m> (construed as functions <m>\R^2 \to \R</m>) have continuous partial derivatives that satisfy
+            the following equations, called the <term>Cauchy–Riemann Equations</term>, at <m>z</m>.
+          </p>
+          <md>
+            <mrow> u_x \amp = v_y </mrow>
+            <mrow> u_y \amp = -v_x </mrow>
+          </md>
+          <p>
+            In that case, we have
+          </p>
+          <me>
+            f'(z) = u_x(x,y) + i v_x(x,y) = v_y(x,y) - i u_y(x,y).
+          </me>
+        </statement>
+      </theorem>
+      <p>
+        We have basically shown how to prove the forward direction. We will not give the proof of the other direction;
+        it is an exercise in multivariable real analysis using Taylor's Theorem.
+      </p>
+      <!-- TODO: add in this argument in an appendix! Appendix: the gory details-->
+      <example>
+        <ol marker="(a)">
+          <li>
+            <p>
+              Let <m>f(z) = z^2</m>, so that <m>f = u + iv</m> where <m>u(x,y) = x^2 - y^2</m> and <m>v(x,y) = 2xy</m>.
+              We know that this function (a polynomial) is differentiable everywhere, so we expect
+              <m>u</m> and <m>v</m> to satisfy the Cauchy–Riemann Equations everywhere. Indeed, they do:
+            </p>
+            <md>
+              <mrow> u_x \amp = 2x = v_y </mrow>
+              <mrow> u_y \amp = -2y = -v_x </mrow>
+            </md>
+          </li>
+          <li>
+            <p>
+              Consider the conjugation map <m>f(z) = \bar z</m>. Then <m>f = u + iv</m> with <m>u(x,y) = x</m>
+              and <m>v(x,y) = -y</m>. In this case we have <m>u_x = 1</m> <m>v_y = -1</m>, so the Cauchy–Riemann
+              Equations hold <em>nowhere</em>. So the conjugation map is nowhere (complex-)differentiable,
+              which might seem weird since it is a nice orthogonal transformation. 
+              In <xref ref="sec-conformal"/> we will get another explanation: conjugation is not analytic
+              because it fails to preserve angles, in particular their orientation.
+            </p>
+          </li>
+          <li>
+            <p>
+              The exponential map <m>f(z) = e^z</m> has real part <m>u(x,y) = e^x \cos y</m> and 
+              imaginary part <m>v(x,y) = e^x \sin y</m>. We see that the Cauchy–Riemann equations
+            </p>
+            <md>
+              <mrow> u_x \amp = e^x \cos y = v_y </mrow>
+              <mrow> u_y \amp = -e^x \sin y = -v_x </mrow>
+            </md>
+            <p>
+              hold everywhere, as expected since <m>f</m> is entire.
+              We also observe that
+            </p>
+            <me>
+              f'(z) = u_x + i v_x = e^x \cos y + i e^x \sin y = e^z.
+            </me>
+          </li>
+        </ol>
+      </example>
+      <p>
+        Using the Cauchy–Riemann Equations, we will several rigidity properties of analytic
+        functions that start to give us a sense of what sort of functions can be analytic.
+        We begin with an unsurprising complex analogue of a standard fact from single-variable calculus.
+      </p>
+      <lemma xml:id="lem-deriv-zero-constant">
+        <statement>
+          <p>
+            If <m>f</m> is analytic on a domain <m>D</m>
+            and <m>f'(z) = 0</m> for every <m>z\in D</m>, then <m>f</m> must be constant on <m>D</m>.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            Write <m>f = u+iv</m>, so that our assumption and the Cauchy–Riemann Equations give
+          </p>
+          <me>
+            0 = f'(z) = u_x + iv_x = v_y - i u_y.
+          </me>
+          <p>
+            Identifying real and imaginary parts, we see that <m>u_x = u_y = v_x = v_y = 0</m> on <m>D</m>.
+            It follows that the directional derivative <m>D_{\mathbf{w}}f = \grad w \cdot \mathbf{w} = 0</m>
+            for every direction vector <m>\mathbf{w}</m>, at every point of <m>D</m>.
+            Using this, one can show (using the fact that a plain ole function <m>\R\to\R</m> with derivative
+            <m>0</m> must be constant) that <m>f</m> is constant along any line segment that lies completely in <m>D</m>.
+            But, since <m>D</m> is path-connected, any two points <m>z,w\in D</m> can be joined by a finite sequence 
+            of line segments.
+            <aside>
+              <p>
+              This actually requires a togological argument that we've swept under the rug.
+              The gist of it is this: every point on a path from <m>z</m> to <m>w</m> has an open neighborhood that is included in <m>D</m>,
+              since <m>D</m> is open. Only finitely many of these open neighborhoods are needed to cover the path by compactness.
+              Now replace the portion of the path in the first ball with the straight-line path to where it exits
+              the ball. Repeat with the remaining balls.
+              </p>
+            </aside>
+            Since <m>f</m> is constant along each of these line segments, <m>f(z) = f(w)</m>.
+            So <m>f</m> is constant on <m>D</m>.
+          </p>
+        </proof>
+      </lemma>
+      <exercise xml:id="exercise-real-valued-const">
+        <p>
+          If <m>f</m> is analytic and real-valued on a domain <m>D</m>, then <m>f</m> must be constant on <m>D</m>.
+        </p>
+      </exercise>
+      <proposition xml:id="prop-conj-const">
+        <statement>
+          <p>
+            If <m>f</m> and <m>\bar f</m> are both analytic on a domain <m>D</m>, then <m>f</m> is constant on <m>D</m>.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            There is a short proof from <xref ref="exercise-real-valued-const"/>, but we will give a direct proof
+            that does not appeal to a homework problem.
+          </p>
+          <p>
+            Write <m>f = u+iv</m> so that <m>\bar f = u - iv</m>.
+            The Cauchy–Riemann Equations for <m>f</m> say:
+            <me>
+              u_x = v_y \quad \text{and} \quad u_y = -v_x,
+            </me>
+            while the Cauchy–Riemann Equations for <m>\bar f</m> say:
+            <me>
+              u_x = -v_y \quad \text{and} \quad u_y = v_x.
+            </me>
+            Adding these equations together gives <m>u_x = u_y = v_x = v_y = 0</m>.
+            So <m>f'(z) = u_x + i u_y = 0</m> on <m>D</m>. By <xref ref="lem-deriv-zero-constant"/>,
+            it follows that <m>f</m> is constant on <m>D</m>.
+          </p>
+        </proof>
+      </proposition>
+      <corollary xml:id="cor-modulus-const">
+        <statement>
+          <p>
+            If <m>f</m> is analytic on a domain <m>D</m> and <m>\abs{f(z)}</m> is constant on <m>D</m>,
+            then <m>f</m> is constant on <m>D</m>.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            If <m>\abs{f}</m> takes the constant value <m>0</m>
+            on <m>D</m>, then <m>f</m> takes the constant value <m>0</m> on <m>D</m>. So assume
+            from now on that the constant value of <m>\abs{f}</m> on <m>D</m> is not zero.
+            Recall that <m>\abs{f(z)} = f(z)\bar{f(z)}</m>. 
+            Rearrange to see that <m>\bar{f(z)} = \frac{1}{\abs{f(z)}^2} f(z)</m>,
+            which means that <m>\bar f</m> is a constant multiple of the analytic function <m>f</m>;
+            therefore <m>\bar f</m> is analytic. 
+            Now we can apply <xref ref="prop-conj-const"/> to conclude that <m>f</m> is constant on <m>D</m>.
+          </p>
+        </proof>
+      </corollary>
     </section>
     <section xml:id="sec-inverse">
       <title>Analyticity of inverse functions</title>
+      <p>
+        If you paid close attention in calculus, you right remember doing something like this to find the 
+        derivative of the logarithm.
+      </p>
+      <md>
+        <mrow> e^{\log x} = x  \amp \Longrightarrow \frac{d}{dx} e^{\log x} = \frac{d}{dx} x </mrow>
+        <mrow> \amp \Longrightarrow e^{\log x} \frac{d}{dx} \log(x) = 1 </mrow>
+        <mrow> \amp \Longrightarrow \frac{d}{dx} = \frac{1}{e^{\log(x)}} = \frac{1}{x} </mrow>
+      </md>
+      <p>
+        You will be pleased to hear that we can do more-or-less the same thing in complex analysis!
+        The key theorem should say, essentially, that the derivative of <m>f^{-1}</m> at 
+        <m>(b,f^{-1}(b))</m> should be the reciprocal of the derivative of <m>f</m> at
+        <m>(a,f(a))</m>. The single-variable calculus version of this fact is illustrated by
+        <xref ref="fig-geogebra-deriv-inverse"/>.
+      </p>
+      <!--https://www.geogebra.org/calculator/qpmqwusa-->
+      <figure xml:id="fig-geogebra-deriv-inverse">
+      <caption>GeoGebra: Derivatives of Inverses</caption>
+      <interactive xml:id="geogebra-deriv-inverse" platform="geogebra" width="80%" aspect="1:1">
+          <slate xml:id="deriv-inverse" surface="geogebra" material="qpmqwusa" aspect="1:1">
+            setCoordSystem(-2,5,-2,5);
+            <!-- centerView((0,0)); -->
+            <!--enableShiftDragZoom(false);-->
+          </slate>
+        <instructions>
+          <p> 
+          Pictured are graphs of a function and its inverse. You can drag <m>(a,f(a))</m> along the curve.
+          Watch how the slope of the tangent line to <m>f</m> at <m>(a,f(a))</m> is always reciprocal to 
+          (rise/run becomes run/rise) the slope of the 
+          tangent line at the corresponding point <m>(f(a),a)</m> on the graph of <m>f^{-1}</m>.
+          </p>
+          <p>
+          You can view a larger version of this <url href="https://www.geogebra.org/calculator/qpmqwusa">here</url>.
+          </p>
+        </instructions>
+      </interactive>
+      </figure>
+      <theorem xml:id="thm-deriv-inverse">
+        <statement>
+          <p>
+            Suppose that <m>f</m> is analytic on a domain <m>D</m>, <m>z_0 \in D</m>, and <m>f'(z_0) \ne 0</m>.
+            There is a disk <m>B_\epsilon(z_0) \subseteq D</m> on which <m>f</m> is one-to-one;
+            moreover the image <m>V = f[B_\epsilon(z_0)]</m> is open, and the inverse function
+            <m>f^{-1} \colon V \to U</m> is analytic and satisfies
+          </p>
+          <me tag="star" xml:id="deriv-inverse-formula">
+            (f^{-1})'(f(z)) = \frac{1}{f'(z)}.
+          </me>
+        </statement>
+      </theorem>
+      <p>
+        We will not bother with a careful proof of <xref ref="thm-deriv-inverse"/> here. 
+        Most of the hard work is handled by the Inverse Function Theorem;
+        the formula <xref ref="deriv-inverse-formula"/> is obtained just as in Calculus
+        by applying the Chain Rule to the equation <m>f(f^{-1}(z)) = z</m>
+        and solving for <m>(f^{-1})'(z)</m>.
+      </p>
+      <investigation>
+        <p>
+        Where does the Inverse Function Theorem come in? you might wonder.
+        Consider a function <m>f = u + iv</m> that is analytic on a domain <m>D</m>.
+        If we think of <m>f</m> as the function <m>(u,v) \colon \R^2 \to \R^2</m>, then it has a Jacobian matrix
+        <me>
+          J_f = \begin {bmatrix}
+            \frac{\partial u}{\partial x} \amp  \frac{\partial u}{\partial y} \\
+            \frac{\partial v}{\partial x} \amp \frac{\partial v}{\partial y}
+          \end {bmatrix}
+        </me>
+        whose determinant can be computed using the Cauchy–Riemann Equations:
+      <me>
+        \det J_f = u_x v_y - u_y v_x = u_x^2 + v_x^2 = \abs{u_x + i v_x}^2 = \abs{f'}^2.
+      </me>
+        So the Jacobian is zero exactly where the complex derivative is zero.
+        This allows us to state <xref ref="thm-deriv-inverse"/> in terms of the complex derivative
+        instead of referring to the Jacobian.
+    </p>
+    </investigation>
+    <example>
+      <p>
+        The exponential function <m>f(z) = e^z</m> is entire and has nonzero derivative everywhere.
+        The function Log (the principal branch) is an inverse of <m>f</m> 
+        defined on <m>\C \wo (-\infty,0]</m>, and it is analytic on its domain by <xref ref="thm-deriv-inverse"/>.
+        And its derivative is given by
+        <me>
+          \Log'(z) = \frac{1}{e^{\Log(z)}} = \frac{1}{z}.
+        </me>
+        What's more, other branches of log differ from the principal branch by a constant, 
+        so they all have the same derivative!
+      </p>
+      <p>
+        <alert>Warning.</alert> Not every multifunction has the property that all its branches have the same derivative, 
+        because not every multifunction has the property that its branches all differ by a constant. 
+        Consider arccosine, for example. Or even the square-root, of the next exercise.
+      </p>
+    </example>
+    <exercise>
+      <p>
+       Make sure that you see why <xref ref="thm-deriv-inverse"/> implies that 
+       every branch of the square-root is analytic, and 
+       <m>\frac{d}{dz} \sqrt z = \frac{1}{2\sqrt z}</m>, where the same square-root function is used on each side
+       of the equation.
+      </p>
+    </exercise>
       
     </section>
     <section xml:id="sec-harmonic">

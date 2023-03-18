@@ -12,15 +12,16 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.6.14</span><span class="period">.</span>
 </h3>
-<div class="para">Compute <span class="process-math">\(\int_{C_1} \frac{dz}{z}\text{,}\)</span> where <span class="process-math">\(C_1\)</span> is the top half of the unit circle traversed from <span class="process-math">\(1\)</span> to <span class="process-math">\(-1\text{.}\)</span> (We will see below that value of the integral does not depend on the parametrization of the curve, so feel free to use any parametrization of <span class="process-math">\(C_1\)</span> here.)</div> <div class="para logical">
-<div class="para">The given curve <span class="process-math">\(C_1\)</span> is parametrized by <span class="process-math">\(\gamma(t) = e^{it}\)</span> for <span class="process-math">\(t\in [0,\pi]\text{.}\)</span> We see that <span class="process-math">\(\gamma(t) = ie^{it}\)</span> and <span class="process-math">\(f(\gamma(t)) = \frac{1}{e^{it}}\text{.}\)</span> That is all we need to compute the integral:</div>
-<div class="displaymath process-math">
+<div class="para logical">
+<div class="para">Let's find the unique FLT <span class="process-math">\(f\)</span> sending <span class="process-math">\((i,\infty,-i)\)</span> to <span class="process-math">\((0,1,\infty)\text{.}\)</span> We solve</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/example-baby-FLT.html">
 \begin{equation*}
-\int_{C_1} \frac{dz}{z} = \int_{t=0}^{\pi} \frac{1}{e^{it}} ie^{it} \,dt = i\int_0^{\pi} dt = \pi i.
+\frac{w-0}{1-0} = \frac{z-i}{z+i}
 \end{equation*}
 </div>
-</div></article><span class="incontext"><a href="sec-def-contour-integrals.html#example-26" class="internal">in-context</a></span>
+<div class="para">for <span class="process-math">\(w\text{.}\)</span> Easy! Get <span class="process-math">\(w = f(z) = \frac{z-i}{z+i}\text{.}\)</span> Hey, this is the example from <a href="" class="xref" data-knowl="./knowl/example-baby-FLT.html" title="Example 3.5.12">Example 3.5.12</a>!</div>
+</div></article><span class="incontext"><a href="sec-flt.html#example-26" class="internal">in-context</a></span>
 </body>
 </html>

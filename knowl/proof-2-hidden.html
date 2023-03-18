@@ -10,16 +10,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><article class="hiddenproof"><div class="para">Later we will show that the real and imaginary parts of analytic functions have continuous partial derivatives of all orders. So let's not worry about that part for now.</div> <div class="para">This is just an application of the Cauchy–Riemann Equations and equality of mixed partials (sometimes called Clairaut's Theorem by calculus textbooks):</div>
+<body class="ignore-math"><article class="hiddenproof"><div class="para">Write <span class="process-math">\(f = u+iv\text{,}\)</span> so that our assumption and the Cauchy–Riemann Equations give</div>
 <div class="displaymath process-math">
-\begin{align*}
-u_{xx} \amp = \frac{\partial}{\partial x} u_x  \amp\amp \\
-\amp = \frac{\partial}{\partial x} v_y         \amp\amp \text{(CR)} \\
-\amp = \frac{\partial}{\partial y} v_x         \amp\amp \text{(Clairaut)} \\
-\amp = \frac{\partial}{\partial y} (-u_y)       \amp\amp \text{(CR)} \\
-\amp = -u_{yy}
-\end{align*}
+\begin{equation*}
+0 = f'(z) = u_x + iv_x = v_y - i u_y.
+\end{equation*}
 </div>
-<div class="para">Rearranging gives <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span> A very similar proof works for <span class="process-math">\(v\text{.}\)</span>
+<div class="para">Identifying real and imaginary parts, we see that <span class="process-math">\(u_x = u_y = v_x = v_y = 0\)</span> on <span class="process-math">\(D\text{.}\)</span> It follows that the directional derivative <span class="process-math">\(D_{\mathbf{w}}f = \grad w \cdot \mathbf{w} = 0\)</span> for every direction vector <span class="process-math">\(\mathbf{w}\text{,}\)</span> at every point of <span class="process-math">\(D\text{.}\)</span> Using this, one can show (using the fact that a plain ole function <span class="process-math">\(\R\to\R\)</span> with derivative <span class="process-math">\(0\)</span> must be constant) that <span class="process-math">\(f\)</span> is constant along any line segment that lies completely in <span class="process-math">\(D\text{.}\)</span> But, since <span class="process-math">\(D\)</span> is path-connected, any two points <span class="process-math">\(z,w\in D\)</span> can be joined by a finite sequence of line segments. <aside class="aside aside-like"><div class="para">This actually requires a togological argument that we've swept under the rug. The gist of it is this: every point on a path from <span class="process-math">\(z\)</span> to <span class="process-math">\(w\)</span> has an open neighborhood that is included in <span class="process-math">\(D\text{,}\)</span> since <span class="process-math">\(D\)</span> is open. Only finitely many of these open neighborhoods are needed to cover the path by compactness. Now replace the portion of the path in the first ball with the straight-line path to where it exits the ball. Repeat with the remaining balls.</div></aside> Since <span class="process-math">\(f\)</span> is constant along each of these line segments, <span class="process-math">\(f(z) = f(w)\text{.}\)</span> So <span class="process-math">\(f\)</span> is constant on <span class="process-math">\(D\text{.}\)</span>
 </div></article></body>
 </html>

@@ -12,8 +12,24 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">The exponential function <span class="process-math">\(z\mapsto e^z\)</span> is conformal at every <span class="process-math">\(z\in\C\text{.}\)</span> It restricts to a <dfn class="terminology">conformal equivalence</dfn> between the horizontal strip <span class="process-math">\(\Im z \in (-\pi,pi)\)</span> to the slit plane <span class="process-math">\(\C\wo(-\infty,0]\text{.}\)</span>
+<div class="para logical">
+<div class="para">Where does the Inverse Function Theorem come in? you might wonder. Consider a function <span class="process-math">\(f = u + iv\)</span> that is analytic on a domain <span class="process-math">\(D\text{.}\)</span> If we think of <span class="process-math">\(f\)</span> as the function <span class="process-math">\((u,v) \colon \R^2 \to \R^2\text{,}\)</span> then it has a Jacobian matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-deriv-inverse.html">
+\begin{equation*}
+J_f = \begin {bmatrix}
+\frac{\partial u}{\partial x} \amp  \frac{\partial u}{\partial y} \\
+\frac{\partial v}{\partial x} \amp \frac{\partial v}{\partial y}
+\end {bmatrix}
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec-conformal.html#p-200" class="internal">in-context</a></span>
+<div class="para">whose determinant can be computed using the Cauchy–Riemann Equations:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-deriv-inverse.html">
+\begin{equation*}
+\det J_f = u_x v_y - u_y v_x = u_x^2 + v_x^2 = \abs{u_x + i v_x}^2 = \abs{f'}^2.
+\end{equation*}
+</div>
+<div class="para">So the Jacobian is zero exactly where the complex derivative is zero. This allows us to state <a href="" class="xref" data-knowl="./knowl/thm-deriv-inverse.html" title="Theorem 3.3.2">Theorem 3.3.2</a> in terms of the complex derivative instead of referring to the Jacobian.</div>
+</div>
+<span class="incontext"><a href="sec-inverse.html#p-200" class="internal">in-context</a></span>
 </body>
 </html>

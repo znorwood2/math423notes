@@ -12,8 +12,15 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">for all <span class="process-math">\(z_1,z_2\in D\)</span> the integral <span class="process-math">\(\int_{z_1}^{z_2} f(z)\,dz\)</span> is <dfn class="terminology">independent of path</dfn>, meaning that for all contours <span class="process-math">\(\gamma,\delta\colon [a,b]\to D\)</span> with <span class="process-math">\(\gamma(a) = \delta(a) = z_1\)</span> and <span class="process-math">\(\gamma(b) = \delta(b) = z_2\)</span> we have <span class="process-math">\(\int_\gamma f(z)\,dz = \int_\delta f(z)\,dz\text{;}\)</span>
+<div class="para logical">
+<div class="para">We first define the complex integral for paths in the complex plane. If <span class="process-math">\(g\colon [a,b]\to \C\)</span> is continuous, then we integrate <span class="process-math">\(g\)</span> by integrating its real and imaginary parts separately:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_a^b g(t)\,dt = \int_a^b \Re(g(t))\,dt + i \int_a^b \Im(g(t))\,dt.
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec-cauchys-thm.html#p-308" class="internal">in-context</a></span>
+<div class="para">Notice that the result is a complex number. But this is really just a prelude to the main event:</div>
+</div>
+<span class="incontext"><a href="sec-def-contour-integrals.html#p-308" class="internal">in-context</a></span>
 </body>
 </html>

@@ -13,10 +13,12 @@
 <body class="ignore-math">
 <div class="displaymath process-math">
 \begin{align*}
-\abs{\frac{F(w + \Delta w) - F(w)}{\Delta w} - f(w)} \amp \le \frac{1}{\abs{\Delta w}} \abs{\int_{[w + \Delta w, w]} (f(z) - f(w)) \, dz} \\
-\amp \le \frac{1}{\abs{\Delta w}} \abs{\Delta w} \sup_{[w + \Delta w,w]} \abs{f(z) - f(w)},
+z \amp \mapsto z + D  \amp\amp \text{(translation)}\\
+\amp \mapsto \frac{1}{z + D} \amp\amp \text{(inversion)} \\
+\amp \mapsto \frac{B - AD}{z + D} \amp\amp \text{(dilation)}\\
+\amp \mapsto A + \frac{B-AD}{z+D}  \amp\amp \text{(translation)}
 \end{align*}
 </div>
-<span class="incontext"><a href="sec-cauchys-thm.html#md-19" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-flt.html#md-20" class="internal">in-context</a></span>
 </body>
 </html>

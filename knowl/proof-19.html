@@ -12,50 +12,7 @@
 </head>
 <body class="ignore-math">
 <article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
-<div class="para">This is a serious proof! Fix a triangle <span class="process-math">\(T\)</span> and put <span class="process-math">\(I = \abs{\int_{\partial T} f(z)\,dz}\text{.}\)</span> Also write <span class="process-math">\(\ell\)</span> for the perimeter of <span class="process-math">\(T\text{.}\)</span> Our plan is to bound <span class="process-math">\(I\text{,}\)</span> showing that <span class="process-math">\(I \lt \epsilon\)</span> for all <span class="process-math">\(\epsilon \gt 0\text{.}\)</span> Divide <span class="process-math">\(T = T^0\)</span> into four subtriangles <span class="process-math">\(T^0_a, T^0_b, T^0_c, T^0_d\)</span> by taking the midpoints of each of the three sides. As indicated by the picture, these four subtriangles can be oriented in such a way that</div> <div class="displaymath process-math">
-\begin{equation*}
-\int_{\partial T^0} f = \int_{\partial T^0_a} f + \int_{\partial T^0_b} f + \int_{\partial T^0_c} f + \int_{\partial T^0_d} f
-\end{equation*}
-</div>
-<div class="para">It follows that one of the four satisfies <span class="process-math">\(\abs{\int_{\partial T^0_\bullet f(z)\,dz} \ge \frac{I}{4}\text{.}\)</span> Call that one <span class="process-math">\(T^1\text{.}\)</span> Notice that the four subtriangles are each similar (in the sense of geometry) to <span class="process-math">\(T^0\)</span> with edge-lengths halved, so <span class="process-math">\(\operatorname{perimeter}(T^1) = \frac{\ell}{2}\text{.}\)</span>
-</div> <div class="para">Iterate this process. At stage <span class="process-math">\(n\)</span> we have <span class="process-math">\(2^n\)</span> triangles each of perimeter <span class="process-math">\(\frac{\ell}{2}\)</span> and a particular one <span class="process-math">\(T^n\)</span> with <span class="process-math">\(\abs{\int_{\partial T^n} f(z)\,dz} \ge \frac{I}{4^n}\text{.}\)</span> These triangles form a nested sequence <span class="process-math">\(T^0 \supseteq T^1 \supseteq \cdots\)</span> of closed sets of diameter tending to <span class="process-math">\(0\text{,}\)</span> so by Compactness there is a unique point <span class="process-math">\(z_0 \in \bigcap_{m\in\N} T^n\text{.}\)</span> We assumed that <span class="process-math">\(f\)</span> was analytic at <span class="process-math">\(z_0\text{,}\)</span> so, fixing arbitrary <span class="process-math">\(\epsilon &gt; 0\text{,}\)</span> we must have a <span class="process-math">\(\delta &gt; 0\)</span> for which the following inequality holds for every <span class="process-math">\(w\in  B_\delta(z_0)\text{.}\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\abs{\frac{f(w) - f(z_0)}{w - z_0} - f'(z_0)} \lt \epsilon.
-\end{equation*}
-</div>
-<div class="para">Rearrange:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\abs{f(w) - f(z_0) - f'(z_0)(w - z_0)} \lt \epsilon \abs{w - z_0}.
-\end{equation*}
-</div>
-<div class="para">Let <span class="process-math">\(n\)</span> be large enough that <span class="process-math">\(T^n \subseteq B_\delta(z_0)\text{.}\)</span> We rewrite <span class="process-math">\(\int_{\partial T^n} f(z)\,dz\)</span> in the following non-obvious way, using the fact that constant functions integrate to <span class="process-math">\(0\)</span> over closed contours by the FTC.</div>
-<div class="displaymath process-math">
-\begin{align*}
-\int_{\partial T^n} f(z)\,dz \amp = \int_{\partial T^n} f(z)\,dz + \int_{\partial T^n} -f(z_0)\,dz
-+ \int_{\partial T^n} -(z-z_0)f'(z_0)\,dz \\
-\amp = \int_{\partial T^n} (f(z) - f(z_0) - (z-z_0)f'(z_0))\,dz 
-\end{align*}
-</div>
-<div class="para">Now we just need to do an ML estimate:</div>
-<div class="displaymath process-math">
-\begin{align*}
-\abs{\int_{\partial T^n} f(z)\,dz} \amp \le \int_{\partial T^n} \abs{f(z) - f(z_0) - (z-z_0)f'(z_0)}\,dz \\
-\amp \le \int_{\partial T^n} \epsilon \abs{z - z_0} \,dz \\
-\amp \le \operatorname{length}(\partial T^n) \cdot \epsilon \sup_{z\in \partial T^n} \abs{z - z_0} \\
-\amp \le \epsilon \operatorname{length}(\partial T^n)^2 
-\end{align*}
-</div>
-<div class="para">(In the second line we used the fact that <span class="process-math">\(T^n \subseteq B_\delta(z_0)\text{;}\)</span> in the third we used an ML inequality; and in the fourth we used the fact that the distance between any two points of a triangle is at most its perimeter.)</div> <div class="para">Putting everything together, we obtain the following.</div>
-<div class="displaymath process-math">
-\begin{equation*}
-I \le 4^n \abs{ \int_{\partial T^n} f(z)\,dz} \le 4^n \epsilon \left( \frac{\ell}{2^n}\right)^2 = \epsilon \ell^2.
-\end{equation*}
-</div>
-<div class="para">But <span class="process-math">\(\epsilon \gt 0\)</span> was arbitrary and <span class="process-math">\(\ell\)</span> is fixed, so <span class="process-math">\(I = 0\text{.}\)</span>
-</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/latex-im-cauchy-triangles.svg" role="img" class="contained" alt="Subdivided triangles"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.6<span class="period">.</span></span><span class="space"> </span>Subdivided triangles.</figcaption></figure></article><span class="incontext"><a href="sec-cauchys-thm.html#proof-19" class="internal">in-context</a></span>
+<div class="para">Apply <a href="" class="xref" data-knowl="./knowl/lem-FTC-easy.html" title="Lemma 4.2.4">Lemma 4.2.4</a> to <span class="process-math">\(G = F\circ \gamma\)</span> and <span class="process-math">\(g = f\text{.}\)</span>
+</div></article><span class="incontext"><a href="sec-basic-integral-props.html#proof-19" class="internal">in-context</a></span>
 </body>
 </html>

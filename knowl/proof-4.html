@@ -12,29 +12,7 @@
 </head>
 <body class="ignore-math">
 <article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
-<div class="para">Consider an FLT <span class="process-math">\(f(z) = \frac{az+b}{cz+d}\text{.}\)</span> We will show more than what is stated in the Proposition. For the first part, define</div>
-<div class="displaymath process-math">
-\begin{equation*}
-g(z) = \frac{1}{ad-bc} \frac{-dz + b}{cz - a}.
-\end{equation*}
-</div>
-<div class="para">(Notice that these parameters are exactly the same as the entries of the matrix inverse of the matrix <span class="process-math">\(\displaystyle \begin {bmatrix} a \amp b \\ c \amp d \end {bmatrix}\text{!}\)</span>)</div> <div class="para">You can check that <span class="process-math">\(g(f(z)) = z\text{.}\)</span> (In fact, this follows from the next part of the proof.)</div> <div class="para logical">
-<div class="para">For part (b), consider FLTs <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> given by</div>
-<div class="displaymath process-math">
-\begin{equation*}
-f(z) = \frac{az+b}{cz+d}  \quad \text{and}  \quad g(z) = \frac{pz + q}{rz + s}.
-\end{equation*}
-</div>
-<div class="para">You might guess that <span class="process-math">\(f(g(z))\)</span> corresponds to the product of the matrices <span class="process-math">\(\displaystyle \begin {bmatrix} a \amp b \\ c \amp d \end {bmatrix}\)</span> and <span class="process-math">\(\displaystyle \begin {bmatrix} p \amp q \\ r \amp s \end {bmatrix}\text{,}\)</span> and you'd be correct!</div>
-</div> <div class="para logical">
-<div class="para">Check that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-f(g(z)) = \frac{(ap + br)z + (aq + bs)}{(cp + dr)z + (cq + ds)}
-\end{equation*}
-</div>
-<div class="para">and use linear algebra to explain why the new parameters <span class="process-math">\(A,B,C,D\)</span> satisfy the non-singular condition <span class="process-math">\(AD - BC \ne 0\text{.}\)</span>
-</div>
-</div></article><span class="incontext"><a href="sec-flt.html#proof-4" class="internal">in-context</a></span>
+<div class="para">If <span class="process-math">\(\abs{f}\)</span> takes the constant value <span class="process-math">\(0\)</span> on <span class="process-math">\(D\text{,}\)</span> then <span class="process-math">\(f\)</span> takes the constant value <span class="process-math">\(0\)</span> on <span class="process-math">\(D\text{.}\)</span> So assume from now on that the constant value of <span class="process-math">\(\abs{f}\)</span> on <span class="process-math">\(D\)</span> is not zero. Recall that <span class="process-math">\(\abs{f(z)} = f(z)\bar{f(z)}\text{.}\)</span> Rearrange to see that <span class="process-math">\(\bar{f(z)} = \frac{1}{\abs{f(z)}^2} f(z)\text{,}\)</span> which means that <span class="process-math">\(\bar f\)</span> is a constant multiple of the analytic function <span class="process-math">\(f\text{;}\)</span> therefore <span class="process-math">\(\bar f\)</span> is analytic. Now we can apply <a href="" class="xref" data-knowl="./knowl/prop-conj-const.html" title="Proposition 3.2.5">Proposition 3.2.5</a> to conclude that <span class="process-math">\(f\)</span> is constant on <span class="process-math">\(D\text{.}\)</span>
+</div></article><span class="incontext"><a href="sec-cauchy-riemann.html#proof-4" class="internal">in-context</a></span>
 </body>
 </html>

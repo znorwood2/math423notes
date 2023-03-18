@@ -11,16 +11,22 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
-<div class="para">This follows from the definition of the contour integral and the substitution rule (aka “u-sub”) for the usual Calc I integral:</div>
-<div class="displaymath process-math">
-\begin{align*}
-\int_\delta f(z)\,dz \amp = \int_{a'}^{b'} f(\gamma(\phi(t)))(\gamma\circ\phi)'(t)\,dt\\
-\amp = \int_{a'}^{b'} f(\gamma(\phi(t))) \gamma'(\phi(t)) \phi'(t)\,dt \\
-\amp = \int_a^b f(\gamma(u)) \gamma'(u) \,du \\
-\amp = \int_\gamma f(z)\,dz
-\end{align*}
+<article class="hiddenproof"><h4 class="heading"><span class="type">Proof</span></h4>
+<div class="para logical">
+<div class="para">In order for <span class="process-math">\(f\)</span> to send <span class="process-math">\(q\)</span> to <span class="process-math">\(0\)</span> and <span class="process-math">\(s\)</span> to <span class="process-math">\(\infty\text{,}\)</span> <span class="process-math">\(f(z)\)</span> must be proportional to <span class="process-math">\(\frac{z - q}{z - s}\text{.}\)</span> That is, <span class="process-math">\(f(z) = k\left( \frac{z-q}{z-s} \right)\)</span> for some <span class="process-math">\(k\text{.}\)</span> We plug in <span class="process-math">\(r\)</span> and to solve for <span class="process-math">\(k\text{.}\)</span>
 </div>
-<div class="para">(For the third equality, we did a u-substitution with <span class="process-math">\(u = \gamma(\phi(t))\text{.}\)</span>)</div></article><span class="incontext"><a href="sec-basic-integral-props.html#proof-13" class="internal">in-context</a></span>
+<div class="displaymath process-math">
+\begin{equation*}
+1 = r' = f(r) = k\left( \frac{r - q}{r-s} \right),
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\(k = \frac{r-s}{r-q}\text{.}\)</span> We conclude that the following FLT <span class="process-math">\(f\)</span> will do the trick:</div>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \left( \frac{r-s}{r-q} \right)\left( \frac{z-q}{z-s} \right).
+\end{equation*}
+</div>
+<div class="para">(Remember that <span class="process-math">\(z\)</span> is the only variable in this expression. So the parameters of <span class="process-math">\(f\)</span> are e.g. <span class="process-math">\(b = \frac{r-s}{r-q}(-q)\text{.}\)</span> These have to be interpreted appropriately when you plug in <span class="process-math">\(\infty\)</span> or get <span class="process-math">\(0\)</span> in the denominator.)</div></article><span class="incontext"><a href="sec-flt.html#proof-13" class="internal">in-context</a></span>
 </body>
 </html>

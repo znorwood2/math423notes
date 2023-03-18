@@ -12,14 +12,28 @@
 </head>
 <body class="ignore-math">
 <article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
-<div class="para">The key is <a href="" class="xref" data-knowl="./knowl/re-im-integral.html" title="Equation 4.4.1">(4.4.1)</a>, which decomposes <span class="process-math">\(\int_\gamma f(z)\,dz\)</span> into its real and imaginary parts. Each of those parts is a vector integral to which we can apply Green's Theorem. Writing <span class="process-math">\(R\)</span> for the region enclosed by <span class="process-math">\(\gamma\text{,}\)</span> we have the following.</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/re-im-integral.html">
+<div class="para">Let <span class="process-math">\(a_0 \in U\)</span> be a point of <span class="process-math">\(U\)</span> with respect to which <span class="process-math">\(U\)</span> is star-shaped. For <span class="process-math">\(w\in U\)</span> define <span class="process-math">\(F(w) = \int_{[a_0,w]} f(z)\,dz\text{,}\)</span> where <span class="process-math">\([a_0,w]\)</span> is the straight-line path from <span class="process-math">\(a_0\)</span> to <span class="process-math">\(w\text{.}\)</span> (Notice that <span class="process-math">\([a_0,w]\)</span> lies completely in <span class="process-math">\(U\text{,}\)</span> since <span class="process-math">\(U\)</span> is star-shaped wrt <span class="process-math">\(a_0\text{.}\)</span>)</div>  <figure class="figure figure-like"><iframe id="geogebra-star-shaped-antiderivative" width="480" height="480" src="geogebra-star-shaped-antiderivative-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-28" id="instructions-28"><h4 class="heading"><span class="type">Instructions<span class="period">.</span></span></h4></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-28"><div class="solution-like"><div class="para" id="p-352">You can move <span class="process-math">\(w\)</span> around freely. You can view a larger version of this <a class="external" href="https://www.geogebra.org/calculator/gjscszrk" target="_blank">here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-17" id="fn-17"><sup> 1 </sup></a>.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.3<span class="period">.</span></span><span class="space"> </span>GeoGebra: a basic path <span class="process-math">\(\gamma\)</span></figcaption></figure> <div class="para">We aim to show that <span class="process-math">\(F'(w) = f(w)\text{.}\)</span> Since <span class="process-math">\(U\)</span> is open, there is <span class="process-math">\(\epsilon \gt 0\)</span> for which <span class="process-math">\(B_\epsilon(w) \subseteq U\text{.}\)</span> Let <span class="process-math">\(\Delta w \lt \epsilon\text{.}\)</span> Let <span class="process-math">\(T\)</span> be the triangle formed by <span class="process-math">\(a_0, w\text{,}\)</span> and <span class="process-math">\(w+\Delta w\text{,}\)</span> with boundary oriented counterclockwise. Notice that <span class="process-math">\(T\)</span> is completely included in <span class="process-math">\(U\text{,}\)</span> since every point on the line segment <span class="process-math">\([w,w+\Delta w]\)</span> is (by choice of <span class="process-math">\(\Delta w\)</span>), and since <span class="process-math">\(U\)</span> is star-shaped wrt <span class="process-math">\(a_0\text{.}\)</span> We can therefore apply our assumption to conclude that <span class="process-math">\(\int_{[a_0,w] + [w,w+\Delta w] + [w+\Delta w,a_0]} f(z)\,dz = 0\text{.}\)</span> On the other hand, this expression also equals <span class="process-math">\(F(w+\Delta w) - \int_{[w,w + \Delta w]} f(z)\,dz - F(w)\text{,}\)</span> so we rearrange to obtain</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(w + \Delta w) - F(w) = \int_{[w + \Delta w,w] f(z)\,dz}.
+\end{equation*}
+</div>
+<div class="para">What we'd really like to estimate is the difference quotient <span class="process-math">\(\frac{F(w + \Delta w) - F(w)}{\Delta w}\text{,}\)</span> so we rearrange further.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(w + \Delta w) - F(w) - \Delta w f(w) = \int_{[w+\Delta w,w] (f(z) - f(w))\, dz}
+\end{equation*}
+</div>
+<div class="para">Now we are in a position to make the final estimate.</div>
+<div class="displaymath process-math">
 \begin{align*}
-\text{Real part:}\quad \int_\gamma u\,dx - v\,dy \amp = \iint_R (- v_x - u_y)\,dxdy = \iint 0 = 0 \\
-\text{Imaginary part:}\quad \int_\gamma v\,dx + u\,dy \amp = \iint_R (u_x - v_y)\,dxdy = \iint 0 = 0 
+\abs{\frac{F(w + \Delta w) - F(w)}{\Delta w} - f(w)} \amp \le \frac{1}{\abs{\Delta w}} \abs{\int_{[w + \Delta w, w]} (f(z) - f(w)) \, dz} \\
+\amp \le \frac{1}{\abs{\Delta w}} \abs{\Delta w} \sup_{[w + \Delta w,w]} \abs{f(z) - f(w)},
 \end{align*}
 </div>
-<div class="para">(Notice that we used the Cauchy–Riemann Equations in each line.) We conclude that <span class="process-math">\(\int_\gamma f(z)\,dz = 0+0i = 0 \text{.}\)</span>
-</div></article><span class="incontext"><a href="sec-connections-to-multivariable.html#proof-21" class="internal">in-context</a></span>
+<div class="para">which tends to <span class="process-math">\(0\)</span> as <span class="process-math">\(\Delta w\)</span> tends to <span class="process-math">\(0\text{,}\)</span> since <span class="process-math">\(f\)</span> is continuous.</div></article><span class="incontext"><a href="sec-cauchys-thm.html#proof-21" class="internal">in-context</a></span>
 </body>
 </html>

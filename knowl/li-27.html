@@ -14,7 +14,18 @@
 <article class="li"><h4 class="heading">
 <span class="type">Item</span><span class="space"> </span><span class="codenumber">c</span><span class="period">.</span>
 </h4>
-<div class="para">The affine transformation <span class="process-math">\(z \mapsto az + b \)</span> is the FLT with <span class="process-math">\(c = 0\text{,}\)</span> <span class="process-math">\(d = 1\text{,}\)</span> and <span class="process-math">\(a \ne 0\text{.}\)</span>
-</div></article><span class="incontext"><a href="sec-flt.html#li-27" class="internal">in-context</a></span>
+<div class="para">The exponential map <span class="process-math">\(f(z) = e^z\)</span> has real part <span class="process-math">\(u(x,y) = e^x \cos y\)</span> and imaginary part <span class="process-math">\(v(x,y) = e^x \sin y\text{.}\)</span> We see that the Cauchy–Riemann equations</div>
+<div class="displaymath process-math">
+\begin{align*}
+u_x \amp = e^x \cos y = v_y \\
+u_y \amp = -e^x \sin y = -v_x 
+\end{align*}
+</div>
+<div class="para">hold everywhere, as expected since <span class="process-math">\(f\)</span> is entire. We also observe that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(z) = u_x + i v_x = e^x \cos y + i e^x \sin y = e^z.
+\end{equation*}
+</div></article><span class="incontext"><a href="sec-cauchy-riemann.html#li-27" class="internal">in-context</a></span>
 </body>
 </html>

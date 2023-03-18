@@ -11,13 +11,15 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/integral-basic-props-max.html ./knowl/integral-basic-props-max.html">
+<div class="displaymath process-math">
 \begin{align*}
-\abs{\int_\gamma f(z)\,dz} \amp = \abs{\int_a^b f(\gamma(t))\gamma'(t)\,dt} \\
-\amp \le \int_a^b \abs{f(\gamma(t))} \abs{\gamma'(t)}\,dt \\
-\amp \le \left( \sup_{t\in [a,b]} \abs{f(\gamma(t))} \right) \int_a^b \abs{\gamma'(t)}\,dt
+\angleop( f\circ \gamma_1, f\circ \gamma_2) \amp \arg((f\circ\gamma_1)'(0)) - \arg((f\circ\gamma_2)'(0))\\
+\amp \arg(f'(z_0) \gamma_1'(0)) - \arg(f'(z_0)\gamma_2'(0))\\
+\amp \arg\left( \frac{f'(z_0) \gamma_1'(0)}{f'(z_0)\gamma_2'(0)}\right)\\
+\amp \arg(\gamma_1'(0)) - \arg(\gamma_2'(0))\\
+\amp \angleop(\gamma_1,\gamma_2) 
 \end{align*}
 </div>
-<span class="incontext"><a href="sec-basic-integral-props.html#md-18" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-conformal.html#md-19" class="internal">in-context</a></span>
 </body>
 </html>

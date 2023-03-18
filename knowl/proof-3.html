@@ -12,17 +12,21 @@
 </head>
 <body class="ignore-math">
 <article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
-<div class="para">This is basically just the Chain Rule and the fact that <span class="process-math">\(\arg(z/w) = \arg(z) - \arg(w)\text{.}\)</span>
+<div class="para">There is a short proof from <a href="" class="xref" data-knowl="./knowl/exercise-real-valued-const.html" title="Checkpoint 3.2.4">Checkpoint 3.2.4</a>, but we will give a direct proof that does not appeal to a homework problem.</div> <div class="para logical">
+<div class="para">Write <span class="process-math">\(f = u+iv\)</span> so that <span class="process-math">\(\bar f = u - iv\text{.}\)</span> The Cauchy–Riemann Equations for <span class="process-math">\(f\)</span> say:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-deriv-zero-constant.html">
+\begin{equation*}
+u_x = v_y \quad \text{and} \quad u_y = -v_x,
+\end{equation*}
 </div>
-<div class="displaymath process-math">
-\begin{align*}
-\angleop( f\circ \gamma_1, f\circ \gamma_2) \amp \arg((f\circ\gamma_1)'(0)) - \arg((f\circ\gamma_2)'(0))\\
-\amp \arg(f'(z_0) \gamma_1'(0)) - \arg(f'(z_0)\gamma_2'(0))\\
-\amp \arg\left( \frac{f'(z_0) \gamma_1'(0)}{f'(z_0)\gamma_2'(0)}\right)\\
-\amp \arg(\gamma_1'(0)) - \arg(\gamma_2'(0))\\
-\amp \angleop(\gamma_1,\gamma_2) 
-\end{align*}
+<div class="para">while the Cauchy–Riemann Equations for <span class="process-math">\(\bar f\)</span> say:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-deriv-zero-constant.html">
+\begin{equation*}
+u_x = -v_y \quad \text{and} \quad u_y = v_x.
+\end{equation*}
 </div>
-<div class="para">That's it!</div></article><span class="incontext"><a href="sec-conformal.html#proof-3" class="internal">in-context</a></span>
+<div class="para">Adding these equations together gives <span class="process-math">\(u_x = u_y = v_x = v_y = 0\text{.}\)</span> So <span class="process-math">\(f'(z) = u_x + i u_y = 0\)</span> on <span class="process-math">\(D\text{.}\)</span> By <a href="" class="xref" data-knowl="./knowl/lem-deriv-zero-constant.html" title="Lemma 3.2.3">Lemma 3.2.3</a>, it follows that <span class="process-math">\(f\)</span> is constant on <span class="process-math">\(D\text{.}\)</span>
+</div>
+</div></article><span class="incontext"><a href="sec-cauchy-riemann.html#proof-3" class="internal">in-context</a></span>
 </body>
 </html>

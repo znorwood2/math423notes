@@ -12,9 +12,34 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.3</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
 </h3>
-<div class="para">The function <span class="process-math">\(u(x,y) = e^x \cos(y)\)</span> is harmonic, since it is the real part of the analytic function <span class="process-math">\(f(z) = e^z\text{.}\)</span>
-</div></article><span class="incontext"><a href="sec-harmonic.html#example-16" class="internal">in-context</a></span>
+<ol class="lower-alpha">
+<li>
+<div class="para">Let <span class="process-math">\(f(z) = z^2\text{,}\)</span> so that <span class="process-math">\(f = u + iv\)</span> where <span class="process-math">\(u(x,y) = x^2 - y^2\)</span> and <span class="process-math">\(v(x,y) = 2xy\text{.}\)</span> We know that this function (a polynomial) is differentiable everywhere, so we expect <span class="process-math">\(u\)</span> and <span class="process-math">\(v\)</span> to satisfy the Cauchy–Riemann Equations everywhere. Indeed, they do:</div>
+<div class="displaymath process-math">
+\begin{align*}
+u_x \amp = 2x = v_y \\
+u_y \amp = -2y = -v_x 
+\end{align*}
+</div>
+</li>
+<li><div class="para">Consider the conjugation map <span class="process-math">\(f(z) = \bar z\text{.}\)</span> Then <span class="process-math">\(f = u + iv\)</span> with <span class="process-math">\(u(x,y) = x\)</span> and <span class="process-math">\(v(x,y) = -y\text{.}\)</span> In this case we have <span class="process-math">\(u_x = 1\)</span> <span class="process-math">\(v_y = -1\text{,}\)</span> so the Cauchy–Riemann Equations hold <em class="emphasis">nowhere</em>. So the conjugation map is nowhere (complex-)differentiable, which might seem weird since it is a nice orthogonal transformation. In <a href="sec-conformal.html" class="internal" title="Section 3.5: Conformal mappings">Section 3.5</a> we will get another explanation: conjugation is not analytic because it fails to preserve angles, in particular their orientation.</div></li>
+<li>
+<div class="para">The exponential map <span class="process-math">\(f(z) = e^z\)</span> has real part <span class="process-math">\(u(x,y) = e^x \cos y\)</span> and imaginary part <span class="process-math">\(v(x,y) = e^x \sin y\text{.}\)</span> We see that the Cauchy–Riemann equations</div>
+<div class="displaymath process-math">
+\begin{align*}
+u_x \amp = e^x \cos y = v_y \\
+u_y \amp = -e^x \sin y = -v_x 
+\end{align*}
+</div>
+<div class="para">hold everywhere, as expected since <span class="process-math">\(f\)</span> is entire. We also observe that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(z) = u_x + i v_x = e^x \cos y + i e^x \sin y = e^z.
+\end{equation*}
+</div>
+</li>
+</ol></article><span class="incontext"><a href="sec-cauchy-riemann.html#example-16" class="internal">in-context</a></span>
 </body>
 </html>

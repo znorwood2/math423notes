@@ -331,7 +331,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.4",
   "title": "Some elementary functions",
-  "body": " Some elementary functions  The rest of the course will be devoted to studying functions of a complex variable, that is, functions where . Because is inherently 2-dimensional, we cannot reasonably hope to graph a complex-valued function in the way that we did for functions in calculus. Instead, we think of complex-valued functions geometrically as transformations of the plane. In trying to understand a particular function, we will pay special attention to how familiar geometric shapes like lines and circles are transformed.   Multiplication and addition by a fixed number  The most basic complex-valued functions simply take a and add to it, or multiply it by, a fixed complex number .    GeoGebra: translation    Addition by a fixed complex number is just vector-translation. Remember that addition of complex numbers is just vector addition from multivariable calculus.    GeoGebra: multiplication by a fixed number    Multiplication by a fixed complex number is best thought of in polar coordinates, as the composite of two transformations. Notice that , for , just scales every point in the plane by a factor of . And the map , for a fixed , rotates the plane counterclockwise by radians. So the map is the composite of these two maps: it scales by a factor of and rotates by radians.    If you have seen some linear algebra, it is worth noting that scaling and rotating are linear maps! And you can analyze them using the tools of linear algebra. To do this, we first observe that the standard basis vectors and have (respectively) representations and as complex numbers. Since the maps and are both linear, their standard matrix representations can be found by looking at where they send the standard basis vectors.   The more interesting of the two maps is the rotation map , so let's see where it sends the standard basis vectors:   These two results give us the columns of the standard matrix of the linear transformation :   You might recognize this from linear algebra as a rotation matrix.     The Square Function  One of the simplest nontrivial functions is the squaring function . As we will see in many of these examples, it is useful to consider the map in polar coordinates.   In other words, the function is defined by declaring and .  The circle is mapped to the circle , traversed at double the angular velocity. In particular, the unit circle is mapped to itself, but traversed twice.    GeoGebra: Squaring 1      GeoGebra: Squaring 2       The Square Root Function  Every nonzero complex number should have two square-roots. The problem is that we want to choose one in a reasonable way. (We cannot simply choose the 'positive' one as we can with real numbers.) Looking in polar coordinates suggests that we should define   (Notice that the square-root on the right is the ordinary positive square-root of the nonnegative real number .)  But a complex number has many arguments ! The trouble comes from picking a particular .    GeoGebra: Square roots    As you can see in , using the principal argument for introduces a discontinuity at every point along the negative real axis. To fix this, we take a branch cut .    The principal branch of the square-root function is the function defined by .     Warning: Negative real numbers still have complex square roots!!! They are excluded from the domain of the principal branch of the square-root function only to ensure that the function is continuous. More about this later.  (In fact, the formula in can be used to get a square-root of a negative real number. Plugging in , we obtain as a square-root of .)  So the two square-roots of a complex number are and . (The first of these is the principal branch of the square-root, as long as .)        The Complex Exponential  Euler's Formula tells us how to exponentiate so-called purely imaginary numbers, that is numbers of the form where . But what about other complex numbers? Well, just decompose as , the sum of a real number (which we know how to exponentiate) and a purely imaginary number :   In other words, is the polar representation of : and .       A complex number is a period of the function if, for every , we have . A function is periodic if it has some nonzero period.      The complex exponential is -periodic.     For all we have:     For every real number , the quantity is a real number.      GeoGebra: The exponential map     We conclude from our previous discussion that the range of the exponential map is . This leads us to wonder about defining a logarithm.   The complex logarithm  We would like to define a log map that is inverse to the exponential. As we found with the square-root, we will have to make a branch cut in order to choose a specific log continuously, though.  Given , we want to find a solution to the equation . We need and . In fact we must have this; all logarithms of take the form for some choice of . So all logarithms of take the form     The principal branch of the log is the function defined by .    As with the square-root, we have to cut the domain in order for the function to be continuous. And, as with the square-root, negative real numbers still have logarithms!    GeoGebra: The log      All possible logs of are , .       Branch cuts and branch points  We can view the log, for example, as a multi-valued function on . Each time we use log, we need to choose a branch (often the principal one).    If is an open set, then a branch of the log defined on is a continuous function for which for all .  A branch point of a multi-valued function is a point such that, for every , the function cannot be given a continuous single-valued definition on .     is the ball of radius centered at . Don't worry, we'll discuss these things in more detail in later sections.    is a branch point of log.    The function has two branch points, at and .      General power functions  Now that we have the log, we can define general power functions.    For any , the principal branch of the power function  is the function defined as follows.      This agrees with our earlier definition of the principal branch of the square-root function:     Let's find all possible values of .   Since the possible values of are , , we have   These are all real numbers!!!     Trig functions  Standard trig functions can be defined in terms of the exponential.    Sine and cosine are defined at all complex numbers  as follows.      Remember your Taylor Series from calculus? Write down the Taylor series for the exponential function, centered at , and plug in and simplify. Do the same thing but plug in and simplify. You should be very close to a Taylor series for cosine.    Warning: These definitions are motivated by Euler's Formula: e.g. for ,   But in general! In particular, the quantity on the right is real-valued, whereas is not. And we can just expand out and examine its real and imaginary parts:   So , which does not typically equal .  The tangent function can be defined by , and hyperbolic trig functions can also be defined. You will explore all this on the homework.   "
+  "body": " Some elementary functions  The rest of the course will be devoted to studying functions of a complex variable, that is, functions where . Because is inherently 2-dimensional, we cannot reasonably hope to graph a complex-valued function in the way that we did for functions in calculus. Instead, we think of complex-valued functions geometrically as transformations of the plane. In trying to understand a particular function, we will pay special attention to how familiar geometric shapes like lines and circles are transformed.   Multiplication and addition by a fixed number  The most basic complex-valued functions simply take a and add to it, or multiply it by, a fixed complex number .    GeoGebra: translation    Addition by a fixed complex number is just vector-translation. Remember that addition of complex numbers is just vector addition from multivariable calculus.    GeoGebra: multiplication by a fixed number    Multiplication by a fixed complex number is best thought of in polar coordinates, as the composite of two transformations. Notice that , for , just scales every point in the plane by a factor of . And the map , for a fixed , rotates the plane counterclockwise by radians. So the map is the composite of these two maps: it scales by a factor of and rotates by radians.    If you have seen some linear algebra, it is worth noting that scaling and rotating are linear maps! And you can analyze them using the tools of linear algebra. To do this, we first observe that the standard basis vectors and have (respectively) representations and as complex numbers. Since the maps and are both linear, their standard matrix representations can be found by looking at where they send the standard basis vectors.   The more interesting of the two maps is the rotation map , so let's see where it sends the standard basis vectors:   These two results give us the columns of the standard matrix of the linear transformation :   You might recognize this from linear algebra as a rotation matrix.     The Square Function  One of the simplest nontrivial functions is the squaring function . As we will see in many of these examples, it is useful to consider the map in polar coordinates.   In other words, the function is defined by declaring and .  The circle is mapped to the circle , traversed at double the angular velocity. In particular, the unit circle is mapped to itself, but traversed twice.    GeoGebra: Squaring 1      GeoGebra: Squaring 2       The Square Root Function  Every nonzero complex number should have two square-roots. The problem is that we want to choose one in a reasonable way. (We cannot simply choose the 'positive' one as we can with real numbers.) Looking in polar coordinates suggests that we should define   (Notice that the square-root on the right is the ordinary positive square-root of the nonnegative real number .)  But a complex number has many arguments ! The trouble comes from picking a particular .    GeoGebra: Square roots    As you can see in , using the principal argument for introduces a discontinuity at every point along the negative real axis. To fix this, we take a branch cut .    The principal branch of the square-root function is the function defined by .     Warning: Negative real numbers still have complex square roots!!! They are excluded from the domain of the principal branch of the square-root function only to ensure that the function is continuous. More about this later.  (In fact, the formula in can be used to get a square-root of a negative real number. Plugging in , we obtain as a square-root of .)  So the two square-roots of a complex number are and . (The first of these is the principal branch of the square-root, as long as .)        The Complex Exponential  Euler's Formula tells us how to exponentiate so-called purely imaginary numbers, that is numbers of the form where . But what about other complex numbers? Well, just decompose as , the sum of a real number (which we know how to exponentiate) and a purely imaginary number :   In other words, is the polar representation of : and .       A complex number is a period of the function if, for every , we have . A function is periodic if it has some nonzero period.      The complex exponential is -periodic.     For all we have:     For every real number , the quantity is a real number.      GeoGebra: The exponential map     We conclude from our previous discussion that the range of the exponential map is . This leads us to wonder about defining a logarithm.   The complex logarithm  We would like to define a log map that is inverse to the exponential. As we found with the square-root, we will have to make a branch cut in order to choose a specific log continuously, though.  Given , we want to find a solution to the equation . We need and . In fact we must have this; all logarithms of take the form for some choice of . So all logarithms of take the form     The principal branch of the log is the function defined by .    As with the square-root, we have to cut the domain in order for the function to be continuous. And, as with the square-root, negative real numbers still have logarithms!    GeoGebra: The log      All possible logs of are , .       Branch cuts and branch points  We can view the log, for example, as a multi-valued function on . Each time we use log, we need to choose a branch (often the principal one).    If is an open set, then a branch of the log defined on is a continuous function for which for all .  A branch point of a multi-valued function is a point such that, for every , the function cannot be given a continuous single-valued definition on .     is the ball of radius centered at . Don't worry, we'll discuss these things in more detail in later sections.    is a branch point of log.    The function has two branch points, at and .      General power functions  Now that we have the log, we can define general power functions.    For any , the principal branch of the power function  is the function defined as follows.      This agrees with our earlier definition of the principal branch of the square-root function:     Let's find all possible values of .   Since the possible values of are , , we have   These are all real numbers!!!     Trig functions  Standard trig functions can be defined in terms of the exponential.    Sine and cosine are defined at all complex numbers  as follows.      Remember your Taylor Series from calculus? Write down the Taylor series for the exponential function, centered at , and plug in and simplify. Do the same thing but plug in and simplify. You should be very close to a Taylor series for cosine.    Warning: These definitions are motivated by Euler's Formula: e.g. for ,   But in general! In particular, the quantity on the right is real-valued, whereas is not. And we can just expand out and examine its real and imaginary parts:   So , which does not typically equal .  The tangent function can be defined by , and hyperbolic trig functions can be defined similarly. You will explore all this on the homework.   "
 },
 {
   "id": "figure-12",
@@ -718,7 +718,61 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.2",
   "title": "The Cauchy–Riemann Equations",
-  "body": " The Cauchy–Riemann Equations  "
+  "body": " The Cauchy–Riemann Equations  The limit of the difference quotient from the definition of derivative   is really a multivariable calculus limit:   If this limit exists (meaning that is differentiable at ), then it must exist along the two coordinate directions. That is, in the special cases and we must get the same result. Let's explore that.   If exists, then as tends to the expression in must tend toward . But it must also equal , by the definition of partial derivatives! In other words, for and ,   Do the same thing in the -direction with and you'll get the following.   More compactly, . Identifying real and imaginary parts, we obtain the Cauchy–Riemann Equations.   Cauchy–Riemann Equations   Suppose that is defined on a domain and that . Then is (complex-)differentiable at if and only if and (construed as functions ) have continuous partial derivatives that satisfy the following equations, called the Cauchy–Riemann Equations , at .   In that case, we have     We have basically shown how to prove the forward direction. We will not give the proof of the other direction; it is an exercise in multivariable real analysis using Taylor's Theorem.      Let , so that where and . We know that this function (a polynomial) is differentiable everywhere, so we expect and to satisfy the Cauchy–Riemann Equations everywhere. Indeed, they do:     Consider the conjugation map . Then with and . In this case we have  , so the Cauchy–Riemann Equations hold nowhere . So the conjugation map is nowhere (complex-)differentiable, which might seem weird since it is a nice orthogonal transformation. In we will get another explanation: conjugation is not analytic because it fails to preserve angles, in particular their orientation.    The exponential map has real part and imaginary part . We see that the Cauchy–Riemann equations   hold everywhere, as expected since is entire. We also observe that      Using the Cauchy–Riemann Equations, we will several rigidity properties of analytic functions that start to give us a sense of what sort of functions can be analytic. We begin with an unsurprising complex analogue of a standard fact from single-variable calculus.    If is analytic on a domain and for every , then must be constant on .    Write , so that our assumption and the Cauchy–Riemann Equations give   Identifying real and imaginary parts, we see that on . It follows that the directional derivative for every direction vector , at every point of . Using this, one can show (using the fact that a plain ole function with derivative must be constant) that is constant along any line segment that lies completely in . But, since is path-connected, any two points can be joined by a finite sequence of line segments.  This actually requires a togological argument that we've swept under the rug. The gist of it is this: every point on a path from to has an open neighborhood that is included in , since is open. Only finitely many of these open neighborhoods are needed to cover the path by compactness. Now replace the portion of the path in the first ball with the straight-line path to where it exits the ball. Repeat with the remaining balls.  Since is constant along each of these line segments, . So is constant on .    If is analytic and real-valued on a domain , then must be constant on .    If and are both analytic on a domain , then is constant on .    There is a short proof from , but we will give a direct proof that does not appeal to a homework problem.  Write so that . The Cauchy–Riemann Equations for say: while the Cauchy–Riemann Equations for say: Adding these equations together gives . So on . By , it follows that is constant on .      If is analytic on a domain and is constant on , then is constant on .    If takes the constant value on , then takes the constant value on . So assume from now on that the constant value of on is not zero. Recall that . Rearrange to see that , which means that is a constant multiple of the analytic function ; therefore is analytic. Now we can apply to conclude that is constant on .    "
+},
+{
+  "id": "thm-cauchy-riemann",
+  "level": "2",
+  "url": "sec-cauchy-riemann.html#thm-cauchy-riemann",
+  "type": "Theorem",
+  "number": "3.2.1",
+  "title": "Cauchy–Riemann Equations.",
+  "body": " Cauchy–Riemann Equations   Suppose that is defined on a domain and that . Then is (complex-)differentiable at if and only if and (construed as functions ) have continuous partial derivatives that satisfy the following equations, called the Cauchy–Riemann Equations , at .   In that case, we have    "
+},
+{
+  "id": "example-16",
+  "level": "2",
+  "url": "sec-cauchy-riemann.html#example-16",
+  "type": "Example",
+  "number": "3.2.2",
+  "title": "",
+  "body": "   Let , so that where and . We know that this function (a polynomial) is differentiable everywhere, so we expect and to satisfy the Cauchy–Riemann Equations everywhere. Indeed, they do:     Consider the conjugation map . Then with and . In this case we have  , so the Cauchy–Riemann Equations hold nowhere . So the conjugation map is nowhere (complex-)differentiable, which might seem weird since it is a nice orthogonal transformation. In we will get another explanation: conjugation is not analytic because it fails to preserve angles, in particular their orientation.    The exponential map has real part and imaginary part . We see that the Cauchy–Riemann equations   hold everywhere, as expected since is entire. We also observe that     "
+},
+{
+  "id": "lem-deriv-zero-constant",
+  "level": "2",
+  "url": "sec-cauchy-riemann.html#lem-deriv-zero-constant",
+  "type": "Lemma",
+  "number": "3.2.3",
+  "title": "",
+  "body": "  If is analytic on a domain and for every , then must be constant on .    Write , so that our assumption and the Cauchy–Riemann Equations give   Identifying real and imaginary parts, we see that on . It follows that the directional derivative for every direction vector , at every point of . Using this, one can show (using the fact that a plain ole function with derivative must be constant) that is constant along any line segment that lies completely in . But, since is path-connected, any two points can be joined by a finite sequence of line segments.  This actually requires a togological argument that we've swept under the rug. The gist of it is this: every point on a path from to has an open neighborhood that is included in , since is open. Only finitely many of these open neighborhoods are needed to cover the path by compactness. Now replace the portion of the path in the first ball with the straight-line path to where it exits the ball. Repeat with the remaining balls.  Since is constant along each of these line segments, . So is constant on .   "
+},
+{
+  "id": "exercise-real-valued-const",
+  "level": "2",
+  "url": "sec-cauchy-riemann.html#exercise-real-valued-const",
+  "type": "Checkpoint",
+  "number": "3.2.4",
+  "title": "",
+  "body": "If is analytic and real-valued on a domain , then must be constant on . "
+},
+{
+  "id": "prop-conj-const",
+  "level": "2",
+  "url": "sec-cauchy-riemann.html#prop-conj-const",
+  "type": "Proposition",
+  "number": "3.2.5",
+  "title": "",
+  "body": "  If and are both analytic on a domain , then is constant on .    There is a short proof from , but we will give a direct proof that does not appeal to a homework problem.  Write so that . The Cauchy–Riemann Equations for say: while the Cauchy–Riemann Equations for say: Adding these equations together gives . So on . By , it follows that is constant on .   "
+},
+{
+  "id": "cor-modulus-const",
+  "level": "2",
+  "url": "sec-cauchy-riemann.html#cor-modulus-const",
+  "type": "Corollary",
+  "number": "3.2.6",
+  "title": "",
+  "body": "  If is analytic on a domain and is constant on , then is constant on .    If takes the constant value on , then takes the constant value on . So assume from now on that the constant value of on is not zero. Recall that . Rearrange to see that , which means that is a constant multiple of the analytic function ; therefore is analytic. Now we can apply to conclude that is constant on .   "
 },
 {
   "id": "sec-inverse",
@@ -727,7 +781,52 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.3",
   "title": "Analyticity of inverse functions",
-  "body": " Analyticity of inverse functions  "
+  "body": " Analyticity of inverse functions  If you paid close attention in calculus, you right remember doing something like this to find the derivative of the logarithm.   You will be pleased to hear that we can do more-or-less the same thing in complex analysis! The key theorem should say, essentially, that the derivative of at should be the reciprocal of the derivative of at . The single-variable calculus version of this fact is illustrated by .    GeoGebra: Derivatives of Inverses      Suppose that is analytic on a domain , , and . There is a disk on which is one-to-one; moreover the image is open, and the inverse function is analytic and satisfies     We will not bother with a careful proof of here. Most of the hard work is handled by the Inverse Function Theorem; the formula is obtained just as in Calculus by applying the Chain Rule to the equation and solving for .   Where does the Inverse Function Theorem come in? you might wonder. Consider a function that is analytic on a domain . If we think of as the function , then it has a Jacobian matrix whose determinant can be computed using the Cauchy–Riemann Equations: So the Jacobian is zero exactly where the complex derivative is zero. This allows us to state in terms of the complex derivative instead of referring to the Jacobian.    The exponential function is entire and has nonzero derivative everywhere. The function Log (the principal branch) is an inverse of defined on , and it is analytic on its domain by . And its derivative is given by What's more, other branches of log differ from the principal branch by a constant, so they all have the same derivative!   Warning. Not every multifunction has the property that all its branches have the same derivative, because not all multifunctions have the property that their branches all differ by a constant. Consider arccosine, for example. Or even the square-root, of the exercise.   Make sure that you see why implies that every branch of the square-root is analytic, and , where the same square-root function is used on each side of the equation.  "
+},
+{
+  "id": "fig-geogebra-deriv-inverse",
+  "level": "2",
+  "url": "sec-inverse.html#fig-geogebra-deriv-inverse",
+  "type": "Figure",
+  "number": "3.3.1",
+  "title": "",
+  "body": " GeoGebra: Derivatives of Inverses   "
+},
+{
+  "id": "thm-deriv-inverse",
+  "level": "2",
+  "url": "sec-inverse.html#thm-deriv-inverse",
+  "type": "Theorem",
+  "number": "3.3.2",
+  "title": "",
+  "body": "  Suppose that is analytic on a domain , , and . There is a disk on which is one-to-one; moreover the image is open, and the inverse function is analytic and satisfies    "
+},
+{
+  "id": "investigation-2",
+  "level": "2",
+  "url": "sec-inverse.html#investigation-2",
+  "type": "Investigation",
+  "number": "3.3.1",
+  "title": "",
+  "body": " Where does the Inverse Function Theorem come in? you might wonder. Consider a function that is analytic on a domain . If we think of as the function , then it has a Jacobian matrix whose determinant can be computed using the Cauchy–Riemann Equations: So the Jacobian is zero exactly where the complex derivative is zero. This allows us to state in terms of the complex derivative instead of referring to the Jacobian.  "
+},
+{
+  "id": "example-17",
+  "level": "2",
+  "url": "sec-inverse.html#example-17",
+  "type": "Example",
+  "number": "3.3.3",
+  "title": "",
+  "body": " The exponential function is entire and has nonzero derivative everywhere. The function Log (the principal branch) is an inverse of defined on , and it is analytic on its domain by . And its derivative is given by What's more, other branches of log differ from the principal branch by a constant, so they all have the same derivative!   Warning. Not every multifunction has the property that all its branches have the same derivative, because not all multifunctions have the property that their branches all differ by a constant. Consider arccosine, for example. Or even the square-root, of the exercise.  "
+},
+{
+  "id": "exercise-7",
+  "level": "2",
+  "url": "sec-inverse.html#exercise-7",
+  "type": "Checkpoint",
+  "number": "3.3.4",
+  "title": "",
+  "body": "Make sure that you see why implies that every branch of the square-root is analytic, and , where the same square-root function is used on each side of the equation. "
 },
 {
   "id": "sec-harmonic",
@@ -757,18 +856,18 @@ var ptx_lunr_docs = [
   "body": "  If is analytic, then and are harmonic functions.   "
 },
 {
-  "id": "proof-2",
+  "id": "proof-5",
   "level": "2",
-  "url": "sec-harmonic.html#proof-2",
+  "url": "sec-harmonic.html#proof-5",
   "type": "Proof",
   "number": "3.4.1",
   "title": "",
   "body": " Later we will show that the real and imaginary parts of analytic functions have continuous partial derivatives of all orders. So let's not worry about that part for now.  This is just an application of the Cauchy–Riemann Equations and equality of mixed partials (sometimes called Clairaut's Theorem by calculus textbooks):   Rearranging gives . A very similar proof works for .  "
 },
 {
-  "id": "example-16",
+  "id": "example-18",
   "level": "2",
-  "url": "sec-harmonic.html#example-16",
+  "url": "sec-harmonic.html#example-18",
   "type": "Example",
   "number": "3.4.3",
   "title": "",
@@ -784,9 +883,9 @@ var ptx_lunr_docs = [
   "body": "  If is harmonic on a domain and is a function for which is analytic on , then we say that is a harmonic conjugate of .   "
 },
 {
-  "id": "exercise-6",
+  "id": "exercise-8",
   "level": "2",
-  "url": "sec-harmonic.html#exercise-6",
+  "url": "sec-harmonic.html#exercise-8",
   "type": "Checkpoint",
   "number": "3.4.5",
   "title": "",
@@ -811,9 +910,9 @@ var ptx_lunr_docs = [
   "body": "  Let be an open disk or an open (filled-in) rectangle. Let be a harmonic function on . Then has a harmonic conjugate on , unique up to adding a constant.   "
 },
 {
-  "id": "p-186",
+  "id": "p-220",
   "level": "2",
-  "url": "sec-harmonic.html#p-186",
+  "url": "sec-harmonic.html#p-220",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -856,9 +955,9 @@ var ptx_lunr_docs = [
   "body": "  Suppose that is continuously differentiable and conformal on a domain with nonzero gradient at every point in . Then is analytic on , and for every .   "
 },
 {
-  "id": "example-18",
+  "id": "example-20",
   "level": "2",
-  "url": "sec-conformal.html#example-18",
+  "url": "sec-conformal.html#example-20",
   "type": "Example",
   "number": "3.5.4",
   "title": "",
@@ -883,9 +982,9 @@ var ptx_lunr_docs = [
   "body": " GeoGebra: transforms some curves conformally   "
 },
 {
-  "id": "example-19",
+  "id": "example-21",
   "level": "2",
-  "url": "sec-conformal.html#example-19",
+  "url": "sec-conformal.html#example-21",
   "type": "Example",
   "number": "3.5.7",
   "title": "",
@@ -910,18 +1009,18 @@ var ptx_lunr_docs = [
   "body": "  If and are open subsets of and is a conformal bijection, then is called a conformal equivalence .   "
 },
 {
-  "id": "investigation-2",
+  "id": "investigation-3",
   "level": "2",
-  "url": "sec-conformal.html#investigation-2",
+  "url": "sec-conformal.html#investigation-3",
   "type": "Investigation",
   "number": "3.5.1",
   "title": "",
   "body": " Don't forget that conformality is equivalent to analytic with derivative . So the Inverse Function Theorem implies that a conformal bijection has local conformal inverses, which can be patched together to give a global conformal inverse. All this to say that conformal equivalence is a symmetric relation: if is conformally equivalent to , then is conformally equivalent to .  "
 },
 {
-  "id": "example-20",
+  "id": "example-22",
   "level": "2",
-  "url": "sec-conformal.html#example-20",
+  "url": "sec-conformal.html#example-22",
   "type": "Example",
   "number": "3.5.10",
   "title": "",
@@ -946,9 +1045,9 @@ var ptx_lunr_docs = [
   "body": " Fractional Linear Transformations  In we saw an example of a conformal equivalence. This was in fact our second example of a Möbius Transformation , aka Fractional-linear Transformation (FLT) .    A Fractional-linear Transformation (aka FLT aka Möbius Transformation ) is a function of the form where are complex numbers satisfying .    (Notice that if we allowed then we'd simply get a constant map. Some authors allow this and call constant maps singular FLTs, so that ours would be non-singular FLTs.)     The function from is the FLT with , , , and .    Complex inversion is the FLT with , , , and .    The affine transformation is the FLT with , , and .     It is convenient to regard an FLT as a transformation of the extended complex plane by introducing the following conventions.  If then define .  If then set and set .   Where does come from? Divide the numerator and denominator of by and imagine what happens when tends toward .   If you have seen some linear algebra, then it is impossible to look at the condition in the definition of FLT and not wonder whether this has something to do with determinants. We are about to see that it does!      Every FLT is invertible, and its inverse is another FLT.    The composite of two FLTs is another FLT.      Consider an FLT . We will show more than what is stated in the Proposition. For the first part, define   (Notice that these parameters are exactly the same as the entries of the matrix inverse of the matrix !)  You can check that . (In fact, this follows from the next part of the proof.)  For part (b), consider FLTs and given by You might guess that corresponds to the product of the matrices and , and you'd be correct!  Check that and use linear algebra to explain why the new parameters satisfy the non-singular condition .     What's really going on? The map defines a group homomorphism  . (You don't need to know for this class what these things mean, but you might have seen them in other classes.)     Every FLT can be expressed as a composite of dilations ( ), translations ( ) and inversions ( ).    Dilation is a misnomer, since in the expression we allow to be any complex number. Remember that multiplication by a fixed complex number is really amplification by followed by rotation by .    Consider . Again, we consider separately the cases where and .  If then . This is the translation postcomposed by the dilation .  Now suppose that . Divide the numerator and denominator by in order to assume :   Now do some fraction arithmetic to get   Now can be written as a composite of translations, inversions, and translations. Look:   The proof is complete.     has the following important geometric corollary.    Every FLT is circle-preserving.    It is intuitively clear (and straightforward to check carefully) that dilations and translations are circle-preserving. And we already proved that the complex inversion map preserves circles by considering it as a transformation of the Riemann Sphere!     Before we move on to other geometric properties of FLTs, we should not forget that we know some calculus! What happens when we differentiate an FLT?   Notice that this is always nonzero, by our non-singularity condition! Together with the observation that an FLT is analytic everywhere it is defined (it is a rational function!), this amounts to a proof of the following Lemma.    An FLT is analytic wherever it is defined, and it is conformal.     Fixed-Point Property of FLTs   Every FLT other than the identity map has either one or two fixed points (counting the point at ). That is, there are either one or two solutions to .    As usual, we consider separately the cases where and . Suppose first that , so that our FLT can be written as . One fixed point is . If then is another:   If then , and so has no solutions other than .  Now suppose that . Then , so is not a fixed point. The equation can be rearranged into the quadratic equation , which has two solutions if . Otherwise the two solutions coalesce into just one fixed point: .       The FLT has two fixed points .    The FLT has two fixed points .      Three Points Property   If and are FLTs with three common values, i.e., then .    The function (is an FLT by and) has three fixed points so by must be the identity map.      For all distinct and all distinct there is a unique FLT satisfying , , and .   Let's start with , , and . (It is not obvious that this is what we should do, but hang in there and you'll see.)    For all distinct complex numbers there is a unique FLT satisfying , , and .    In order for to send to and to , must be proportional to . That is, for some . We plug in and to solve for . so . We conclude that the following FLT will do the trick:   (Remember that is the only variable in this expression. So the parameters of are e.g. . These have to be interpreted appropriately when you plug in or get in the denominator.)    By the Claim we can find a FLT that sends to (respectively) and another FLT that sends to (respectively). Now sends to .       We define the cross ratio of four complex numbers to be which is the image of under the unique FLT sending to .   Warning: different textbooks use different conventions for the cross ratio.       GeoGebra: a basic path    It is often useful to have an explicit form for the unique FLT sending to . It is given by solving the following equation for as a function of , after making appropriate changes to deal with :    Let's find the unique FLT sending to . We solve for . Easy! Get . Hey, this is the example from !    Let's find the unique FLT sending to . We solve the following equation for . We get        If is a FLT whose only fixed point is , then there is a nonzero for which .    If is a FLT whose fixed points are and , then there is for which .      Write . Notice that since is a fixed point of . (This follows from how we defined the extension of an FLT to the point at infinity.) So by changing names of constants we can write . If , then would be a fixed point of , contradicting our assumption. So . If then would be another fixed point of . So ; that is, , as desired.  For the second part, notice that must be the unique FLT that sends to , to , and to . But also has these properties, so . And , since has exactly two fixed points (and is therefore not the identity map).      FLTs preserve cross ratios. That is, if is an FLT then     The lefthand side of the equation is where is the unique FLT sending to . The righthand side of the equation is , where is the unique FLT sending to . But is also an FLT sending to , so it must be that . In particular, .    "
 },
 {
-  "id": "p-212",
+  "id": "p-246",
   "level": "2",
-  "url": "sec-flt.html#p-212",
+  "url": "sec-flt.html#p-246",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -964,18 +1063,18 @@ var ptx_lunr_docs = [
   "body": "  A Fractional-linear Transformation (aka FLT aka Möbius Transformation ) is a function of the form where are complex numbers satisfying .   "
 },
 {
-  "id": "p-214",
+  "id": "p-248",
   "level": "2",
-  "url": "sec-flt.html#p-214",
+  "url": "sec-flt.html#p-248",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "singular non-singular "
 },
 {
-  "id": "example-22",
+  "id": "example-24",
   "level": "2",
-  "url": "sec-flt.html#example-22",
+  "url": "sec-flt.html#example-24",
   "type": "Example",
   "number": "3.6.2",
   "title": "",
@@ -991,9 +1090,9 @@ var ptx_lunr_docs = [
   "body": "    Every FLT is invertible, and its inverse is another FLT.    The composite of two FLTs is another FLT.      Consider an FLT . We will show more than what is stated in the Proposition. For the first part, define   (Notice that these parameters are exactly the same as the entries of the matrix inverse of the matrix !)  You can check that . (In fact, this follows from the next part of the proof.)  For part (b), consider FLTs and given by You might guess that corresponds to the product of the matrices and , and you'd be correct!  Check that and use linear algebra to explain why the new parameters satisfy the non-singular condition .   "
 },
 {
-  "id": "investigation-3",
+  "id": "investigation-4",
   "level": "2",
-  "url": "sec-flt.html#investigation-3",
+  "url": "sec-flt.html#investigation-4",
   "type": "Investigation",
   "number": "3.6.1",
   "title": "",
@@ -1018,9 +1117,9 @@ var ptx_lunr_docs = [
   "body": "  Every FLT is circle-preserving.    It is intuitively clear (and straightforward to check carefully) that dilations and translations are circle-preserving. And we already proved that the complex inversion map preserves circles by considering it as a transformation of the Riemann Sphere!    "
 },
 {
-  "id": "lemma-3",
+  "id": "lemma-4",
   "level": "2",
-  "url": "sec-flt.html#lemma-3",
+  "url": "sec-flt.html#lemma-4",
   "type": "Lemma",
   "number": "3.6.6",
   "title": "",
@@ -1036,9 +1135,9 @@ var ptx_lunr_docs = [
   "body": " Fixed-Point Property of FLTs   Every FLT other than the identity map has either one or two fixed points (counting the point at ). That is, there are either one or two solutions to .    As usual, we consider separately the cases where and . Suppose first that , so that our FLT can be written as . One fixed point is . If then is another:   If then , and so has no solutions other than .  Now suppose that . Then , so is not a fixed point. The equation can be rearranged into the quadratic equation , which has two solutions if . Otherwise the two solutions coalesce into just one fixed point: .   "
 },
 {
-  "id": "example-23",
+  "id": "example-25",
   "level": "2",
-  "url": "sec-flt.html#example-23",
+  "url": "sec-flt.html#example-25",
   "type": "Example",
   "number": "3.6.8",
   "title": "",
@@ -1081,18 +1180,18 @@ var ptx_lunr_docs = [
   "body": " GeoGebra: a basic path   "
 },
 {
-  "id": "example-24",
+  "id": "example-26",
   "level": "2",
-  "url": "sec-flt.html#example-24",
+  "url": "sec-flt.html#example-26",
   "type": "Example",
   "number": "3.6.14",
   "title": "",
   "body": " Let's find the unique FLT sending to . We solve for . Easy! Get . Hey, this is the example from !  "
 },
 {
-  "id": "example-25",
+  "id": "example-27",
   "level": "2",
-  "url": "sec-flt.html#example-25",
+  "url": "sec-flt.html#example-27",
   "type": "Example",
   "number": "3.6.15",
   "title": "",
@@ -1153,18 +1252,18 @@ var ptx_lunr_docs = [
   "body": "  We first define the complex integral for paths in the complex plane. If is continuous, then we integrate by integrating its real and imaginary parts separately: Notice that the result is a complex number. But this is really just a prelude to the main event:  For a path and a continuous function , we define the integral of over as follows. Notice that the integral on the righthand side is defined by the first part of this definition (with ) to be The definition naturally extends to contours by adding integrals over pieces.   "
 },
 {
-  "id": "example-26",
+  "id": "example-28",
   "level": "2",
-  "url": "sec-def-contour-integrals.html#example-26",
+  "url": "sec-def-contour-integrals.html#example-28",
   "type": "Example",
   "number": "4.1.4",
   "title": "",
   "body": " Compute , where is the top half of the unit circle traversed from to . (We will see below that value of the integral does not depend on the parametrization of the curve, so feel free to use any parametrization of here.)  The given curve is parametrized by for . We see that and . That is all we need to compute the integral:   "
 },
 {
-  "id": "example-27",
+  "id": "example-29",
   "level": "2",
-  "url": "sec-def-contour-integrals.html#example-27",
+  "url": "sec-def-contour-integrals.html#example-29",
   "type": "Example",
   "number": "4.1.5",
   "title": "",
@@ -1225,18 +1324,18 @@ var ptx_lunr_docs = [
   "body": "  If on a domain and is a contour, then .   "
 },
 {
-  "id": "proof-16",
+  "id": "proof-19",
   "level": "2",
-  "url": "sec-basic-integral-props.html#proof-16",
+  "url": "sec-basic-integral-props.html#proof-19",
   "type": "Proof",
   "number": "4.2.1",
   "title": "",
   "body": " Apply to and .  "
 },
 {
-  "id": "example-29",
+  "id": "example-31",
   "level": "2",
-  "url": "sec-basic-integral-props.html#example-29",
+  "url": "sec-basic-integral-props.html#example-31",
   "type": "Example",
   "number": "4.2.6",
   "title": "",
@@ -1261,9 +1360,9 @@ var ptx_lunr_docs = [
   "body": "  Suppose that is a continuous function defined on a domain . The following are equivalent:     has an antiderivative on ;   for all the integral is independent of path , meaning that for all contours with and we have ;    for all closed paths we have .      We'll give the proofs of all the easy directions here and leave the difficult direction for a separate proposition.  First, notice that we already observed that implies after our discussion of the FTC for contour integrals. It is not too difficult to see that conditions and are equivalent. Assume and suppose that is closed. Divide into two paths, from to and from back to . (It does not matter where this division happens.) Using path-independence and the basic properties of contour integrals, we have   from which we conclude that So implies . The proof of the converse uses similar ideas and is left as an exercise.  So it remains to show that implies , which we leave to because it will be useful to have a refinement of this result.   "
 },
 {
-  "id": "p-314",
+  "id": "p-348",
   "level": "2",
-  "url": "sec-cauchys-thm.html#p-314",
+  "url": "sec-cauchys-thm.html#p-348",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -1279,9 +1378,9 @@ var ptx_lunr_docs = [
   "body": "  Suppose that is a star-shaped domain, is continuous, and for all triangles . Then has an antiderivative on .    Let be a point of with respect to which is star-shaped. For define , where is the straight-line path from to . (Notice that lies completely in , since is star-shaped wrt .)    GeoGebra: a basic path    We aim to show that . Since is open, there is for which . Let . Let be the triangle formed by , and , with boundary oriented counterclockwise. Notice that is completely included in , since every point on the line segment is (by choice of ), and since is star-shaped wrt . We can therefore apply our assumption to conclude that . On the other hand, this expression also equals , so we rearrange to obtain   What we'd really like to estimate is the difference quotient , so we rearrange further.   Now we are in a position to make the final estimate.   which tends to as tends to , since is continuous.   "
 },
 {
-  "id": "exercise-7",
+  "id": "exercise-9",
   "level": "2",
-  "url": "sec-cauchys-thm.html#exercise-7",
+  "url": "sec-cauchys-thm.html#exercise-9",
   "type": "Checkpoint",
   "number": "4.3.4",
   "title": "",
@@ -1315,9 +1414,9 @@ var ptx_lunr_docs = [
   "body": " Connections to multivariable calculus  After reading the sections about contour integrals, you probably can't help noticing a strong resemblance to the theory of line integrals from multivariable calculus. First, notice that unlike a real line integral, the value of a contour integral is a complex number, i.e., a point in the plane! The key to making connections to multivariable calculus is to decompose this into its real and imaginary parts:   so we can use this to decompose the contour integral into two multivariable-calculus circulation integrals:   Let be the vector field associated to the conjugate of . Prove that where  Let's give an alternative proof of Cauchy's Theorem using Green's Theorem. (The reason for giving a separate, much longer, proof in class is that most of you haven't seen a proof of Green's Theorem!)    If is analytic on a simply connected domain , then for every closed path in .    The key is , which decomposes into its real and imaginary parts. Each of those parts is a vector integral to which we can apply Green's Theorem. Writing for the region enclosed by , we have the following.   (Notice that we used the Cauchy–Riemann Equations in each line.) We conclude that .    Give a proof along similar lines that a function that integrates to along every closed contour must have an antiderivative. Use the theorem from multivariable calculus that a circulation-free vector field must have a potential function.  "
 },
 {
-  "id": "exercise-8",
+  "id": "exercise-10",
   "level": "2",
-  "url": "sec-connections-to-multivariable.html#exercise-8",
+  "url": "sec-connections-to-multivariable.html#exercise-10",
   "type": "Checkpoint",
   "number": "4.4.1",
   "title": "",

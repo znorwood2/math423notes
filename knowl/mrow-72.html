@@ -11,12 +11,13 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/re-im-integral.html">
+<div class="displaymath process-math">
 \begin{align*}
-\text{Real part:}\quad \int_\gamma u\,dx - v\,dy \amp = \iint_R (- v_x - u_y)\,dxdy = \iint 0 = 0 \\
-\text{Imaginary part:}\quad \int_\gamma v\,dx + u\,dy \amp = \iint_R (u_x - v_y)\,dxdy = \iint 0 = 0 
+\int_{\partial T^n} f(z)\,dz \amp = \int_{\partial T^n} f(z)\,dz + \int_{\partial T^n} -f(z_0)\,dz
++ \int_{\partial T^n} -(z-z_0)f'(z_0)\,dz \\
+\amp = \int_{\partial T^n} (f(z) - f(z_0) - (z-z_0)f'(z_0))\,dz 
 \end{align*}
 </div>
-<span class="incontext"><a href="sec-connections-to-multivariable.html#md-25" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-cauchys-thm.html#md-26" class="internal">in-context</a></span>
 </body>
 </html>

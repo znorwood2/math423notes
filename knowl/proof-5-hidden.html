@@ -10,30 +10,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><article class="hiddenproof"><div class="para">Consider <span class="process-math">\(f(z) = \frac{az + b}{cz + d}\text{.}\)</span> Again, we consider separately the cases where <span class="process-math">\(c = 0\)</span> and <span class="process-math">\(c \ne 0\text{.}\)</span>
-</div> <div class="para">If <span class="process-math">\(c = 0\)</span> then <span class="process-math">\(f(z) = \frac{a}{d} z + \frac{b}{d} = a(z + \frac{b}{a})\text{.}\)</span> This is the translation <span class="process-math">\(z \mapsto z+ \frac{b}{a}\)</span> postcomposed by the dilation <span class="process-math">\(z \mapsto az\text{.}\)</span>
-</div> <div class="para">Now suppose that <span class="process-math">\(c \ne 0\text{.}\)</span> Divide the numerator and denominator by <span class="process-math">\(c\)</span> in order to assume <span class="process-math">\(c = 1\text{:}\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{equation*}
-f(z) = \frac{az+b}{cz + d} = \frac{\frac{a}{c}z + \frac{b}{c}}{z + \frac{d}{c}}
-= \frac{A z + B}{z + D}.
-\end{equation*}
-</div>
-<div class="para">Now do some fraction arithmetic to get</div>
-<div class="displaymath process-math">
-\begin{equation*}
-f(z) = A + \frac{B - AD}{Z + D}.
-\end{equation*}
-</div>
-<div class="para">Now <span class="process-math">\(f\)</span> can be written as a composite of translations, inversions, and translations. Look:</div>
+<body class="ignore-math"><article class="hiddenproof"><div class="para">Later we will show that the real and imaginary parts of analytic functions have continuous partial derivatives of all orders. So let's not worry about that part for now.</div> <div class="para">This is just an application of the Cauchy–Riemann Equations and equality of mixed partials (sometimes called Clairaut's Theorem by calculus textbooks):</div>
 <div class="displaymath process-math">
 \begin{align*}
-z \amp \mapsto z + D  \amp\amp \text{(translation)}\\
-\amp \mapsto \frac{1}{z + D} \amp\amp \text{(inversion)} \\
-\amp \mapsto \frac{B - AD}{z + D} \amp\amp \text{(dilation)}\\
-\amp \mapsto A + \frac{B-AD}{z+D}  \amp\amp \text{(translation)}
+u_{xx} \amp = \frac{\partial}{\partial x} u_x  \amp\amp \\
+\amp = \frac{\partial}{\partial x} v_y         \amp\amp \text{(CR)} \\
+\amp = \frac{\partial}{\partial y} v_x         \amp\amp \text{(Clairaut)} \\
+\amp = \frac{\partial}{\partial y} (-u_y)       \amp\amp \text{(CR)} \\
+\amp = -u_{yy}
 \end{align*}
 </div>
-<div class="para">The proof is complete.</div></article></body>
+<div class="para">Rearranging gives <span class="process-math">\(u_{xx} + u_{yy} = 0\text{.}\)</span> A very similar proof works for <span class="process-math">\(v\text{.}\)</span>
+</div></article></body>
 </html>

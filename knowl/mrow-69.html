@@ -11,13 +11,12 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/re-im-integral.html">
-\begin{align}
-\int_a^b f(\gamma(t))\gamma'(t)\,dt \amp = \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i \int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt \notag\\
-\amp = \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy \tag{4.4.1}\\
-\amp = \int_\gamma \angs{u,-v} \cdot d\mathbf{r} + i\int_\gamma \angs{v,u}\cdot d\mathbf{r} \notag
-\end{align}
+<div class="displaymath process-math">
+\begin{align*}
+\abs{\frac{F(w + \Delta w) - F(w)}{\Delta w} - f(w)} \amp \le \frac{1}{\abs{\Delta w}} \abs{\int_{[w + \Delta w, w]} (f(z) - f(w)) \, dz} \\
+\amp \le \frac{1}{\abs{\Delta w}} \abs{\Delta w} \sup_{[w + \Delta w,w]} \abs{f(z) - f(w)},
+\end{align*}
 </div>
-<span class="incontext"><a href="sec-connections-to-multivariable.html#md-23" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-cauchys-thm.html#md-25" class="internal">in-context</a></span>
 </body>
 </html>

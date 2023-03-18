@@ -12,27 +12,28 @@
 </head>
 <body class="ignore-math">
 <article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
-<div class="para">As usual, we consider separately the cases where <span class="process-math">\(c=0\)</span> and <span class="process-math">\(c \ne 0\text{.}\)</span> Suppose first that <span class="process-math">\(c = 0\text{,}\)</span> so that our FLT can be written as <span class="process-math">\(f(z) = az + b\text{.}\)</span> One fixed point is <span class="process-math">\(\infty\text{.}\)</span> If <span class="process-math">\(a\ne 1\)</span> then <span class="process-math">\(z = \frac{b}{1-a}\)</span> is another:</div>
+<div class="para">Consider an FLT <span class="process-math">\(f(z) = \frac{az+b}{cz+d}\text{.}\)</span> We will show more than what is stated in the Proposition. For the first part, define</div>
 <div class="displaymath process-math">
 \begin{equation*}
-f\left( \frac{b}{1-a} \right) = a\frac{b}{1-a} + b = \frac{b}{1-a}.
+g(z) = \frac{1}{ad-bc} \frac{-dz + b}{cz - a}.
 \end{equation*}
 </div>
-<div class="para">If <span class="process-math">\(a=1\)</span> then <span class="process-math">\(b\ne 0\text{,}\)</span> and so <span class="process-math">\(z+b = z\)</span> has no solutions other than <span class="process-math">\(z = \infty\text{.}\)</span>
+<div class="para">(Notice that these parameters are exactly the same as the entries of the matrix inverse of the matrix <span class="process-math">\(\displaystyle \begin {bmatrix} a \amp b \\ c \amp d \end {bmatrix}\text{!}\)</span>)</div> <div class="para">You can check that <span class="process-math">\(g(f(z)) = z\text{.}\)</span> (In fact, this follows from the next part of the proof.)</div> <div class="para logical">
+<div class="para">For part (b), consider FLTs <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{az+b}{cz+d}  \quad \text{and}  \quad g(z) = \frac{pz + q}{rz + s}.
+\end{equation*}
+</div>
+<div class="para">You might guess that <span class="process-math">\(f(g(z))\)</span> corresponds to the product of the matrices <span class="process-math">\(\displaystyle \begin {bmatrix} a \amp b \\ c \amp d \end {bmatrix}\)</span> and <span class="process-math">\(\displaystyle \begin {bmatrix} p \amp q \\ r \amp s \end {bmatrix}\text{,}\)</span> and you'd be correct!</div>
 </div> <div class="para logical">
-<div class="para">Now suppose that <span class="process-math">\(c \ne 0\text{.}\)</span> Then <span class="process-math">\(f(\infty) = \frac{a}{c} \ne \infty\text{,}\)</span> so <span class="process-math">\(\infty\)</span> is not a fixed point. The equation</div>
+<div class="para">Check that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-z = \frac{az + b}{cz + d}
+f(g(z)) = \frac{(ap + br)z + (aq + bs)}{(cp + dr)z + (cq + ds)}
 \end{equation*}
 </div>
-<div class="para">can be rearranged into the quadratic equation <span class="process-math">\(cz^2 - (a-d)z - b = 0\text{,}\)</span> which has two solutions</div>
-<div class="displaymath process-math">
-\begin{equation*}
-z = \frac{a-d \pm \sqrt{(a-d)^2 + 4bc}}{2c}
-\end{equation*}
-</div>
-<div class="para">if <span class="process-math">\((a-d)^2 + 4bc \ne 0\text{.}\)</span> Otherwise the two solutions coalesce into just one fixed point: <span class="process-math">\(\frac{a-d}{2c}\text{.}\)</span>
+<div class="para">and use linear algebra to explain why the new parameters <span class="process-math">\(A,B,C,D\)</span> satisfy the non-singular condition <span class="process-math">\(AD - BC \ne 0\text{.}\)</span>
 </div>
 </div></article><span class="incontext"><a href="sec-flt.html#proof-7" class="internal">in-context</a></span>
 </body>

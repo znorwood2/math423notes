@@ -10,6 +10,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><article class="hiddenproof"><div class="para">Apply <a href="" class="xref" data-knowl="./knowl/thm-cauchy-triangles.html" title="Theorem 4.3.5: Cauchy's Theorem for Triangles">Theorem 4.3.5</a> to conclude that <span class="process-math">\(f\)</span> integrates to <span class="process-math">\(0\)</span> over any triangle in <span class="process-math">\(U\text{.}\)</span> Then apply <a href="" class="xref" data-knowl="./knowl/prop-triangles-antiderivative.html" title="Proposition 4.3.2">Proposition 4.3.2</a> to conclude that <span class="process-math">\(f\)</span> has an antiderivative on <span class="process-math">\(U\text{.}\)</span> Finally, we can apply <a href="" class="xref" data-knowl="./knowl/thm-antiderivative-conditions.html" title="Theorem 4.3.1">Theorem 4.3.1</a> to conclude that for any closed contour <span class="process-math">\(\gamma\)</span> in <span class="process-math">\(U\text{,}\)</span> we have <span class="process-math">\(\oint_\gamma f(z)\,dz = 0\text{.}\)</span>
-</div></article></body>
+<body class="ignore-math"><article class="hiddenproof"><div class="para">We'll give the proofs of all the easy directions here and leave the difficult direction for a separate proposition.</div> <div class="para">First, notice that we already observed that <a href="" class="xref" data-knowl="./knowl/thm-item-antiderivative.html" title="Item a">Item a</a> implies <a href="" class="xref" data-knowl="./knowl/thm-item-path-ind.html" title="Item b">Item b</a> after our discussion of the FTC for contour integrals. It is not too difficult to see that conditions <a href="" class="xref" data-knowl="./knowl/thm-item-path-ind.html" title="Item b">Item b</a> and <a href="" class="xref" data-knowl="./knowl/thm-item-closed.html" title="Item c">Item c</a> are equivalent. Assume <a href="" class="xref" data-knowl="./knowl/thm-item-path-ind.html" title="Item b">Item b</a> and suppose that <span class="process-math">\(\gamma\)</span> is closed. Divide <span class="process-math">\(\gamma\)</span> into two paths, <span class="process-math">\(\gamma_1\)</span> from <span class="process-math">\(z_1\)</span> to <span class="process-math">\(z_2\)</span> and <span class="process-math">\(\gamma_2\)</span> from <span class="process-math">\(z_2\)</span> back to <span class="process-math">\(z_1\text{.}\)</span> (It does not matter where this division happens.) Using path-independence and the basic properties of contour integrals, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-item-antiderivative.html ./knowl/thm-item-path-ind.html ./knowl/thm-item-path-ind.html ./knowl/thm-item-closed.html ./knowl/thm-item-path-ind.html ./knowl/thm-item-path-ind.html ./knowl/thm-item-closed.html ./knowl/thm-item-path-ind.html ./knowl/thm-item-antiderivative.html ">
+\begin{equation*}
+\int_{\gamma_1} f(z)\,dz = \int_{\gamma_2} f(z)\,dz = -\int_{\gamma_2} f(z)\,dz,
+\end{equation*}
+</div>
+<div class="para logical">
+<div class="para">from which we conclude that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-item-path-ind.html ./knowl/thm-item-closed.html">
+\begin{equation*}
+\int_\gamma f(z)\,dz = \int_{\gamma_1 + -\gamma_2} f(z)\,dz = 0.
+\end{equation*}
+</div>
+<div class="para">So <a href="" class="xref" data-knowl="./knowl/thm-item-path-ind.html" title="Item b">Item b</a> implies <a href="" class="xref" data-knowl="./knowl/thm-item-closed.html" title="Item c">Item c</a>. The proof of the converse uses similar ideas and is left as an exercise.</div>
+</div> <div class="para">So it remains to show that <a href="" class="xref" data-knowl="./knowl/thm-item-path-ind.html" title="Item b">Item b</a> implies <a href="" class="xref" data-knowl="./knowl/thm-item-antiderivative.html" title="Item a">Item a</a>, which we leave to <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "FILLINLATER" missing or not unique]</code> because it will be useful to have a refinement of this result.</div></article></body>
 </html>

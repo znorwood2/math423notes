@@ -197,6 +197,7 @@ window.MathJax = {
 \newcommand{\Log}{\operatorname{Log}}
 \newcommand{\wo}{\smallsetminus}
 \newcommand{\angleop}{\operatorname{angle}}
+\newcommand {\grad} {\nabla}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -491,11 +492,11 @@ i^i = e^{-\pi/2} = e^{-5\pi / 2} = \cdots
 \cos(z) = \frac{e^{iz} + e^{-iz}}{2} \quad \sin(z) = \frac{e^{iz} - e^{-iz}}{2i}
 \end{equation*}
 </div></article><aside class="aside aside-like" id="aside-8"><div class="para" id="p-134">Remember your Taylor Series from calculus? Write down the Taylor series for the exponential function, centered at <span class="process-math">\(0\text{,}\)</span> and plug in <span class="process-math">\(iz\)</span> and simplify. Do the same thing but plug in <span class="process-math">\(-iz\)</span> and simplify. You should be very close to a Taylor series for cosine.</div></aside><div class="para" id="p-135">
-<em class="emphasis">Warning:</em> These definitions are motivated by Euler's Formula: e.g. for <span class="process-math">\(x\in\R\text{,}\)</span>
+<em class="alert">Warning:</em> These definitions are motivated by Euler's Formula: e.g. for <span class="process-math">\(x\in\R\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
-\cos(x) \Re(e^{ix}) = \frac{e^{ix} + e^{-ix}}{2}.
+\cos(x) = \Re(e^{ix}) = \frac{e^{ix} + e^{-ix}}{2}.
 \end{equation*}
 </div>
 <div class="para" id="p-136">But <span class="process-math">\(\cos(z) \ne \Re(e^{iz})\)</span> in general! In particular, the quantity on the right is real-valued, whereas <span class="process-math">\(\cos(z)\)</span> is not. And we can just expand out <span class="process-math">\(e^{iz}\)</span> and examine its real and imaginary parts:</div>
@@ -506,7 +507,7 @@ e^{iz} = e^{i(x+iy)} = e^{-y + ix} = e^{-y}(\cos x + i\sin x).
 </div>
 <div class="para" id="p-137">So <span class="process-math">\(\Re(e^{iz}) = e^{-y}\cos x\text{,}\)</span> which does not typically equal <span class="process-math">\(\cos z\text{.}\)</span>
 </div>
-<div class="para" id="p-138">The tangent function can be defined by <span class="process-math">\(\tan z = \frac{\sin z}{\cos z}\text{,}\)</span> and hyperbolic trig functions can also be defined. You will explore all this on the homework.</div></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/classic/zxscu7gg</code></div></div>
+<div class="para" id="p-138">The tangent function can be defined by <span class="process-math">\(\tan z = \frac{\sin z}{\cos z}\text{,}\)</span> and hyperbolic trig functions can be defined similarly. You will explore all this on the homework.</div></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/classic/zxscu7gg</code></div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/rnwzc4hk</code></div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/fnnem4tf</code></div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/qegzawxm</code></div></div>

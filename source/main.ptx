@@ -1149,7 +1149,7 @@
         <p>
           We need to survey some basic topology of the plane and introduce some definitions.
           This will be very familiar to some of you and less familiar to others.
-          Rest assured that we will not do any serious <m>\epsilon-\delta</m> proofs in this course.
+          Rest assured that we will not do any serious <m>\epsilon</m>–<m>\delta</m> proofs in this course.
         </p>
         <definition xml:id="def-open">
           <statement>
@@ -2629,8 +2629,8 @@
           On the other hand...
         </p>
         <md>
-          <mrow> \int_a^b f(\gamma(t))\gamma'(t)\,dt \amp \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i \int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt </mrow>
-          <mrow> \amp \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy </mrow>
+          <mrow> \int_a^b f(\gamma(t))\gamma'(t)\,dt \amp = \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i \int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt </mrow>
+          <mrow> \amp = \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy </mrow>
         </md>
         <p>
           (We have omitted some calculations, which you should do carefully!)

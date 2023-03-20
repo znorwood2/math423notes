@@ -317,7 +317,7 @@
         </me>
         <p>In fact, as we will show later, <m>\C</m> has roots of all non-constant polynomials.</p>
         <!-- TODO: add forward ref to FTA-->
-        <theorem xmid="theorem-FTA">
+        <theorem xml:id="theorem-fta">
           <title>Fundamental Theorem of Algebra</title>
           <p>Every polynomial <m>p(z)</m> with complex coefficients of degree <m>\ge 1</m>
           has a factorization</p>
@@ -2654,6 +2654,27 @@
         </example>
         <example>
           <p>
+            It is important to note that the integrand in a contour integral need not be analytic.
+            We can integrate any continuous function of <m>z</m>.
+            (In the next few sections, we will see that amazing things happen when the integrand
+            <em>is</em> analytic, though!)
+          </p>
+          <p>
+            Integrate <m>f(z) = \bar z</m> over the top half of the circle <m>\abs{z-1} = 1</m>, oriented counterclockwise.
+          </p>
+          <p>
+            The contour is parametrized by <m>\gamma(t) = 1 + \cos(t) + i\sin(t)</m> for <m>t\in [0,\pi]</m>.
+            Plug this in and calculate:
+          </p>
+          <md>
+            <mrow> \int_\gamma \bar z\, dz \amp = \int_{t=0}^\pi (\overline{1 + \cos(t) + i\sin(t)})(-\sin(t) + i \cos(t))\, dt </mrow>
+            <mrow> \amp = \int_{t=0}^\pi -\sin(t) + i(\cos(t) + 1)\,dt </mrow>
+            <mrow> \amp = \int_{t=0}^\pi -\sin(t)\,dt + i \int_0^\pi (\cos(t) + 1) \, dt </mrow>
+            <mrow> \amp = -2 + \pi i </mrow>
+          </md>
+        </example>
+        <example>
+          <p>
             Compute <m>\int_{OABO} f(z)\,dz</m> over the triangular curve through the points
             <m>O = 0</m>, <m>A = i</m>, and<m>B = 1+i</m>,
             where <m>f(x+iy) = (y-x) -3ix^2</m>.
@@ -2883,7 +2904,7 @@
              </p>
              <p>
               So it remains to show that <xref ref="thm-item-path-ind"/> implies <xref ref="thm-item-antiderivative"/>,
-              which we leave to <xref ref="FILLINLATER"/> because it will be useful to have a refinement of this result.
+              which we leave to <xref ref="exerc-antiderivatives-loose-end"/> because it will be useful to have a refinement of this result.
              </p>
           </proof>
         </theorem>
@@ -2959,7 +2980,7 @@
             </p>
           </proof>
         </proposition>
-        <exercise>
+        <exercise xml:id="exerc-antiderivatives-loose-end">
           <p>
             Redo the proof of <xref ref="prop-triangles-antiderivative"/> without the assumption that <m>U</m> is star-shaped,
             but assuming that <m>\oint_\gamma f(z)\,dz = 0</m> for all closed contours <m>\gamma</m> (not only triangles)

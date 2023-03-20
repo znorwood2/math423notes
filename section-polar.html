@@ -267,7 +267,7 @@ window.MathJax = {
 <span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">Polar representation and Euler's Formula</span>
 </h2>
 <div class="para" id="p-42">As a point in the plane, a complex number has a polar representation:</div>
-<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/theorem-fta.html ./knowl/eqn-roots.html">
 \begin{equation*}
 z = x+iy = r(\cos\theta + i\sin\theta) 
 \end{equation*}
@@ -299,7 +299,7 @@ e^{i\theta} = \cos\theta + i\sin\theta \quad (\theta\in\R)
 \end{equation*}
 </div></article><div class="para" id="p-51">Using Euler's Formula, we obtain the <em class="emphasis">exponential form</em> of the polar representation of <span class="process-math">\(z\text{:}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/theorem-fta.html ./knowl/eqn-roots.html">
 \begin{equation*}
 z = re^{i\theta} = \abs{z}e^{i\arg(z)}
 \end{equation*}
@@ -353,7 +353,7 @@ e^{i\alpha}e^{i\beta} = (\cos(\alpha) + i\sin(\alpha))(\cos(\beta) + i\sin(\beta
 <li id="li-21"><div class="para" id="p-derived-li-21"><span class="process-math">\(\displaystyle \arg(zw) = \arg(z) + \arg(w)\)</span></div></li>
 </ol></article></div>
 <div class="para" id="p-57">With the help of the polar representation, we are in a position to understand exactly how complex multiplication works. Writing <span class="process-math">\(z = re^{i\theta}\)</span> and <span class="process-math">\(w = se^{i\phi}\text{,}\)</span> we have</div>
-<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/theorem-fta.html ./knowl/eqn-roots.html">
 \begin{equation*}
 zw = re^{i\theta}se^{i\phi} = rse^{i(\theta+\phi)}.
 \end{equation*}
@@ -387,10 +387,10 @@ zw = re^{i\theta}se^{i\phi} = rse^{i(\theta+\phi)}.
 </div></section><section class="subsection" id="subsection-2"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.2.2</span> <span class="title">Roots of unity</span>
 </h3>
-<div class="para" id="p-63">It is a special case of the Fundamental Theorem of Algebra (<code class="code-inline tex2jax_ignore">[cross-reference to target(s) "theorem-fta" missing or not unique]</code>) that every nonzero complex number <span class="process-math">\(w\)</span> has exactly <span class="process-math">\(n\)</span> <span class="process-math">\(n\)</span>th roots, i.e., solutions <span class="process-math">\(z\)</span> to <span class="process-math">\(z^n = w\text{.}\)</span> The case <span class="process-math">\(w = 1\)</span> is already interesting (and of particular importance), so let's start there.</div>
+<div class="para" id="p-63">It is a special case of the Fundamental Theorem of Algebra (<a href="" class="xref" data-knowl="./knowl/theorem-fta.html" title="Theorem 1.1.14: Fundamental Theorem of Algebra">Theorem 1.1.14</a>) that every nonzero complex number <span class="process-math">\(w\)</span> has exactly <span class="process-math">\(n\)</span> <span class="process-math">\(n\)</span>th roots, i.e., solutions <span class="process-math">\(z\)</span> to <span class="process-math">\(z^n = w\text{.}\)</span> The case <span class="process-math">\(w = 1\)</span> is already interesting (and of particular importance), so let's start there.</div>
 <div class="para" id="p-64">Finding the <span class="process-math">\(n\)</span> solutions to <span class="process-math">\(z^n = 1\)</span> is made easier by considering the various polar representations of <span class="process-math">\(1\text{:}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html" id="md-5">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/theorem-fta.html ./knowl/eqn-roots.html" id="md-5">
 \begin{align*}
 1 \amp = \cdots = e^{-4\pi i} = e^{-2\pi i} = e^{0 i} = e^{2\pi i} = e^{4\pi i} = \cdots \\
 \amp = e^{2\pi i k}, \quad k\in\mathbb{Z}
@@ -433,20 +433,20 @@ e^{(3\pi/2)i} \amp = \cos(3\pi/2) + i \sin(3\pi/2) \\
 </div>
 </div></aside></article></div>
 <div class="para" id="p-71">We can find the <span class="process-math">\(n\)</span>th roots of any nonzero complex number <span class="process-math">\(w = re^{i\theta}\)</span> in a similar way. Suppose that <span class="process-math">\(\theta\)</span> is, say, the principal argument of <span class="process-math">\(w\text{,}\)</span> and consider the next <span class="process-math">\(n-1\)</span> many arguments:</div>
-<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/theorem-fta.html ./knowl/eqn-roots.html">
 \begin{equation*}
 w = re^{i\theta} = re^{i(\theta+2\pi)} = re^{i(\theta+4\pi)} = \cdots = re^{i(\theta+2(n-1)\pi)}.
 \end{equation*}
 </div>
 <div class="para" id="p-72">Now simply take each of these <span class="process-math">\(n\)</span> different representations for <span class="process-math">\(w\)</span> to the <span class="process-math">\(1/n\)</span>th power to obtain the following list of <span class="process-math">\(n\)</span>-many <span class="process-math">\(n\)</span>th roots of <span class="process-math">\(w\text{.}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/theorem-fta.html ./knowl/eqn-roots.html">
 \begin{equation*}
 r^{1/n}e^{i\theta/n}, r^{1/n}e^{i\theta/n + 2\pi i /n}, r^{1/n}e^{i\theta/n + 4\pi i / n}, \dots, r^{1/n}e^{i\theta/n + 2(n-1)\pi i / n}
 \end{equation*}
 </div>
 <div class="para" id="p-73">Oh, we could instead have obtained this list by finding the first <span class="process-math">\(n\)</span>th root of <span class="process-math">\(w\)</span> and multiplying by all the <span class="process-math">\(n\)</span>th roots of unity! The <span class="process-math">\(n\)</span>th roots of <span class="process-math">\(w = re^{i\theta / n}\)</span> are...</div>
-<div class="displaymath process-math" data-contains-math-knowls=" ./knowl/eqn-roots.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/theorem-fta.html ./knowl/eqn-roots.html">
 \begin{equation*}
 r^{1/n}e^{i\theta / n}, \omega_1r^{1/n}e^{i\theta / n}, \dots, \omega_{n-1}r^{1/n}e^{i\theta / n},
 \end{equation*}

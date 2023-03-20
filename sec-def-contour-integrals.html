@@ -312,8 +312,8 @@ window.MathJax = {
 <div class="para" id="p-313">On the other hand...</div>
 <div class="displaymath process-math" id="md-22">
 \begin{align*}
-\int_a^b f(\gamma(t))\gamma'(t)\,dt \amp \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i \int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt \\
-\amp \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy 
+\int_a^b f(\gamma(t))\gamma'(t)\,dt \amp = \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i \int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt \\
+\amp = \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy 
 \end{align*}
 </div>
 <div class="para" id="p-314">(We have omitted some calculations, which you should do carefully!)</div>
@@ -329,8 +329,19 @@ window.MathJax = {
 </div></article></div>
 <article class="example example-like" id="example-29"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-29"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like"><div class="para" id="p-317">Compute <span class="process-math">\(\int_{OABO} f(z)\,dz\)</span> over the triangular curve through the points <span class="process-math">\(O = 0\text{,}\)</span> <span class="process-math">\(A = i\text{,}\)</span> and<span class="process-math">\(B = 1+i\text{,}\)</span> where <span class="process-math">\(f(x+iy) = (y-x) -3ix^2\text{.}\)</span>
-</div>  <div class="para" id="p-318">We parametrize the three sides of the triangle and integrate along each piece separately; then we add the results together.</div> <div class="para" id="p-319">Along <span class="process-math">\(OA\)</span> you should get <span class="process-math">\(\frac{i}{2}\text{.}\)</span> Along <span class="process-math">\(AB\)</span> you should get <span class="process-math">\(\frac12 - i\text{.}\)</span> Along <span class="process-math">\(BO\)</span> you should get <span class="process-math">\(1-i\text{.}\)</span> The total is <span class="process-math">\(\frac{i - 1}{2}\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like"><div class="para" id="p-317">It is important to note that the integrand in a contour integral need not be analytic. We can integrate any continuous function of <span class="process-math">\(z\text{.}\)</span> (In the next few sections, we will see that amazing things happen when the integrand <em class="emphasis">is</em> analytic, though!)</div> <div class="para" id="p-318">Integrate <span class="process-math">\(f(z) = \bar z\)</span> over the top half of the circle <span class="process-math">\(\abs{z-1} = 1\text{,}\)</span> oriented counterclockwise.</div> <div class="para" id="p-319">The contour is parametrized by <span class="process-math">\(\gamma(t) = 1 + \cos(t) + i\sin(t)\)</span> for <span class="process-math">\(t\in [0,\pi]\text{.}\)</span> Plug this in and calculate:</div>
+<div class="displaymath process-math" id="md-23">
+\begin{align*}
+\int_\gamma \bar z\, dz \amp = \int_{t=0}^\pi (\overline{1 + \cos(t) + i\sin(t)})(-\sin(t) + i \cos(t))\, dt \\
+\amp = \int_{t=0}^\pi -\sin(t) + i(\cos(t) + 1)\,dt \\
+\amp = \int_{t=0}^\pi -\sin(t)\,dt + i \int_0^\pi (\cos(t) + 1) \, dt \\
+\amp = -2 + \pi i 
+\end{align*}
+</div></article></div>
+<article class="example example-like" id="example-30"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-30"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like"><div class="para" id="p-320">Compute <span class="process-math">\(\int_{OABO} f(z)\,dz\)</span> over the triangular curve through the points <span class="process-math">\(O = 0\text{,}\)</span> <span class="process-math">\(A = i\text{,}\)</span> and<span class="process-math">\(B = 1+i\text{,}\)</span> where <span class="process-math">\(f(x+iy) = (y-x) -3ix^2\text{.}\)</span>
+</div>  <div class="para" id="p-321">We parametrize the three sides of the triangle and integrate along each piece separately; then we add the results together.</div> <div class="para" id="p-322">Along <span class="process-math">\(OA\)</span> you should get <span class="process-math">\(\frac{i}{2}\text{.}\)</span> Along <span class="process-math">\(AB\)</span> you should get <span class="process-math">\(\frac12 - i\text{.}\)</span> Along <span class="process-math">\(BO\)</span> you should get <span class="process-math">\(1-i\text{.}\)</span> The total is <span class="process-math">\(\frac{i - 1}{2}\text{.}\)</span>
 </div></article></div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-16"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/tesbbp6a</code></div></div>
 </div>
 <div class="ptx-content-footer">

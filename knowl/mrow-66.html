@@ -11,11 +11,12 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/integral-basic-props-max.html ./knowl/integral-basic-props-max.html">
+<div class="displaymath process-math">
 \begin{align*}
-\abs{\int_\gamma f(z)\,dz} \amp = \abs{\int_a^b f(\gamma(t))\gamma'(t)\,dt} \\
-\amp \le \int_a^b \abs{f(\gamma(t))} \abs{\gamma'(t)}\,dt \\
-\amp \le \left( \sup_{t\in [a,b]} \abs{f(\gamma(t))} \right) \int_a^b \abs{\gamma'(t)}\,dt
+\int_\delta f(z)\,dz \amp = \int_{a'}^{b'} f(\gamma(\phi(t)))(\gamma\circ\phi)'(t)\,dt\\
+\amp = \int_{a'}^{b'} f(\gamma(\phi(t))) \gamma'(\phi(t)) \phi'(t)\,dt \\
+\amp = \int_a^b f(\gamma(u)) \gamma'(u) \,du \\
+\amp = \int_\gamma f(z)\,dz
 \end{align*}
 </div>
 <span class="incontext"><a href="sec-basic-integral-props.html#md-24" class="internal">in-context</a></span>

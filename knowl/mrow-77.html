@@ -11,13 +11,14 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/re-im-integral.html">
+<div class="displaymath process-math">
 \begin{align*}
-f(\gamma(t))\gamma'(t) \amp = (u + iv)(x' + iy') \\
-\amp = (ux' - vy') + i(vx' + uy') \\
-\amp = (u(x(t),y(t))x'(t) - v(x(t),y(t))y'(t)) + i(v(x(t),y(t))x'(t) + u(x(t),y(t))y'(t)) 
+\abs{\int_{\partial T^n} f(z)\,dz} \amp \le \int_{\partial T^n} \abs{f(z) - f(z_0) - (z-z_0)f'(z_0)}\,dz \\
+\amp \le \int_{\partial T^n} \epsilon \abs{z - z_0} \,dz \\
+\amp \le \operatorname{length}(\partial T^n) \cdot \epsilon \sup_{z\in \partial T^n} \abs{z - z_0} \\
+\amp \le \epsilon \operatorname{length}(\partial T^n)^2 
 \end{align*}
 </div>
-<span class="incontext"><a href="sec-connections-to-multivariable.html#md-28" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-cauchys-thm.html#md-28" class="internal">in-context</a></span>
 </body>
 </html>

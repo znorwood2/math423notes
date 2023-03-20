@@ -14,8 +14,14 @@
 <article class="example example-like"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span>
 </h3>
-<div class="para">Compute <span class="process-math">\(\int_{OABO} f(z)\,dz\)</span> over the triangular curve through the points <span class="process-math">\(O = 0\text{,}\)</span> <span class="process-math">\(A = i\text{,}\)</span> and<span class="process-math">\(B = 1+i\text{,}\)</span> where <span class="process-math">\(f(x+iy) = (y-x) -3ix^2\text{.}\)</span>
-</div>  <div class="para">We parametrize the three sides of the triangle and integrate along each piece separately; then we add the results together.</div> <div class="para">Along <span class="process-math">\(OA\)</span> you should get <span class="process-math">\(\frac{i}{2}\text{.}\)</span> Along <span class="process-math">\(AB\)</span> you should get <span class="process-math">\(\frac12 - i\text{.}\)</span> Along <span class="process-math">\(BO\)</span> you should get <span class="process-math">\(1-i\text{.}\)</span> The total is <span class="process-math">\(\frac{i - 1}{2}\text{.}\)</span>
+<div class="para">It is important to note that the integrand in a contour integral need not be analytic. We can integrate any continuous function of <span class="process-math">\(z\text{.}\)</span> (In the next few sections, we will see that amazing things happen when the integrand <em class="emphasis">is</em> analytic, though!)</div> <div class="para">Integrate <span class="process-math">\(f(z) = \bar z\)</span> over the top half of the circle <span class="process-math">\(\abs{z-1} = 1\text{,}\)</span> oriented counterclockwise.</div> <div class="para">The contour is parametrized by <span class="process-math">\(\gamma(t) = 1 + \cos(t) + i\sin(t)\)</span> for <span class="process-math">\(t\in [0,\pi]\text{.}\)</span> Plug this in and calculate:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_\gamma \bar z\, dz \amp = \int_{t=0}^\pi (\overline{1 + \cos(t) + i\sin(t)})(-\sin(t) + i \cos(t))\, dt \\
+\amp = \int_{t=0}^\pi -\sin(t) + i(\cos(t) + 1)\,dt \\
+\amp = \int_{t=0}^\pi -\sin(t)\,dt + i \int_0^\pi (\cos(t) + 1) \, dt \\
+\amp = -2 + \pi i 
+\end{align*}
 </div></article><span class="incontext"><a href="sec-def-contour-integrals.html#example-29" class="internal">in-context</a></span>
 </body>
 </html>

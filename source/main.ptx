@@ -3200,7 +3200,104 @@
           For a short proof of Cauchy's Theorem that uses Green's Theorem, see
           <xref ref="thm-Cauchy-green"/>.
         </p>
-        
+        <example xml:id="example-cauchy-two">
+          <p>
+            Suppose that <m>R</m> is the region bounded between two closed curves <m>\gamma_1</m>
+          and <m>\gamma_2</m>, each oriented counterclockwise. (E.g. <m>R</m> could be an annulus.
+          See <xref ref="fig-cauchy-two-curves"/>.)
+          We will show that if <m>f</m> is analytic on <m>R</m> then
+          <me>
+            \int_{\gamma_1} f(z)\,dz = \int_{\gamma_2} f(z)\,dz.
+          </me>
+          </p>
+          <p>
+            Cut the region by <m>\gamma_3</m>, as shown in the figure.
+            The slit region enclosed by the curve <m>\gamma_1 + \gamma_3 - \gamma_2 - \gamma_3</m>
+            is simply connected, so we can apply Cauchy's Theorem to conclude that
+          </p>
+          <me>
+            \int_{\gamma_1 + \gamma_3 - \gamma_2 - \gamma_3} f(z)\,dz = 0.
+          </me>
+          <p>
+            But we decompose this using <xref ref="lem-integral-basic-props"/>:
+          </p>
+          <me>
+            \int_{\gamma_1 + \gamma_3 - \gamma_2 - \gamma_3} = \int_{\gamma_1} + \int_{\gamma_3} + \int_{-\gamma_2} + \int_{-\gamma_3}
+            = \int_{\gamma_1} - \int_{\gamma_2}
+          </me>
+          <figure width="50%" xml:id="fig-cauchy-two-curves-slit">
+                <caption>Picture for <xref ref="example-cauchy-two"/>.</caption>
+                <image xml:id="latex-cauchy-two-curves-slit">
+                  <description>Picture for <xref ref="example-cauchy-two"/>.</description>
+                  <latex-image>
+                   \begin {tikzpicture} [outer sep = 0.5ex] 
+                   % \clip (-3.1,-3.1) rectangle (3.1,3.1) ;
+                    \begin {scope}[decoration={
+                    markings,
+                    mark=at position 0.2 with {\arrow{latex}},
+                    mark=at position 0.55 with {\arrow{latex}},
+                    mark=at position 0.85 with {\arrow{latex}},
+                   }
+                    ]
+                     \draw [postaction=decorate] (1,0) circle (3) ;
+                     \node [above] at ([shift={(1,0)}] 40 : 3) {$\gamma_1$} ;
+                     \end {scope}
+                      \begin {scope}[decoration={
+                    markings,
+                    mark=at position 0.2 with {\arrow{latex reversed}},
+                    mark=at position 0.55 with {\arrow{latex reversed}},
+                    mark=at position 0.85 with {\arrow{latex reversed}},
+                   }
+                    ]
+                      \draw [postaction=decorate] (0,0) circle (1) ;
+                     \node [above] at (40 : 1) {$-\gamma_2$} ;
+                    \end {scope}
+                     %%% ----- cut off here --------
+                    \begin {scope}[decoration={
+                    markings,
+                    mark=at position 0.3 with {\arrow{latex}}}
+                    ]
+                     \draw [postaction=decorate] (4,0) to node [pos=0.6,above] {$-\gamma_3$} (1,0) ;
+                     \draw [postaction=decorate] (1,0.05) to node [pos=0.6,below] {$\gamma_3$} (4,0.05) ;
+                    \end {scope}
+                    \draw [white] (1,0.01) -- (1,0.04) ;
+                    \draw [white] (4,0.01) -- (4,0.04) ;
+                   \end {tikzpicture}
+                  </latex-image>
+                </image>
+              </figure>
+        </example>
+        <figure width="50%" xml:id="fig-cauchy-two-curves">
+              <caption>Picture of curves <m>\gamma_1</m> and <m>\gamma_2</m>.</caption>
+              <image xml:id="latex-cauchy-two-curves">
+                <description>Picture of curves <m>\gamma_1</m> and <m>\gamma_2</m>.</description>
+                <latex-image>
+                 \begin {tikzpicture} [outer sep = 0.5ex] 
+                 % \clip (-3.1,-3.1) rectangle (3.1,3.1) ;
+                  \begin {scope}[decoration={
+                  markings,
+                  mark=at position 0.2 with {\arrow{latex}},
+                  mark=at position 0.55 with {\arrow{latex}},
+                  mark=at position 0.85 with {\arrow{latex}},
+                 }
+                  ]
+                   \draw [postaction=decorate] (1,0) circle (3) ;
+                   \node [above] at ([shift={(1,0)}] 40 : 3) {$\gamma_1$} ;
+                   \end {scope}
+                    \begin {scope}[decoration={
+                  markings,
+                  mark=at position 0.2 with {\arrow{latex}},
+                  mark=at position 0.55 with {\arrow{latex}},
+                  mark=at position 0.85 with {\arrow{latex}},
+                 }
+                  ]
+                    \draw [postaction=decorate] (0,0) circle (1) ;
+                   \node [above] at (40 : 1) {$\gamma_2$} ;
+                  \end {scope}
+                 \end {tikzpicture}
+                </latex-image>
+              </image>
+            </figure>
       </section>
       <section xml:id="sec-connections-to-multivariable">
         <title>Connections to multivariable calculus</title>
@@ -3276,6 +3373,10 @@
             potential function.
           </p>
         </exercise>
+      </section>
+      <section xml:id="sec-cauchy-integral-formula">
+        <title>Cauchy's Integral Formula</title>
+        
       </section>
     </chapter>
     <backmatter xml:id="backmatter">

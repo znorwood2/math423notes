@@ -177,7 +177,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-cauchys-thm.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-complex-integration.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-cauchys-thm.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-complex-integration.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-cauchy-integral-formula.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
@@ -259,6 +259,7 @@ window.MathJax = {
 <li><div class="toc-item"><a href="sec-basic-integral-props.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Basic properties and the Fundamental Theorem</span></a></div></li>
 <li><div class="toc-item"><a href="sec-cauchys-thm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy's Theorem</span></a></div></li>
 <li class="active"><div class="toc-item"><a href="sec-connections-to-multivariable.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Connections to multivariable calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cauchy-integral-formula.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Cauchy's Integral Formula</span></a></div></li>
 </ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -266,7 +267,7 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-connections-to-multivariable"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.4</span> <span class="title">Connections to multivariable calculus</span>
 </h2>
-<div class="para" id="p-377">After reading the sections about contour integrals, you probably can't help noticing a strong resemblance to the theory of line integrals from multivariable calculus. First, notice that unlike a real line integral, the value of a contour integral <span class="process-math">\(\int_\gamma f(z)\,dz\)</span> is a complex number, i.e., a point in the plane! The key to making connections to multivariable calculus is to decompose this into its real and imaginary parts:</div>
+<div class="para" id="p-380">After reading the sections about contour integrals, you probably can't help noticing a strong resemblance to the theory of line integrals from multivariable calculus. First, notice that unlike a real line integral, the value of a contour integral <span class="process-math">\(\int_\gamma f(z)\,dz\)</span> is a complex number, i.e., a point in the plane! The key to making connections to multivariable calculus is to decompose this into its real and imaginary parts:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/re-im-integral.html" id="md-29">
 \begin{align*}
 f(\gamma(t))\gamma'(t) \amp = (u + iv)(x' + iy') \\
@@ -274,7 +275,7 @@ f(\gamma(t))\gamma'(t) \amp = (u + iv)(x' + iy') \\
 \amp = (u(x(t),y(t))x'(t) - v(x(t),y(t))y'(t)) + i(v(x(t),y(t))x'(t) + u(x(t),y(t))y'(t)) 
 \end{align*}
 </div>
-<div class="para" id="p-378">so we can use this to decompose the contour integral into two multivariable-calculus circulation integrals:</div>
+<div class="para" id="p-381">so we can use this to decompose the contour integral into two multivariable-calculus circulation integrals:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/re-im-integral.html" id="md-30">
 \begin{align}
 \int_a^b f(\gamma(t))\gamma'(t)\,dt \amp = \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i \int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt \notag\\
@@ -284,7 +285,7 @@ f(\gamma(t))\gamma'(t) \amp = (u + iv)(x' + iy') \\
 </div>
 <article class="exercise exercise-like" id="exercise-10"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-10"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.4.1</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-10"><article class="exercise exercise-like"><div class="para logical" id="p-379">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-10"><article class="exercise exercise-like"><div class="para logical" id="p-382">
 <div class="para">Let <span class="process-math">\(\bar\bF\)</span> be the vector field <span class="process-math">\(\angs{u,-v}\)</span> associated to the conjugate of <span class="process-math">\(f = u + iv\text{.}\)</span> Prove that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -299,25 +300,25 @@ f(\gamma(t))\gamma'(t) \amp = (u + iv)(x' + iy') \\
 \operatorname{Flux}(\bG,\gamma)	\amp =	\int_\gamma (\bG \cdot \bN) \, ds  
 \end{align*}
 </div></article></div>
-<div class="para" id="p-380">Let's give an alternative proof of Cauchy's Theorem using Green's Theorem. (The reason for giving a separate, much longer, proof in class is that most of you haven't seen a proof of Green's Theorem!)</div>
+<div class="para" id="p-383">Let's give an alternative proof of Cauchy's Theorem using Green's Theorem. (The reason for giving a separate, much longer, proof in class is that most of you haven't seen a proof of Green's Theorem!)</div>
 <article class="theorem theorem-like" id="thm-Cauchy-green"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.4.2</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-381">If <span class="process-math">\(f\)</span> is analytic on a simply connected domain <span class="process-math">\(D\text{,}\)</span> then <span class="process-math">\(\int_\gamma f(z)\,dz = 0 \)</span> for every closed path <span class="process-math">\(\gamma\)</span> in <span class="process-math">\(D\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-24"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-24"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-24"><article class="hiddenproof"><div class="para" id="p-382">The key is <a href="" class="xref" data-knowl="./knowl/re-im-integral.html" title="Equation 4.4.1">(4.4.1)</a>, which decomposes <span class="process-math">\(\int_\gamma f(z)\,dz\)</span> into its real and imaginary parts. Each of those parts is a vector integral to which we can apply Green's Theorem. Writing <span class="process-math">\(R\)</span> for the region enclosed by <span class="process-math">\(\gamma\text{,}\)</span> we have the following.</div>
+<div class="para" id="p-384">If <span class="process-math">\(f\)</span> is analytic on a simply connected domain <span class="process-math">\(D\text{,}\)</span> then <span class="process-math">\(\int_\gamma f(z)\,dz = 0 \)</span> for every closed path <span class="process-math">\(\gamma\)</span> in <span class="process-math">\(D\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-24"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-24"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-24"><article class="hiddenproof"><div class="para" id="p-385">The key is <a href="" class="xref" data-knowl="./knowl/re-im-integral.html" title="Equation 4.4.1">(4.4.1)</a>, which decomposes <span class="process-math">\(\int_\gamma f(z)\,dz\)</span> into its real and imaginary parts. Each of those parts is a vector integral to which we can apply Green's Theorem. Writing <span class="process-math">\(R\)</span> for the region enclosed by <span class="process-math">\(\gamma\text{,}\)</span> we have the following.</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/re-im-integral.html" id="md-32">
 \begin{align*}
 \text{Real part:}\quad \int_\gamma u\,dx - v\,dy \amp = \iint_R (- v_x - u_y)\,dxdy = \iint 0 = 0 \\
 \text{Imaginary part:}\quad \int_\gamma v\,dx + u\,dy \amp = \iint_R (u_x - v_y)\,dxdy = \iint 0 = 0 
 \end{align*}
 </div>
-<div class="para" id="p-383">(Notice that we used the Cauchy–Riemann Equations in each line.) We conclude that <span class="process-math">\(\int_\gamma f(z)\,dz = 0+0i = 0 \text{.}\)</span>
+<div class="para" id="p-386">(Notice that we used the Cauchy–Riemann Equations in each line.) We conclude that <span class="process-math">\(\int_\gamma f(z)\,dz = 0+0i = 0 \text{.}\)</span>
 </div></article></div>
 <article class="exercise exercise-like" id="exercise-antiderivative-conditions-multi"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-antiderivative-conditions-multi"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.4.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-antiderivative-conditions-multi"><article class="exercise exercise-like"><div class="para" id="p-384">Give a proof along similar lines that a function <span class="process-math">\(f\colon \C\to\C\)</span> that integrates to <span class="process-math">\(0\)</span> along every closed contour must have an antiderivative. Use the theorem from multivariable calculus that a circulation-free vector field must have a potential function.</div></article></div></section></div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-antiderivative-conditions-multi"><article class="exercise exercise-like"><div class="para" id="p-387">Give a proof along similar lines that a function <span class="process-math">\(f\colon \C\to\C\)</span> that integrates to <span class="process-math">\(0\)</span> along every closed contour must have an antiderivative. Use the theorem from multivariable calculus that a circulation-free vector field must have a potential function.</div></article></div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-cauchys-thm.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="sec-cauchys-thm.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-cauchy-integral-formula.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer">

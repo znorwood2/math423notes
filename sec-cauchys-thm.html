@@ -259,6 +259,7 @@ window.MathJax = {
 <li><div class="toc-item"><a href="sec-basic-integral-props.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Basic properties and the Fundamental Theorem</span></a></div></li>
 <li class="active"><div class="toc-item"><a href="sec-cauchys-thm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy's Theorem</span></a></div></li>
 <li><div class="toc-item"><a href="sec-connections-to-multivariable.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Connections to multivariable calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cauchy-integral-formula.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Cauchy's Integral Formula</span></a></div></li>
 </ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -386,7 +387,33 @@ I \le 4^n \abs{ \int_{\partial T^n} f(z)\,dz} \le 4^n \epsilon \left( \frac{\ell
 </div></article></div>
 <div class="para" id="p-375">
 <em class="alert">NB.</em> Cauchy's Theorem holds for all simply connected domains, not just star-shaped domains. But notice that for example <span class="process-math">\(\frac{1}{z}\)</span> integrates to a nonzero value over the unit circle, so Cauchy's Theorem does not extend to all domains.</div>
-<div class="para" id="p-376">For a short proof of Cauchy's Theorem that uses Green's Theorem, see <a href="" class="xref" data-knowl="./knowl/thm-Cauchy-green.html" title="Theorem 4.4.2">Theorem 4.4.2</a>.</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-17"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/gjscszrk</code></div></div>
+<div class="para" id="p-376">For a short proof of Cauchy's Theorem that uses Green's Theorem, see <a href="" class="xref" data-knowl="./knowl/thm-Cauchy-green.html" title="Theorem 4.4.2">Theorem 4.4.2</a>.</div>
+<article class="example example-like" id="example-cauchy-two"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-cauchy-two"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-cauchy-two"><article class="example example-like"><div class="para logical" id="p-377">
+<div class="para">Suppose that <span class="process-math">\(R\)</span> is the region bounded between two closed curves <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\text{,}\)</span> each oriented counterclockwise. (E.g. <span class="process-math">\(R\)</span> could be an annulus. See <a href="" class="xref" data-knowl="./knowl/fig-cauchy-two-curves.html" title="Figure 4.3.10">Figure 4.3.10</a>.) We will show that if <span class="process-math">\(f\)</span> is analytic on <span class="process-math">\(R\)</span> then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-cauchy-two-curves.html">
+\begin{equation*}
+\int_{\gamma_1} f(z)\,dz = \int_{\gamma_2} f(z)\,dz.
+\end{equation*}
+</div>
+</div> <div class="para" id="p-378">Cut the region by <span class="process-math">\(\gamma_3\text{,}\)</span> as shown in the figure. The slit region enclosed by the curve <span class="process-math">\(\gamma_1 + \gamma_3 - \gamma_2 - \gamma_3\)</span> is simply connected, so we can apply Cauchy's Theorem to conclude that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-cauchy-two-curves.html ./knowl/lem-integral-basic-props.html ./knowl/example-cauchy-two.html ./knowl/example-cauchy-two.html">
+\begin{equation*}
+\int_{\gamma_1 + \gamma_3 - \gamma_2 - \gamma_3} f(z)\,dz = 0.
+\end{equation*}
+</div>
+<div class="para" id="p-379">But we decompose this using <a href="" class="xref" data-knowl="./knowl/lem-integral-basic-props.html" title="Lemma 4.2.2">Lemma 4.2.2</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-cauchy-two-curves.html ./knowl/lem-integral-basic-props.html ./knowl/example-cauchy-two.html ./knowl/example-cauchy-two.html">
+\begin{equation*}
+\int_{\gamma_1 + \gamma_3 - \gamma_2 - \gamma_3} = \int_{\gamma_1} + \int_{\gamma_3} + \int_{-\gamma_2} + \int_{-\gamma_3}
+= \int_{\gamma_1} - \int_{\gamma_2}
+\end{equation*}
+</div>
+<figure class="figure figure-like" id="fig-cauchy-two-curves-slit"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/latex-cauchy-two-curves-slit.svg" role="img" class="contained" alt="Picture for Example 4.3.8."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.9<span class="period">.</span></span><span class="space"> </span>Picture for <a href="" class="xref" data-knowl="./knowl/example-cauchy-two.html" title="Example 4.3.8">Example 4.3.8</a>.</figcaption></figure></article></div>
+<figure class="figure figure-like" id="fig-cauchy-two-curves"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/latex-cauchy-two-curves.svg" role="img" class="contained" alt="Picture of curves \(\gamma_1\) and \(\gamma_2\text{.}\)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.10<span class="period">.</span></span><span class="space"> </span>Picture of curves <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\text{.}\)</span></figcaption></figure></section><div class="hidden-content tex2jax_ignore" id="hk-fn-17"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/gjscszrk</code></div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-basic-integral-props.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-connections-to-multivariable.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

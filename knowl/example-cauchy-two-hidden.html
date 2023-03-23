@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="example example-like"><div class="para logical">
+<div class="para">Suppose that <span class="process-math">\(R\)</span> is the region bounded between two closed curves <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\text{,}\)</span> each oriented counterclockwise. (E.g. <span class="process-math">\(R\)</span> could be an annulus. See <a href="" class="xref" data-knowl="./knowl/fig-cauchy-two-curves.html" title="Figure 4.3.10">Figure 4.3.10</a>.) We will show that if <span class="process-math">\(f\)</span> is analytic on <span class="process-math">\(R\)</span> then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-cauchy-two-curves.html">
+\begin{equation*}
+\int_{\gamma_1} f(z)\,dz = \int_{\gamma_2} f(z)\,dz.
+\end{equation*}
+</div>
+</div> <div class="para">Cut the region by <span class="process-math">\(\gamma_3\text{,}\)</span> as shown in the figure. The slit region enclosed by the curve <span class="process-math">\(\gamma_1 + \gamma_3 - \gamma_2 - \gamma_3\)</span> is simply connected, so we can apply Cauchy's Theorem to conclude that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-cauchy-two-curves.html ./knowl/lem-integral-basic-props.html ./knowl/example-cauchy-two.html ./knowl/example-cauchy-two.html">
+\begin{equation*}
+\int_{\gamma_1 + \gamma_3 - \gamma_2 - \gamma_3} f(z)\,dz = 0.
+\end{equation*}
+</div>
+<div class="para">But we decompose this using <a href="" class="xref" data-knowl="./knowl/lem-integral-basic-props.html" title="Lemma 4.2.2">Lemma 4.2.2</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-cauchy-two-curves.html ./knowl/lem-integral-basic-props.html ./knowl/example-cauchy-two.html ./knowl/example-cauchy-two.html">
+\begin{equation*}
+\int_{\gamma_1 + \gamma_3 - \gamma_2 - \gamma_3} = \int_{\gamma_1} + \int_{\gamma_3} + \int_{-\gamma_2} + \int_{-\gamma_3}
+= \int_{\gamma_1} - \int_{\gamma_2}
+\end{equation*}
+</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/latex-cauchy-two-curves-slit.svg" role="img" class="contained" alt="Picture for Example 4.3.8."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.9<span class="period">.</span></span><span class="space"> </span>Picture for <a href="" class="xref" data-knowl="./knowl/example-cauchy-two.html" title="Example 4.3.8">Example 4.3.8</a>.</figcaption></figure></article></body>
+</html>

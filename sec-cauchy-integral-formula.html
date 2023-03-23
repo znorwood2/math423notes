@@ -8,7 +8,7 @@
 <html lang="en-US">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Basic arithmetic and geometry</title>
+<title>Cauchy's Integral Formula</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -177,7 +177,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-intro.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-intro.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="section-polar.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-connections-to-multivariable.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-complex-integration.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
@@ -210,7 +210,7 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="ch-intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Complex pre-calculus</span></a></div>
 <ul class="structural">
-<li class="active"><div class="toc-item"><a href="section-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic arithmetic and geometry</span></a></div></li>
+<li><div class="toc-item"><a href="section-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic arithmetic and geometry</span></a></div></li>
 <li>
 <div class="toc-item"><a href="section-polar.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Polar representation and Euler's Formula</span></a></div>
 <ul class="structural">
@@ -259,163 +259,16 @@ window.MathJax = {
 <li><div class="toc-item"><a href="sec-basic-integral-props.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Basic properties and the Fundamental Theorem</span></a></div></li>
 <li><div class="toc-item"><a href="sec-cauchys-thm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy's Theorem</span></a></div></li>
 <li><div class="toc-item"><a href="sec-connections-to-multivariable.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Connections to multivariable calculus</span></a></div></li>
-<li><div class="toc-item"><a href="sec-cauchy-integral-formula.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Cauchy's Integral Formula</span></a></div></li>
+<li class="active"><div class="toc-item"><a href="sec-cauchy-integral-formula.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Cauchy's Integral Formula</span></a></div></li>
 </ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-arithmetic"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">1.1</span> <span class="title">Basic arithmetic and geometry</span>
-</h2>
-<article class="definition definition-like" id="def-complex-number"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
-</h3>
-<div class="para" id="p-1">A <dfn class="terminology">complex number</dfn> is just an ordered pair <span class="process-math">\((x,y)\)</span> of real numbers. But we write <span class="process-math">\(x+iy\)</span> instead of <span class="process-math">\((x,y)\text{.}\)</span>
-</div> <div class="para" id="p-2">We call <span class="process-math">\(x\)</span> the <dfn class="terminology">real part</dfn> of <span class="process-math">\(z\)</span> and denote it by <span class="process-math">\(x = \Re(z)\text{.}\)</span> We call <span class="process-math">\(y\)</span> the <dfn class="terminology">imaginary part</dfn> of <span class="process-math">\(z\)</span> and denote it by <span class="process-math">\(\Im(z)\text{.}\)</span>
-</div> <aside class="aside aside-like" id="aside-1"><div class="para" id="p-3">Notice that <span class="process-math">\(\Re(z)\)</span> and <span class="process-math">\(\Im(z)\)</span> are real numbers!</div></aside> <div class="para" id="p-4">We write <span class="process-math">\(\C\)</span> for the set of complex numbers.</div> <aside class="aside aside-like" id="aside-2"><div class="para" id="p-5">So yes, <span class="process-math">\(\C\)</span>  is just <span class="process-math">\(\R\times\R\text{.}\)</span> But we <em class="emphasis">think</em> of complex numbers as being <em class="emphasis">more than</em> just points in the plane, and it is useful to have notation to reflect this different mode of thinking.</div></aside></article><article class="observation remark-like" id="observation-1"><h3 class="heading">
-<span class="type">Observation</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Innocuous but important fact.</span>
-</h3> <div class="para logical" id="p-6">
-<div class="para">Two complex numbers <span class="process-math">\(z\)</span> and <span class="process-math">\(w\)</span> are equal if and only if they have the same real and imaginary parts! In other words...</div>
-<div class="displaymath process-math">
-\begin{equation*}
-z = w \quad\text{ iff }\quad \Re(z) = \Re(w) \text{ and } \Im(z) = \Im(w).
-\end{equation*}
-</div>
-</div></article><figure class="figure figure-like" id="figure-1"><iframe id="geogebra-Re-Im" width="480" height="480" src="geogebra-Re-Im-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-1" id="instructions-1"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-1"><div class="solution-like"><div class="para" id="p-7">Drag the point <span class="process-math">\(z\)</span> around, and see how <span class="process-math">\(\Re(z)\)</span> and <span class="process-math">\(\Im(z)\)</span> change.</div></div></div>
-</div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.3<span class="period">.</span></span><span class="space"> </span>GeoGebra: the real and imaginary parts of a complex number</figcaption></figure><div class="para" id="p-8">We add complex numbers by adding their real and imaginary parts independently:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-(a+ib) + (c+id) = (a+c) + i(b+d).
-\end{equation*}
-</div>
-<div class="para" id="p-9">Notice that this is the same as ordinary addition of points (thought of as vectors) in <span class="process-math">\(\R^2\text{:}\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{equation*}
-(a,b) + (c,d) = (a+c, b+d).
-\end{equation*}
-</div>
-<figure class="figure figure-like" id="figure-2"><iframe id="geogebra-addition" width="480" height="480" src="geogebra-addition-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-2" id="instructions-2"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-2"><div class="solution-like"><div class="para" id="p-10">Drag points <span class="process-math">\(z\)</span> and <span class="process-math">\(w\text{,}\)</span> and watch how <span class="process-math">\(z+w\)</span> changes.</div></div></div>
-</div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.4<span class="period">.</span></span><span class="space"> </span>GeoGebra: complex addition</figcaption></figure><div class="para" id="p-11">Because complex numbers are simply points in the plane, added in the familiar way, we can import a lot of our knowledge of geometry and multi-variable calculus to our study of complex numbers.</div>
-<div class="para" id="p-12">But something must be new! We multiply complex numbers using the following definition, motivated by treating <span class="process-math">\(i\)</span> as an indeterminant and then simplifying using <span class="process-math">\(i^2 = -1\text{.}\)</span>
-</div>
-<aside class="aside aside-like" id="aside-3"><div class="para" id="p-13">On your own, you should expand <span class="process-math">\((a+bx)(c+dx)\)</span> and then simplify by assuming <span class="process-math">\(x^2 = -1\text{.}\)</span>
-</div></aside><div class="displaymath process-math">
-\begin{equation*}
-(a + ib)(c + id) = (ac - bd) + i(ad + bc)
-\end{equation*}
-</div>
-<div class="para" id="p-14">This operation is totally new. Later we will do some work to understand better what is going on. You can go ahead and try to get a feel for things by dragging <span class="process-math">\(z\)</span> and <span class="process-math">\(w\)</span> around on this GeoGebra graph, though.</div>
-<figure class="figure figure-like" id="figure-3"><iframe id="geogebra-SAS" width="480" height="480" src="geogebra-SAS-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-3" id="instructions-3"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-3"><div class="solution-like"><div class="para" id="p-15">Drag points <span class="process-math">\(z\)</span> and <span class="process-math">\(w\text{,}\)</span> and watch how <span class="process-math">\(zw\)</span> changes.</div></div></div>
-</div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.5<span class="period">.</span></span><span class="space"> </span>GeoGebra: complex multiplications</figcaption></figure><div class="para" id="p-16">We identify the real number <span class="process-math">\(x\)</span> with the complex number <span class="process-math">\(x+i0\text{,}\)</span> corresponding to the point <span class="process-math">\((x,0)\)</span> on the <span class="process-math">\(x\)</span>-axis. It would be very upsetting if the new complex addition and multiplication we've defined were inconsistent with regular operations on real numbers; luckily this is not the case.</div>
-<article class="observation remark-like" id="observation-2"><h3 class="heading">
-<span class="type">Observation</span><span class="space"> </span><span class="codenumber">1.1.6</span><span class="period">.</span>
-</h3>
-<div class="para" id="p-17">Complex addition and multiplication restrict to ordinary addition and multiplication of real numbers:</div>
-<div class="displaymath process-math" id="md-1">
-\begin{align*}
-(a+i0) + (c + i0) \amp = (a+c) + i0 \\
-(a+i0) \cdot (c+i0) \amp = (ac - 0) + i(0 + 0) 
-\end{align*}
-</div></article><article class="exercise exercise-like" id="exercise-1"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.7</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like"><div class="para" id="p-18">Show directly from the definitions that complex addition and multiplication have the following properties.</div>
-<ol class="lower-alpha">
-<li id="li-1">
-<span class="process-math">\(0+z = z\)</span><div class="para" id="p-19">(<span class="process-math">\(0 = 0+0i\)</span> is an additive identity)</div>
-</li>
-<li id="li-2">
-<span class="process-math">\(1\cdot z = z\)</span><div class="para" id="p-20">(<span class="process-math">\(1 = 1+0i\)</span> is a multiplicative identity)</div>
-</li>
-<li id="li-3">
-<span class="process-math">\(z + w = w + z \text{ and } z\cdot w = w\cdot z\)</span><div class="para" id="p-21">(additional and multiplication are commutative)</div>
-</li>
-<li id="li-4">
-<span class="process-math">\((z+w)+v = z+(w+v) \text{ and } (z w)v = z(wv)\)</span><div class="para" id="p-22">(addition and multiplication are associative)</div>
-</li>
-<li id="li-5">
-<span class="process-math">\(z(w+v) = zw + zv\)</span><div class="para" id="p-23">(multiplication distributes over addition)</div>
-</li>
-</ol></article></div>
-<article class="definition definition-like" id="def-modulus"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.8</span><span class="period">.</span>
-</h3>
-<div class="para" id="p-24">The <dfn class="terminology">modulus</dfn> (aka complex absolute value) of a complex number <span class="process-math">\(z = x+iy\)</span> is defined to be <span class="process-math">\(\abs{z} = \sqrt{x^2 + y^2}\text{,}\)</span> its distance from the origin.</div> <div class="para" id="p-25">The <dfn class="terminology">conjugate</dfn> of a complex number <span class="process-math">\(z = x+iy \)</span> is the complex number <span class="process-math">\(\bar z = x - iy\text{.}\)</span> (In other words, the conjugate is defined by <span class="process-math">\(\Re(\bar z) = \Re(z)\)</span> and <span class="process-math">\(\Im(\bar z) = -\Im(z)\text{.}\)</span>)</div></article><figure class="figure figure-like" id="figure-4"><iframe id="geogebra-conjugate" width="480" height="480" src="geogebra-conjugate-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-4" id="instructions-4"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-4"><div class="solution-like"><div class="para" id="p-26">Drag the point <span class="process-math">\(z\text{,}\)</span> and watch how <span class="process-math">\(\bar z\)</span> changes. Contrast with <span class="process-math">\(-z\text{.}\)</span>
-</div></div></div>
-</div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.9<span class="period">.</span></span><span class="space"> </span>GeoGebra: conjugation</figcaption></figure><div class="para" id="p-27">Since the modulus is just the usual distance from the origin, and addition of complex numbers is just vector addition, we inherit the triangle inequality from real analysis.</div>
-<article class="lemma theorem-like" id="lemma-1"><h3 class="heading">
-<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">1.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">The Triangle Inequality.</span>
-</h3>
-<div class="para" id="p-28">
-<span class="process-math">\(\abs{z + w} \le \abs{z} + \abs{w}\)</span> for all <span class="process-math">\(z,w\in\C\text{.}\)</span>
-</div></article><div class="para" id="p-29">Written in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> the product of a complex number and its conjugate is a difference of squares:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-z\bar z = (x+iy)(x-iy) = x^2 - (iy)^2 = x^2 + y^2 = \abs{z}^2.
-\end{equation*}
-</div>
-<div class="para" id="p-30">Assuming that <span class="process-math">\(z\)</span> is nonzero, we rearrange this equation to obtain a formula for <span class="process-math">\(\frac{1}{z}\text{.}\)</span>
-</div>
-<article class="lemma theorem-like" id="lemma-2"><h3 class="heading">
-<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">1.1.11</span><span class="period">.</span>
-</h3>
-<div class="para" id="p-31">Every nonzero complex number has a multiplicative inverse given by either of the following equivalent formulas.</div>
-<div class="displaymath process-math" id="md-2">
-\begin{align*}
-\frac{1}{z} \amp = \frac{\bar z}{\abs{z}^2}\\
-\frac{1}{x+iy} \amp = \frac{x - iy}{x^2 + y^2}
-\end{align*}
-</div></article><figure class="figure figure-like" id="figure-5"><iframe id="geogebra-reciprocal" width="480" height="480" src="geogebra-reciprocal-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-5" id="instructions-5"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-5"><div class="solution-like"><div class="para" id="p-32">Drag the point <span class="process-math">\(z\text{,}\)</span> and watch how <span class="process-math">\(\frac{1}{z}\)</span> changes. Contrast with <span class="process-math">\(-z\text{.}\)</span> For now, just observe that <span class="process-math">\(\frac{1}{z}\)</span> gets close to <span class="process-math">\(0\)</span> as <span class="process-math">\(z\)</span> moves far away from <span class="process-math">\(0\text{,}\)</span> and vice versa.</div></div></div>
-</div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.12<span class="period">.</span></span><span class="space"> </span>GeoGebra: reciprocal</figcaption></figure><article class="problem example-like" id="problem-1"><a href="" data-knowl="" class="id-ref problem-knowl original" data-refid="hk-problem-1"><h3 class="heading">
-<span class="type">Problem</span><span class="space"> </span><span class="codenumber">1.1.13</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-problem-1"><article class="problem example-like"><div class="para" id="p-33">Prove that the following identities hold for all <span class="process-math">\(z,w\in\C\text{.}\)</span>
-</div> <ol class="lower-alpha">
-<li id="li-6"><div class="para" id="p-derived-li-6"><span class="process-math">\(\displaystyle \Re(z) = \displaystyle\frac{z+\bar z}{2}\)</span></div></li>
-<li id="li-7"><div class="para" id="p-derived-li-7"><span class="process-math">\(\displaystyle \Im(z) = \displaystyle\frac{z - \bar z}{2i}\)</span></div></li>
-<li id="li-8"><div class="para" id="p-derived-li-8"><span class="process-math">\(\displaystyle \bar{z+w} = \bar z + \bar w\)</span></div></li>
-<li id="li-9"><div class="para" id="p-derived-li-9"><span class="process-math">\(\displaystyle \bar{zw} =  \bar z \cdot \bar w\)</span></div></li>
-<li id="li-10"><div class="para" id="p-derived-li-10"><span class="process-math">\(\displaystyle \abs{z}^2 = z\cdot \bar z\)</span></div></li>
-<li id="li-11"><div class="para" id="p-derived-li-11"><span class="process-math">\(\displaystyle \abs{zw} = \abs z \cdot \abs w\)</span></div></li>
-<li id="li-12"><div class="para" id="p-derived-li-12"><span class="process-math">\(\displaystyle \abs{z+w}^2 = \abs{z}^2 + \abs{w}^2 + 2\Re(z\bar w)\)</span></div></li>
-</ol></article></div>
-<div class="para" id="p-34">It is clear from our definition that <span class="process-math">\(\C\)</span> has something that <span class="process-math">\(\R\)</span> does not: a square-root of <span class="process-math">\(-1\text{!}\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{equation*}
-i^2 = (0+i\cdot 1)^2 = (0\cdot 0 - 1\cdot 1) + i(0 + 0) = -1.
-\end{equation*}
-</div>
-<div class="para" id="p-35">In fact, as we will show later, <span class="process-math">\(\C\)</span> has roots of all non-constant polynomials.</div>
-<article class="theorem theorem-like" id="theorem-fta"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.14</span><span class="period">.</span><span class="space"> </span><span class="title">Fundamental Theorem of Algebra.</span>
-</h3>
-<div class="para" id="p-36">Every polynomial <span class="process-math">\(p(z)\)</span> with complex coefficients of degree <span class="process-math">\(\ge 1\)</span> has a factorization</div>
-<div class="displaymath process-math">
-\begin{equation*}
-p(z) = c(z-r_1)^{d_1}(z-r_2)^{d_2}\cdots (z-r_k)^{d_k}
-\end{equation*}
-</div>
-<div class="para" id="p-37">where the roots <span class="process-math">\(r_j\)</span> are distinct, and <span class="process-math">\(d_j\ge 1\text{.}\)</span> This factorization is unique up to permuting the factors.</div></article><div class="para" id="p-38">This Theorem follows by induction on degree from...</div>
-<article class="theorem theorem-like" id="theorem-2"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.15</span><span class="period">.</span>
-</h3>
-<div class="para" id="p-39">Every nonconstant polynomial with complex coefficients has a complex root.</div></article><div class="para" id="p-40">We will prove this later in the course! Even though it seems like (and is) a theorem of algebra, its proof really needs analytic tools.</div>
-<article class="example example-like" id="example-1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-1"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.16</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-1"><article class="example example-like"><div class="para" id="p-41">There is a complex solution to <span class="process-math">\(z^7 + z^4 - i = \sqrt2\text{.}\)</span>
-</div></article></div></section></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-cauchy-integral-formula"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.5</span> <span class="title">Cauchy's Integral Formula</span>
+</h2></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="ch-intro.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-polar.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="sec-connections-to-multivariable.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer">

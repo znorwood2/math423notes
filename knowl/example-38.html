@@ -14,7 +14,16 @@
 <article class="example example-like"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.8</span><span class="period">.</span>
 </h3>
-<div class="para"><span class="process-math">\(\oint_\gamma \frac{1}{(z^2 + 4)^2}\, dz\)</span></div> <figure class="figure figure-like"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/CIF-derivs-1.svg" role="img" class="contained" alt="Picture of curve for example"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.5.9<span class="period">.</span></span><span class="space"> </span>A picture of <span class="process-math">\(\gamma\)</span> for the example.</figcaption></figure></article><span class="incontext"><a href="sec-cauchy-integral-formula.html#example-38" class="internal">in-context</a></span>
+<div class="para">Compute <span class="process-math">\(\oint_\gamma \frac{1}{(z^2 + 4)^2}\, dz\text{.}\)</span>
+</div> <figure class="figure figure-like"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/CIF-derivs-1.svg" role="img" class="contained" alt="Picture of curve for example"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.5.9<span class="period">.</span></span><span class="space"> </span>A picture of <span class="process-math">\(\gamma\)</span> for the example.</figcaption></figure> <div class="para">We factor <span class="process-math">\((z^2 + 4)^2 = (z+2i)^2 (z-2i)^2\)</span> and notice that <span class="process-math">\(\gamma\)</span> encircles one singularity <span class="process-math">\(z = 2i\)</span> but not the other. So we define <span class="process-math">\(f(z) = \frac{1}{(z + 2i)^2}\text{,}\)</span> notice that <span class="process-math">\(f\)</span> is analytic on <span class="process-math">\(\gamma\)</span> and its interior, and apply the Cauchy Integral Formula for Derivatives:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\oint_\gamma \frac{1}{(z^2 + 4)^2}\,dz \amp = \oint_\gamma \frac{f(z)}{(z - 2i)^2}\,dz \\
+\amp = 2\pi i f'(2i) \\
+\amp = 2\pi i \left[ \frac{-2}{(z + 2i)^3} \right]_{z = 2i} \\
+\amp = \frac{4\pi i}{64 i}  = \frac{\pi}{16}
+\end{align*}
+</div></article><span class="incontext"><a href="sec-cauchy-integral-formula.html#example-38" class="internal">in-context</a></span>
 </body>
 </html>

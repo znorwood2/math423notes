@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.10</span><span class="period">.</span>
+</h3>
+<div class="para">Compute <span class="process-math">\(\oint_\gamma \frac{z}{z^2 + 4} \,dz\text{,}\)</span> where <span class="process-math">\(\gamma\)</span> is the curve pictured below.</div> <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/CIF-derivs-2.svg" role="img" class="contained" alt="curve for example"></div> <div class="para">Now <span class="process-math">\(\gamma\)</span> encircles both singularities! So we can't just do what we did in the previous example. So we split the curve in two like this:</div> <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/CIF-derivs-2b.svg" role="img" class="contained" alt="image for example"></div> <div class="para">Define <span class="process-math">\(f_1(z) = \frac{z}{z + 2i}\)</span> and <span class="process-math">\(f_2(z) = \frac{z}{z-2i}\text{,}\)</span> so that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{z}{z^2 + 4} = \frac{f_1(z)}{z - 2i} = \frac{f_2(z)}{z + 2i}.
+\end{equation*}
+</div>
+<div class="para">Now we can split up the integral so that we integrate around the two singularities separately:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\oint_\gamma \frac{z}{z^2 + 4}\,dz \amp = \oint_{\gamma_1 + \gamma_3 - \gamma_3 + \gamma_2} \frac{z}{z^2 + 4}\,dz \\
+\amp = \oint_{\gamma_1 + \gamma_2} \frac{f_1(z)}{z - 2i}\,dz + \oint_{\gamma_2 - \gamma_3} \frac{f_2(z)}{z + 2i}\,dz \\
+\amp = 2\pi i(f_1(2i) + f_2(2i)) \\
+\amp = 2\pi i 
+\end{align*}
+</div>
+<div class="para">It is worth noting that we could've used partial fractions instead: <span class="process-math">\(\frac{z}{(z-2i)(z+2i)} = \frac{a}{z - 2i} + \frac{b}{z + 2i}\text{.}\)</span> Later, we will see how to do this kind of example much more systematically using residue theory.</div></article><span class="incontext"><a href="sec-cauchy-integral-formula.html#example-39" class="internal">in-context</a></span>
+</body>
+</html>

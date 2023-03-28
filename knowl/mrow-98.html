@@ -11,9 +11,14 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Compute <span class="process-math">\(\oint_\gamma \frac{1}{(z^2 + 4)^2}\, dz\text{.}\)</span>
+<div class="displaymath process-math">
+\begin{align*}
+\oint_\gamma \frac{1}{(z^2 + 4)^2}\,dz \amp = \oint_\gamma \frac{f(z)}{(z - 2i)^2}\,dz \\
+\amp = 2\pi i f'(2i) \\
+\amp = 2\pi i \left[ \frac{-2}{(z + 2i)^3} \right]_{z = 2i} \\
+\amp = \frac{4\pi i}{64 i}  = \frac{\pi}{16}
+\end{align*}
 </div>
-<span class="incontext"><a href="sec-cauchy-integral-formula.html#p-417" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-cauchy-integral-formula.html#md-35" class="internal">in-context</a></span>
 </body>
 </html>

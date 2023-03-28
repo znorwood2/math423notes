@@ -3608,7 +3608,7 @@
         </example>
         <example>
           <p>
-            <m>\oint_\gamma \frac{1}{(z^2 + 4)^2}\, dz</m>
+            Compute <m>\oint_\gamma \frac{1}{(z^2 + 4)^2}\, dz</m>.
           </p>
          <figure width="50%" xml:id="CIF-example-1-image">
           <image source="CIF-derivs-1" width="50%">
@@ -3616,7 +3616,64 @@
           </image>
           <caption>A picture of <m>\gamma</m> for the example.</caption>
          </figure>
+         <p>
+          We factor <m>(z^2 + 4)^2 = (z+2i)^2 (z-2i)^2</m> and notice that <m>\gamma</m>
+          encircles one singularity <m>z = 2i</m> but not the other.
+          So we define <m>f(z) = \frac{1}{(z + 2i)^2}</m>, notice that <m>f</m>
+          is analytic on <m>\gamma</m> and its interior,
+          and apply the Cauchy Integral Formula for Derivatives:
+         </p>
+         <md>
+          <mrow> \oint_\gamma \frac{1}{(z^2 + 4)^2}\,dz \amp = \oint_\gamma \frac{f(z)}{(z - 2i)^2}\,dz </mrow>
+          <mrow> \amp = 2\pi i f'(2i) </mrow>
+          <mrow> \amp = 2\pi i \left[ \frac{-2}{(z + 2i)^3} \right]_{z = 2i} </mrow>
+          <mrow> \amp = \frac{4\pi i}{64 i}  = \frac{\pi}{16}</mrow>
+         </md>
         </example>
+        <example>
+          <p>
+            Compute <m>\oint_\gamma \frac{z}{z^2 + 4} \,dz</m>, where <m>\gamma</m> is the 
+            curve pictured below.
+          </p>
+          <image source="CIF-derivs-2" width="50%">
+            <description>curve for example</description>
+          </image>
+          <p>
+            Now <m>\gamma</m> encircles both singularities! So we can't just do what we
+            did in the previous example.
+            So we split the curve in two like this:
+          </p>
+          <image source="CIF-derivs-2b" width="50%">
+            <description>image for example</description>
+          </image>
+          <p>
+            Define <m>f_1(z) = \frac{z}{z + 2i}</m> and <m>f_2(z) = \frac{z}{z-2i}</m>,
+            so that
+          </p>
+          <me>
+            f(z) = \frac{z}{z^2 + 4} = \frac{f_1(z)}{z - 2i} = \frac{f_2(z)}{z + 2i}.
+          </me>
+          <p>
+            Now we can split up the integral so that we integrate around the two singularities
+            separately:
+          </p>
+          <md>
+            <mrow> \oint_\gamma \frac{z}{z^2 + 4}\,dz \amp = \oint_{\gamma_1 + \gamma_3 - \gamma_3 + \gamma_2} \frac{z}{z^2 + 4}\,dz </mrow>
+            <mrow> \amp = \oint_{\gamma_1 + \gamma_2} \frac{f_1(z)}{z - 2i}\,dz + \oint_{\gamma_2 - \gamma_3} \frac{f_2(z)}{z + 2i}\,dz </mrow>
+            <mrow> \amp = 2\pi i(f_1(2i) + f_2(2i)) </mrow>
+            <mrow> \amp = 2\pi i </mrow>
+          </md>
+          <p>
+            It is worth noting that we could've used partial fractions instead:
+            <m>\frac{z}{(z-2i)(z+2i)} = \frac{a}{z - 2i} + \frac{b}{z + 2i}</m>.
+            Later, we will see how to do this kind of example much more systematically
+            using residue theory.
+          </p>
+        </example>
+      </section>
+      <section xml:id="sec-applications-cif">
+        <title>Applications of the Cauchy Integral Formula</title>
+        
       </section>
     </chapter>
     <backmatter xml:id="backmatter">

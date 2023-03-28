@@ -11,13 +11,14 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/re-im-integral.html">
-\begin{align}
-\int_a^b f(\gamma(t))\gamma'(t)\,dt \amp = \int_a^b \Re(f(\gamma(t))\gamma'(t))\,dt + i \int_a^b \Im(f(\gamma(t))\gamma'(t))\,dt \notag\\
-\amp = \int_a^b u\,dx - v\, dy + i\int_a^b v\,dx + u\,dy \tag{4.4.1}\\
-\amp = \int_\gamma \angs{u,-v} \cdot d\mathbf{r} + i\int_\gamma \angs{v,u}\cdot d\mathbf{r} \notag
-\end{align}
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-antiderivative-conditions.html ./knowl/example-cauchy-two.html">
+\begin{align*}
+\int_\gamma \frac{1}{z}\,dz \amp = \int_{\gamma_\eps} \frac{1}{z}\,dz \\
+\amp = \int_0^{2\pi} \frac{1}{\epsilon e^{i\theta}}i \eps e^{i\theta} \,d\theta \\
+\amp = \int_0^{2\pi} i\,d\theta \\
+\amp = 2\pi i 
+\end{align*}
 </div>
-<span class="incontext"><a href="sec-connections-to-multivariable.html#md-30" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-cauchys-thm.html#md-29" class="internal">in-context</a></span>
 </body>
 </html>

@@ -198,6 +198,7 @@ window.MathJax = {
 \newcommand{\wo}{\smallsetminus}
 \newcommand{\angleop}{\operatorname{angle}}
 \newcommand {\grad} {\nabla}
+\newcommand {\eps} {\epsilon}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -266,7 +267,41 @@ window.MathJax = {
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-cauchy-integral-formula"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.5</span> <span class="title">Cauchy's Integral Formula</span>
-</h2></section></div>
+</h2>
+<article class="theorem theorem-like" id="thm-cauchy-integral-formula"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.5.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-393">Suppose that <span class="process-math">\(\gamma\)</span> is a simple closed curve and <span class="process-math">\(f\)</span> is analytic that includes <span class="process-math">\(\gamma\)</span> and its interior. Assume that <span class="process-math">\(\gamma\)</span> is counterclockwise-oriented. Then for all <span class="process-math">\(z_0\)</span> inside <span class="process-math">\(\gamma\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z_0) = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)}{z - z_0} \,dz
+\end{equation*}
+</div>or sometimes<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{w - z} \, dw
+\end{equation*}
+</div></article><div class="para" id="p-394">Knowing all values of <span class="process-math">\(f\)</span> on <span class="process-math">\(\partial D\)</span> gives you all values of <span class="process-math">\(f\)</span> in <span class="process-math">\(D\text{!}\)</span>
+</div>
+<article class="example example-like" id="example-35"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><div class="para" id="p-395">As a reality check, consider <span class="process-math">\(f(z) = 1\)</span> and let <span class="process-math">\(\gamma\)</span> parametrize the unit circle counterclockwise.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+1 = f(0) = \frac{1}{2\pi i} \int_{\abs{z} = 1} \frac{1}{z-0}\,dz = \frac{1}{2\pi i} 2\pi i
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-36"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-36"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-36"><article class="example example-like"><div class="para" id="p-396">Compute <span class="process-math">\(\int_\gamma \frac{e^{z^2}}{z-2}\,dz\text{,}\)</span> where <span class="process-math">\(\gamma\)</span> parametrizes a circle around <span class="process-math">\(2\text{.}\)</span>
+</div> <div class="para" id="p-397">Notice that <span class="process-math">\(f(z) = e^{z^2}\)</span> is entire, so the Cauchy Integral Formula gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^4 = f(2) = \frac{1}{2\pi i} \int_{\gamma} \frac{e^{z^2}}{z-2}\,dz,
+\end{equation*}
+</div>
+<div class="para" id="p-398">which we solve to see that the integral is <span class="process-math">\(2\pi i e^4\text{.}\)</span>
+</div></article></div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-connections-to-multivariable.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

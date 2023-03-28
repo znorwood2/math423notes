@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="example example-like"><div class="para">Let <span class="process-math">\(f(z) = \frac{1}{z}\text{,}\)</span> defined on the punctured plane <span class="process-math">\(\C \wo \{0\}\text{.}\)</span> What values can the integral <span class="process-math">\(\int_\gamma f(z)\,dz\)</span> take on a simple closed curve <span class="process-math">\(\gamma\text{?}\)</span>
+</div> <div class="para">
+<em class="alert">Case 1:</em> <span class="process-math">\(\gamma\)</span> does not encircle <span class="process-math">\(0\text{.}\)</span> Then there is some curve <span class="process-math">\(R\)</span> from the origin to <span class="process-math">\(\infty\)</span> such that <span class="process-math">\(\gamma\)</span> is completely contained in the slit plane <span class="process-math">\(\C \wo R\text{,}\)</span> and there is a continuous branch of the log defined on <span class="process-math">\(\C\wo R\text{.}\)</span> So in this case <span class="process-math">\(\int_\gamma \frac{1}{z}\,dz = 0\text{,}\)</span> by <a href="" class="xref" data-knowl="./knowl/thm-antiderivative-conditions.html" title="Theorem 4.3.1">Theorem 4.3.1</a>.</div> <div class="para">
+<em class="alert">Case 2:</em> <span class="process-math">\(\gamma\)</span> encircles <span class="process-math">\(0\text{.}\)</span> Let <span class="process-math">\(\gamma_\eps\)</span> be a tiny circle of radius <span class="process-math">\(\eps\)</span> centered at <span class="process-math">\(0\text{,}\)</span> so tiny that it lies entirely inside <span class="process-math">\(\gamma\)</span> (and does not intersect <span class="process-math">\(\gamma\)</span>). By <a href="" class="xref" data-knowl="./knowl/example-cauchy-two.html" title="Example 4.3.8">Example 4.3.8</a> we have <span class="process-math">\(\int_\gamma \frac{1}{z}\,dz = \int_{\gamma_\eps} \frac{1}{z}\,dz\text{,}\)</span> and the latter integral (over the tiny circle) can be computed directly:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-antiderivative-conditions.html ./knowl/example-cauchy-two.html">
+\begin{align*}
+\int_\gamma \frac{1}{z}\,dz \amp = \int_{\gamma_\eps} \frac{1}{z}\,dz \\
+\amp = \int_0^{2\pi} \frac{1}{\epsilon e^{i\theta}}i \eps e^{i\theta} \,d\theta \\
+\amp = \int_0^{2\pi} i\,d\theta \\
+\amp = 2\pi i 
+\end{align*}
+</div>
+<div class="para">So for a <em class="emphasis">simple</em> closed curve <span class="process-math">\(\gamma\text{,}\)</span> the possible values of <span class="process-math">\(\int_\gamma \frac{1}{z}\,dz \)</span> are <span class="process-math">\(2\pi i\)</span> and <span class="process-math">\(0\text{,}\)</span> according to whether <span class="process-math">\(\gamma\)</span> encircles the origin.</div> <div class="para">But a non-simple curve can be divided into simple pieces! And then we can just add up the integrals. So the possible values of <span class="process-math">\(\int_\gamma \frac{1}{z}\,dz\)</span> are <span class="process-math">\(2\pi i n\text{,}\)</span> <span class="process-math">\(n\in\mathbb{Z}\text{.}\)</span> The <span class="process-math">\(n\)</span> in this formula is called the <dfn class="terminology">winding number</dfn> of <span class="process-math">\(\gamma\)</span> and is the net number of times that <span class="process-math">\(\gamma\)</span> crosses the positive <span class="process-math">\(x\)</span>-axis. (Each time that <span class="process-math">\(\gamma\)</span> crosses the positive <span class="process-math">\(x\)</span>-axis from south to north contributes <span class="process-math">\(+1\text{,}\)</span> each time that <span class="process-math">\(\gamma\)</span> crosses the positive <span class="process-math">\(x\)</span>-axis from north to south contributes <span class="process-math">\(-1\text{.}\)</span>)</div></article></body>
+</html>

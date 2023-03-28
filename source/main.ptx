@@ -3439,6 +3439,7 @@
         <p>
           Knowing all values of <m>f</m> on <m>\partial D</m> gives you all 
           values of <m>f</m> in <m>D</m>!
+          This is an incredible fact, which for the time being we will primarily use to evaluate integrals.
         </p>
         <example>
           <p>
@@ -3451,19 +3452,170 @@
         </example>
         <example>
           <p>
-            Compute <m>\int_\gamma \frac{e^{z^2}}{z-2}\,dz</m>, where <m>\gamma</m>
-            parametrizes a circle around <m>2</m>.
-          </p>
+            Compute <m>\int_\gamma \frac{e^{z^2}}{z-2}\,dz</m>, for each of the following <m>\gamma</m>.
+         </p>
           <p>
-            Notice that <m>f(z) = e^{z^2}</m> is entire, so the Cauchy Integral Formula
-            gives
-          </p>
+            First, suppose that <m>\gamma</m> parametrizes a circle centered at <m>z = 2</m>.
+            Notice that <m>f(z) = e^{z^2}</m> is entire, so the Cauchy Integral Formula gives    
+          </p>      
           <me>
             e^4 = f(2) = \frac{1}{2\pi i} \int_{\gamma} \frac{e^{z^2}}{z-2}\,dz,
           </me>
           <p>
             which we solve to see that the integral is <m>2\pi i e^4</m>.
           </p>
+          <p>
+            Next, suppose that <m>\gamma</m> is completely included in the first quadrant <m>\Re(z) > 0,</m> <m>\Im(z) > 0</m>.
+            (In fact, the following analysis will apply to any curve <m>\gamma</m> that does not encircle <m>2</m>.)
+            Then the integrand <m>\frac{e^{z^2}}{z-2}</m> is analytic on (the star-shaped region) <m>\set{z}{\Re(z) > 0, \Im(z) > 0}</m>,
+            so Cauchy's Theorem implies that <m>\int_\gamma \frac{e^{z^2}}{z-2}\,dz = 0</m>.
+          </p>
+          <p>
+            <!--TODO: add figure-->
+            Let <m>\gamma</m> be the curve that winds clockwise twice around <m>0</m>, as pictured.
+            Then we can divide <m>\gamma</m> into two simple pieces <m>\gamma_1</m> and <m>\gamma_2</m>
+            and apply the Cauchy Integral Formula to each piece:
+          </p>
+          <me>
+            \int_\gamma \frac{e^{z^2}}{z-2}\,dz = \int_{\gamma_1} \frac{f(z)}{z-2}\,dz + \int_{\gamma_2} \frac{f(z)}{z-2}\,dz
+            = -2\pi i f(2) - 2\pi i f(2) = -4 \pi i e^4.
+          </me>
+        </example>
+        <theorem xml:id="thm-cauchy-improvement">
+          <title>Improvement of Cauchy's Theorem</title>
+          <statement>
+            <p>
+              Suppose that <m>D</m> is a simply connected domain, <m>z_0 \in D</m>, and <m>g</m>
+              is analytic on <m>D \wo \{z_0\}</m> and continuous at <m>z_0</m>.
+              Then <m>\oint_\gamma g(z)\,dz = 0</m> for all closed curves <m>\gamma</m> in <m>D</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              (In fact, under these hypotheses, <m>g</m> must be analytic at <m>z_0</m>.)
+            </p>
+            <p>
+               <xref ref="example-cauchy-two"/> implies that
+               <m>\oint_\gamma g(z)\,dz = \oint_{\gamma_\eps} g(z)\,dz</m>, where
+               <m>\gamma_\eps</m> is a circle of radius <m>\eps</m> centered at <m>z_0</m>.
+               Since <m>g</m> is continuous, <m>\abs{g(z)}</m> is bounded on the interior 
+               of <m>\gamma_\eps</m>; say <m>\abs{g(z)} \le M</m> on <m>B_\eps(z_0)</m>.
+               Now we just do an ML-estimate:
+            </p>
+            <me>
+              \abs{\oint_\gamma g(z)\,dz} \le M(2\pi \eps) \underset{\eps \to 0}{\longrightarrow} 0.
+            </me>
+            <p>
+              This completes the proof.
+            </p>
+          </proof>
+        </theorem>
+        <proof>
+          <title>Proof of the Cauchy Integral Formula</title>
+          <p>
+            Consider the following function.
+          </p>
+          <me>
+            g(z) = \begin {cases} \frac{f(z) - f(z_0)}{z - z_0} \amp z \ne z_0 \\
+            f'(z_0) \amp z = z_0
+            \end {cases}
+          </me>
+          <p>
+            Since <m>f</m> is differentiable at <m>z_0</m>, this function <m>g</m> is 
+            continuous at <m>z_0</m>.
+            <aside>
+              <p>
+                This is a common trick used to prove theorems about derivatives
+                in real analysis.
+              </p>
+            </aside>
+            By <xref ref="thm-cauchy-improvement"/>, we have 
+          </p>
+          <me>
+            \oint_\gamma g(z)\,dz = \oint_\gamma \frac{f(z) - f(z_0)}{z - z_0} \,dz = 0.
+          </me>
+          <p>
+            Rearrange this to get
+          </p>
+          <me>
+            \oint_\gamma \frac{f(z)}{z - z_0} \,dz 
+            = \oint_\gamma \frac{f(z_0)}{z - z_0} \, dz 
+            = f(z_0) \oint_\gamma \frac{1}{z-z_0}\,dz
+            = f(z_0) \cdot 2\pi i
+          </me>
+          <p>
+            (The last equality follows from our computation of <m>\oint \frac{1}{z} \, dz</m>)
+            over a circle centered at the origin; do the substitution <m>u = z - z_0</m>.)
+          </p>
+        </proof>
+        <theorem xml:id="thm-cauchy-integral-formula-deriv">
+          <title>The Cauchy Integral Formula for Derivatives</title>
+          <statement>
+            <p>
+              Suppose that <m>\gamma</m> is a simple closed curve and <m>f</m>
+              is analytic that includes <m>\gamma</m> and its interior.
+              Assume that <m>\gamma</m> is counterclockwise-oriented.
+              Then for all <m>z</m> inside <m>\gamma</m>,
+              the <m>n</m>th derivative <m>f^{(n)}(z)</m> exists and satisfies the following formula.
+            </p>
+            <me>
+              f^{(n)}(z) = \frac{n!}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^{n+1}} \, dw
+            </me>
+          </statement>
+          <proof>
+            <p>
+              This is the <em>idea</em>:
+            </p>
+            <me>
+              f'(z) = \frac{d}{dz} \left( \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{w - z}\,dw \right)
+              = \frac{1}{2\pi i} \oint_\gamma \frac{d}{dz} \frac{f(w)}{w - z}\,dw
+              = \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2}
+            </me>
+            <p>
+              And then you iterate to obtain the formula for <m>f^{(n)}(z)</m>.
+              But the second equality above requires justification.
+            </p>
+            <p>
+              OK, here's what we actually need to do:
+            </p>
+            <md>
+              <mrow> \frac{f(z+\Delta z) - f(z)}{\Delta z} \amp = \frac{1}{2\pi i \Delta z} \oint_\gamma \frac{f(w)}{w - z - \Delta z} - \frac{f(w)}{w - z} \,dw </mrow>
+              <mrow> \amp = \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2 - \Delta z(w - z)} \, dw </mrow>
+              <mrow> \amp \underset{\Delta z \to 0}{\longrightarrow} \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2} \, dw </mrow>
+            </md>
+            <p>
+              (There is no problem taking a limit under the integral sign, since everything is continuous
+              and the denominator is nonzero.)
+            </p>
+          </proof>
+        </theorem>
+        <corollary xml:id="cor-analytic-derivatives">
+          <statement>
+            <p>
+              If <m>f</m> is analytic on <m>D</m>, then <m>f</m> has derivatives
+              of all orders on <m>D</m>!
+            </p>
+          </statement>
+        </corollary>
+        <p>
+          Now let's do several examples.
+        </p>
+        <example>
+          <me>
+            \oint_{\abs{z} = 1} \frac{e^{2z}}{z^4}\,dz = \frac{2\pi i}{3!} \left[\frac{d^3}{d^3z} e^{2z} \right]_{z=0}
+            = \frac{8}{3} \pi i.
+          </me>
+        </example>
+        <example>
+          <p>
+            <m>\oint_\gamma \frac{1}{(z^2 + 4)^2}\, dz</m>
+          </p>
+         <figure width="50%" xml:id="CIF-example-1-image">
+          <image source="CIF-derivs-1" width="50%">
+            <description>Picture of curve for example</description>
+          </image>
+          <caption>A picture of <m>\gamma</m> for the example.</caption>
+         </figure>
         </example>
       </section>
     </chapter>

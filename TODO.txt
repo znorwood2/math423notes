@@ -1,0 +1,6 @@
+Appendix ideas.
+- proof of Green's Theorem
+- proof of Cauchy's Theorem for simply connected regions
+- review of multivariable calculus
+- winding numbers for continuous functions
+- Inverse Function Theorem for maps R^2 \to R^2

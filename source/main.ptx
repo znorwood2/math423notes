@@ -23,6 +23,7 @@
       \newcommand{\wo}{\smallsetminus}
       \newcommand{\angleop}{\operatorname{angle}}
       \newcommand {\grad} {\nabla}
+      \newcommand {\eps} {\epsilon}
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
@@ -2955,18 +2956,18 @@
               Notice that <m>T</m> is completely included in <m>U</m>, since every point on the line segment 
               <m>[w,w+\Delta w]</m> is (by choice of <m>\Delta w</m>), and since <m>U</m> is star-shaped wrt <m>a_0</m>.
               We can therefore apply our assumption to conclude that <m>\int_{[a_0,w] + [w,w+\Delta w] + [w+\Delta w,a_0]} f(z)\,dz = 0</m>.
-              On the other hand, this expression also equals <m>F(w+\Delta w) - \int_{[w,w + \Delta w]} f(z)\,dz - F(w)</m>,
+              On the other hand, this integral also equals <m>F(w+\Delta w) - \int_{[w,w + \Delta w]} f(z)\,dz - F(w)</m>,
               so we rearrange to obtain
             </p>
             <me>
-              F(w + \Delta w) - F(w) = \int_{[w + \Delta w,w] f(z)\,dz}.
+              F(w + \Delta w) - F(w) = \int_{[w + \Delta w,w]} f(z)\,dz.
             </me>
             <p>
               What we'd really like to estimate is the difference quotient <m>\frac{F(w + \Delta w) - F(w)}{\Delta w}</m>, so we 
-              rearrange further.
+              rearrange further (noting that <m>f(w)</m> is a constant function, relative to <m>z</m>).
             </p>
             <me>
-              F(w + \Delta w) - F(w) - \Delta w f(w) = \int_{[w+\Delta w,w] (f(z) - f(w))\, dz}
+              F(w + \Delta w) - F(w) - \Delta w f(w) = \int_{[w+\Delta w,w]} (f(z) - f(w))\, dz
             </me>
             <p>
             Now we are in a position to make the final estimate.
@@ -3298,6 +3299,48 @@
                 </latex-image>
               </image>
             </figure>
+          <example>
+            <p>
+              Let <m>f(z) = \frac{1}{z}</m>, defined on the punctured plane <m>\C \wo \{0\}</m>.
+              What values can the integral <m>\int_\gamma f(z)\,dz</m> take on a simple closed curve <m>\gamma</m>?
+            </p>
+            <p>
+              <alert>Case 1:</alert> <m>\gamma</m> does not encircle <m>0</m>.
+              Then there is some curve <m>R</m> from the origin to <m>\infty</m> such that <m>\gamma</m> is completely
+              contained in the slit plane <m>\C \wo R</m>, and there is a continuous branch of the log
+              defined on <m>\C\wo R</m>. So in this case <m>\int_\gamma \frac{1}{z}\,dz = 0</m>,
+              by <xref ref="thm-antiderivative-conditions"/>.
+            </p>
+            <p>
+              <alert>Case 2:</alert> <m>\gamma</m> encircles <m>0</m>.
+              Let <m>\gamma_\eps</m> be a tiny circle of radius <m>\eps</m> centered at <m>0</m>,
+              so tiny that it lies entirely inside <m>\gamma</m> (and does not intersect <m>\gamma</m>).
+              By <xref ref="example-cauchy-two"/> we have
+              <m>\int_\gamma \frac{1}{z}\,dz = \int_{\gamma_\eps} \frac{1}{z}\,dz</m>, 
+              and the latter integral (over the tiny circle) can be computed directly:
+            </p>
+            <md>
+              <mrow> \int_\gamma \frac{1}{z}\,dz \amp = \int_{\gamma_\eps} \frac{1}{z}\,dz </mrow>
+              <mrow> \amp = \int_0^{2\pi} \frac{1}{\epsilon e^{i\theta}}i \eps e^{i\theta} \,d\theta </mrow>
+              <mrow> \amp = \int_0^{2\pi} i\,d\theta </mrow>
+              <mrow> \amp = 2\pi i </mrow>
+            </md>
+            <p>
+              So for a <em>simple</em> closed curve <m>\gamma</m>, the possible values of 
+              <m>\int_\gamma \frac{1}{z}\,dz </m> are <m>2\pi i</m> and <m>0</m>, according to whether
+              <m>\gamma</m> encircles the origin.
+            </p>
+            <p>
+              But a non-simple curve can be divided into simple pieces!
+              And then we can just add up the integrals. So the possible values of 
+              <m>\int_\gamma \frac{1}{z}\,dz</m> are <m>2\pi i n</m>, <m>n\in\mathbb{Z}</m>.
+              The <m>n</m> in this formula is called the <term>winding number</term> of <m>\gamma</m>
+              and is the net number of times that <m>\gamma</m> crosses the positive <m>x</m>-axis.
+              (Each time that <m>\gamma</m> crosses the positive <m>x</m>-axis from south to north contributes <m>+1</m>,
+              each time that <m>\gamma</m> crosses the positive <m>x</m>-axis from north to south contributes <m>-1</m>.)
+            </p>
+            
+          </example>
       </section>
       <section xml:id="sec-connections-to-multivariable">
         <title>Connections to multivariable calculus</title>
@@ -3376,7 +3419,52 @@
       </section>
       <section xml:id="sec-cauchy-integral-formula">
         <title>Cauchy's Integral Formula</title>
-        
+        <theorem xml:id="thm-cauchy-integral-formula">
+          <statement>
+            <p>
+              Suppose that <m>\gamma</m> is a simple closed curve and <m>f</m>
+              is analytic that includes <m>\gamma</m> and its interior.
+              Assume that <m>\gamma</m> is counterclockwise-oriented.
+              Then for all <m>z_0</m> inside <m>\gamma</m>,
+            </p>
+            <me>
+              f(z_0) = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)}{z - z_0} \,dz
+            </me>
+            or sometimes
+            <me>
+              f(z) = \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{w - z} \, dw
+            </me>
+          </statement>
+        </theorem>
+        <p>
+          Knowing all values of <m>f</m> on <m>\partial D</m> gives you all 
+          values of <m>f</m> in <m>D</m>!
+        </p>
+        <example>
+          <p>
+            As a reality check, consider <m>f(z) = 1</m> and let <m>\gamma</m>
+            parametrize the unit circle counterclockwise.
+          </p>
+          <me>
+            1 = f(0) = \frac{1}{2\pi i} \int_{\abs{z} = 1} \frac{1}{z-0}\,dz = \frac{1}{2\pi i} 2\pi i
+          </me>
+        </example>
+        <example>
+          <p>
+            Compute <m>\int_\gamma \frac{e^{z^2}}{z-2}\,dz</m>, where <m>\gamma</m>
+            parametrizes a circle around <m>2</m>.
+          </p>
+          <p>
+            Notice that <m>f(z) = e^{z^2}</m> is entire, so the Cauchy Integral Formula
+            gives
+          </p>
+          <me>
+            e^4 = f(2) = \frac{1}{2\pi i} \int_{\gamma} \frac{e^{z^2}}{z-2}\,dz,
+          </me>
+          <p>
+            which we solve to see that the integral is <m>2\pi i e^4</m>.
+          </p>
+        </example>
       </section>
     </chapter>
     <backmatter xml:id="backmatter">

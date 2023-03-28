@@ -1483,7 +1483,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.5",
   "title": "Cauchy's Integral Formula",
-  "body": " Cauchy's Integral Formula    Suppose that is a simple closed curve and is analytic that includes and its interior. Assume that is counterclockwise-oriented. Then for all inside ,  or sometimes    Knowing all values of on gives you all values of in !   As a reality check, consider and let parametrize the unit circle counterclockwise.     Compute , where parametrizes a circle around .  Notice that is entire, so the Cauchy Integral Formula gives   which we solve to see that the integral is .   "
+  "body": " Cauchy's Integral Formula    Suppose that is a simple closed curve and is analytic that includes and its interior. Assume that is counterclockwise-oriented. Then for all inside ,  or sometimes    Knowing all values of on gives you all values of in ! This is an incredible fact, which for the time being we will primarily use to evaluate integrals.   As a reality check, consider and let parametrize the unit circle counterclockwise.     Compute , for each of the following .  First, suppose that parametrizes a circle centered at . Notice that is entire, so the Cauchy Integral Formula gives   which we solve to see that the integral is .  Next, suppose that is completely included in the first quadrant  . (In fact, the following analysis will apply to any curve that does not encircle .) Then the integrand is analytic on (the star-shaped region) , so Cauchy's Theorem implies that .   Let be the curve that winds clockwise twice around , as pictured. Then we can divide into two simple pieces and and apply the Cauchy Integral Formula to each piece:     Improvement of Cauchy's Theorem   Suppose that is a simply connected domain, , and is analytic on and continuous at . Then for all closed curves in .    (In fact, under these hypotheses, must be analytic at .)   implies that , where is a circle of radius centered at . Since is continuous, is bounded on the interior of ; say on . Now we just do an ML-estimate:   This completes the proof.     Proof of the Cauchy Integral Formula  Consider the following function.   Since is differentiable at , this function is continuous at .  This is a common trick used to prove theorems about derivatives in real analysis.  By , we have   Rearrange this to get   (The last equality follows from our computation of ) over a circle centered at the origin; do the substitution .)    The Cauchy Integral Formula for Derivatives   Suppose that is a simple closed curve and is analytic that includes and its interior. Assume that is counterclockwise-oriented. Then for all inside , the th derivative exists and satisfies the following formula.     This is the idea :   And then you iterate to obtain the formula for . But the second equality above requires justification.  OK, here's what we actually need to do:   (There is no problem taking a limit under the integral sign, since everything is continuous and the denominator is nonzero.)      If is analytic on , then has derivatives of all orders on !    Now let's do several examples.           Picture of curve for example   A picture of for the example.    "
 },
 {
   "id": "thm-cauchy-integral-formula",
@@ -1510,7 +1510,61 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "4.5.3",
   "title": "",
-  "body": " Compute , where parametrizes a circle around .  Notice that is entire, so the Cauchy Integral Formula gives   which we solve to see that the integral is .  "
+  "body": " Compute , for each of the following .  First, suppose that parametrizes a circle centered at . Notice that is entire, so the Cauchy Integral Formula gives   which we solve to see that the integral is .  Next, suppose that is completely included in the first quadrant  . (In fact, the following analysis will apply to any curve that does not encircle .) Then the integrand is analytic on (the star-shaped region) , so Cauchy's Theorem implies that .   Let be the curve that winds clockwise twice around , as pictured. Then we can divide into two simple pieces and and apply the Cauchy Integral Formula to each piece:   "
+},
+{
+  "id": "thm-cauchy-improvement",
+  "level": "2",
+  "url": "sec-cauchy-integral-formula.html#thm-cauchy-improvement",
+  "type": "Theorem",
+  "number": "4.5.4",
+  "title": "Improvement of Cauchy's Theorem.",
+  "body": " Improvement of Cauchy's Theorem   Suppose that is a simply connected domain, , and is analytic on and continuous at . Then for all closed curves in .    (In fact, under these hypotheses, must be analytic at .)   implies that , where is a circle of radius centered at . Since is continuous, is bounded on the interior of ; say on . Now we just do an ML-estimate:   This completes the proof.   "
+},
+{
+  "id": "proof-26",
+  "level": "2",
+  "url": "sec-cauchy-integral-formula.html#proof-26",
+  "type": "Proof",
+  "number": "4.5.1",
+  "title": "Proof of the Cauchy Integral Formula.",
+  "body": " Proof of the Cauchy Integral Formula  Consider the following function.   Since is differentiable at , this function is continuous at .  This is a common trick used to prove theorems about derivatives in real analysis.  By , we have   Rearrange this to get   (The last equality follows from our computation of ) over a circle centered at the origin; do the substitution .)  "
+},
+{
+  "id": "thm-cauchy-integral-formula-deriv",
+  "level": "2",
+  "url": "sec-cauchy-integral-formula.html#thm-cauchy-integral-formula-deriv",
+  "type": "Theorem",
+  "number": "4.5.5",
+  "title": "The Cauchy Integral Formula for Derivatives.",
+  "body": " The Cauchy Integral Formula for Derivatives   Suppose that is a simple closed curve and is analytic that includes and its interior. Assume that is counterclockwise-oriented. Then for all inside , the th derivative exists and satisfies the following formula.     This is the idea :   And then you iterate to obtain the formula for . But the second equality above requires justification.  OK, here's what we actually need to do:   (There is no problem taking a limit under the integral sign, since everything is continuous and the denominator is nonzero.)   "
+},
+{
+  "id": "cor-analytic-derivatives",
+  "level": "2",
+  "url": "sec-cauchy-integral-formula.html#cor-analytic-derivatives",
+  "type": "Corollary",
+  "number": "4.5.6",
+  "title": "",
+  "body": "  If is analytic on , then has derivatives of all orders on !   "
+},
+{
+  "id": "example-37",
+  "level": "2",
+  "url": "sec-cauchy-integral-formula.html#example-37",
+  "type": "Example",
+  "number": "4.5.7",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "example-38",
+  "level": "2",
+  "url": "sec-cauchy-integral-formula.html#example-38",
+  "type": "Example",
+  "number": "4.5.8",
+  "title": "",
+  "body": "      Picture of curve for example   A picture of for the example.   "
 },
 {
   "id": "colophon-2",

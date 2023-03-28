@@ -11,9 +11,13 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Compute <span class="process-math">\(\int_\gamma \frac{e^{z^2}}{z-2}\,dz\text{,}\)</span> for each of the following <span class="process-math">\(\gamma\text{.}\)</span>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{f(z+\Delta z) - f(z)}{\Delta z} \amp = \frac{1}{2\pi i \Delta z} \oint_\gamma \frac{f(w)}{w - z - \Delta z} - \frac{f(w)}{w - z} \,dw \\
+\amp = \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2 - \Delta z(w - z)} \, dw \\
+\amp \underset{\Delta z \to 0}{\longrightarrow} \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2} \, dw 
+\end{align*}
 </div>
-<span class="incontext"><a href="sec-cauchy-integral-formula.html#p-396" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-cauchy-integral-formula.html#md-34" class="internal">in-context</a></span>
 </body>
 </html>

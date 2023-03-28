@@ -281,8 +281,7 @@ f(z_0) = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)}{z - z_0} \,dz
 \begin{equation*}
 f(z) = \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{w - z} \, dw
 \end{equation*}
-</div></article><div class="para" id="p-394">Knowing all values of <span class="process-math">\(f\)</span> on <span class="process-math">\(\partial D\)</span> gives you all values of <span class="process-math">\(f\)</span> in <span class="process-math">\(D\text{!}\)</span>
-</div>
+</div></article><div class="para" id="p-394">Knowing all values of <span class="process-math">\(f\)</span> on <span class="process-math">\(\partial D\)</span> gives you all values of <span class="process-math">\(f\)</span> in <span class="process-math">\(D\text{!}\)</span> This is an incredible fact, which for the time being we will primarily use to evaluate integrals.</div>
 <article class="example example-like" id="example-35"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.2</span><span class="period">.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><div class="para" id="p-395">As a reality check, consider <span class="process-math">\(f(z) = 1\)</span> and let <span class="process-math">\(\gamma\)</span> parametrize the unit circle counterclockwise.</div>
@@ -293,15 +292,100 @@ f(z) = \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{w - z} \, dw
 </div></article></div>
 <article class="example example-like" id="example-36"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-36"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-36"><article class="example example-like"><div class="para" id="p-396">Compute <span class="process-math">\(\int_\gamma \frac{e^{z^2}}{z-2}\,dz\text{,}\)</span> where <span class="process-math">\(\gamma\)</span> parametrizes a circle around <span class="process-math">\(2\text{.}\)</span>
-</div> <div class="para" id="p-397">Notice that <span class="process-math">\(f(z) = e^{z^2}\)</span> is entire, so the Cauchy Integral Formula gives</div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-36"><article class="example example-like"><div class="para" id="p-396">Compute <span class="process-math">\(\int_\gamma \frac{e^{z^2}}{z-2}\,dz\text{,}\)</span> for each of the following <span class="process-math">\(\gamma\text{.}\)</span>
+</div> <div class="para" id="p-397">First, suppose that <span class="process-math">\(\gamma\)</span> parametrizes a circle centered at <span class="process-math">\(z = 2\text{.}\)</span> Notice that <span class="process-math">\(f(z) = e^{z^2}\)</span> is entire, so the Cauchy Integral Formula gives</div>
 <div class="displaymath process-math">
 \begin{equation*}
 e^4 = f(2) = \frac{1}{2\pi i} \int_{\gamma} \frac{e^{z^2}}{z-2}\,dz,
 \end{equation*}
 </div>
 <div class="para" id="p-398">which we solve to see that the integral is <span class="process-math">\(2\pi i e^4\text{.}\)</span>
-</div></article></div></section></div>
+</div> <div class="para" id="p-399">Next, suppose that <span class="process-math">\(\gamma\)</span> is completely included in the first quadrant <span class="process-math">\(\Re(z) &gt; 0,\)</span> <span class="process-math">\(\Im(z) &gt; 0\text{.}\)</span> (In fact, the following analysis will apply to any curve <span class="process-math">\(\gamma\)</span> that does not encircle <span class="process-math">\(2\text{.}\)</span>) Then the integrand <span class="process-math">\(\frac{e^{z^2}}{z-2}\)</span> is analytic on (the star-shaped region) <span class="process-math">\(\set{z}{\Re(z) &gt; 0, \Im(z) &gt; 0}\text{,}\)</span> so Cauchy's Theorem implies that <span class="process-math">\(\int_\gamma \frac{e^{z^2}}{z-2}\,dz = 0\text{.}\)</span>
+</div> <div class="para" id="p-400"> Let <span class="process-math">\(\gamma\)</span> be the curve that winds clockwise twice around <span class="process-math">\(0\text{,}\)</span> as pictured. Then we can divide <span class="process-math">\(\gamma\)</span> into two simple pieces <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\)</span> and apply the Cauchy Integral Formula to each piece:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\gamma \frac{e^{z^2}}{z-2}\,dz = \int_{\gamma_1} \frac{f(z)}{z-2}\,dz + \int_{\gamma_2} \frac{f(z)}{z-2}\,dz
+= -2\pi i f(2) - 2\pi i f(2) = -4 \pi i e^4.
+\end{equation*}
+</div></article></div>
+<article class="theorem theorem-like" id="thm-cauchy-improvement"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Improvement of Cauchy's Theorem.</span>
+</h3>
+<div class="para" id="p-401">Suppose that <span class="process-math">\(D\)</span> is a simply connected domain, <span class="process-math">\(z_0 \in D\text{,}\)</span> and <span class="process-math">\(g\)</span> is analytic on <span class="process-math">\(D \wo \{z_0\}\)</span> and continuous at <span class="process-math">\(z_0\text{.}\)</span> Then <span class="process-math">\(\oint_\gamma g(z)\,dz = 0\)</span> for all closed curves <span class="process-math">\(\gamma\)</span> in <span class="process-math">\(D\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-25"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-25"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-25"><article class="hiddenproof"><div class="para" id="p-402">(In fact, under these hypotheses, <span class="process-math">\(g\)</span> must be analytic at <span class="process-math">\(z_0\text{.}\)</span>)</div> <div class="para" id="p-403">
+<a href="" class="xref" data-knowl="./knowl/example-cauchy-two.html" title="Example 4.3.8">Example 4.3.8</a> implies that <span class="process-math">\(\oint_\gamma g(z)\,dz = \oint_{\gamma_\eps} g(z)\,dz\text{,}\)</span> where <span class="process-math">\(\gamma_\eps\)</span> is a circle of radius <span class="process-math">\(\eps\)</span> centered at <span class="process-math">\(z_0\text{.}\)</span> Since <span class="process-math">\(g\)</span> is continuous, <span class="process-math">\(\abs{g(z)}\)</span> is bounded on the interior of <span class="process-math">\(\gamma_\eps\text{;}\)</span> say <span class="process-math">\(\abs{g(z)} \le M\)</span> on <span class="process-math">\(B_\eps(z_0)\text{.}\)</span> Now we just do an ML-estimate:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/example-cauchy-two.html">
+\begin{equation*}
+\abs{\oint_\gamma g(z)\,dz} \le M(2\pi \eps) \underset{\eps \to 0}{\longrightarrow} 0.
+\end{equation*}
+</div>
+<div class="para" id="p-404">This completes the proof.</div></article></div>
+<article class="hiddenproof" id="proof-26"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-26"><h3 class="heading"><span class="title">Proof of the Cauchy Integral Formula.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-26"><article class="hiddenproof"> <div class="para" id="p-405">Consider the following function.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-cauchy-improvement.html">
+\begin{equation*}
+g(z) = \begin {cases} \frac{f(z) - f(z_0)}{z - z_0} \amp z \ne z_0 \\
+f'(z_0) \amp z = z_0
+\end {cases}
+\end{equation*}
+</div>
+<div class="para" id="p-406">Since <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(z_0\text{,}\)</span> this function <span class="process-math">\(g\)</span> is continuous at <span class="process-math">\(z_0\text{.}\)</span> <aside class="aside aside-like" id="aside-17"><div class="para" id="p-407">This is a common trick used to prove theorems about derivatives in real analysis.</div></aside> By <a href="" class="xref" data-knowl="./knowl/thm-cauchy-improvement.html" title="Theorem 4.5.4: Improvement of Cauchy's Theorem">Theorem 4.5.4</a>, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-cauchy-improvement.html">
+\begin{equation*}
+\oint_\gamma g(z)\,dz = \oint_\gamma \frac{f(z) - f(z_0)}{z - z_0} \,dz = 0.
+\end{equation*}
+</div>
+<div class="para" id="p-408">Rearrange this to get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-cauchy-improvement.html">
+\begin{equation*}
+\oint_\gamma \frac{f(z)}{z - z_0} \,dz 
+= \oint_\gamma \frac{f(z_0)}{z - z_0} \, dz 
+= f(z_0) \oint_\gamma \frac{1}{z-z_0}\,dz
+= f(z_0) \cdot 2\pi i
+\end{equation*}
+</div>
+<div class="para" id="p-409">(The last equality follows from our computation of <span class="process-math">\(\oint \frac{1}{z} \, dz\)</span>) over a circle centered at the origin; do the substitution <span class="process-math">\(u = z - z_0\text{.}\)</span>)</div></article></div>
+<article class="theorem theorem-like" id="thm-cauchy-integral-formula-deriv"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">The Cauchy Integral Formula for Derivatives.</span>
+</h3>
+<div class="para" id="p-410">Suppose that <span class="process-math">\(\gamma\)</span> is a simple closed curve and <span class="process-math">\(f\)</span> is analytic that includes <span class="process-math">\(\gamma\)</span> and its interior. Assume that <span class="process-math">\(\gamma\)</span> is counterclockwise-oriented. Then for all <span class="process-math">\(z\)</span> inside <span class="process-math">\(\gamma\text{,}\)</span> the <span class="process-math">\(n\)</span>th derivative <span class="process-math">\(f^{(n)}(z)\)</span> exists and satisfies the following formula.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f^{(n)}(z) = \frac{n!}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^{n+1}} \, dw
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-27"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-27"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-27"><article class="hiddenproof"><div class="para" id="p-411">This is the <em class="emphasis">idea</em>:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(z) = \frac{d}{dz} \left( \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{w - z}\,dw \right)
+= \frac{1}{2\pi i} \oint_\gamma \frac{d}{dz} \frac{f(w)}{w - z}\,dw
+= \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2}
+\end{equation*}
+</div>
+<div class="para" id="p-412">And then you iterate to obtain the formula for <span class="process-math">\(f^{(n)}(z)\text{.}\)</span> But the second equality above requires justification.</div> <div class="para" id="p-413">OK, here's what we actually need to do:</div>
+<div class="displaymath process-math" id="md-34">
+\begin{align*}
+\frac{f(z+\Delta z) - f(z)}{\Delta z} \amp = \frac{1}{2\pi i \Delta z} \oint_\gamma \frac{f(w)}{w - z - \Delta z} - \frac{f(w)}{w - z} \,dw \\
+\amp = \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2 - \Delta z(w - z)} \, dw \\
+\amp \underset{\Delta z \to 0}{\longrightarrow} \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2} \, dw 
+\end{align*}
+</div>
+<div class="para" id="p-414">(There is no problem taking a limit under the integral sign, since everything is continuous and the denominator is nonzero.)</div></article></div>
+<article class="corollary theorem-like" id="cor-analytic-derivatives"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.5.6</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-415">If <span class="process-math">\(f\)</span> is analytic on <span class="process-math">\(D\text{,}\)</span> then <span class="process-math">\(f\)</span> has derivatives of all orders on <span class="process-math">\(D\text{!}\)</span>
+</div></article><div class="para" id="p-416">Now let's do several examples.</div>
+<article class="example example-like" id="example-37"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-37"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-37"><article class="example example-like"><div class="displaymath process-math">
+\begin{equation*}
+\oint_{\abs{z} = 1} \frac{e^{2z}}{z^4}\,dz = \frac{2\pi i}{3!} \left[\frac{d^3}{d^3z} e^{2z} \right]_{z=0}
+= \frac{8}{3} \pi i.
+\end{equation*}
+</div></article></div>
+<article class="example example-like" id="example-38"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-38"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-38"><article class="example example-like"><div class="para" id="p-417"><span class="process-math">\(\oint_\gamma \frac{1}{(z^2 + 4)^2}\, dz\)</span></div> <figure class="figure figure-like" id="CIF-example-1-image"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/CIF-derivs-1.svg" role="img" class="contained" alt="Picture of curve for example"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.5.9<span class="period">.</span></span><span class="space"> </span>A picture of <span class="process-math">\(\gamma\)</span> for the example.</figcaption></figure></article></div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-connections-to-multivariable.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

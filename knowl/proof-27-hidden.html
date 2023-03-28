@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><div class="para">This is the <em class="emphasis">idea</em>:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(z) = \frac{d}{dz} \left( \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{w - z}\,dw \right)
+= \frac{1}{2\pi i} \oint_\gamma \frac{d}{dz} \frac{f(w)}{w - z}\,dw
+= \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2}
+\end{equation*}
+</div>
+<div class="para">And then you iterate to obtain the formula for <span class="process-math">\(f^{(n)}(z)\text{.}\)</span> But the second equality above requires justification.</div> <div class="para">OK, here's what we actually need to do:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{f(z+\Delta z) - f(z)}{\Delta z} \amp = \frac{1}{2\pi i \Delta z} \oint_\gamma \frac{f(w)}{w - z - \Delta z} - \frac{f(w)}{w - z} \,dw \\
+\amp = \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2 - \Delta z(w - z)} \, dw \\
+\amp \underset{\Delta z \to 0}{\longrightarrow} \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w - z)^2} \, dw 
+\end{align*}
+</div>
+<div class="para">(There is no problem taking a limit under the integral sign, since everything is continuous and the denominator is nonzero.)</div></article></body>
+</html>

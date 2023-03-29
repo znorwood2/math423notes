@@ -1582,7 +1582,61 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.6",
   "title": "Applications of the Cauchy Integral Formula",
-  "body": " Applications of the Cauchy Integral Formula  "
+  "body": " Applications of the Cauchy Integral Formula    Write for the circle of radius centered at . Suppose that is analytic on and its interior, and put . Then, for ,     This is just a matter of combining the Cauchy Integral Formula for Derivatives with an ML-estimate:       A function is bounded if there is a real number for which for all .     Liouville's Theorem   A bounded entire function must be constant.    Suppose that on all of . Then for every circle , we have by    But then we could have chosen to be as large as we like, so . So implies that must be constant.     NB. Polynomials, , sine, cosine (!), etc., are all entire but not bounded.   The Fundamental Theorem of Algebra   Every nonconstant polynomial with complex coefficients has a root in .    Write Suppose toward a contradiction that does not have a complex root, so that is entire.     is bounded.    This is the idea:   Here is a bit more detail. Fixing , find an for which the inequality holds for all with . Notice that now implies . We have found a bound for for . Now remember that is a continuous function on the compact ball and is therefore bounded. Combine these two bounds to see that is bounded on .   Now apply to see that must be constant. So must be constant, oops.    The Mean Value Property for Analytic Functions   The value of an analytic function at is the average value of on a small circle centered at .  More precisely, suppose that is analytic on a domain that includes the closed disk . Then       GeoGebra: Parametrization for Mean Value Property    "
+},
+{
+  "id": "thm-cauchy-estimates",
+  "level": "2",
+  "url": "sec-applications-cif.html#thm-cauchy-estimates",
+  "type": "Theorem",
+  "number": "4.6.1",
+  "title": "",
+  "body": "  Write for the circle of radius centered at . Suppose that is analytic on and its interior, and put . Then, for ,     This is just a matter of combining the Cauchy Integral Formula for Derivatives with an ML-estimate:    "
+},
+{
+  "id": "def-bounded",
+  "level": "2",
+  "url": "sec-applications-cif.html#def-bounded",
+  "type": "Definition",
+  "number": "4.6.2",
+  "title": "",
+  "body": "  A function is bounded if there is a real number for which for all .   "
+},
+{
+  "id": "thm-liouville",
+  "level": "2",
+  "url": "sec-applications-cif.html#thm-liouville",
+  "type": "Theorem",
+  "number": "4.6.3",
+  "title": "Liouville's Theorem.",
+  "body": " Liouville's Theorem   A bounded entire function must be constant.    Suppose that on all of . Then for every circle , we have by    But then we could have chosen to be as large as we like, so . So implies that must be constant.   "
+},
+{
+  "id": "cor-FTA",
+  "level": "2",
+  "url": "sec-applications-cif.html#cor-FTA",
+  "type": "Corollary",
+  "number": "4.6.4",
+  "title": "The Fundamental Theorem of Algebra.",
+  "body": " The Fundamental Theorem of Algebra   Every nonconstant polynomial with complex coefficients has a root in .    Write Suppose toward a contradiction that does not have a complex root, so that is entire.     is bounded.    This is the idea:   Here is a bit more detail. Fixing , find an for which the inequality holds for all with . Notice that now implies . We have found a bound for for . Now remember that is a continuous function on the compact ball and is therefore bounded. Combine these two bounds to see that is bounded on .   Now apply to see that must be constant. So must be constant, oops.  "
+},
+{
+  "id": "thm-mean-value",
+  "level": "2",
+  "url": "sec-applications-cif.html#thm-mean-value",
+  "type": "Theorem",
+  "number": "4.6.6",
+  "title": "The Mean Value Property for Analytic Functions.",
+  "body": " The Mean Value Property for Analytic Functions   The value of an analytic function at is the average value of on a small circle centered at .  More precisely, suppose that is analytic on a domain that includes the closed disk . Then    "
+},
+{
+  "id": "fig-geogebra-mean-value",
+  "level": "2",
+  "url": "sec-applications-cif.html#fig-geogebra-mean-value",
+  "type": "Figure",
+  "number": "4.6.7",
+  "title": "",
+  "body": " GeoGebra: Parametrization for Mean Value Property   "
 },
 {
   "id": "colophon-2",

@@ -266,9 +266,93 @@ window.MathJax = {
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-applications-cif"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-applications-cif"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.6</span> <span class="title">Applications of the Cauchy Integral Formula</span>
-</h2></section></div>
+</h2>
+<article class="theorem theorem-like" id="thm-cauchy-estimates"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.6.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-424">Write <span class="process-math">\(C_R\)</span> for the circle of radius <span class="process-math">\(R\)</span> centered at <span class="process-math">\(z_0\text{.}\)</span> Suppose that <span class="process-math">\(f\)</span> is analytic on <span class="process-math">\(C_R\)</span> and its interior, and put <span class="process-math">\(M_R = \max\limits_{z\in C_R} \abs{f(z)}\text{.}\)</span> Then, for <span class="process-math">\(n =1,2,3,\dots\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{ f^{(n)}(z_0)} \le \frac{n! M_R}{R^n}.
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-28"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-28"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-28"><article class="hiddenproof"><div class="para" id="p-425">This is just a matter of combining the Cauchy Integral Formula for Derivatives with an ML-estimate:</div>
+<div class="displaymath process-math" id="md-37">
+\begin{align*}
+\abs{f^{(n)}(z_0)} \amp = \abs{\frac{n!}{2\pi i} \oint_{C_R} \frac{f(z)}{(z-z_0)^{n+1}} \, dz} \\
+\amp \le \frac{n!}{2\pi} \oint_{C_R} \frac{\abs{f(z)}{\abs{z-z_0}^{n+1}}}\,\abs{dz} \\
+\amp \le \frac{n!}{2\pi} \cdot \frac{M_R}{R^{n+1}} \oint_{C_R} \abs{dz} \\
+\amp =  \frac{n!}{2\pi} \cdot \frac{M_R}{R^{n+1}} \cdot 2\pi R \\
+\amp = \frac{n! M_R}{R^n} 
+\end{align*}
+</div></article></div>
+<article class="definition definition-like" id="def-bounded"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.6.2</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-426">A function <span class="process-math">\(f\colon D\to\C\)</span> is <dfn class="terminology">bounded</dfn> if there is a real number <span class="process-math">\(B\)</span> for which <span class="process-math">\(\abs{f(z)} \le B\)</span> for all <span class="process-math">\(z\in D\text{.}\)</span>
+</div></article><article class="theorem theorem-like" id="thm-liouville"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.6.3</span><span class="period">.</span><span class="space"> </span><span class="title">Liouville's Theorem.</span>
+</h3>
+<div class="para" id="p-427">A bounded entire function must be constant.</div></article><article class="hiddenproof" id="proof-29"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-29"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-29"><article class="hiddenproof"><div class="para logical" id="p-428">
+<div class="para">Suppose that <span class="process-math">\(\abs{f(z)} \lt M\)</span> on all of <span class="process-math">\(\C\text{.}\)</span> Then for every circle <span class="process-math">\(C_R\text{,}\)</span> we have by <a href="" class="xref" data-knowl="./knowl/thm-cauchy-estimates.html" title="Theorem 4.6.1">Theorem 4.6.1</a>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-cauchy-estimates.html">
+\begin{equation*}
+\abs{f'(z_0)} \le \frac{M}{R}
+\end{equation*}
+</div>
+</div> <div class="para" id="p-429">But then we could have chosen <span class="process-math">\(R\)</span> to be as large as we like, so <span class="process-math">\(f'(z_0) = 0\text{.}\)</span> So <a href="" class="xref" data-knowl="./knowl/lem-deriv-zero-constant.html" title="Lemma 3.2.3">Lemma 3.2.3</a> implies that <span class="process-math">\(f\)</span> must be constant.</div></article></div>
+<div class="para" id="p-430">
+<em class="alert">NB.</em> Polynomials, <span class="process-math">\(e^z\text{,}\)</span> sine, cosine (!), etc., are all entire but not bounded.</div>
+<article class="corollary theorem-like" id="cor-FTA"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.6.4</span><span class="period">.</span><span class="space"> </span><span class="title">The Fundamental Theorem of Algebra.</span>
+</h3>
+<div class="para" id="p-431">Every nonconstant polynomial <span class="process-math">\(p(z)\)</span> with complex coefficients has a root in <span class="process-math">\(\C\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-30"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-30"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-30"><article class="hiddenproof"><div class="para logical" id="p-432">
+<div class="para">Write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0.
+\end{equation*}
+</div>
+<div class="para">Suppose toward a contradiction that <span class="process-math">\(p(z)\)</span> does not have a complex root, so that <span class="process-math">\(\frac{1}{p(z)}\)</span> is entire.</div>
+</div> <article class="claim theorem-like" id="claim-FTA-bounded"><h4 class="heading">
+<span class="type">Claim</span><span class="space"> </span><span class="codenumber">4.6.5</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-433">
+<span class="process-math">\(\frac{1}{p(z)}\)</span> is bounded.</div></article><article class="hiddenproof" id="proof-31"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-31"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-31"><article class="hiddenproof"><div class="para" id="p-434">This is the idea:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{p(z)}{z^n} = a_n + \frac{a_{n-1}}{z} + \frac{a_{n-2}}{z^2} + \cdots + \frac{a_0}{z^n} \underset{\abs{z}\to\infty}{\longrightarrow} a_n.
+\end{equation*}
+</div>
+<div class="para logical" id="p-435">
+<div class="para">Here is a bit more detail. Fixing <span class="process-math">\(\eps \gt 0\text{,}\)</span> find an <span class="process-math">\(R \gt 0\)</span> for which the inequality</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{\frac{p(z)}{z^n} - a_n} = \abs{ \frac{a_{n-1}} + \frac{a_{n-2}}{z^2} + \cdots + \frac{a_0}{z^n} } \lt \eps
+\end{equation*}
+</div>
+<div class="para">holds for all <span class="process-math">\(z\)</span> with <span class="process-math">\(\abs{z} \gt R\text{.}\)</span> Notice that now <span class="process-math">\(\abs{z} \gt R\)</span> implies <span class="process-math">\(\abs{\frac{1}{p(z)}} \lt \frac{1}{\abs{a_n} R^n} + \eps\text{.}\)</span> We have found a bound for <span class="process-math">\(\frac{1}{p(z)}\)</span> for <span class="process-math">\(\abs{z} \gt R\text{.}\)</span> Now remember that <span class="process-math">\(z\mapsto \abs{\frac{1}{p(z)}}\)</span> is a continuous function on the compact ball <span class="process-math">\(\abs{z} \le R\)</span> and is therefore bounded. Combine these two bounds to see that <span class="process-math">\(\frac{1}{p(z)}\)</span> is bounded on <span class="process-math">\(\C\text{.}\)</span>
+</div>
+</div></article></div> Now apply <a href="" class="xref" data-knowl="./knowl/thm-liouville.html" title="Theorem 4.6.3: Liouville's Theorem">Theorem 4.6.3</a> to see that <span class="process-math">\(\frac{1}{p(z)}\)</span> must be constant. So <span class="process-math">\(p(z)\)</span> must be constant, oops.</article></div>
+<article class="theorem theorem-like" id="thm-mean-value"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.6.6</span><span class="period">.</span><span class="space"> </span><span class="title">The Mean Value Property for Analytic Functions.</span>
+</h3>
+<div class="para" id="p-436">The value of an analytic function <span class="process-math">\(f\)</span> at <span class="process-math">\(z_0\)</span> is the average value of <span class="process-math">\(f\)</span> on a small circle centered at <span class="process-math">\(z_0\text{.}\)</span>
+</div> <div class="para" id="p-437">More precisely, suppose that <span class="process-math">\(f\)</span> is analytic on a domain that includes the closed disk <span class="process-math">\(\abs{z - z_0} \le r\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z_0) = \frac{1}{2\pi} \int_0^{2\pi} f(z_0 + re^{i\theta})\,d\theta.
+\end{equation*}
+</div></article><figure class="figure figure-like" id="fig-geogebra-mean-value"><iframe id="geogebra-mean-value" width="480" height="480" src="geogebra-mean-value-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-29" id="instructions-29"><h3 class="heading"><span class="type">Instructions<span class="period">.</span></span></h3></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-29"><div class="solution-like"><div class="para" id="p-438">You can view a larger version of this <a class="external" href="https://www.geogebra.org/calculator/abqahkay" target="_blank">here</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-18" id="fn-18"><sup> 1 </sup></a>.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.6.7<span class="period">.</span></span><span class="space"> </span>GeoGebra: Parametrization for Mean Value Property</figcaption></figure></section><div class="hidden-content tex2jax_ignore" id="hk-fn-18"><div class="fn"><code class="code-inline tex2jax_ignore">www.geogebra.org/calculator/abqahkay</code></div></div>
+</div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-cauchy-integral-formula.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

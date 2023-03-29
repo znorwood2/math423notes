@@ -3673,8 +3673,144 @@
       </section>
       <section xml:id="sec-applications-cif">
         <title>Applications of the Cauchy Integral Formula</title>
+        <theorem xml:id="thm-cauchy-estimates">
+          <statement>
+            <p>
+              Write <m>C_R</m> for the circle of radius <m>R</m> centered at <m>z_0</m>.
+              Suppose that <m>f</m> is analytic on <m>C_R</m> and its interior,
+              and put <m>M_R = \max\limits_{z\in C_R} \abs{f(z)}</m>.
+              Then, for <m>n =1,2,3,\dots</m>,
+            </p>
+            <me>
+              \abs{ f^{(n)}(z_0)} \le \frac{n! M_R}{R^n}.
+            </me>
+          </statement>
+          <proof>
+            <p>
+              This is just a matter of combining the Cauchy Integral Formula for Derivatives
+              with an ML-estimate:
+            </p>
+              <md>
+                <mrow> \abs{f^{(n)}(z_0)} \amp = \abs{\frac{n!}{2\pi i} \oint_{C_R} \frac{f(z)}{(z-z_0)^{n+1}} \, dz} </mrow>
+                <mrow> \amp \le \frac{n!}{2\pi} \oint_{C_R} \frac{\abs{f(z)}{\abs{z-z_0}^{n+1}}}\,\abs{dz} </mrow>
+                <mrow> \amp \le \frac{n!}{2\pi} \cdot \frac{M_R}{R^{n+1}} \oint_{C_R} \abs{dz} </mrow>
+                <mrow> \amp =  \frac{n!}{2\pi} \cdot \frac{M_R}{R^{n+1}} \cdot 2\pi R </mrow>
+                <mrow> \amp = \frac{n! M_R}{R^n} </mrow>
+              </md>
+          </proof>
+        </theorem>
+        <definition xml:id="def-bounded">
+          <statement>
+            <p>
+              A function <m>f\colon D\to\C</m> is <term>bounded</term>
+              if there is a real number <m>B</m> for which <m>\abs{f(z)} \le B</m> for all <m>z\in D</m>.
+            </p>
+          </statement>
+        </definition>
+        <theorem xml:id="thm-liouville">
+          <title>Liouville's Theorem</title>
+          <statement>
+            <p>
+              A bounded entire function must be constant.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Suppose that <m>\abs{f(z)} \lt M</m> on all of <m>\C</m>.
+              Then for every circle <m>C_R</m>, we have by <xref ref="thm-cauchy-estimates"/>
+            <me>
+              \abs{f'(z_0)} \le \frac{M}{R}
+            </me>
+          </p>
+          <p>
+            But then we could have chosen <m>R</m> to be as large as we like, so <m>f'(z_0) = 0</m>.
+            So <xref ref="lem-deriv-zero-constant"/> implies that <m>f</m> must be constant.
+          </p>
+          </proof>
+        </theorem>
+        <p>
+          <alert>NB.</alert> Polynomials, <m>e^z</m>, sine, cosine (!), etc., are all entire but not bounded.
+        </p>
+        <corollary xml:id="cor-FTA">
+          <title>The Fundamental Theorem of Algebra</title>
+          <statement>
+            <p>
+              Every nonconstant polynomial <m>p(z)</m> with complex coefficients has a root in <m>\C</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Write
+              <me>
+                p(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0.
+              </me>
+              Suppose toward a contradiction that <m>p(z)</m> does not have a complex root, so that <m>\frac{1}{p(z)}</m> is entire. 
+            </p>
+            <claim xml:id="claim-FTA-bounded">
+              <statement>
+                <p>
+                  <m>\frac{1}{p(z)}</m> is bounded.
+                </p>
+              </statement>
+              <proof>
+                <p>
+                  This is the idea:
+                </p>
+                <me>
+                  \frac{p(z)}{z^n} = a_n + \frac{a_{n-1}}{z} + \frac{a_{n-2}}{z^2} + \cdots + \frac{a_0}{z^n} \underset{\abs{z}\to\infty}{\longrightarrow} a_n.
+                </me>
+                <p>
+                  Here is a bit more detail. Fixing <m>\eps \gt 0</m>, find an <m>R \gt 0</m> for which the inequality
+                <me>
+                  \abs{\frac{p(z)}{z^n} - a_n} = \abs{ \frac{a_{n-1}} + \frac{a_{n-2}}{z^2} + \cdots + \frac{a_0}{z^n} } \lt \eps
+                </me>
+                holds for all <m>z</m> with <m>\abs{z} \gt R</m>.
+                Notice that now <m>\abs{z} \gt R</m> implies <m>\abs{\frac{1}{p(z)}} \lt \frac{1}{\abs{a_n} R^n} + \eps</m>.
+                We have found a bound for <m>\frac{1}{p(z)}</m> for <m>\abs{z} \gt R</m>.
+                Now remember that <m>z\mapsto \abs{\frac{1}{p(z)}}</m> is a continuous function on the compact ball <m>\abs{z} \le R</m>
+                and is therefore bounded. Combine these two bounds to see that <m>\frac{1}{p(z)}</m> is bounded on <m>\C</m>.
+              </p>               
+              </proof>
+            </claim>
+            Now apply <xref ref="thm-liouville"/> to see that <m>\frac{1}{p(z)}</m> must be constant.
+            So <m>p(z)</m> must be constant, oops.
+          </proof>
+        </corollary>
+
+        <theorem xml:id="thm-mean-value">
+          <title>The Mean Value Property for Analytic Functions</title>
+          <statement>
+            <p>
+              The value of an analytic function <m>f</m> at <m>z_0</m> is the average value of <m>f</m> on a small circle centered at <m>z_0</m>.
+            </p>
+            <p>
+              More precisely, suppose that <m>f</m> is analytic on a domain that includes the closed disk <m>\abs{z - z_0} \le r</m>.
+              Then
+            </p>
+            <me>
+              f(z_0) = \frac{1}{2\pi} \int_0^{2\pi} f(z_0 + re^{i\theta})\,d\theta.
+            </me>
+          </statement>
+        </theorem>
+          <!--https://www.geogebra.org/calculator/abqahkay-->
+          <figure xml:id="fig-geogebra-mean-value">
+            <caption>GeoGebra: Parametrization for Mean Value Property</caption>
+            <interactive xml:id="geogebra-mean-value" platform="geogebra" width="80%" aspect="1:1">
+                <slate xml:id="mean-value" surface="geogebra" material="https://www.geogebra.org/calculator/abqahkay" aspect="1:1">
+                   setCoordSystem(-5,5,-5,5);
+                  <!-- centerView((0,0)); -->
+                  <!--enableShiftDragZoom(false);-->
+                </slate>
+              <instructions>
+                <p> 
+                 You can view a larger version of this <url href="https://www.geogebra.org/calculator/abqahkay">here</url>.
+                </p>
+              </instructions>
+            </interactive>
+            </figure>
         
       </section>
+
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>

@@ -4,3 +4,4 @@ Appendix ideas.
 - review of multivariable calculus
 - winding numbers for continuous functions
 - Inverse Function Theorem for maps R^2 \to R^2
+- misc topological stuff, e.g. "path-connected" iff "polygonal-path-connected"

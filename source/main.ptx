@@ -3472,7 +3472,7 @@
           </p>
           <p>
             <!--TODO: add figure-->
-            Let <m>\gamma</m> be the curve that winds clockwise twice around <m>0</m>, as pictured.
+            Let <m>\gamma</m> be the curve that winds clockwise twice around <m>2</m>, as pictured.
             Then we can divide <m>\gamma</m> into two simple pieces <m>\gamma_1</m> and <m>\gamma_2</m>
             and apply the Cauchy Integral Formula to each piece:
           </p>
@@ -3495,11 +3495,22 @@
               (In fact, under these hypotheses, <m>g</m> must be analytic at <m>z_0</m>.)
             </p>
             <p>
+               Since <m>z_0</m> is inside <m>\gamma</m>, there is a small <m>\eps_0 \gt 0</m>
+               such that the disk <m>B_{\eps_0}(z_0)</m> lies completely inside <m>\gamma</m>.
+               Since <m>g</m> is continuous, <m>\abs{g(z)}</m> is bounded on the interior 
+               of <m>\gamma_{\eps_0}</m>; say <m>\abs{g(z)} \le M</m> on <m>B_\eps(z_0)</m>.
+               <aside>
+                <p>
+                  The point of this <m>\eps_0</m> business is that we need a <em>fixed</em> bound
+                  <m>M</m> in order to conclude that <m>ML</m> goes to <m>0</m> as <m>\eps</m>
+                  goes to <m>0</m>.
+                </p>
+               </aside>
+
+               Consider <m>\eps \lt \eps_0</m>.
                <xref ref="example-cauchy-two"/> implies that
                <m>\oint_\gamma g(z)\,dz = \oint_{\gamma_\eps} g(z)\,dz</m>, where
                <m>\gamma_\eps</m> is a circle of radius <m>\eps</m> centered at <m>z_0</m>.
-               Since <m>g</m> is continuous, <m>\abs{g(z)}</m> is bounded on the interior 
-               of <m>\gamma_\eps</m>; say <m>\abs{g(z)} \le M</m> on <m>B_\eps(z_0)</m>.
                Now we just do an ML-estimate:
             </p>
             <me>
@@ -3692,7 +3703,7 @@
             </p>
               <md>
                 <mrow> \abs{f^{(n)}(z_0)} \amp = \abs{\frac{n!}{2\pi i} \oint_{C_R} \frac{f(z)}{(z-z_0)^{n+1}} \, dz} </mrow>
-                <mrow> \amp \le \frac{n!}{2\pi} \oint_{C_R} \frac{\abs{f(z)}{\abs{z-z_0}^{n+1}}}\,\abs{dz} </mrow>
+                <mrow> \amp \le \frac{n!}{2\pi} \oint_{C_R} \frac{\abs{f(z)}}{\abs{z-z_0}^{n+1}}\,\abs{dz} </mrow>
                 <mrow> \amp \le \frac{n!}{2\pi} \cdot \frac{M_R}{R^{n+1}} \oint_{C_R} \abs{dz} </mrow>
                 <mrow> \amp =  \frac{n!}{2\pi} \cdot \frac{M_R}{R^{n+1}} \cdot 2\pi R </mrow>
                 <mrow> \amp = \frac{n! M_R}{R^n} </mrow>
@@ -3723,7 +3734,7 @@
             </me>
           </p>
           <p>
-            But then we could have chosen <m>R</m> to be as large as we like, so <m>f'(z_0) = 0</m>.
+            But then <m>M</m> is fixed, and we could have chosen <m>R</m> to be as large as we like, so <m>f'(z_0) = 0</m>.
             So <xref ref="lem-deriv-zero-constant"/> implies that <m>f</m> must be constant.
           </p>
           </proof>
@@ -3762,7 +3773,7 @@
                 <p>
                   Here is a bit more detail. Fixing <m>\eps \gt 0</m>, find an <m>R \gt 0</m> for which the inequality
                 <me>
-                  \abs{\frac{p(z)}{z^n} - a_n} = \abs{ \frac{a_{n-1}} + \frac{a_{n-2}}{z^2} + \cdots + \frac{a_0}{z^n} } \lt \eps
+                  \abs{\frac{p(z)}{z^n} - a_n} = \abs{ \frac{a_{n-1}}{z} + \frac{a_{n-2}}{z^2} + \cdots + \frac{a_0}{z^n} } \lt \eps
                 </me>
                 holds for all <m>z</m> with <m>\abs{z} \gt R</m>.
                 Notice that now <m>\abs{z} \gt R</m> implies <m>\abs{\frac{1}{p(z)}} \lt \frac{1}{\abs{a_n} R^n} + \eps</m>.
@@ -3791,13 +3802,27 @@
               f(z_0) = \frac{1}{2\pi} \int_0^{2\pi} f(z_0 + re^{i\theta})\,d\theta.
             </me>
           </statement>
+          <proof>
+            <p>
+              This is just what you get by applying the Cauchy Integral Formula to <m>C_r</m>, the circle of radius <m>r</m> centered at <m>z_0</m>,
+              and parametrizing the circle to compute the integral:
+            </p>
+            <md>
+              <mrow> f(z_0) \amp = \frac{1}{2\pi i} \oint_{C_r} \frac{f(z)}{z-z_0} \,dz </mrow>
+              <mrow> \amp = \frac{1}{2\pi i} \int_0^{2\pi} \frac{f(z+re^{i\theta})}{re^{i\theta}} ire^{i\theta}\,d\theta </mrow>
+              <mrow> \amp = \frac{1}{2\pi} \int_0^{2\pi} f(z+re^{i\theta})\,d\theta </mrow>
+            </md>
+            <p>
+              This completes the proof.
+            </p>
+          </proof>
         </theorem>
           <!--https://www.geogebra.org/calculator/abqahkay-->
           <figure xml:id="fig-geogebra-mean-value">
-            <caption>GeoGebra: Parametrization for Mean Value Property</caption>
+            <caption>GeoGebra: Parametrization for the Mean Value Property</caption>
             <interactive xml:id="geogebra-mean-value" platform="geogebra" width="80%" aspect="1:1">
                 <slate xml:id="mean-value" surface="geogebra" material="https://www.geogebra.org/calculator/abqahkay" aspect="1:1">
-                   setCoordSystem(-5,5,-5,5);
+                   <!--setCoordSystem(-5,5,-5,5);-->
                   <!-- centerView((0,0)); -->
                   <!--enableShiftDragZoom(false);-->
                 </slate>
@@ -3808,9 +3833,107 @@
               </instructions>
             </interactive>
             </figure>
+            <subsection xml:id="subsec-mmp">
+              <title>The Maximum Modulus Principle</title>
+              <lemma xml:id="lem-max-mod">
+                <statement>
+                  <p>
+                    Suppose that <m>f</m> is analytic on <m>B_r(z_0)</m> and <m>\abs{f}</m>
+                    achieves its maximum at <m>z_0</m>. Then <m>f</m> must be constant on <m>B_r(z_0)</m>. 
+                  </p>
+                </statement>
+                <aside>
+                  <p>
+                    <!--TODO: add picture-->
+                    So for example an open disk cannot be mapped by <m>f</m>
+                    to a non-open set. But this is for a more fundamental reason:
+                    nonconstant analytic functions are <term>open mappings</term>.
+                  </p>
+                </aside>
+                <proof>
+                  <p>
+                    Fix <m>\eps \lt r</m>. Use the Mean Value Property and the fact that
+                    <m>\abs{f}</m> achieves its maximum at <m>z_0</m>:
+                  </p>
+                  <md>
+                    <mrow> \abs{f(z_0)} \amp = \abs{ \frac{1}{2\pi} \int_0^{2\pi} f(z_0 + \eps e^{i\theta})\,d\theta } </mrow>
+                    <mrow> \amp \le \frac{1}{2\pi} \int_0^{2\pi} \abs{f(z_0 + \eps e^{i\theta})}\,d\theta </mrow>
+                    <mrow> \amp \le \frac{1}{2\pi} \int_0^{2\pi} \abs{f(z_0)}\,d\theta </mrow>
+                    <mrow> \amp = \frac{1}{2\pi} 2\pi \abs{f(z_0)} </mrow>
+                  </md>
+                  <p>
+                    So <m>\abs{f(z_0)} = \frac{1}{2\pi} \int_0^{2\pi} \abs{f(z_0 + \eps e^{i\theta})}\,d\theta</m>,
+                    i.e.,
+                  </p>
+                  <me>
+                    \int_0^{2\pi} \abs{f(z_0+\eps e^{i\theta})} - \abs{f(z_0)}\,d\theta = 0.
+                  </me>
+                  <p>
+                  The integrand <m>\abs{f(z_0+\eps e^{i\theta})} - \abs{f(z_0)}</m> is a continuous
+                  nonnegative real-valued function on <m>[0,2\pi]</m> that integrates to <m>0</m>.
+                  Thus this function must be <m>0</m>, by a standard argument in real analysis.
+                  So <m>\abs{f(z_0)} = \abs{f(z_0 + \eps e^{i\theta})}</m> for all <m>\theta \in [0,2\pi]</m>.
+                  </p>
+                  <p>
+                    Remember that <m>\eps \lt r</m> was arbitrary. So <m>\abs f</m> is constant on <m>B_r(z_0)</m>.
+                    So <m>f</m> must be constant on <m>B_r(z_0)</m>, by <xref ref="cor-modulus-const"/>.
+                  </p>
+                </proof>
+              </lemma>
+              <theorem xml:id="thm-max-mod-principle">
+                <title>The Maximum Modulus Principle</title> 
+                <statement>
+                  <p>
+                    If <m>f</m> is analytic on a domain <m>D</m> and <m>\abs{f}</m>
+                    achieves its maximum value on <m>D</m>, i.e., there is <m>z_0 \in D</m>
+                    such that <m>\abs{f(z)} \le \abs{f(z_0)}</m>  for all <m>z\in D</m>,
+                    then <m>f</m> must be constant.
+                  </p>
+                </statement>
+                <proof>
+                  <p>
+                    Use <xref ref="lem-max-mod"/> and polygonal paths,
+                    imitating part of the proof of <xref ref="lem-deriv-zero-constant"/>.
+                  </p>
+                </proof>
+              </theorem>
+              <corollary xml:id="cor-max-mod">
+                <statement>
+                  <p>
+                    Suppose that <m>f</m> is continuous on a closed bounded region <m>R</m>
+                    and analytic in the interior of <m>R</m>.
+                    Then either <m>f</m> is constant on <m>R</m>, or
+                    <m>\abs{f}</m> achieves its maximum (as it must!) on <m>\partial R</m>
+                    and never in the interior of <m>R</m>.
+                  </p>
+                </statement>
+                <proof>
+                  <p>
+                    This is just because the interior of <m>R</m> is a domain.
+                    Just apply the previous theorem.
+                  </p>
+                </proof>
+              </corollary>
+              <example>
+                <p>
+                  Find the maximum modulus of <m>e^z</m> on the unit square <m>[0,1]\times[0,1]</m>.
+                </p>
+                <p>
+                  Notice that <m>\abs{e^z} = \abs{e^{x + iy}} = e^x</m> is maximal when <m>x = 1</m>,
+                  on the boundary of the square.
+                </p>
+              </example>
+            </subsection>
         
       </section>
 
+    </chapter>
+    <chapter xml:id="ch-taylor-laurent-series">
+      <title>Taylor and Laurent Series</title>
+      <section xml:id="sec-taylor-series">
+        <title>Taylor Series</title>
+        
+      </section>
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>

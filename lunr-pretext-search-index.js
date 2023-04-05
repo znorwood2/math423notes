@@ -1483,7 +1483,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.5",
   "title": "Cauchy's Integral Formula",
-  "body": " Cauchy's Integral Formula    Suppose that is a simple closed curve and is analytic that includes and its interior. Assume that is counterclockwise-oriented. Then for all inside ,  or sometimes    Knowing all values of on gives you all values of in ! This is an incredible fact, which for the time being we will primarily use to evaluate integrals.   As a reality check, consider and let parametrize the unit circle counterclockwise.     Compute , for each of the following .  First, suppose that parametrizes a circle centered at . Notice that is entire, so the Cauchy Integral Formula gives   which we solve to see that the integral is .  Next, suppose that is completely included in the first quadrant  . (In fact, the following analysis will apply to any curve that does not encircle .) Then the integrand is analytic on (the star-shaped region) , so Cauchy's Theorem implies that .   Let be the curve that winds clockwise twice around , as pictured. Then we can divide into two simple pieces and and apply the Cauchy Integral Formula to each piece:     Improvement of Cauchy's Theorem   Suppose that is a simply connected domain, , and is analytic on and continuous at . Then for all closed curves in .    (In fact, under these hypotheses, must be analytic at .)   implies that , where is a circle of radius centered at . Since is continuous, is bounded on the interior of ; say on . Now we just do an ML-estimate:   This completes the proof.     Proof of the Cauchy Integral Formula  Consider the following function.   Since is differentiable at , this function is continuous at .  This is a common trick used to prove theorems about derivatives in real analysis.  By , we have   Rearrange this to get   (The last equality follows from our computation of ) over a circle centered at the origin; do the substitution .)    The Cauchy Integral Formula for Derivatives   Suppose that is a simple closed curve and is analytic that includes and its interior. Assume that is counterclockwise-oriented. Then for all inside , the th derivative exists and satisfies the following formula.     This is the idea :   And then you iterate to obtain the formula for . But the second equality above requires justification.  OK, here's what we actually need to do:   (There is no problem taking a limit under the integral sign, since everything is continuous and the denominator is nonzero.)      If is analytic on , then has derivatives of all orders on !    Now let's do several examples.      Compute .    Picture of curve for example   A picture of for the example.   We factor and notice that encircles one singularity but not the other. So we define , notice that is analytic on and its interior, and apply the Cauchy Integral Formula for Derivatives:     Compute , where is the curve pictured below.   curve for example   Now encircles both singularities! So we can't just do what we did in the previous example. So we split the curve in two like this:   image for example   Define and , so that   Now we can split up the integral so that we integrate around the two singularities separately:   It is worth noting that we could've used partial fractions instead: . Later, we will see how to do this kind of example much more systematically using residue theory.   "
+  "body": " Cauchy's Integral Formula    Suppose that is a simple closed curve and is analytic that includes and its interior. Assume that is counterclockwise-oriented. Then for all inside ,  or sometimes    Knowing all values of on gives you all values of in ! This is an incredible fact, which for the time being we will primarily use to evaluate integrals.   As a reality check, consider and let parametrize the unit circle counterclockwise.     Compute , for each of the following .  First, suppose that parametrizes a circle centered at . Notice that is entire, so the Cauchy Integral Formula gives   which we solve to see that the integral is .  Next, suppose that is completely included in the first quadrant  . (In fact, the following analysis will apply to any curve that does not encircle .) Then the integrand is analytic on (the star-shaped region) , so Cauchy's Theorem implies that .   Let be the curve that winds clockwise twice around , as pictured. Then we can divide into two simple pieces and and apply the Cauchy Integral Formula to each piece:     Improvement of Cauchy's Theorem   Suppose that is a simply connected domain, , and is analytic on and continuous at . Then for all closed curves in .    (In fact, under these hypotheses, must be analytic at .)  Since is inside , there is a small such that the disk lies completely inside . Since is continuous, is bounded on the interior of ; say on .  The point of this business is that we need a fixed bound in order to conclude that goes to as goes to .  Consider . implies that , where is a circle of radius centered at . Now we just do an ML-estimate:   This completes the proof.     Proof of the Cauchy Integral Formula  Consider the following function.   Since is differentiable at , this function is continuous at .  This is a common trick used to prove theorems about derivatives in real analysis.  By , we have   Rearrange this to get   (The last equality follows from our computation of ) over a circle centered at the origin; do the substitution .)    The Cauchy Integral Formula for Derivatives   Suppose that is a simple closed curve and is analytic that includes and its interior. Assume that is counterclockwise-oriented. Then for all inside , the th derivative exists and satisfies the following formula.     This is the idea :   And then you iterate to obtain the formula for . But the second equality above requires justification.  OK, here's what we actually need to do:   (There is no problem taking a limit under the integral sign, since everything is continuous and the denominator is nonzero.)      If is analytic on , then has derivatives of all orders on !    Now let's do several examples.      Compute .    Picture of curve for example   A picture of for the example.   We factor and notice that encircles one singularity but not the other. So we define , notice that is analytic on and its interior, and apply the Cauchy Integral Formula for Derivatives:     Compute , where is the curve pictured below.   curve for example   Now encircles both singularities! So we can't just do what we did in the previous example. So we split the curve in two like this:   image for example   Define and , so that   Now we can split up the integral so that we integrate around the two singularities separately:   It is worth noting that we could've used partial fractions instead: . Later, we will see how to do this kind of example much more systematically using residue theory.   "
 },
 {
   "id": "thm-cauchy-integral-formula",
@@ -1519,7 +1519,7 @@ var ptx_lunr_docs = [
   "type": "Theorem",
   "number": "4.5.4",
   "title": "Improvement of Cauchy's Theorem.",
-  "body": " Improvement of Cauchy's Theorem   Suppose that is a simply connected domain, , and is analytic on and continuous at . Then for all closed curves in .    (In fact, under these hypotheses, must be analytic at .)   implies that , where is a circle of radius centered at . Since is continuous, is bounded on the interior of ; say on . Now we just do an ML-estimate:   This completes the proof.   "
+  "body": " Improvement of Cauchy's Theorem   Suppose that is a simply connected domain, , and is analytic on and continuous at . Then for all closed curves in .    (In fact, under these hypotheses, must be analytic at .)  Since is inside , there is a small such that the disk lies completely inside . Since is continuous, is bounded on the interior of ; say on .  The point of this business is that we need a fixed bound in order to conclude that goes to as goes to .  Consider . implies that , where is a circle of radius centered at . Now we just do an ML-estimate:   This completes the proof.   "
 },
 {
   "id": "proof-26",
@@ -1582,7 +1582,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.6",
   "title": "Applications of the Cauchy Integral Formula",
-  "body": " Applications of the Cauchy Integral Formula    Write for the circle of radius centered at . Suppose that is analytic on and its interior, and put . Then, for ,     This is just a matter of combining the Cauchy Integral Formula for Derivatives with an ML-estimate:       A function is bounded if there is a real number for which for all .     Liouville's Theorem   A bounded entire function must be constant.    Suppose that on all of . Then for every circle , we have by    But then we could have chosen to be as large as we like, so . So implies that must be constant.     NB. Polynomials, , sine, cosine (!), etc., are all entire but not bounded.   The Fundamental Theorem of Algebra   Every nonconstant polynomial with complex coefficients has a root in .    Write Suppose toward a contradiction that does not have a complex root, so that is entire.     is bounded.    This is the idea:   Here is a bit more detail. Fixing , find an for which the inequality holds for all with . Notice that now implies . We have found a bound for for . Now remember that is a continuous function on the compact ball and is therefore bounded. Combine these two bounds to see that is bounded on .   Now apply to see that must be constant. So must be constant, oops.    The Mean Value Property for Analytic Functions   The value of an analytic function at is the average value of on a small circle centered at .  More precisely, suppose that is analytic on a domain that includes the closed disk . Then       GeoGebra: Parametrization for Mean Value Property    "
+  "body": " Applications of the Cauchy Integral Formula    Write for the circle of radius centered at . Suppose that is analytic on and its interior, and put . Then, for ,     This is just a matter of combining the Cauchy Integral Formula for Derivatives with an ML-estimate:       A function is bounded if there is a real number for which for all .     Liouville's Theorem   A bounded entire function must be constant.    Suppose that on all of . Then for every circle , we have by    But then is fixed, and we could have chosen to be as large as we like, so . So implies that must be constant.     NB. Polynomials, , sine, cosine (!), etc., are all entire but not bounded.   The Fundamental Theorem of Algebra   Every nonconstant polynomial with complex coefficients has a root in .    Write Suppose toward a contradiction that does not have a complex root, so that is entire.     is bounded.    This is the idea:   Here is a bit more detail. Fixing , find an for which the inequality holds for all with . Notice that now implies . We have found a bound for for . Now remember that is a continuous function on the compact ball and is therefore bounded. Combine these two bounds to see that is bounded on .   Now apply to see that must be constant. So must be constant, oops.    The Mean Value Property for Analytic Functions   The value of an analytic function at is the average value of on a small circle centered at .  More precisely, suppose that is analytic on a domain that includes the closed disk . Then     This is just what you get by applying the Cauchy Integral Formula to , the circle of radius centered at , and parametrizing the circle to compute the integral:   This completes the proof.      GeoGebra: Parametrization for the Mean Value Property     The Maximum Modulus Principle    Suppose that is analytic on and achieves its maximum at . Then must be constant on .     So for example an open disk cannot be mapped by to a non-open set. But this is for a more fundamental reason: nonconstant analytic functions are open mappings .    Fix . Use the Mean Value Property and the fact that achieves its maximum at :   So , i.e.,   The integrand is a continuous nonnegative real-valued function on that integrates to . Thus this function must be , by a standard argument in real analysis. So for all .  Remember that was arbitrary. So is constant on . So must be constant on , by .     The Maximum Modulus Principle   If is analytic on a domain and achieves its maximum value on , i.e., there is such that for all , then must be constant.    Use and polygonal paths, imitating part of the proof of .      Suppose that is continuous on a closed bounded region and analytic in the interior of . Then either is constant on , or achieves its maximum (as it must!) on and never in the interior of .    This is just because the interior of is a domain. Just apply the previous theorem.     Find the maximum modulus of on the unit square .  Notice that is maximal when , on the boundary of the square.    "
 },
 {
   "id": "thm-cauchy-estimates",
@@ -1609,7 +1609,7 @@ var ptx_lunr_docs = [
   "type": "Theorem",
   "number": "4.6.3",
   "title": "Liouville's Theorem.",
-  "body": " Liouville's Theorem   A bounded entire function must be constant.    Suppose that on all of . Then for every circle , we have by    But then we could have chosen to be as large as we like, so . So implies that must be constant.   "
+  "body": " Liouville's Theorem   A bounded entire function must be constant.    Suppose that on all of . Then for every circle , we have by    But then is fixed, and we could have chosen to be as large as we like, so . So implies that must be constant.   "
 },
 {
   "id": "cor-FTA",
@@ -1627,7 +1627,7 @@ var ptx_lunr_docs = [
   "type": "Theorem",
   "number": "4.6.6",
   "title": "The Mean Value Property for Analytic Functions.",
-  "body": " The Mean Value Property for Analytic Functions   The value of an analytic function at is the average value of on a small circle centered at .  More precisely, suppose that is analytic on a domain that includes the closed disk . Then    "
+  "body": " The Mean Value Property for Analytic Functions   The value of an analytic function at is the average value of on a small circle centered at .  More precisely, suppose that is analytic on a domain that includes the closed disk . Then     This is just what you get by applying the Cauchy Integral Formula to , the circle of radius centered at , and parametrizing the circle to compute the integral:   This completes the proof.   "
 },
 {
   "id": "fig-geogebra-mean-value",
@@ -1636,7 +1636,52 @@ var ptx_lunr_docs = [
   "type": "Figure",
   "number": "4.6.7",
   "title": "",
-  "body": " GeoGebra: Parametrization for Mean Value Property   "
+  "body": " GeoGebra: Parametrization for the Mean Value Property   "
+},
+{
+  "id": "lem-max-mod",
+  "level": "2",
+  "url": "sec-applications-cif.html#lem-max-mod",
+  "type": "Lemma",
+  "number": "4.6.8",
+  "title": "",
+  "body": "  Suppose that is analytic on and achieves its maximum at . Then must be constant on .     So for example an open disk cannot be mapped by to a non-open set. But this is for a more fundamental reason: nonconstant analytic functions are open mappings .    Fix . Use the Mean Value Property and the fact that achieves its maximum at :   So , i.e.,   The integrand is a continuous nonnegative real-valued function on that integrates to . Thus this function must be , by a standard argument in real analysis. So for all .  Remember that was arbitrary. So is constant on . So must be constant on , by .   "
+},
+{
+  "id": "thm-max-mod-principle",
+  "level": "2",
+  "url": "sec-applications-cif.html#thm-max-mod-principle",
+  "type": "Theorem",
+  "number": "4.6.9",
+  "title": "The Maximum Modulus Principle.",
+  "body": " The Maximum Modulus Principle   If is analytic on a domain and achieves its maximum value on , i.e., there is such that for all , then must be constant.    Use and polygonal paths, imitating part of the proof of .   "
+},
+{
+  "id": "cor-max-mod",
+  "level": "2",
+  "url": "sec-applications-cif.html#cor-max-mod",
+  "type": "Corollary",
+  "number": "4.6.10",
+  "title": "",
+  "body": "  Suppose that is continuous on a closed bounded region and analytic in the interior of . Then either is constant on , or achieves its maximum (as it must!) on and never in the interior of .    This is just because the interior of is a domain. Just apply the previous theorem.   "
+},
+{
+  "id": "example-40",
+  "level": "2",
+  "url": "sec-applications-cif.html#example-40",
+  "type": "Example",
+  "number": "4.6.11",
+  "title": "",
+  "body": " Find the maximum modulus of on the unit square .  Notice that is maximal when , on the boundary of the square.  "
+},
+{
+  "id": "sec-taylor-series",
+  "level": "1",
+  "url": "sec-taylor-series.html",
+  "type": "Section",
+  "number": "5.1",
+  "title": "Taylor Series",
+  "body": " Taylor Series  "
 },
 {
   "id": "colophon-2",

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><div class="para">Fix <span class="process-math">\(\eps \lt r\text{.}\)</span> Use the Mean Value Property and the fact that <span class="process-math">\(\abs{f}\)</span> achieves its maximum at <span class="process-math">\(z_0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-modulus-const.html">
+\begin{align*}
+\abs{f(z_0)} \amp = \abs{ \frac{1}{2\pi} \int_0^{2\pi} f(z_0 + \eps e^{i\theta})\,d\theta } \\
+\amp \le \frac{1}{2\pi} \int_0^{2\pi} \abs{f(z_0 + \eps e^{i\theta})}\,d\theta \\
+\amp \le \frac{1}{2\pi} \int_0^{2\pi} \abs{f(z_0)}\,d\theta \\
+\amp = \frac{1}{2\pi} 2\pi \abs{f(z_0)} 
+\end{align*}
+</div>
+<div class="para">So <span class="process-math">\(\abs{f(z_0)} = \frac{1}{2\pi} \int_0^{2\pi} \abs{f(z_0 + \eps e^{i\theta})}\,d\theta\text{,}\)</span> i.e.,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-modulus-const.html">
+\begin{equation*}
+\int_0^{2\pi} \abs{f(z_0+\eps e^{i\theta})} - \abs{f(z_0)}\,d\theta = 0.
+\end{equation*}
+</div>
+<div class="para">The integrand <span class="process-math">\(\abs{f(z_0+\eps e^{i\theta})} - \abs{f(z_0)}\)</span> is a continuous nonnegative real-valued function on <span class="process-math">\([0,2\pi]\)</span> that integrates to <span class="process-math">\(0\text{.}\)</span> Thus this function must be <span class="process-math">\(0\text{,}\)</span> by a standard argument in real analysis. So <span class="process-math">\(\abs{f(z_0)} = \abs{f(z_0 + \eps e^{i\theta})}\)</span> for all <span class="process-math">\(\theta \in [0,2\pi]\text{.}\)</span>
+</div> <div class="para">Remember that <span class="process-math">\(\eps \lt r\)</span> was arbitrary. So <span class="process-math">\(\abs f\)</span> is constant on <span class="process-math">\(B_r(z_0)\text{.}\)</span> So <span class="process-math">\(f\)</span> must be constant on <span class="process-math">\(B_r(z_0)\text{,}\)</span> by <a href="" class="xref" data-knowl="./knowl/cor-modulus-const.html" title="Corollary 3.2.6">Corollary 3.2.6</a>.</div></article></body>
+</html>

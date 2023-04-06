@@ -3932,7 +3932,394 @@
       <title>Taylor and Laurent Series</title>
       <section xml:id="sec-taylor-series">
         <title>Taylor Series</title>
-        
+        <theorem xml:id="thm-taylor">
+          <title>Taylor's Theorem</title>
+          <statement>
+            <p>
+              Suppose that <m>f\colon B_r(a) \to \C</m> is analytic.
+              Then <m>f</m> has, on <m>B_r(a)</m>, a convergent power series expansion
+              <me>
+                f(z) = \sum_{n\ge 0} c_n (z-a)^n
+              </me>
+              centered at <m>a</m>, with coefficients given by
+              <me>
+                c_n = \frac{f^{(n)}(a)}{n!} = \frac{1}{2\pi i} \oint_{\partial B_\rho(a)} \frac{f(w)}{(w-a)^{n+1}}\,dw
+              </me>
+              for any <m>\rho \lt r</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Suppose <m>\rho \lt r</m> and <m>z\in B_\rho(a)</m>. Apply the Cauchy Integral Formula:
+            </p>
+            <men xml:id="eqn-taylor">
+              f(z) = \frac{1}{2\pi i} \oint_{\partial B_\rho(a)} \frac{f(w)}{w - z} \,dw .
+            </men>
+            <p>
+              Now we use a non-obvious trick. Expand the factor <m>\frac{1}{w-z}</m> in the integrand
+              into a geometric series, which converges uniformly in <m>w \in \partial B_\rho(a)</m> since <m>\abs{\frac{z-a}{w-a}} = \frac{\abs{z-a}}{\rho} \lt 1</m>:
+            </p>
+            <me>
+              \frac{1}{w-z} = \frac{1}{(w-a)\left( 1 - \frac{z-a}{w-a} \right)} = \frac{1}{w-a} \sum_{n\ge 0} \frac{(z-a)^n}{(w-a)^{n}}
+              = \sum_{n\ge 0} \frac{(z-a)^n}{(w-a)^{n+1}}
+            </me>
+            <p>
+              Using this to replace the <m>\frac{1}{w-z}</m> in <xref ref="eqn-taylor"/> with a series
+              and using the uniformity of the convergence to interchange a sum and an integral gives the following.
+            </p>
+            <md>
+              <mrow> f(z) \amp = \frac{1}{2\pi i} \oint_{\partial B_\rho(a)} \frac{f(w)}{w - z}\,dz </mrow>
+              <mrow> \amp = \frac{1}{2\pi i} \oint_{\partial B_{\rho(a)}} \sum_{n\ge 0} \frac{f(w) (z-a)^n}{(w-a)^{n+1}}\,dw </mrow>
+              <mrow> \amp = \sum_{n\ge 0} \left( \frac{1}{2\pi i} \oint_{\partial B_{\rho}(a)} \frac{f(w)}{(w-a)^{n+1}}\,dw \right) (z-a)^n</mrow>
+              <mrow> \amp = \sum_{n\ge 0} c_n (z-a)^n </mrow>
+            </md>
+            <p>
+              This is exactly what we wanted to show.
+            </p>
+          </proof>
+        </theorem>
+        <corollary xml:id="cor-taylor-coefficients-unique">
+          <statement>
+            <p>
+              If <m>\sum_{n\ge 0} c_n (z-a)^n</m> and <m>\sum_{n\ge 0} d_n (z-a)^n</m> are two power series
+              that converge to the same function on an open disk centered at <m>a</m>, then 
+              <m>c_n = d_n</m> for all <m>n\ge 0</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              (This is not really a corollary to the previous theorem. But it is important to note that 
+              the Taylor coefficients given in that theorem are unique.)
+            </p>
+            <p>
+              If the two series converge to <m>f</m> on <m>B_r(a)</m>, then (exercise) they are analytic there.
+              (You can differentiate term by term.)
+              So we must have <m>f(a) = c_0 = d_0</m>, <m>f'(a) = c_1 = d_1</m>, <m>f''(a) = 2c_2 = 2d_2</m>, etc.
+              (Proceed by induction.)
+            </p>
+          </proof>
+        </corollary>
+        <corollary xml:id="cor-infinitely-differentiable">
+          <statement>
+            <p>
+              If <m>f</m> is analytic on a domain, then it is infinitely differentiable on that domain.
+            </p>
+          </statement>
+        </corollary>
+        <corollary xml:id="cor-morera">
+          <title>Morera's Theorem</title>
+          <aside>
+            <p>
+              This is a nice part of the theory, but we are much more interested in theorems that
+              tell us facts about analytic functions than in those that tell us when a function is analytic.
+            </p>
+          </aside>
+          <statement>
+            <p>
+              If <m>f</m> is continuous on a domain <m>U</m> and <m>\oint_\gamma f(z)\,dz = 0</m> for all closed contours
+              <m>\gamma</m> in <m>U</m>, then <m>f</m> is analytic on <m>U</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              We can apply <xref ref="thm-antiderivative-conditions"/> to conclude that <m>f</m> has an antiderivative
+              <m>F</m> on <m>U</m>. But then <m>F</m> is infinitely differentiable on <m>U</m>, so <m>f</m> is 
+              analytic on <m>U</m>.
+            </p>
+          </proof>
+        </corollary>
+        <corollary xml:id="cor-roc-distance">
+          <statement>
+            <p>
+              If <m>f</m> is analytic on a domain <m>U</m> and <m>z_0 \in U</m>, then <m>f</m> has a 
+              power series expansion centered at <m>z_0</m> with radius of convergence at least the distance
+              from <m>z_0</m> to <m>\partial U</m>.
+            </p>
+          </statement>
+        </corollary>
+        <p>
+          The <term>distance</term> from a point <m>z</m> to a closed set <m>G</m> is defined 
+          to be the minimum <m>\min\set{ \abs{w - z} }{ w \in G}</m> when this minimum exists.
+          Notice that if <m>z \notin G</m>, then the function <m>w \mapsto \abs{w - z}</m> is continuous
+          and takes only positive values so must achieve a positive minimum value if <m>G</m> is compact
+          (= closed and bounded).
+          </p>
+        <example>
+          <p>
+            Let's compute the Taylor series expansion of the exponential function <m>f(z) = e^z</m> centered
+            at <m>a = 0</m>.
+            Since the exponential map is entire, we know in advance that the Taylor series will
+            have infinite radius of convergence.
+          </p>
+          <p>
+            All derivatives of <m>f</m> are the same: <m>f(z) = f'(z) = \cdots = e^z</m>.
+            So the <m>n</m>th Taylor coefficient is <m>\frac{f^{(n)}(0)}{n!} = \frac{1}{n!}</m>, and the series
+            is given by
+          </p>
+          <me>
+            e^z = 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \cdots = \sum_{n\ge 0} \frac{z^n}{n!}.
+          </me>
+          <p>
+            Great, this is the same as the series for the real exponential! This is not a coincidence.
+          </p>
+        </example>
+        <example>
+          <p>
+            Compute the Taylor series expansion of <m>f(z) = z^8 e^{3z}</m> around <m>a = 0</m>.
+          </p>
+          <p>
+            Just plug <m>3z</m> in for <m>z</m> in the Taylor series for <m>e^z</m> and multiply by <m>z^8</m>:
+          </p>
+          <md>
+            <mrow> e^{3z} \amp = \sum_{n\ge 0} \frac{3^n}{n!} z^n </mrow>
+            <mrow> f(z) \amp = \sum_{n\ge 0} \frac{3^n}{n!} z^{n+8} </mrow>
+          </md>
+        </example>
+        <example>
+          <p>
+            Compute the power series expansion of <m>f(z) = \sin(z)</m> centered around <m>a = 0</m>.
+          </p>
+          <p>
+            <alert>Method 1:</alert>
+            Compute derivatives of <m>\sin(z)</m>:
+          </p>
+          <me>
+            f^{(n)}(0) = \frac{d^n \sin(z)}{dz^n} = \begin {cases} (-1)^m \amp \text{ if } n = 2m+1 \\ 0 \amp \text{ if }n \text{ is even } \end {cases}
+          </me>
+          <p>
+            Then use the formula.
+          </p>
+          <p>
+            <alert>Method 2:</alert>
+            Recall that <m>\sin(z) = \frac{e^{iz} - e^{-iz}}{2i}</m>, so we can use the series for <m>e^z</m>:
+          </p>
+          <md>
+            <mrow> \sin(z) \amp = \frac{1}{2i} \left[ \sum_{n\ge 0} \frac{(iz)^n}{n!} - \sum_{n\ge 0} \frac{(-iz)^n}{n!} \right] </mrow>
+            <mrow> \amp = \frac{1}{2i} \sum_{n\ge 0} (1 - (-1)^n) \frac{i^n z^n}{n!} </mrow>
+            <mrow> \amp = \sum_{k\ge 0} (-1)^k \frac{z^{2k+1}}{(2k+1)!} </mrow>
+          </md>
+          <p>
+            This series converges for all <m>z</m>. (This follows either from the fact that <m>\sin(z)</m> is entire,
+            or from the fact that we built the series from the Taylor series for <m>e^z</m>, which converges everywhere.)
+          </p>
+        </example>
+        <example>
+          <p>
+            Compute the Taylor series expansion for <m>f(z) = \frac{1}{1 - z}</m> around <m>a = 5</m>.
+            We should observe in advance that this series will have radius of convergence <m>4</m>, the distance
+            to the nearest singularity at <m>z = 1</m>!
+          </p>
+          <p>
+            You can compute derivatives and use the formula, but it is easier to just recognize that 
+            we will get a geometric series and use an algebraic trick:
+          </p>
+          <me>
+            f(z) = \frac{1}{-4(1 + \frac{z-5}{4})} = \frac{-1}{4} \left( 1 - \left( \frac{z-5}{4} \right) + \left( \frac{z-5}{4} \right)^2 - \left( \frac{z-5}{4} \right)^3 + \cdots \right)
+          </me>
+          <p>
+            This series converges iff <m>\abs{\frac{z-5}{4}}\lt 1</m>, i.e., when <m>\abs{z - 5} \lt 4</m>, as predicted.
+          </p>
+        </example>
+        <example>
+          <p>
+            Compute the Taylor series expansion of <m>f(z) = \Log(1+z)</m> centered at <m>a = 0</m>.
+          </p>
+          <p>
+            We first observe that the branch cut starts at <m>z = -1</m>,
+            which is the nearest point (to <m>0</m>) at which <m>f</m> is not analytic.
+            So the radius of convergence is <m>1</m>.
+          </p>
+          <p>
+            Next we observe that the derivative of <m>f</m> has a geometric series expansion:
+          </p>
+          <me>
+            f'(z) = \frac{1}{1 + z} = 1 - z + z^2 - z^3 + \cdots
+          </me>
+          <p>
+            Integrating term by term gives a series expansion for <m>f</m>:
+          </p>
+          <md>
+            <mrow> f(z) \amp = a_0 + z - \frac{z^2}{2} + \frac{z^3}{3} - \frac{z^4}{4} + \cdots </mrow>
+            <mrow> \amp = a_0 + \sum_{n\ge 1} (-1)^{n+1} \frac{z^n}{n} </mrow>
+          </md>
+          <p>
+            We finish the computation by observing that <m>f(0) = a_0 = \Log(1) = 0</m>.
+          </p>
+        </example>
+        <example>
+          <p>
+            Consider the function <m>f(x) = \frac{1}{1 + x^2}</m>, a beautiful function of a real variable.
+            It has a Taylor series expansion centered at any <m>a\in \R</m>, yet the radius of convergence
+            of its series expansion at <m>a = 0</m> is <m>1</m>. Why?! There is no explanation of this
+            in real calculus.
+          </p>
+          <p>
+            (Just to refresh your memory:
+            <me>
+              \frac{1}{1+x^2} = \sum_{n\ge 0} (-x^2)^n = 1 - x^2 + x^4 - x^6 + \cdots
+            </me>
+            converges when <m>\abs{x^2} \lt 1</m>, i.e., <m>\abs{x} \lt 1</m>.)
+          </p>
+          <p>
+            But now we see what's going on! As a function of a complex variable,
+            this function has singularities at <m>\pm i</m>, and <m>1</m> is the distance from <m>0</m>
+            to the nearest singularity.
+          </p>
+        </example>
+      </section>
+      <section xml:id="sec-zero-singularity">
+        <title>Zeros and Singularities</title>
+        <alert>Subsections:</alert>
+        <list-of elements="subsection" divisions="section" empty="no" scope="section"/>
+        <subsection xml:id="subsec-zeros">
+          <title>Zeros of analytic functions</title>
+        <proposition xml:id="prop-order-zero">
+          <statement>
+            <p>
+              Suppose that <m>f</m> is analytic on a disk <m>B_r(z_0)</m> and is not identically <m>0</m> on that disk.
+              Then there is a unique integer <m>k \ge 0</m>, called the <term>order of the zero</term> of <m>f</m> at <m>z_0</m>,
+              such that <m>a_k \ne 0</m> and <m>f</m> has Taylor series around <m>z_0</m> given by
+            </p>
+            <me>
+              f(z) = (z-z_0)^k (a_k + a_{k+1}(z-z_0) + \cdots) = (z-z_0)^k \sum_{n\ge k} a_n (z-z_0)^{n-k}.
+            </me>
+          </statement>
+          <proof>
+            <p>
+              This is an immediately corollary to Taylor's Theorem:
+              since <m>f</m> is not identically zero on <m>B_r(z_0)</m>, there is a first nonzero
+              coefficient <m>a_k</m> in its power series expansion.
+            </p>
+          </proof>
+        </proposition>
+        <p>
+          <alert>NB.</alert> We did not assume in the definition that <m>f(z_0) = 0</m>.
+          If <m>f(z_0) \ne 0</m>, then <m>f</m> has a zero of order <m>0</m> at <m>z_0</m>.
+        </p>
+        <exercise>
+          <p>
+            Show how this generalizes the order of a zero of a polynomial from basic algebra.
+            (E.g. the polynomial <m>(x-2)^3 (x + 5)</m> has a zero of order <m>3</m> at <m>x = 2</m>
+            and a zero of order <m>1</m> at <m>x = -5</m>.)
+          </p>
+        </exercise>
+        <theorem xml:id="thm-zeros-isolated">
+          <title>The zeros of an analytic function are isolated</title>
+          <statement>
+            <p>
+              If <m>f \colon B_r(z_0) \to \C</m> is analytic and not identically zero on <m>B_r(z_0)</m>,
+              and <m>f(z_0) = 0</m>,
+              then there is a small neighborhood of <m>z_0</m> in which <m>z_0</m> is the only zero of <m>f</m>.
+            </p>
+          </statement>
+        </theorem>
+        <proof>
+          <p>
+            As in <xref ref="prop-order-zero"/>, let <m>k</m> be the order of the zero of <m>f</m> at <m>z_0</m>,
+            and let <m>g(z) = a_k + a_{k+1}(z-z_0) + \cdots</m> with <m>a_k \ne 0</m> be the function for which 
+            <me>
+              f(z) = (z-z_0)^k g(z).
+            </me>
+            Then <m>g(z_0) = a_k \ne 0</m>, so, since <m>g</m> is continuous on <m>B_r(z_0)</m> we can find a 
+            small <m>\eps \gt 0</m> such that <m>g(z) \ne 0</m> for all <m>z \in B_\eps(z_0)</m>.
+            On that small neighborhood we have <m>f(z) = (z-z_0)^k g(z) = 0</m> iff <m>z - z_0</m>.
+          </p>
+        </proof>
+        <corollary xml:id="cor-identity-thm">
+          <title>The Identity Theorem</title>
+          <statement>
+            <p>
+              Suppose that <m>D\subseteq \C</m> is a domain and that <m>f</m> and <m>g</m> are two analytic functions
+              <m>D \to \C</m>. Suppose further that the set <m>S = \set{z \in D}{f(z) = g(z)}</m> contains 
+              a <em>non-isolated point</em>, that is, a <m>w\in S</m> such that for all <m>\eps \gt 0</m>
+              we have <m>S \cap B_\eps(w) \ne \{w\}</m>.
+              Then <m>f = g</m> on <m>D</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Look at the function <m>h(z) = f(z) - g(z)</m> on <m>D</m>.
+              Then <m>h</m> has a nonisolated zero on <m>D</m>, so there is a small disk <m>B_\eps(w)</m>
+              on which <m>h</m> is identically zero.
+            </p>
+            <p>
+              Now we need a topological argument. Look at the following two sets.
+            </p>
+              <md>
+                <mrow> U \amp = \set{ a \in D}{h \equiv 0 \text{ on some neighborhood } B_\eps(a) \text{ of } a \text{ in } D} </mrow>
+                <mrow> V \amp = \set{ a \in D}{ \text{there is } n \ge 0 \text{ for which } h^{(n)}(a) \ne 0 }</mrow>
+              </md>
+            <p>
+              Certainly <m>a \in U</m> implies <m>a \notin V</m>; i.e., <m>U \cap V \ne \emptyset</m>. 
+              And <m>U \cup V = D</m> by Taylor's Theorem: expand around <m>a</m> and look at the Taylor coefficients.
+              But <m>D</m> is (path-)connected, so either <m>U = \emptyset</m> or <m>V = \emptyset</m>.
+              We have assumed that <m>w \in U</m>, so <m>V</m> must be empty. Thus <m>h</m> is identically zero
+              on all of <m>D</m>.
+            </p>
+          </proof>
+        </corollary>
+        <definition xml:id="def-analytic-continuation">
+          <statement>
+            <p>
+              Let <m>D_0 \subseteq D</m> be domains and <m>f_0\colon D_0 \to \C</m> analytic.
+              An <term>analytic continuation</term> of <m>f_0</m> (to <m>D</m>) is an analytic function <m>f\colon D\to \C</m>
+              that agrees with <m>f_0</m> on <m>D_0</m>: <m>f(z) = f_0(z)</m> for all <m>z\in D_0</m>.
+            </p>
+          </statement>
+        </definition>
+        <p>
+          An analytic contination of <m>f_0</m> must be unique, if it exists.
+        </p>
+        <example>
+          <p>
+            Consider the function
+            <me>
+              f_0(z) = \sum_{n\ge 0} z^n = 1 + z + z^2 + \cdots
+            </me>
+            defined on <m>D_0 = B_1(0)</m>.
+            This series diverges for <m>\abs{z} > 1</m>, but we know that 
+            <m>f(z) = \frac{1}{1-z}</m> is an analytic continuation of <m>f_0</m> defined on <m>\C\wo\{1\}</m>.
+          </p>
+        </example>
+      </subsection>
+        <subsection xml:id="subsec-permanence-functional-equations">
+          <title>The Principle of Permanence of Functional Equations</title>
+          <p>
+            This is more trouble than it's worth to state precisely, so we'll just give some examples
+            as applications of the Identity Theorem.
+          </p>
+          <example>
+            The equation <m>\sin^2(x) + \cos^2(x) = 1</m> holds for all real numbers <m>x</m>.
+            This means that we can apply <xref ref="cor-identity-thm"/> to the functions <m>f(z) = sin^2(z) + \cos^2(z)</m>
+            and <m>g(z) = 1</m> on <m>D = \C</m> to conclude that <m>sin^2(z) + \cos^2(z) = 1</m> for all <m>z \in \C</m>.
+          </example>
+          <example>
+            <p>
+              Consider the equation <m>e^{x+y} = e^x e^y</m>, which certainly holds for all real numbers <m>x,y</m>.
+            </p>
+            <p>
+              The function <m>F(z,w) = e^{z+w} - e^z e^w</m> is entire in each variable (holding the other one fixed)
+              and equals <m>0</m> for all <m>z,w\in \R</m>.
+              Since <m>\R</m> has a non-isolated point, this implies by <xref ref="cor-identity-thm"/>
+              that <m>F</m> is identically zero, i.e., <m>e^{z + w} = e^z e^w</m> for all <m>z,w\in\C</m>.
+            </p>
+          </example>
+        </subsection>
+        <subsection xml:id="subsec-singularities">
+          <title>Singularities</title>
+          <definition xml:id="def-singularity">
+            <statement>
+              <p>
+                A function <m>f</m> is <term>singular</term> at <m>z_0</m> if <m>f</m> is not analytic at <m>z_0</m>.
+                If <m>f</m> is singular at <m>z_0</m> but analytic on <m>\set{z }{ 0 \lt \abs{z-z_0} \lt r}</m>,
+                then we say that <m>f</m> has an <term>isolated singularity</term> at <m>z_0</m>.
+              </p>
+            </statement>
+          </definition>
+          <example>
+            
+          </example>
+        </subsection>
       </section>
     </chapter>
     <backmatter xml:id="backmatter">

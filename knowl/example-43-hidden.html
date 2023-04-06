@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="example example-like"><div class="para">Compute the power series expansion of <span class="process-math">\(f(z) = \sin(z)\)</span> centered around <span class="process-math">\(a = 0\text{.}\)</span>
+</div> <div class="para">
+<em class="alert">Method 1:</em> Compute derivatives of <span class="process-math">\(\sin(z)\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f^{(n)}(0) = \frac{d^n \sin(z)}{dz^n} = \begin {cases} (-1)^m \amp \text{ if } n = 2m+1 \\ 0 \amp \text{ if }n \text{ is even } \end {cases}
+\end{equation*}
+</div>
+<div class="para">Then use the formula.</div> <div class="para">
+<em class="alert">Method 2:</em> Recall that <span class="process-math">\(\sin(z) = \frac{e^{iz} - e^{-iz}}{2i}\text{,}\)</span> so we can use the series for <span class="process-math">\(e^z\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\sin(z) \amp = \frac{1}{2i} \left[ \sum_{n\ge 0} \frac{(iz)^n}{n!} - \sum_{n\ge 0} \frac{(-iz)^n}{n!} \right] \\
+\amp = \frac{1}{2i} \sum_{n\ge 0} (1 - (-1)^n) \frac{i^n z^n}{n!} \\
+\amp = \sum_{k\ge 0} (-1)^k \frac{z^{2k+1}}{(2k+1)!} 
+\end{align*}
+</div>
+<div class="para">This series converges for all <span class="process-math">\(z\text{.}\)</span> (This follows either from the fact that <span class="process-math">\(\sin(z)\)</span> is entire, or from the fact that we built the series from the Taylor series for <span class="process-math">\(e^z\text{,}\)</span> which converges everywhere.)</div></article></body>
+</html>

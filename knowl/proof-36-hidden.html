@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><div class="para">Suppose <span class="process-math">\(\rho \lt r\)</span> and <span class="process-math">\(z\in B_\rho(a)\text{.}\)</span> Apply the Cauchy Integral Formula:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-taylor.html">
+\begin{equation}
+f(z) = \frac{1}{2\pi i} \oint_{\partial B_\rho(a)} \frac{f(w)}{w - z} \,dw .\tag{5.1.1}
+\end{equation}
+</div>
+<div class="para">Now we use a non-obvious trick. Expand the factor <span class="process-math">\(\frac{1}{w-z}\)</span> in the integrand into a geometric series, which converges uniformly in <span class="process-math">\(w \in \partial B_\rho(a)\)</span> since <span class="process-math">\(\abs{\frac{z-a}{w-a}} = \frac{\abs{z-a}}{\rho} \lt 1\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-taylor.html">
+\begin{equation*}
+\frac{1}{w-z} = \frac{1}{(w-a)\left( 1 - \frac{z-a}{w-a} \right)} = \frac{1}{w-a} \sum_{n\ge 0} \frac{(z-a)^n}{(w-a)^{n}}
+= \sum_{n\ge 0} \frac{(z-a)^n}{(w-a)^{n+1}}
+\end{equation*}
+</div>
+<div class="para">Using this to replace the <span class="process-math">\(\frac{1}{w-z}\)</span> in <a href="" class="xref" data-knowl="./knowl/eqn-taylor.html" title="Equation 5.1.1">(5.1.1)</a> with a series and using the uniformity of the convergence to interchange a sum and an integral gives the following.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-taylor.html">
+\begin{align*}
+f(z) \amp = \frac{1}{2\pi i} \oint_{\partial B_\rho(a)} \frac{f(w)}{w - z}\,dz \\
+\amp = \frac{1}{2\pi i} \oint_{\partial B_{\rho(a)}} \sum_{n\ge 0} \frac{f(w) (z-a)^n}{(w-a)^{n+1}}\,dw \\
+\amp = \sum_{n\ge 0} \left( \frac{1}{2\pi i} \oint_{\partial B_{\rho}(a)} \frac{f(w)}{(w-a)^{n+1}}\,dw \right) (z-a)^n\\
+\amp = \sum_{n\ge 0} c_n (z-a)^n 
+\end{align*}
+</div>
+<div class="para">This is exactly what we wanted to show.</div></article></body>
+</html>

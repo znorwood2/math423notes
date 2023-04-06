@@ -1681,7 +1681,223 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.1",
   "title": "Taylor Series",
-  "body": " Taylor Series  "
+  "body": " Taylor Series   Taylor's Theorem   Suppose that is analytic. Then has, on , a convergent power series expansion centered at , with coefficients given by for any .    Suppose and . Apply the Cauchy Integral Formula:   Now we use a non-obvious trick. Expand the factor in the integrand into a geometric series, which converges uniformly in since :   Using this to replace the in with a series and using the uniformity of the convergence to interchange a sum and an integral gives the following.   This is exactly what we wanted to show.      If and are two power series that converge to the same function on an open disk centered at , then for all .    (This is not really a corollary to the previous theorem. But it is important to note that the Taylor coefficients given in that theorem are unique.)  If the two series converge to on , then (exercise) they are analytic there. (You can differentiate term by term.) So we must have , , , etc. (Proceed by induction.)      If is analytic on a domain, then it is infinitely differentiable on that domain.     Morera's Theorem   This is a nice part of the theory, but we are much more interested in theorems that tell us facts about analytic functions than in those that tell us when a function is analytic.    If is continuous on a domain and for all closed contours in , then is analytic on .    We can apply to conclude that has an antiderivative on . But then is infinitely differentiable on , so is analytic on .      If is analytic on a domain and , then has a power series expansion centered at with radius of convergence at least the distance from to .    The distance from a point to a closed set is defined to be the minimum when this minimum exists. Notice that if , then the function is continuous and takes only positive values so must achieve a positive minimum value if is compact (= closed and bounded).   Let's compute the Taylor series expansion of the exponential function centered at . Since the exponential map is entire, we know in advance that the Taylor series will have infinite radius of convergence.  All derivatives of are the same: . So the th Taylor coefficient is , and the series is given by   Great, this is the same as the series for the real exponential! This is not a coincidence.    Compute the Taylor series expansion of around .  Just plug in for in the Taylor series for and multiply by :     Compute the power series expansion of centered around .   Method 1: Compute derivatives of :   Then use the formula.   Method 2: Recall that , so we can use the series for :   This series converges for all . (This follows either from the fact that is entire, or from the fact that we built the series from the Taylor series for , which converges everywhere.)    Compute the Taylor series expansion for around . We should observe in advance that this series will have radius of convergence , the distance to the nearest singularity at !  You can compute derivatives and use the formula, but it is easier to just recognize that we will get a geometric series and use an algebraic trick:   This series converges iff , i.e., when , as predicted.    Compute the Taylor series expansion of centered at .  We first observe that the branch cut starts at , which is the nearest point (to ) at which is not analytic. So the radius of convergence is .  Next we observe that the derivative of has a geometric series expansion:   Integrating term by term gives a series expansion for :   We finish the computation by observing that .    Consider the function , a beautiful function of a real variable. It has a Taylor series expansion centered at any , yet the radius of convergence of its series expansion at is . Why?! There is no explanation of this in real calculus.  (Just to refresh your memory: converges when , i.e., .)  But now we see what's going on! As a function of a complex variable, this function has singularities at , and is the distance from to the nearest singularity.   "
+},
+{
+  "id": "thm-taylor",
+  "level": "2",
+  "url": "sec-taylor-series.html#thm-taylor",
+  "type": "Theorem",
+  "number": "5.1.1",
+  "title": "Taylor's Theorem.",
+  "body": " Taylor's Theorem   Suppose that is analytic. Then has, on , a convergent power series expansion centered at , with coefficients given by for any .    Suppose and . Apply the Cauchy Integral Formula:   Now we use a non-obvious trick. Expand the factor in the integrand into a geometric series, which converges uniformly in since :   Using this to replace the in with a series and using the uniformity of the convergence to interchange a sum and an integral gives the following.   This is exactly what we wanted to show.   "
+},
+{
+  "id": "cor-taylor-coefficients-unique",
+  "level": "2",
+  "url": "sec-taylor-series.html#cor-taylor-coefficients-unique",
+  "type": "Corollary",
+  "number": "5.1.2",
+  "title": "",
+  "body": "  If and are two power series that converge to the same function on an open disk centered at , then for all .    (This is not really a corollary to the previous theorem. But it is important to note that the Taylor coefficients given in that theorem are unique.)  If the two series converge to on , then (exercise) they are analytic there. (You can differentiate term by term.) So we must have , , , etc. (Proceed by induction.)   "
+},
+{
+  "id": "cor-infinitely-differentiable",
+  "level": "2",
+  "url": "sec-taylor-series.html#cor-infinitely-differentiable",
+  "type": "Corollary",
+  "number": "5.1.3",
+  "title": "",
+  "body": "  If is analytic on a domain, then it is infinitely differentiable on that domain.   "
+},
+{
+  "id": "cor-morera",
+  "level": "2",
+  "url": "sec-taylor-series.html#cor-morera",
+  "type": "Corollary",
+  "number": "5.1.4",
+  "title": "Morera's Theorem.",
+  "body": " Morera's Theorem   This is a nice part of the theory, but we are much more interested in theorems that tell us facts about analytic functions than in those that tell us when a function is analytic.    If is continuous on a domain and for all closed contours in , then is analytic on .    We can apply to conclude that has an antiderivative on . But then is infinitely differentiable on , so is analytic on .   "
+},
+{
+  "id": "cor-roc-distance",
+  "level": "2",
+  "url": "sec-taylor-series.html#cor-roc-distance",
+  "type": "Corollary",
+  "number": "5.1.5",
+  "title": "",
+  "body": "  If is analytic on a domain and , then has a power series expansion centered at with radius of convergence at least the distance from to .   "
+},
+{
+  "id": "p-467",
+  "level": "2",
+  "url": "sec-taylor-series.html#p-467",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "distance "
+},
+{
+  "id": "example-41",
+  "level": "2",
+  "url": "sec-taylor-series.html#example-41",
+  "type": "Example",
+  "number": "5.1.6",
+  "title": "",
+  "body": " Let's compute the Taylor series expansion of the exponential function centered at . Since the exponential map is entire, we know in advance that the Taylor series will have infinite radius of convergence.  All derivatives of are the same: . So the th Taylor coefficient is , and the series is given by   Great, this is the same as the series for the real exponential! This is not a coincidence.  "
+},
+{
+  "id": "example-42",
+  "level": "2",
+  "url": "sec-taylor-series.html#example-42",
+  "type": "Example",
+  "number": "5.1.7",
+  "title": "",
+  "body": " Compute the Taylor series expansion of around .  Just plug in for in the Taylor series for and multiply by :   "
+},
+{
+  "id": "example-43",
+  "level": "2",
+  "url": "sec-taylor-series.html#example-43",
+  "type": "Example",
+  "number": "5.1.8",
+  "title": "",
+  "body": " Compute the power series expansion of centered around .   Method 1: Compute derivatives of :   Then use the formula.   Method 2: Recall that , so we can use the series for :   This series converges for all . (This follows either from the fact that is entire, or from the fact that we built the series from the Taylor series for , which converges everywhere.)  "
+},
+{
+  "id": "example-44",
+  "level": "2",
+  "url": "sec-taylor-series.html#example-44",
+  "type": "Example",
+  "number": "5.1.9",
+  "title": "",
+  "body": " Compute the Taylor series expansion for around . We should observe in advance that this series will have radius of convergence , the distance to the nearest singularity at !  You can compute derivatives and use the formula, but it is easier to just recognize that we will get a geometric series and use an algebraic trick:   This series converges iff , i.e., when , as predicted.  "
+},
+{
+  "id": "example-45",
+  "level": "2",
+  "url": "sec-taylor-series.html#example-45",
+  "type": "Example",
+  "number": "5.1.10",
+  "title": "",
+  "body": " Compute the Taylor series expansion of centered at .  We first observe that the branch cut starts at , which is the nearest point (to ) at which is not analytic. So the radius of convergence is .  Next we observe that the derivative of has a geometric series expansion:   Integrating term by term gives a series expansion for :   We finish the computation by observing that .  "
+},
+{
+  "id": "example-46",
+  "level": "2",
+  "url": "sec-taylor-series.html#example-46",
+  "type": "Example",
+  "number": "5.1.11",
+  "title": "",
+  "body": " Consider the function , a beautiful function of a real variable. It has a Taylor series expansion centered at any , yet the radius of convergence of its series expansion at is . Why?! There is no explanation of this in real calculus.  (Just to refresh your memory: converges when , i.e., .)  But now we see what's going on! As a function of a complex variable, this function has singularities at , and is the distance from to the nearest singularity.  "
+},
+{
+  "id": "sec-zero-singularity",
+  "level": "1",
+  "url": "sec-zero-singularity.html",
+  "type": "Section",
+  "number": "5.2",
+  "title": "Zeros and Singularities",
+  "body": " Zeros and Singularities  Subsections:    Zeros of analytic functions    Suppose that is analytic on a disk and is not identically on that disk. Then there is a unique integer , called the order of the zero of at , such that and has Taylor series around given by     This is an immediately corollary to Taylor's Theorem: since is not identically zero on , there is a first nonzero coefficient in its power series expansion.     NB. We did not assume in the definition that . If , then has a zero of order at .  Show how this generalizes the order of a zero of a polynomial from basic algebra. (E.g. the polynomial has a zero of order at and a zero of order at .)   The zeros of an analytic function are isolated   If is analytic and not identically zero on , and , then there is a small neighborhood of in which is the only zero of .     As in , let be the order of the zero of at , and let with be the function for which Then , so, since is continuous on we can find a small such that for all . On that small neighborhood we have iff .    The Identity Theorem   Suppose that is a domain and that and are two analytic functions . Suppose further that the set contains a non-isolated point , that is, a such that for all we have . Then on .    Look at the function on . Then has a nonisolated zero on , so there is a small disk on which is identically zero.  Now we need a topological argument. Look at the following two sets.   Certainly implies ; i.e., . And by Taylor's Theorem: expand around and look at the Taylor coefficients. But is (path-)connected, so either or . We have assumed that , so must be empty. Thus is identically zero on all of .      Let be domains and analytic. An analytic continuation of (to ) is an analytic function that agrees with on : for all .    An analytic contination of must be unique, if it exists.   Consider the function defined on . This series diverges for , but we know that is an analytic continuation of defined on .     The Principle of Permanence of Functional Equations  This is more trouble than it's worth to state precisely, so we'll just give some examples as applications of the Identity Theorem.  The equation holds for all real numbers . This means that we can apply to the functions and on to conclude that for all .   Consider the equation , which certainly holds for all real numbers .  The function is entire in each variable (holding the other one fixed) and equals for all . Since has a non-isolated point, this implies by that is identically zero, i.e., for all .     Singularities    A function is singular at if is not analytic at . If is singular at but analytic on , then we say that has an isolated singularity at .       "
+},
+{
+  "id": "prop-order-zero",
+  "level": "2",
+  "url": "sec-zero-singularity.html#prop-order-zero",
+  "type": "Proposition",
+  "number": "5.2.1",
+  "title": "",
+  "body": "  Suppose that is analytic on a disk and is not identically on that disk. Then there is a unique integer , called the order of the zero of at , such that and has Taylor series around given by     This is an immediately corollary to Taylor's Theorem: since is not identically zero on , there is a first nonzero coefficient in its power series expansion.   "
+},
+{
+  "id": "exercise-12",
+  "level": "2",
+  "url": "sec-zero-singularity.html#exercise-12",
+  "type": "Checkpoint",
+  "number": "5.2.2",
+  "title": "",
+  "body": "Show how this generalizes the order of a zero of a polynomial from basic algebra. (E.g. the polynomial has a zero of order at and a zero of order at .) "
+},
+{
+  "id": "thm-zeros-isolated",
+  "level": "2",
+  "url": "sec-zero-singularity.html#thm-zeros-isolated",
+  "type": "Theorem",
+  "number": "5.2.3",
+  "title": "The zeros of an analytic function are isolated.",
+  "body": " The zeros of an analytic function are isolated   If is analytic and not identically zero on , and , then there is a small neighborhood of in which is the only zero of .   "
+},
+{
+  "id": "proof-40",
+  "level": "2",
+  "url": "sec-zero-singularity.html#proof-40",
+  "type": "Proof",
+  "number": "5.2.1.1",
+  "title": "",
+  "body": " As in , let be the order of the zero of at , and let with be the function for which Then , so, since is continuous on we can find a small such that for all . On that small neighborhood we have iff .  "
+},
+{
+  "id": "cor-identity-thm",
+  "level": "2",
+  "url": "sec-zero-singularity.html#cor-identity-thm",
+  "type": "Corollary",
+  "number": "5.2.4",
+  "title": "The Identity Theorem.",
+  "body": " The Identity Theorem   Suppose that is a domain and that and are two analytic functions . Suppose further that the set contains a non-isolated point , that is, a such that for all we have . Then on .    Look at the function on . Then has a nonisolated zero on , so there is a small disk on which is identically zero.  Now we need a topological argument. Look at the following two sets.   Certainly implies ; i.e., . And by Taylor's Theorem: expand around and look at the Taylor coefficients. But is (path-)connected, so either or . We have assumed that , so must be empty. Thus is identically zero on all of .   "
+},
+{
+  "id": "def-analytic-continuation",
+  "level": "2",
+  "url": "sec-zero-singularity.html#def-analytic-continuation",
+  "type": "Definition",
+  "number": "5.2.5",
+  "title": "",
+  "body": "  Let be domains and analytic. An analytic continuation of (to ) is an analytic function that agrees with on : for all .   "
+},
+{
+  "id": "example-47",
+  "level": "2",
+  "url": "sec-zero-singularity.html#example-47",
+  "type": "Example",
+  "number": "5.2.6",
+  "title": "",
+  "body": " Consider the function defined on . This series diverges for , but we know that is an analytic continuation of defined on .  "
+},
+{
+  "id": "example-48",
+  "level": "2",
+  "url": "sec-zero-singularity.html#example-48",
+  "type": "Example",
+  "number": "5.2.7",
+  "title": "",
+  "body": "The equation holds for all real numbers . This means that we can apply to the functions and on to conclude that for all . "
+},
+{
+  "id": "example-49",
+  "level": "2",
+  "url": "sec-zero-singularity.html#example-49",
+  "type": "Example",
+  "number": "5.2.8",
+  "title": "",
+  "body": " Consider the equation , which certainly holds for all real numbers .  The function is entire in each variable (holding the other one fixed) and equals for all . Since has a non-isolated point, this implies by that is identically zero, i.e., for all .  "
+},
+{
+  "id": "def-singularity",
+  "level": "2",
+  "url": "sec-zero-singularity.html#def-singularity",
+  "type": "Definition",
+  "number": "5.2.9",
+  "title": "",
+  "body": "  A function is singular at if is not analytic at . If is singular at but analytic on , then we say that has an isolated singularity at .   "
+},
+{
+  "id": "example-50",
+  "level": "2",
+  "url": "sec-zero-singularity.html#example-50",
+  "type": "Example",
+  "number": "5.2.10",
+  "title": "",
+  "body": " "
 },
 {
   "id": "colophon-2",

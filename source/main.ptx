@@ -3492,7 +3492,8 @@
           </statement>
           <proof>
             <p>
-              (In fact, under these hypotheses, <m>g</m> must be analytic at <m>z_0</m>.)
+              (In fact, under these hypotheses, <m>g</m> must be analytic at <m>z_0</m>,
+              as we will see later in <xref ref="prop-removal-singularities"/>.)
             </p>
             <p>
                Since <m>z_0</m> is inside <m>\gamma</m>, there is a small <m>\eps_0 \gt 0</m>
@@ -3932,6 +3933,81 @@
       <title>Taylor and Laurent Series</title>
       <section xml:id="sec-taylor-series">
         <title>Taylor Series</title>
+        <p>
+          Much of the general theory of series can be imported from real analysis with 
+          no material changes.
+        </p>
+        <theorem xml:id="thm-power-series-basic">
+          <statement>
+            <p>
+              Consider the (complex) power series <m>f(z) = \sum_{n\ge 0} c_n (z-a)^n</m>.
+              There is a number <m>R \ge 0</m>, called the <term>radius of convergence</term> of <m>f</m> at <m>a</m>,
+              for which the following facts hold.
+            </p>
+            <ol marker="(i)">
+              <li>
+                <p>
+                  If <m>R \gt 0</m> then the series converges absolutely to an analytic
+                  function on <m>B_R(a)</m>, the <term>disk of convergence</term> of <m>f</m> at <m>a</m>.
+                </p>
+                <aside>
+                  <p> And for <m>r \lt R</m> the series converges uniformly to its limiting function.
+                    You can ignore this if you haven't seen uniform convergence of functions before.
+                  </p>
+                </aside>
+              </li>
+              <li>
+                <p>
+                  The series diverges for <m>\abs{z - a} \gt R</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The derivative <m>f'</m> is given on <m>B_R(a)</m> by term-by-term differentiation:
+                <me>
+                  f'(z) = \sum_{n \ge 1} n c_n (z-a)^{n-1}
+                </me>
+                and also has radius of convergence <m>R</m>.
+              </p> 
+              </li>
+              <li>
+                <p>
+                  We can integrate term by term too.
+                  If <m>\gamma</m> is a contour inside the disk of convergence, then 
+                </p>
+                <me>
+                  \int_\gamma f(z)\,dz = \sum_{n\ge 0} \int_\gamma c_n (z - a)^n\,dz.
+                </me>
+              </li>
+              <li>
+                <p>
+                  In fact the radius of convergence is given by the Root Test:
+                </p>
+                <me>
+                  R = \frac{1}{\limsup \sqrt[n]{\abs{c_n}}},
+                </me>
+                <aside>
+                  <p>
+                    If you haven't seen limsups before, then take this slightly weaker statement:
+                    if <m>\lim \sqrt[n]{\abs{c_n}}</m> exists,
+                    then <m>R = \frac{1}{\limsup \sqrt[n]{\abs{c_n}}}</m>.
+                  </p>
+                </aside>
+                <p>
+                  (interpreted as <m>0</m> or <m>\infty</m> as appropriate).
+                </p>
+              </li>
+            </ol>
+          </statement>
+        </theorem>
+        <p>
+          <alert>NB.</alert> <xref ref="thm-power-series-basic"/> does not give any general information about
+          the convergence of the power series on the <em>boundary</em> of its disk of convergence,
+          i.e., <m>\abs{z - a} = R</m>.
+          Notice also that, unlike in real analysis, the boundary of the disk of convergence includes
+          a whole continuum of points, not just two!
+        </p>
+        
         <theorem xml:id="thm-taylor">
           <title>Taylor's Theorem</title>
           <statement>
@@ -4317,8 +4393,89 @@
             </statement>
           </definition>
           <example>
-            
+            <ol marker="(i)">
+              <li>
+                <p>
+                  The function <m>\frac{z+1}{z^3(z^2+i)}</m> has isolated singularities at <m>0,\pm i</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>e^{1/z}</m> has an isolated singularity at <m>z = 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The principal branch <m>\Log(z)</m> of the log has a singularity at <m>z = 0</m>,
+                  but it is not isolated because of the branch cut.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\frac{1}{\sin(\pi/z)}</m> has singularities where <m>\sin(\pi/z) = 0</m>,
+                  in particular at <m>z = 0</m> and at <m>z = 1/n</m> for <m>n\in\Z</m>.
+                  The singularities at <m>\pi 1/n</m> are isolated, but the singularity at <m>0</m> is not.
+                </p>
+              </li>
+            </ol>
           </example>
+          <proposition xml:id="prop-removal-singularities">
+            <title>Removal of singularities</title>
+            <statement>
+              <p>
+                Suppose that <m>D</m> is a domain and <m>z_0 \in D</m>.
+                If <m>f\colon D\wo \{z_0\} \to \C</m> is analytic and bounded near <m>z_0</m>,
+                then <m>f</m> can be continuously extended to <m>D</m>,
+                say <m>\lim\limits_{z \to z_0} f(z) = b</m>. In fact, if we define
+                <me>
+                  f^*(z) = \begin {cases} f(z) \amp \text{if } z \in D \wo \{z_0\} \\
+                   b \amp \text{if } z = z_0 \end {cases},
+                </me>
+                then <m>f^*</m> is analytic on <m>D</m>.
+              </p>
+            </statement>
+            <proof>
+              <p>
+                Define <m>h \colon D\to \C</m> as follows.
+              </p>
+              <me>
+                h(z) = \begin {cases} (z- z_0)^2 f(z) \amp \text{if } z \ne z_0 \\
+                  0 \amp \text{if } z = z_0
+                  \end {cases}
+              </me>
+              <p>
+                Our assumption is that there are <m>M</m> and <m>\eps</m> such that <m>\abs{f(z)} \lt M</m>
+                for all <m>z \in B_\eps(z_0) \wo \{z_0\}</m>. Let's estimate the difference quotient of <m>h</m>
+                near <m>z_0</m>:
+              </p>
+              <me>
+                \abs{ \frac{h(z) - h(z_0)}{z - z_0}} = \frac{\abs{(z-z_0)^2 f(z)}}{\abs{z - z_0}} = \abs{z - z_0} \abs{f(z)}
+                \le \abs{z - z_0} M,
+              </me>
+              <p>
+                which tends to <m>0</m> as <m>z</m> tends to <m>z_0</m>.
+                So <m>h</m> is differentiable at <m>z_0</m>, in addition to being differentiable near <m>z_0</m>.
+                So by <xref ref="thm-taylor"/> <m>h</m> has a power series expansion in a neighborhood
+                <m>B_\rho(z_0)</m> of <m>z_0</m>:
+              </p>
+              <me>
+                h(z) = \sum_{n\ge 0} a_n (z - z_0)^n = a_0 + a_1(z - z_0) + a_2(z-a_0)^2 + \cdots
+              </me>
+              <p>
+                We must have <m>a_0 = a_1 = 0</m>, so we can define
+              <me>
+                g(z) = \sum_{n\ge 0} a_{n+2} (z-z_0)^n = a_2 + a_3 (z-z_0) + a_4 (z - z_0)^2 + \cdots
+              </me>
+              We have <m>g(z) = \frac{h(z)}{(z-z_0)^2} = f(z)</m> for <m>z \in B_\rho(z_0)\wo \{z_0\}</m>.
+              And <m>g(z) \to a_2</m> as <m>z \to z_0</m>, so <m>f(z) \to a_2</m> as <m>z \to z_0</m>.
+            </p>
+            </proof>
+          </proposition>
+          <p>
+            The moral of <xref ref="prop-removal-singularities"/> is that the only way a function can fail to be
+            analytic is because it blows up, not because of some weird (real-analysis-like) failure of continuity.
+          </p>
+
         </subsection>
       </section>
     </chapter>

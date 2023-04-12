@@ -286,10 +286,52 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-taylor-series"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Taylor Series</span>
 </h2>
-<article class="theorem theorem-like" id="thm-taylor"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Taylor's Theorem.</span>
+<div class="para" id="p-454">Much of the general theory of series can be imported from real analysis with no material changes.</div>
+<article class="theorem theorem-like" id="thm-power-series-basic"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-454">
+<div class="para" id="p-455">Consider the (complex) power series <span class="process-math">\(f(z) = \sum_{n\ge 0} c_n (z-a)^n\text{.}\)</span> There is a number <span class="process-math">\(R \ge 0\text{,}\)</span> called the <dfn class="terminology">radius of convergence</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{,}\)</span> for which the following facts hold.</div> <ol class="lower-roman">
+<li id="li-44">
+<div class="para" id="p-456">If <span class="process-math">\(R \gt 0\)</span> then the series converges absolutely to an analytic function on <span class="process-math">\(B_R(a)\text{,}\)</span> the <dfn class="terminology">disk of convergence</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{.}\)</span>
+</div>
+<aside class="aside aside-like" id="aside-20"><div class="para" id="p-457">And for <span class="process-math">\(r \lt R\)</span> the series converges uniformly to its limiting function. You can ignore this if you haven't seen uniform convergence of functions before.</div></aside>
+</li>
+<li id="li-45"><div class="para" id="p-458">The series diverges for <span class="process-math">\(\abs{z - a} \gt R\text{.}\)</span>
+</div></li>
+<li id="li-46"><div class="para logical" id="p-459">
+<div class="para">The derivative <span class="process-math">\(f'\)</span> is given on <span class="process-math">\(B_R(a)\)</span> by term-by-term differentiation:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(z) = \sum_{n \ge 1} n c_n (z-a)^{n-1}
+\end{equation*}
+</div>
+<div class="para">and also has radius of convergence <span class="process-math">\(R\text{.}\)</span>
+</div>
+</div></li>
+<li id="li-47">
+<div class="para" id="p-460">We can integrate term by term too. If <span class="process-math">\(\gamma\)</span> is a contour inside the disk of convergence, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\gamma f(z)\,dz = \sum_{n\ge 0} \int_\gamma c_n (z - a)^n\,dz.
+\end{equation*}
+</div>
+</li>
+<li id="li-48">
+<div class="para" id="p-461">In fact the radius of convergence is given by the Root Test:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R = \frac{1}{\limsup \sqrt[n]{\abs{c_n}}},
+\end{equation*}
+</div>
+<aside class="aside aside-like" id="aside-21"><div class="para" id="p-462">If you haven't seen limsups before, then take this slightly weaker statement: if <span class="process-math">\(\lim \sqrt[n]{\abs{c_n}}\)</span> exists, then <span class="process-math">\(R = \frac{1}{\limsup \sqrt[n]{\abs{c_n}}}\text{.}\)</span>
+</div></aside><div class="para" id="p-463">(interpreted as <span class="process-math">\(0\)</span> or <span class="process-math">\(\infty\)</span> as appropriate).</div>
+</li>
+</ol></article><div class="para" id="p-464">
+<em class="alert">NB.</em> <a href="" class="xref" data-knowl="./knowl/thm-power-series-basic.html" title="Theorem 5.1.1">Theorem 5.1.1</a> does not give any general information about the convergence of the power series on the <em class="emphasis">boundary</em> of its disk of convergence, i.e., <span class="process-math">\(\abs{z - a} = R\text{.}\)</span> Notice also that, unlike in real analysis, the boundary of the disk of convergence includes a whole continuum of points, not just two!</div>
+<article class="theorem theorem-like" id="thm-taylor"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Taylor's Theorem.</span>
+</h3>
+<div class="para logical" id="p-465">
 <div class="para">Suppose that <span class="process-math">\(f\colon B_r(a) \to \C\)</span> is analytic. Then <span class="process-math">\(f\)</span> has, on <span class="process-math">\(B_r(a)\text{,}\)</span> a convergent power series expansion</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -304,13 +346,13 @@ c_n = \frac{f^{(n)}(a)}{n!} = \frac{1}{2\pi i} \oint_{\partial B_\rho(a)} \frac{
 </div>
 <div class="para">for any <span class="process-math">\(\rho \lt r\text{.}\)</span>
 </div>
-</div></article><article class="hiddenproof" id="proof-36"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-36"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-36"><article class="hiddenproof"><div class="para" id="p-455">Suppose <span class="process-math">\(\rho \lt r\)</span> and <span class="process-math">\(z\in B_\rho(a)\text{.}\)</span> Apply the Cauchy Integral Formula:</div>
+</div></article><article class="hiddenproof" id="proof-36"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-36"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-36"><article class="hiddenproof"><div class="para" id="p-466">Suppose <span class="process-math">\(\rho \lt r\)</span> and <span class="process-math">\(z\in B_\rho(a)\text{.}\)</span> Apply the Cauchy Integral Formula:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-taylor.html" id="eqn-taylor">
 \begin{equation}
 f(z) = \frac{1}{2\pi i} \oint_{\partial B_\rho(a)} \frac{f(w)}{w - z} \,dw .\tag{5.1.1}
 \end{equation}
 </div>
-<div class="para" id="p-456">Now we use a non-obvious trick. Expand the factor <span class="process-math">\(\frac{1}{w-z}\)</span> in the integrand into a geometric series, which converges uniformly in <span class="process-math">\(w \in \partial B_\rho(a)\)</span> since <span class="process-math">\(\abs{\frac{z-a}{w-a}} = \frac{\abs{z-a}}{\rho} \lt 1\text{:}\)</span>
+<div class="para" id="p-467">Now we use a non-obvious trick. Expand the factor <span class="process-math">\(\frac{1}{w-z}\)</span> in the integrand into a geometric series, which converges uniformly in <span class="process-math">\(w \in \partial B_\rho(a)\)</span> since <span class="process-math">\(\abs{\frac{z-a}{w-a}} = \frac{\abs{z-a}}{\rho} \lt 1\text{:}\)</span>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-taylor.html">
 \begin{equation*}
@@ -318,7 +360,7 @@ f(z) = \frac{1}{2\pi i} \oint_{\partial B_\rho(a)} \frac{f(w)}{w - z} \,dw .\tag
 = \sum_{n\ge 0} \frac{(z-a)^n}{(w-a)^{n+1}}
 \end{equation*}
 </div>
-<div class="para" id="p-457">Using this to replace the <span class="process-math">\(\frac{1}{w-z}\)</span> in <a href="" class="xref" data-knowl="./knowl/eqn-taylor.html" title="Equation 5.1.1">(5.1.1)</a> with a series and using the uniformity of the convergence to interchange a sum and an integral gives the following.</div>
+<div class="para" id="p-468">Using this to replace the <span class="process-math">\(\frac{1}{w-z}\)</span> in <a href="" class="xref" data-knowl="./knowl/eqn-taylor.html" title="Equation 5.1.1">(5.1.1)</a> with a series and using the uniformity of the convergence to interchange a sum and an integral gives the following.</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-taylor.html" id="md-40">
 \begin{align*}
 f(z) \amp = \frac{1}{2\pi i} \oint_{\partial B_\rho(a)} \frac{f(w)}{w - z}\,dz \\
@@ -327,39 +369,39 @@ f(z) \amp = \frac{1}{2\pi i} \oint_{\partial B_\rho(a)} \frac{f(w)}{w - z}\,dz \
 \amp = \sum_{n\ge 0} c_n (z-a)^n 
 \end{align*}
 </div>
-<div class="para" id="p-458">This is exactly what we wanted to show.</div></article></div>
+<div class="para" id="p-469">This is exactly what we wanted to show.</div></article></div>
 <article class="corollary theorem-like" id="cor-taylor-coefficients-unique"><h3 class="heading">
-<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.1.2</span><span class="period">.</span>
-</h3>
-<div class="para" id="p-459">If <span class="process-math">\(\sum_{n\ge 0} c_n (z-a)^n\)</span> and <span class="process-math">\(\sum_{n\ge 0} d_n (z-a)^n\)</span> are two power series that converge to the same function on an open disk centered at <span class="process-math">\(a\text{,}\)</span> then <span class="process-math">\(c_n = d_n\)</span> for all <span class="process-math">\(n\ge 0\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-37"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-37"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-37"><article class="hiddenproof"><div class="para" id="p-460">(This is not really a corollary to the previous theorem. But it is important to note that the Taylor coefficients given in that theorem are unique.)</div> <div class="para" id="p-461">If the two series converge to <span class="process-math">\(f\)</span> on <span class="process-math">\(B_r(a)\text{,}\)</span> then (exercise) they are analytic there. (You can differentiate term by term.) So we must have <span class="process-math">\(f(a) = c_0 = d_0\text{,}\)</span> <span class="process-math">\(f'(a) = c_1 = d_1\text{,}\)</span> <span class="process-math">\(f''(a) = 2c_2 = 2d_2\text{,}\)</span> etc. (Proceed by induction.)</div></article></div>
-<article class="corollary theorem-like" id="cor-infinitely-differentiable"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.1.3</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-462">If <span class="process-math">\(f\)</span> is analytic on a domain, then it is infinitely differentiable on that domain.</div></article><article class="corollary theorem-like" id="cor-morera"><h3 class="heading">
-<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Morera's Theorem.</span>
+<div class="para" id="p-470">If <span class="process-math">\(\sum_{n\ge 0} c_n (z-a)^n\)</span> and <span class="process-math">\(\sum_{n\ge 0} d_n (z-a)^n\)</span> are two power series that converge to the same function on an open disk centered at <span class="process-math">\(a\text{,}\)</span> then <span class="process-math">\(c_n = d_n\)</span> for all <span class="process-math">\(n\ge 0\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-37"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-37"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-37"><article class="hiddenproof"><div class="para" id="p-471">(This is not really a corollary to the previous theorem. But it is important to note that the Taylor coefficients given in that theorem are unique.)</div> <div class="para" id="p-472">If the two series converge to <span class="process-math">\(f\)</span> on <span class="process-math">\(B_r(a)\text{,}\)</span> then (exercise) they are analytic there. (You can differentiate term by term.) So we must have <span class="process-math">\(f(a) = c_0 = d_0\text{,}\)</span> <span class="process-math">\(f'(a) = c_1 = d_1\text{,}\)</span> <span class="process-math">\(f''(a) = 2c_2 = 2d_2\text{,}\)</span> etc. (Proceed by induction.)</div></article></div>
+<article class="corollary theorem-like" id="cor-infinitely-differentiable"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.1.4</span><span class="period">.</span>
 </h3>
-<aside class="aside aside-like" id="aside-20"><div class="para" id="p-463">This is a nice part of the theory, but we are much more interested in theorems that tell us facts about analytic functions than in those that tell us when a function is analytic.</div></aside><div class="para" id="p-464">If <span class="process-math">\(f\)</span> is continuous on a domain <span class="process-math">\(U\)</span> and <span class="process-math">\(\oint_\gamma f(z)\,dz = 0\)</span> for all closed contours <span class="process-math">\(\gamma\)</span> in <span class="process-math">\(U\text{,}\)</span> then <span class="process-math">\(f\)</span> is analytic on <span class="process-math">\(U\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-38"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-38"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-38"><article class="hiddenproof"><div class="para" id="p-465">We can apply <a href="" class="xref" data-knowl="./knowl/thm-antiderivative-conditions.html" title="Theorem 4.3.1">Theorem 4.3.1</a> to conclude that <span class="process-math">\(f\)</span> has an antiderivative <span class="process-math">\(F\)</span> on <span class="process-math">\(U\text{.}\)</span> But then <span class="process-math">\(F\)</span> is infinitely differentiable on <span class="process-math">\(U\text{,}\)</span> so <span class="process-math">\(f\)</span> is analytic on <span class="process-math">\(U\text{.}\)</span>
+<div class="para" id="p-473">If <span class="process-math">\(f\)</span> is analytic on a domain, then it is infinitely differentiable on that domain.</div></article><article class="corollary theorem-like" id="cor-morera"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Morera's Theorem.</span>
+</h3>
+<aside class="aside aside-like" id="aside-22"><div class="para" id="p-474">This is a nice part of the theory, but we are much more interested in theorems that tell us facts about analytic functions than in those that tell us when a function is analytic.</div></aside><div class="para" id="p-475">If <span class="process-math">\(f\)</span> is continuous on a domain <span class="process-math">\(U\)</span> and <span class="process-math">\(\oint_\gamma f(z)\,dz = 0\)</span> for all closed contours <span class="process-math">\(\gamma\)</span> in <span class="process-math">\(U\text{,}\)</span> then <span class="process-math">\(f\)</span> is analytic on <span class="process-math">\(U\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-38"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-38"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-38"><article class="hiddenproof"><div class="para" id="p-476">We can apply <a href="" class="xref" data-knowl="./knowl/thm-antiderivative-conditions.html" title="Theorem 4.3.1">Theorem 4.3.1</a> to conclude that <span class="process-math">\(f\)</span> has an antiderivative <span class="process-math">\(F\)</span> on <span class="process-math">\(U\text{.}\)</span> But then <span class="process-math">\(F\)</span> is infinitely differentiable on <span class="process-math">\(U\text{,}\)</span> so <span class="process-math">\(f\)</span> is analytic on <span class="process-math">\(U\text{.}\)</span>
 </div></article></div>
 <article class="corollary theorem-like" id="cor-roc-distance"><h3 class="heading">
-<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.1.5</span><span class="period">.</span>
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.1.6</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-466">If <span class="process-math">\(f\)</span> is analytic on a domain <span class="process-math">\(U\)</span> and <span class="process-math">\(z_0 \in U\text{,}\)</span> then <span class="process-math">\(f\)</span> has a power series expansion centered at <span class="process-math">\(z_0\)</span> with radius of convergence at least the distance from <span class="process-math">\(z_0\)</span> to <span class="process-math">\(\partial U\text{.}\)</span>
-</div></article><div class="para" id="p-467">The <dfn class="terminology">distance</dfn> from a point <span class="process-math">\(z\)</span> to a closed set <span class="process-math">\(G\)</span> is defined to be the minimum <span class="process-math">\(\min\set{ \abs{w - z} }{ w \in G}\)</span> when this minimum exists. Notice that if <span class="process-math">\(z \notin G\text{,}\)</span> then the function <span class="process-math">\(w \mapsto \abs{w - z}\)</span> is continuous and takes only positive values so must achieve a positive minimum value if <span class="process-math">\(G\)</span> is compact (= closed and bounded).</div>
+<div class="para" id="p-477">If <span class="process-math">\(f\)</span> is analytic on a domain <span class="process-math">\(U\)</span> and <span class="process-math">\(z_0 \in U\text{,}\)</span> then <span class="process-math">\(f\)</span> has a power series expansion centered at <span class="process-math">\(z_0\)</span> with radius of convergence at least the distance from <span class="process-math">\(z_0\)</span> to <span class="process-math">\(\partial U\text{.}\)</span>
+</div></article><div class="para" id="p-478">The <dfn class="terminology">distance</dfn> from a point <span class="process-math">\(z\)</span> to a closed set <span class="process-math">\(G\)</span> is defined to be the minimum <span class="process-math">\(\min\set{ \abs{w - z} }{ w \in G}\)</span> when this minimum exists. Notice that if <span class="process-math">\(z \notin G\text{,}\)</span> then the function <span class="process-math">\(w \mapsto \abs{w - z}\)</span> is continuous and takes only positive values so must achieve a positive minimum value if <span class="process-math">\(G\)</span> is compact (= closed and bounded).</div>
 <article class="example example-like" id="example-41"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-41"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-41"><article class="example example-like"><div class="para" id="p-468">Let's compute the Taylor series expansion of the exponential function <span class="process-math">\(f(z) = e^z\)</span> centered at <span class="process-math">\(a = 0\text{.}\)</span> Since the exponential map is entire, we know in advance that the Taylor series will have infinite radius of convergence.</div> <div class="para" id="p-469">All derivatives of <span class="process-math">\(f\)</span> are the same: <span class="process-math">\(f(z) = f'(z) = \cdots = e^z\text{.}\)</span> So the <span class="process-math">\(n\)</span>th Taylor coefficient is <span class="process-math">\(\frac{f^{(n)}(0)}{n!} = \frac{1}{n!}\text{,}\)</span> and the series is given by</div>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-41"><article class="example example-like"><div class="para" id="p-479">Let's compute the Taylor series expansion of the exponential function <span class="process-math">\(f(z) = e^z\)</span> centered at <span class="process-math">\(a = 0\text{.}\)</span> Since the exponential map is entire, we know in advance that the Taylor series will have infinite radius of convergence.</div> <div class="para" id="p-480">All derivatives of <span class="process-math">\(f\)</span> are the same: <span class="process-math">\(f(z) = f'(z) = \cdots = e^z\text{.}\)</span> So the <span class="process-math">\(n\)</span>th Taylor coefficient is <span class="process-math">\(\frac{f^{(n)}(0)}{n!} = \frac{1}{n!}\text{,}\)</span> and the series is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 e^z = 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \cdots = \sum_{n\ge 0} \frac{z^n}{n!}.
 \end{equation*}
 </div>
-<div class="para" id="p-470">Great, this is the same as the series for the real exponential! This is not a coincidence.</div></article></div>
+<div class="para" id="p-481">Great, this is the same as the series for the real exponential! This is not a coincidence.</div></article></div>
 <article class="example example-like" id="example-42"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-42"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.7</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><div class="para" id="p-471">Compute the Taylor series expansion of <span class="process-math">\(f(z) = z^8 e^{3z}\)</span> around <span class="process-math">\(a = 0\text{.}\)</span>
-</div> <div class="para" id="p-472">Just plug <span class="process-math">\(3z\)</span> in for <span class="process-math">\(z\)</span> in the Taylor series for <span class="process-math">\(e^z\)</span> and multiply by <span class="process-math">\(z^8\text{:}\)</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><div class="para" id="p-482">Compute the Taylor series expansion of <span class="process-math">\(f(z) = z^8 e^{3z}\)</span> around <span class="process-math">\(a = 0\text{.}\)</span>
+</div> <div class="para" id="p-483">Just plug <span class="process-math">\(3z\)</span> in for <span class="process-math">\(z\)</span> in the Taylor series for <span class="process-math">\(e^z\)</span> and multiply by <span class="process-math">\(z^8\text{:}\)</span>
 </div>
 <div class="displaymath process-math" id="md-41">
 \begin{align*}
@@ -368,9 +410,9 @@ f(z) \amp = \sum_{n\ge 0} \frac{3^n}{n!} z^{n+8}
 \end{align*}
 </div></article></div>
 <article class="example example-like" id="example-43"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-43"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.8</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-43"><article class="example example-like"><div class="para" id="p-473">Compute the power series expansion of <span class="process-math">\(f(z) = \sin(z)\)</span> centered around <span class="process-math">\(a = 0\text{.}\)</span>
-</div> <div class="para" id="p-474">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.9</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-43"><article class="example example-like"><div class="para" id="p-484">Compute the power series expansion of <span class="process-math">\(f(z) = \sin(z)\)</span> centered around <span class="process-math">\(a = 0\text{.}\)</span>
+</div> <div class="para" id="p-485">
 <em class="alert">Method 1:</em> Compute derivatives of <span class="process-math">\(\sin(z)\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -378,7 +420,7 @@ f(z) \amp = \sum_{n\ge 0} \frac{3^n}{n!} z^{n+8}
 f^{(n)}(0) = \frac{d^n \sin(z)}{dz^n} = \begin {cases} (-1)^m \amp \text{ if } n = 2m+1 \\ 0 \amp \text{ if }n \text{ is even } \end {cases}
 \end{equation*}
 </div>
-<div class="para" id="p-475">Then use the formula.</div> <div class="para" id="p-476">
+<div class="para" id="p-486">Then use the formula.</div> <div class="para" id="p-487">
 <em class="alert">Method 2:</em> Recall that <span class="process-math">\(\sin(z) = \frac{e^{iz} - e^{-iz}}{2i}\text{,}\)</span> so we can use the series for <span class="process-math">\(e^z\text{:}\)</span>
 </div>
 <div class="displaymath process-math" id="md-42">
@@ -388,28 +430,28 @@ f^{(n)}(0) = \frac{d^n \sin(z)}{dz^n} = \begin {cases} (-1)^m \amp \text{ if } n
 \amp = \sum_{k\ge 0} (-1)^k \frac{z^{2k+1}}{(2k+1)!} 
 \end{align*}
 </div>
-<div class="para" id="p-477">This series converges for all <span class="process-math">\(z\text{.}\)</span> (This follows either from the fact that <span class="process-math">\(\sin(z)\)</span> is entire, or from the fact that we built the series from the Taylor series for <span class="process-math">\(e^z\text{,}\)</span> which converges everywhere.)</div></article></div>
+<div class="para" id="p-488">This series converges for all <span class="process-math">\(z\text{.}\)</span> (This follows either from the fact that <span class="process-math">\(\sin(z)\)</span> is entire, or from the fact that we built the series from the Taylor series for <span class="process-math">\(e^z\text{,}\)</span> which converges everywhere.)</div></article></div>
 <article class="example example-like" id="example-44"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-44"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.9</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><div class="para" id="p-478">Compute the Taylor series expansion for <span class="process-math">\(f(z) = \frac{1}{1 - z}\)</span> around <span class="process-math">\(a = 5\text{.}\)</span> We should observe in advance that this series will have radius of convergence <span class="process-math">\(4\text{,}\)</span> the distance to the nearest singularity at <span class="process-math">\(z = 1\text{!}\)</span>
-</div> <div class="para" id="p-479">You can compute derivatives and use the formula, but it is easier to just recognize that we will get a geometric series and use an algebraic trick:</div>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.10</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><div class="para" id="p-489">Compute the Taylor series expansion for <span class="process-math">\(f(z) = \frac{1}{1 - z}\)</span> around <span class="process-math">\(a = 5\text{.}\)</span> We should observe in advance that this series will have radius of convergence <span class="process-math">\(4\text{,}\)</span> the distance to the nearest singularity at <span class="process-math">\(z = 1\text{!}\)</span>
+</div> <div class="para" id="p-490">You can compute derivatives and use the formula, but it is easier to just recognize that we will get a geometric series and use an algebraic trick:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 f(z) = \frac{1}{-4(1 + \frac{z-5}{4})} = \frac{-1}{4} \left( 1 - \left( \frac{z-5}{4} \right) + \left( \frac{z-5}{4} \right)^2 - \left( \frac{z-5}{4} \right)^3 + \cdots \right)
 \end{equation*}
 </div>
-<div class="para" id="p-480">This series converges iff <span class="process-math">\(\abs{\frac{z-5}{4}}\lt 1\text{,}\)</span> i.e., when <span class="process-math">\(\abs{z - 5} \lt 4\text{,}\)</span> as predicted.</div></article></div>
+<div class="para" id="p-491">This series converges iff <span class="process-math">\(\abs{\frac{z-5}{4}}\lt 1\text{,}\)</span> i.e., when <span class="process-math">\(\abs{z - 5} \lt 4\text{,}\)</span> as predicted.</div></article></div>
 <article class="example example-like" id="example-45"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-45"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.10</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-45"><article class="example example-like"><div class="para" id="p-481">Compute the Taylor series expansion of <span class="process-math">\(f(z) = \Log(1+z)\)</span> centered at <span class="process-math">\(a = 0\text{.}\)</span>
-</div> <div class="para" id="p-482">We first observe that the branch cut starts at <span class="process-math">\(z = -1\text{,}\)</span> which is the nearest point (to <span class="process-math">\(0\)</span>) at which <span class="process-math">\(f\)</span> is not analytic. So the radius of convergence is <span class="process-math">\(1\text{.}\)</span>
-</div> <div class="para" id="p-483">Next we observe that the derivative of <span class="process-math">\(f\)</span> has a geometric series expansion:</div>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.11</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-45"><article class="example example-like"><div class="para" id="p-492">Compute the Taylor series expansion of <span class="process-math">\(f(z) = \Log(1+z)\)</span> centered at <span class="process-math">\(a = 0\text{.}\)</span>
+</div> <div class="para" id="p-493">We first observe that the branch cut starts at <span class="process-math">\(z = -1\text{,}\)</span> which is the nearest point (to <span class="process-math">\(0\)</span>) at which <span class="process-math">\(f\)</span> is not analytic. So the radius of convergence is <span class="process-math">\(1\text{.}\)</span>
+</div> <div class="para" id="p-494">Next we observe that the derivative of <span class="process-math">\(f\)</span> has a geometric series expansion:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 f'(z) = \frac{1}{1 + z} = 1 - z + z^2 - z^3 + \cdots
 \end{equation*}
 </div>
-<div class="para" id="p-484">Integrating term by term gives a series expansion for <span class="process-math">\(f\text{:}\)</span>
+<div class="para" id="p-495">Integrating term by term gives a series expansion for <span class="process-math">\(f\text{:}\)</span>
 </div>
 <div class="displaymath process-math" id="md-43">
 \begin{align*}
@@ -417,11 +459,11 @@ f(z) \amp = a_0 + z - \frac{z^2}{2} + \frac{z^3}{3} - \frac{z^4}{4} + \cdots \\
 \amp = a_0 + \sum_{n\ge 1} (-1)^{n+1} \frac{z^n}{n} 
 \end{align*}
 </div>
-<div class="para" id="p-485">We finish the computation by observing that <span class="process-math">\(f(0) = a_0 = \Log(1) = 0\text{.}\)</span>
+<div class="para" id="p-496">We finish the computation by observing that <span class="process-math">\(f(0) = a_0 = \Log(1) = 0\text{.}\)</span>
 </div></article></div>
 <article class="example example-like" id="example-46"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-46"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.11</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-46"><article class="example example-like"><div class="para" id="p-486">Consider the function <span class="process-math">\(f(x) = \frac{1}{1 + x^2}\text{,}\)</span> a beautiful function of a real variable. It has a Taylor series expansion centered at any <span class="process-math">\(a\in \R\text{,}\)</span> yet the radius of convergence of its series expansion at <span class="process-math">\(a = 0\)</span> is <span class="process-math">\(1\text{.}\)</span> Why?! There is no explanation of this in real calculus.</div> <div class="para logical" id="p-487">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.12</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-46"><article class="example example-like"><div class="para" id="p-497">Consider the function <span class="process-math">\(f(x) = \frac{1}{1 + x^2}\text{,}\)</span> a beautiful function of a real variable. It has a Taylor series expansion centered at any <span class="process-math">\(a\in \R\text{,}\)</span> yet the radius of convergence of its series expansion at <span class="process-math">\(a = 0\)</span> is <span class="process-math">\(1\text{.}\)</span> Why?! There is no explanation of this in real calculus.</div> <div class="para logical" id="p-498">
 <div class="para">(Just to refresh your memory:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -429,7 +471,7 @@ f(z) \amp = a_0 + z - \frac{z^2}{2} + \frac{z^3}{3} - \frac{z^4}{4} + \cdots \\
 \end{equation*}
 </div>
 <div class="para">converges when <span class="process-math">\(\abs{x^2} \lt 1\text{,}\)</span> i.e., <span class="process-math">\(\abs{x} \lt 1\text{.}\)</span>)</div>
-</div> <div class="para" id="p-488">But now we see what's going on! As a function of a complex variable, this function has singularities at <span class="process-math">\(\pm i\text{,}\)</span> and <span class="process-math">\(1\)</span> is the distance from <span class="process-math">\(0\)</span> to the nearest singularity.</div></article></div></section></div>
+</div> <div class="para" id="p-499">But now we see what's going on! As a function of a complex variable, this function has singularities at <span class="process-math">\(\pm i\text{,}\)</span> and <span class="process-math">\(1\)</span> is the distance from <span class="process-math">\(0\)</span> to the nearest singularity.</div></article></div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="ch-taylor-laurent-series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-zero-singularity.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

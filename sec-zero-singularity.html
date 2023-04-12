@@ -301,23 +301,23 @@ window.MathJax = {
 <article class="proposition theorem-like" id="prop-order-zero"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-489">Suppose that <span class="process-math">\(f\)</span> is analytic on a disk <span class="process-math">\(B_r(z_0)\)</span> and is not identically <span class="process-math">\(0\)</span> on that disk. Then there is a unique integer <span class="process-math">\(k \ge 0\text{,}\)</span> called the <dfn class="terminology">order of the zero</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(z_0\text{,}\)</span> such that <span class="process-math">\(a_k \ne 0\)</span> and <span class="process-math">\(f\)</span> has Taylor series around <span class="process-math">\(z_0\)</span> given by</div>
+<div class="para" id="p-500">Suppose that <span class="process-math">\(f\)</span> is analytic on a disk <span class="process-math">\(B_r(z_0)\)</span> and is not identically <span class="process-math">\(0\)</span> on that disk. Then there is a unique integer <span class="process-math">\(k \ge 0\text{,}\)</span> called the <dfn class="terminology">order of the zero</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(z_0\text{,}\)</span> such that <span class="process-math">\(a_k \ne 0\)</span> and <span class="process-math">\(f\)</span> has Taylor series around <span class="process-math">\(z_0\)</span> given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 f(z) = (z-z_0)^k (a_k + a_{k+1}(z-z_0) + \cdots) = (z-z_0)^k \sum_{n\ge k} a_n (z-z_0)^{n-k}.
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-39"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-39"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-39"><article class="hiddenproof"><div class="para" id="p-490">This is an immediately corollary to Taylor's Theorem: since <span class="process-math">\(f\)</span> is not identically zero on <span class="process-math">\(B_r(z_0)\text{,}\)</span> there is a first nonzero coefficient <span class="process-math">\(a_k\)</span> in its power series expansion.</div></article></div>
-<div class="para" id="p-491">
+</div></article><article class="hiddenproof" id="proof-39"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-39"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-39"><article class="hiddenproof"><div class="para" id="p-501">This is an immediately corollary to Taylor's Theorem: since <span class="process-math">\(f\)</span> is not identically zero on <span class="process-math">\(B_r(z_0)\text{,}\)</span> there is a first nonzero coefficient <span class="process-math">\(a_k\)</span> in its power series expansion.</div></article></div>
+<div class="para" id="p-502">
 <em class="alert">NB.</em> We did not assume in the definition that <span class="process-math">\(f(z_0) = 0\text{.}\)</span> If <span class="process-math">\(f(z_0) \ne 0\text{,}\)</span> then <span class="process-math">\(f\)</span> has a zero of order <span class="process-math">\(0\)</span> at <span class="process-math">\(z_0\text{.}\)</span>
 </div>
 <article class="exercise exercise-like" id="exercise-12"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-12"><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-12"><article class="exercise exercise-like"><div class="para" id="p-492">Show how this generalizes the order of a zero of a polynomial from basic algebra. (E.g. the polynomial <span class="process-math">\((x-2)^3 (x + 5)\)</span> has a zero of order <span class="process-math">\(3\)</span> at <span class="process-math">\(x = 2\)</span> and a zero of order <span class="process-math">\(1\)</span> at <span class="process-math">\(x = -5\text{.}\)</span>)</div></article></div>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-12"><article class="exercise exercise-like"><div class="para" id="p-503">Show how this generalizes the order of a zero of a polynomial from basic algebra. (E.g. the polynomial <span class="process-math">\((x-2)^3 (x + 5)\)</span> has a zero of order <span class="process-math">\(3\)</span> at <span class="process-math">\(x = 2\)</span> and a zero of order <span class="process-math">\(1\)</span> at <span class="process-math">\(x = -5\text{.}\)</span>)</div></article></div>
 <article class="theorem theorem-like" id="thm-zeros-isolated"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">The zeros of an analytic function are isolated.</span>
 </h4>
-<div class="para" id="p-493">If <span class="process-math">\(f \colon B_r(z_0) \to \C\)</span> is analytic and not identically zero on <span class="process-math">\(B_r(z_0)\text{,}\)</span> and <span class="process-math">\(f(z_0) = 0\text{,}\)</span> then there is a small neighborhood of <span class="process-math">\(z_0\)</span> in which <span class="process-math">\(z_0\)</span> is the only zero of <span class="process-math">\(f\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-40"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-40"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-40"><article class="hiddenproof"><div class="para logical" id="p-494">
+<div class="para" id="p-504">If <span class="process-math">\(f \colon B_r(z_0) \to \C\)</span> is analytic and not identically zero on <span class="process-math">\(B_r(z_0)\text{,}\)</span> and <span class="process-math">\(f(z_0) = 0\text{,}\)</span> then there is a small neighborhood of <span class="process-math">\(z_0\)</span> in which <span class="process-math">\(z_0\)</span> is the only zero of <span class="process-math">\(f\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-40"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-40"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-40"><article class="hiddenproof"><div class="para logical" id="p-505">
 <div class="para">As in <a href="" class="xref" data-knowl="./knowl/prop-order-zero.html" title="Proposition 5.2.1">Proposition 5.2.1</a>, let <span class="process-math">\(k\)</span> be the order of the zero of <span class="process-math">\(f\)</span> at <span class="process-math">\(z_0\text{,}\)</span> and let <span class="process-math">\(g(z) = a_k + a_{k+1}(z-z_0) + \cdots\)</span> with <span class="process-math">\(a_k \ne 0\)</span> be the function for which</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-order-zero.html">
 \begin{equation*}
@@ -330,24 +330,24 @@ f(z) = (z-z_0)^k g(z).
 <article class="corollary theorem-like" id="cor-identity-thm"><h4 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">The Identity Theorem.</span>
 </h4>
-<div class="para" id="p-495">Suppose that <span class="process-math">\(D\subseteq \C\)</span> is a domain and that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are two analytic functions <span class="process-math">\(D \to \C\text{.}\)</span> Suppose further that the set <span class="process-math">\(S = \set{z \in D}{f(z) = g(z)}\)</span> contains a <em class="emphasis">non-isolated point</em>, that is, a <span class="process-math">\(w\in S\)</span> such that for all <span class="process-math">\(\eps \gt 0\)</span> we have <span class="process-math">\(S \cap B_\eps(w) \ne \{w\}\text{.}\)</span> Then <span class="process-math">\(f = g\)</span> on <span class="process-math">\(D\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-41"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-41"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-41"><article class="hiddenproof"><div class="para" id="p-496">Look at the function <span class="process-math">\(h(z) = f(z) - g(z)\)</span> on <span class="process-math">\(D\text{.}\)</span> Then <span class="process-math">\(h\)</span> has a nonisolated zero on <span class="process-math">\(D\text{,}\)</span> so there is a small disk <span class="process-math">\(B_\eps(w)\)</span> on which <span class="process-math">\(h\)</span> is identically zero.</div> <div class="para" id="p-497">Now we need a topological argument. Look at the following two sets.</div>
+<div class="para" id="p-506">Suppose that <span class="process-math">\(D\subseteq \C\)</span> is a domain and that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are two analytic functions <span class="process-math">\(D \to \C\text{.}\)</span> Suppose further that the set <span class="process-math">\(S = \set{z \in D}{f(z) = g(z)}\)</span> contains a <em class="emphasis">non-isolated point</em>, that is, a <span class="process-math">\(w\in S\)</span> such that for all <span class="process-math">\(\eps \gt 0\)</span> we have <span class="process-math">\(S \cap B_\eps(w) \ne \{w\}\text{.}\)</span> Then <span class="process-math">\(f = g\)</span> on <span class="process-math">\(D\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-41"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-41"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-41"><article class="hiddenproof"><div class="para" id="p-507">Look at the function <span class="process-math">\(h(z) = f(z) - g(z)\)</span> on <span class="process-math">\(D\text{.}\)</span> Then <span class="process-math">\(h\)</span> has a nonisolated zero on <span class="process-math">\(D\text{,}\)</span> so there is a small disk <span class="process-math">\(B_\eps(w)\)</span> on which <span class="process-math">\(h\)</span> is identically zero.</div> <div class="para" id="p-508">Now we need a topological argument. Look at the following two sets.</div>
 <div class="displaymath process-math" id="md-44">
 \begin{align*}
 U \amp = \set{ a \in D}{h \equiv 0 \text{ on some neighborhood } B_\eps(a) \text{ of } a \text{ in } D} \\
 V \amp = \set{ a \in D}{ \text{there is } n \ge 0 \text{ for which } h^{(n)}(a) \ne 0 }
 \end{align*}
 </div>
-<div class="para" id="p-498">Certainly <span class="process-math">\(a \in U\)</span> implies <span class="process-math">\(a \notin V\text{;}\)</span> i.e., <span class="process-math">\(U \cap V \ne \emptyset\text{.}\)</span> And <span class="process-math">\(U \cup V = D\)</span> by Taylor's Theorem: expand around <span class="process-math">\(a\)</span> and look at the Taylor coefficients. But <span class="process-math">\(D\)</span> is (path-)connected, so either <span class="process-math">\(U = \emptyset\)</span> or <span class="process-math">\(V = \emptyset\text{.}\)</span> We have assumed that <span class="process-math">\(w \in U\text{,}\)</span> so <span class="process-math">\(V\)</span> must be empty. Thus <span class="process-math">\(h\)</span> is identically zero on all of <span class="process-math">\(D\text{.}\)</span>
+<div class="para" id="p-509">Certainly <span class="process-math">\(a \in U\)</span> implies <span class="process-math">\(a \notin V\text{;}\)</span> i.e., <span class="process-math">\(U \cap V \ne \emptyset\text{.}\)</span> And <span class="process-math">\(U \cup V = D\)</span> by Taylor's Theorem: expand around <span class="process-math">\(a\)</span> and look at the Taylor coefficients. But <span class="process-math">\(D\)</span> is (path-)connected, so either <span class="process-math">\(U = \emptyset\)</span> or <span class="process-math">\(V = \emptyset\text{.}\)</span> We have assumed that <span class="process-math">\(w \in U\text{,}\)</span> so <span class="process-math">\(V\)</span> must be empty. Thus <span class="process-math">\(h\)</span> is identically zero on all of <span class="process-math">\(D\text{.}\)</span>
 </div></article></div>
 <article class="definition definition-like" id="def-analytic-continuation"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.5</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-499">Let <span class="process-math">\(D_0 \subseteq D\)</span> be domains and <span class="process-math">\(f_0\colon D_0 \to \C\)</span> analytic. An <dfn class="terminology">analytic continuation</dfn> of <span class="process-math">\(f_0\)</span> (to <span class="process-math">\(D\)</span>) is an analytic function <span class="process-math">\(f\colon D\to \C\)</span> that agrees with <span class="process-math">\(f_0\)</span> on <span class="process-math">\(D_0\text{:}\)</span> <span class="process-math">\(f(z) = f_0(z)\)</span> for all <span class="process-math">\(z\in D_0\text{.}\)</span>
-</div></article><div class="para" id="p-500">An analytic contination of <span class="process-math">\(f_0\)</span> must be unique, if it exists.</div>
+<div class="para" id="p-510">Let <span class="process-math">\(D_0 \subseteq D\)</span> be domains and <span class="process-math">\(f_0\colon D_0 \to \C\)</span> analytic. An <dfn class="terminology">analytic continuation</dfn> of <span class="process-math">\(f_0\)</span> (to <span class="process-math">\(D\)</span>) is an analytic function <span class="process-math">\(f\colon D\to \C\)</span> that agrees with <span class="process-math">\(f_0\)</span> on <span class="process-math">\(D_0\text{:}\)</span> <span class="process-math">\(f(z) = f_0(z)\)</span> for all <span class="process-math">\(z\in D_0\text{.}\)</span>
+</div></article><div class="para" id="p-511">An analytic contination of <span class="process-math">\(f_0\)</span> must be unique, if it exists.</div>
 <article class="example example-like" id="example-47"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-47"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.6</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-47"><article class="example example-like"><div class="para logical" id="p-501">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-47"><article class="example example-like"><div class="para logical" id="p-512">
 <div class="para">Consider the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -359,24 +359,79 @@ f_0(z) = \sum_{n\ge 0} z^n = 1 + z + z^2 + \cdots
 </div></article></div></section><section class="subsection" id="subsec-permanence-functional-equations"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.2.2</span> <span class="title">The Principle of Permanence of Functional Equations</span>
 </h3>
-<div class="para" id="p-502">This is more trouble than it's worth to state precisely, so we'll just give some examples as applications of the Identity Theorem.</div>
+<div class="para" id="p-513">This is more trouble than it's worth to state precisely, so we'll just give some examples as applications of the Identity Theorem.</div>
 <article class="example example-like" id="example-48"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-48"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.7</span><span class="period">.</span>
 </h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-48"><article class="example example-like">The equation <span class="process-math">\(\sin^2(x) + \cos^2(x) = 1\)</span> holds for all real numbers <span class="process-math">\(x\text{.}\)</span> This means that we can apply <a href="" class="xref" data-knowl="./knowl/cor-identity-thm.html" title="Corollary 5.2.4: The Identity Theorem">Corollary 5.2.4</a> to the functions <span class="process-math">\(f(z) = sin^2(z) + \cos^2(z)\)</span> and <span class="process-math">\(g(z) = 1\)</span> on <span class="process-math">\(D = \C\)</span> to conclude that <span class="process-math">\(sin^2(z) + \cos^2(z) = 1\)</span> for all <span class="process-math">\(z \in \C\text{.}\)</span></article></div>
 <article class="example example-like" id="example-49"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-49"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.8</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-49"><article class="example example-like"><div class="para" id="p-503">Consider the equation <span class="process-math">\(e^{x+y} = e^x e^y\text{,}\)</span> which certainly holds for all real numbers <span class="process-math">\(x,y\text{.}\)</span>
-</div> <div class="para" id="p-504">The function <span class="process-math">\(F(z,w) = e^{z+w} - e^z e^w\)</span> is entire in each variable (holding the other one fixed) and equals <span class="process-math">\(0\)</span> for all <span class="process-math">\(z,w\in \R\text{.}\)</span> Since <span class="process-math">\(\R\)</span> has a non-isolated point, this implies by <a href="" class="xref" data-knowl="./knowl/cor-identity-thm.html" title="Corollary 5.2.4: The Identity Theorem">Corollary 5.2.4</a> that <span class="process-math">\(F\)</span> is identically zero, i.e., <span class="process-math">\(e^{z + w} = e^z e^w\)</span> for all <span class="process-math">\(z,w\in\C\text{.}\)</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-49"><article class="example example-like"><div class="para" id="p-514">Consider the equation <span class="process-math">\(e^{x+y} = e^x e^y\text{,}\)</span> which certainly holds for all real numbers <span class="process-math">\(x,y\text{.}\)</span>
+</div> <div class="para" id="p-515">The function <span class="process-math">\(F(z,w) = e^{z+w} - e^z e^w\)</span> is entire in each variable (holding the other one fixed) and equals <span class="process-math">\(0\)</span> for all <span class="process-math">\(z,w\in \R\text{.}\)</span> Since <span class="process-math">\(\R\)</span> has a non-isolated point, this implies by <a href="" class="xref" data-knowl="./knowl/cor-identity-thm.html" title="Corollary 5.2.4: The Identity Theorem">Corollary 5.2.4</a> that <span class="process-math">\(F\)</span> is identically zero, i.e., <span class="process-math">\(e^{z + w} = e^z e^w\)</span> for all <span class="process-math">\(z,w\in\C\text{.}\)</span>
 </div></article></div></section><section class="subsection" id="subsec-singularities"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.2.3</span> <span class="title">Singularities</span>
 </h3>
 <article class="definition definition-like" id="def-singularity"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.9</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-505">A function <span class="process-math">\(f\)</span> is <dfn class="terminology">singular</dfn> at <span class="process-math">\(z_0\)</span> if <span class="process-math">\(f\)</span> is not analytic at <span class="process-math">\(z_0\text{.}\)</span> If <span class="process-math">\(f\)</span> is singular at <span class="process-math">\(z_0\)</span> but analytic on <span class="process-math">\(\set{z }{ 0 \lt \abs{z-z_0} \lt r}\text{,}\)</span> then we say that <span class="process-math">\(f\)</span> has an <dfn class="terminology">isolated singularity</dfn> at <span class="process-math">\(z_0\text{.}\)</span>
+<div class="para" id="p-516">A function <span class="process-math">\(f\)</span> is <dfn class="terminology">singular</dfn> at <span class="process-math">\(z_0\)</span> if <span class="process-math">\(f\)</span> is not analytic at <span class="process-math">\(z_0\text{.}\)</span> If <span class="process-math">\(f\)</span> is singular at <span class="process-math">\(z_0\)</span> but analytic on <span class="process-math">\(\set{z }{ 0 \lt \abs{z-z_0} \lt r}\text{,}\)</span> then we say that <span class="process-math">\(f\)</span> has an <dfn class="terminology">isolated singularity</dfn> at <span class="process-math">\(z_0\text{.}\)</span>
 </div></article><article class="example example-like" id="example-50"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-50"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.10</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-50"><article class="example example-like"></article></div></section></section></div>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-50"><article class="example example-like"><ol class="lower-roman">
+<li id="li-49"><div class="para" id="p-517">The function <span class="process-math">\(\frac{z+1}{z^3(z^2+i)}\)</span> has isolated singularities at <span class="process-math">\(0,\pm i\text{.}\)</span>
+</div></li>
+<li id="li-50"><div class="para" id="p-518">The function <span class="process-math">\(e^{1/z}\)</span> has an isolated singularity at <span class="process-math">\(z = 0\text{.}\)</span>
+</div></li>
+<li id="li-51"><div class="para" id="p-519">The principal branch <span class="process-math">\(\Log(z)\)</span> of the log has a singularity at <span class="process-math">\(z = 0\text{,}\)</span> but it is not isolated because of the branch cut.</div></li>
+<li id="li-52"><div class="para" id="p-520">
+<span class="process-math">\(\frac{1}{\sin(\pi/z)}\)</span> has singularities where <span class="process-math">\(\sin(\pi/z) = 0\text{,}\)</span> in particular at <span class="process-math">\(z = 0\)</span> and at <span class="process-math">\(z = 1/n\)</span> for <span class="process-math">\(n\in\Z\text{.}\)</span> The singularities at <span class="process-math">\(\pi 1/n\)</span> are isolated, but the singularity at <span class="process-math">\(0\)</span> is not.</div></li>
+</ol></article></div>
+<article class="proposition theorem-like" id="prop-removal-singularities"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.2.11</span><span class="period">.</span><span class="space"> </span><span class="title">Removal of singularities.</span>
+</h4>
+<div class="para logical" id="p-521">
+<div class="para">Suppose that <span class="process-math">\(D\)</span> is a domain and <span class="process-math">\(z_0 \in D\text{.}\)</span> If <span class="process-math">\(f\colon D\wo \{z_0\} \to \C\)</span> is analytic and bounded near <span class="process-math">\(z_0\text{,}\)</span> then <span class="process-math">\(f\)</span> can be continuously extended to <span class="process-math">\(D\text{,}\)</span> say <span class="process-math">\(\lim\limits_{z \to z_0} f(z) = b\text{.}\)</span> In fact, if we define</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f^*(z) = \begin {cases} f(z) \amp \text{if } z \in D \wo \{z_0\} \\
+b \amp \text{if } z = z_0 \end {cases},
+\end{equation*}
+</div>
+<div class="para">then <span class="process-math">\(f^*\)</span> is analytic on <span class="process-math">\(D\text{.}\)</span>
+</div>
+</div></article><article class="hiddenproof" id="proof-42"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-42"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-42"><article class="hiddenproof"><div class="para" id="p-522">Define <span class="process-math">\(h \colon D\to \C\)</span> as follows.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-taylor.html">
+\begin{equation*}
+h(z) = \begin {cases} (z- z_0)^2 f(z) \amp \text{if } z \ne z_0 \\
+0 \amp \text{if } z = z_0
+\end {cases}
+\end{equation*}
+</div>
+<div class="para" id="p-523">Our assumption is that there are <span class="process-math">\(M\)</span> and <span class="process-math">\(\eps\)</span> such that <span class="process-math">\(\abs{f(z)} \lt M\)</span> for all <span class="process-math">\(z \in B_\eps(z_0) \wo \{z_0\}\text{.}\)</span> Let's estimate the difference quotient of <span class="process-math">\(h\)</span> near <span class="process-math">\(z_0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-taylor.html">
+\begin{equation*}
+\abs{ \frac{h(z) - h(z_0)}{z - z_0}} = \frac{\abs{(z-z_0)^2 f(z)}}{\abs{z - z_0}} = \abs{z - z_0} \abs{f(z)}
+\le \abs{z - z_0} M,
+\end{equation*}
+</div>
+<div class="para" id="p-524">which tends to <span class="process-math">\(0\)</span> as <span class="process-math">\(z\)</span> tends to <span class="process-math">\(z_0\text{.}\)</span> So <span class="process-math">\(h\)</span> is differentiable at <span class="process-math">\(z_0\text{,}\)</span> in addition to being differentiable near <span class="process-math">\(z_0\text{.}\)</span> So by <a href="" class="xref" data-knowl="./knowl/thm-taylor.html" title="Theorem 5.1.2: Taylor's Theorem">Theorem 5.1.2</a> <span class="process-math">\(h\)</span> has a power series expansion in a neighborhood <span class="process-math">\(B_\rho(z_0)\)</span> of <span class="process-math">\(z_0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-taylor.html">
+\begin{equation*}
+h(z) = \sum_{n\ge 0} a_n (z - z_0)^n = a_0 + a_1(z - z_0) + a_2(z-a_0)^2 + \cdots
+\end{equation*}
+</div>
+<div class="para logical" id="p-525">
+<div class="para">We must have <span class="process-math">\(a_0 = a_1 = 0\text{,}\)</span> so we can define</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) = \sum_{n\ge 0} a_{n+2} (z-z_0)^n = a_2 + a_3 (z-z_0) + a_4 (z - z_0)^2 + \cdots
+\end{equation*}
+</div>
+<div class="para">We have <span class="process-math">\(g(z) = \frac{h(z)}{(z-z_0)^2} = f(z)\)</span> for <span class="process-math">\(z \in B_\rho(z_0)\wo \{z_0\}\text{.}\)</span> And <span class="process-math">\(g(z) \to a_2\)</span> as <span class="process-math">\(z \to z_0\text{,}\)</span> so <span class="process-math">\(f(z) \to a_2\)</span> as <span class="process-math">\(z \to z_0\text{.}\)</span>
+</div>
+</div></article></div>
+<div class="para" id="p-526">The moral of <a href="" class="xref" data-knowl="./knowl/prop-removal-singularities.html" title="Proposition 5.2.11: Removal of singularities">Proposition 5.2.11</a> is that the only way a function can fail to be analytic is because it blows up, not because of some weird (real-analysis-like) failure of continuity.</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-taylor-series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

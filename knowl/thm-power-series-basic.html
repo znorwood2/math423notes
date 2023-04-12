@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span>
+</h3>
+<div class="para">Consider the (complex) power series <span class="process-math">\(f(z) = \sum_{n\ge 0} c_n (z-a)^n\text{.}\)</span> There is a number <span class="process-math">\(R \ge 0\text{,}\)</span> called the <dfn class="terminology">radius of convergence</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{,}\)</span> for which the following facts hold.</div> <ol class="lower-roman">
+<li>
+<div class="para">If <span class="process-math">\(R \gt 0\)</span> then the series converges absolutely to an analytic function on <span class="process-math">\(B_R(a)\text{,}\)</span> the <dfn class="terminology">disk of convergence</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{.}\)</span>
+</div>
+<aside class="aside aside-like"><div class="para">And for <span class="process-math">\(r \lt R\)</span> the series converges uniformly to its limiting function. You can ignore this if you haven't seen uniform convergence of functions before.</div></aside>
+</li>
+<li><div class="para">The series diverges for <span class="process-math">\(\abs{z - a} \gt R\text{.}\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">The derivative <span class="process-math">\(f'\)</span> is given on <span class="process-math">\(B_R(a)\)</span> by term-by-term differentiation:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(z) = \sum_{n \ge 1} n c_n (z-a)^{n-1}
+\end{equation*}
+</div>
+<div class="para">and also has radius of convergence <span class="process-math">\(R\text{.}\)</span>
+</div>
+</div></li>
+<li>
+<div class="para">We can integrate term by term too. If <span class="process-math">\(\gamma\)</span> is a contour inside the disk of convergence, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_\gamma f(z)\,dz = \sum_{n\ge 0} \int_\gamma c_n (z - a)^n\,dz.
+\end{equation*}
+</div>
+</li>
+<li>
+<div class="para">In fact the radius of convergence is given by the Root Test:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R = \frac{1}{\limsup \sqrt[n]{\abs{c_n}}},
+\end{equation*}
+</div>
+<aside class="aside aside-like"><div class="para">If you haven't seen limsups before, then take this slightly weaker statement: if <span class="process-math">\(\lim \sqrt[n]{\abs{c_n}}\)</span> exists, then <span class="process-math">\(R = \frac{1}{\limsup \sqrt[n]{\abs{c_n}}}\text{.}\)</span>
+</div></aside><div class="para">(interpreted as <span class="process-math">\(0\)</span> or <span class="process-math">\(\infty\)</span> as appropriate).</div>
+</li>
+</ol></article><span class="incontext"><a href="sec-taylor-series.html#thm-power-series-basic" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1807,7 +1807,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.2",
   "title": "Zeros and Singularities",
-  "body": " Zeros and Singularities  Subsections:    Zeros of analytic functions    Suppose that is analytic on a disk and is not identically on that disk. Then there is a unique integer , called the order of the zero of at , such that and has Taylor series around given by     This is an immediately corollary to Taylor's Theorem: since is not identically zero on , there is a first nonzero coefficient in its power series expansion.     NB. We did not assume in the definition that . If , then has a zero of order at .  Show how this generalizes the order of a zero of a polynomial from basic algebra. (E.g. the polynomial has a zero of order at and a zero of order at .)   The zeros of an analytic function are isolated   If is analytic and not identically zero on , and , then there is a small neighborhood of in which is the only zero of .     As in , let be the order of the zero of at , and let with be the function for which Then , so, since is continuous on we can find a small such that for all . On that small neighborhood we have iff .    The Identity Theorem   Suppose that is a domain and that and are two analytic functions . Suppose further that the set contains a non-isolated point , that is, a such that for all we have . Then on .    Look at the function on . Then has a nonisolated zero on , so there is a small disk on which is identically zero.  Now we need a topological argument. Look at the following two sets.   Certainly implies ; i.e., . And by Taylor's Theorem: expand around and look at the Taylor coefficients. But is (path-)connected, so either or . We have assumed that , so must be empty. Thus is identically zero on all of .      Let be domains and analytic. An analytic continuation of (to ) is an analytic function that agrees with on : for all .    An analytic contination of must be unique, if it exists.   Consider the function defined on . This series diverges for , but we know that is an analytic continuation of defined on .     The Principle of Permanence of Functional Equations  This is more trouble than it's worth to state precisely, so we'll just give some examples as applications of the Identity Theorem.  The equation holds for all real numbers . This means that we can apply to the functions and on to conclude that for all .   Consider the equation , which certainly holds for all real numbers .  The function is entire in each variable (holding the other one fixed) and equals for all . Since has a non-isolated point, this implies by that is identically zero, i.e., for all .     Singularities    A function is singular at if is not analytic at . If is singular at but analytic on , then we say that has an isolated singularity at .       The function has isolated singularities at .    The function has an isolated singularity at .    The principal branch of the log has a singularity at , but it is not isolated because of the branch cut.     has singularities where , in particular at and at for . The singularities at are isolated, but the singularity at is not.      Removal of singularities   Suppose that is a domain and . If is analytic and bounded near , then can be continuously extended to , say . In fact, if we define then is analytic on .    Define as follows.   Our assumption is that there are and such that for all . Let's estimate the difference quotient of near :   which tends to as tends to . So is differentiable at , in addition to being differentiable near . So by  has a power series expansion in a neighborhood of :   We must have , so we can define We have for . And as , so as .    The moral of is that the only way a function can fail to be analytic is because it blows up, not because of some weird (real-analysis-like) failure of continuity.   "
+  "body": " Zeros and Singularities  Subsections:    Zeros of analytic functions    Suppose that is analytic on a disk and is not identically on that disk. Then there is a unique integer , called the order of the zero of at , such that and has Taylor series around given by     This is an immediately corollary to Taylor's Theorem: since is not identically zero on , there is a first nonzero coefficient in its power series expansion.     NB. We did not assume in the definition that . If , then has a zero of order at .  Show how this generalizes the order of a zero of a polynomial from basic algebra. (E.g. the polynomial has a zero of order at and a zero of order at .)   The zeros of an analytic function are isolated   If is analytic and not identically zero on , and , then there is a small neighborhood of in which is the only zero of .     As in , let be the order of the zero of at , and let with be the function for which Then , so, since is continuous on we can find a small such that for all . On that small neighborhood we have iff .    The Identity Theorem   Suppose that is a domain and that and are two analytic functions . Suppose further that the set contains a non-isolated point , that is, a such that for all we have . Then on .    Look at the function on . Then has a nonisolated zero on , so there is a small disk on which is identically zero.  Now we need a topological argument. Look at the following two sets.   Certainly implies ; i.e., . And by Taylor's Theorem: expand around and look at the Taylor coefficients. But is (path-)connected, so either or . We have assumed that , so must be empty. Thus is identically zero on all of .      Let be domains and analytic. An analytic continuation of (to ) is an analytic function that agrees with on : for all .    An analytic contination of must be unique, if it exists.   Consider the function defined on . This series diverges for , but we know that is an analytic continuation of defined on .     The Principle of Permanence of Functional Equations  This is more trouble than it's worth to state precisely, so we'll just give some examples as applications of the Identity Theorem.  The equation holds for all real numbers . This means that we can apply to the functions and on to conclude that for all .   Consider the equation , which certainly holds for all real numbers .  The function is entire in each variable (holding the other one fixed) and equals for all . Since has a non-isolated point, this implies by that is identically zero, i.e., for all .     Singularities    A function is singular at if is not analytic at . If is singular at but analytic on , then we say that has an isolated singularity at .       The function has isolated singularities at .    The function has an isolated singularity at .    The principal branch of the log has a singularity at , but it is not isolated because of the branch cut.     has singularities where , in particular at and at for . The singularities at are isolated, but the singularity at is not.      Removal of singularities   Suppose that is a domain and . If is analytic and bounded near , then can be continuously extended to , say . In fact, if we define then is analytic on .    Define as follows.   Our assumption is that there are and such that for all . Let's estimate the difference quotient of near :   which tends to as tends to . So is differentiable at , in addition to being differentiable near . So by  has a power series expansion in a neighborhood of :   We must have , so we can define We have for . And as , so as .    The moral of is that the only way a function can fail to be analytic is because it blows up, not because of some weird (real-analysis-like) failure of continuity.  A function like has a singularity at , and there should be some sense in which the singularity has order  . The next proposition makes that precise.    Suppose that is a domain, , and is analytic. Suppose also that as . Then there are (unique) and (unique) analytic for which and .  In this case we say that has a pole of order  at .    We begin by constructing in a small neighborhood of . By our assumption, there is a such that for all . In particular, is nonzero on . Define as follows.   Then, since as , this new function is continuous on (notice that is defined there, since is nonzero) and therefore analytic on by Removal of Singularities .  Since but is not identically on , this zero must (by ) have an order: there must be and an analytic function for which . By the continuity of , there is such that for all . Define by . So is analytic on and satisfies the following equation for all .   But now we can observe that makes sense for all , so has an analytic continuation to all of . So we have found our order and function .      A isolated singularity of at is ...     removable if is bounded near (as in );    a pole (of order ) if it satisfies the hypotheses of ;    an isolated essential singularity if it is an isolated singularity that is neither removable nor a pole.      The function has an isolated essential singularity at , as we will see.  Suppose that has a zero of order at and has a zero of order at . Then has a pole of order at , by which we mean:   If then has a pole of order at ;    If then has a zero of order at ;    If then is nonzero and analytic at .      Notice that and that the second factor of is nonzero at .    "
 },
 {
   "id": "prop-order-zero",
@@ -1916,6 +1916,141 @@ var ptx_lunr_docs = [
   "number": "5.2.11",
   "title": "Removal of singularities.",
   "body": " Removal of singularities   Suppose that is a domain and . If is analytic and bounded near , then can be continuously extended to , say . In fact, if we define then is analytic on .    Define as follows.   Our assumption is that there are and such that for all . Let's estimate the difference quotient of near :   which tends to as tends to . So is differentiable at , in addition to being differentiable near . So by  has a power series expansion in a neighborhood of :   We must have , so we can define We have for . And as , so as .   "
+},
+{
+  "id": "prop-poles-exist",
+  "level": "2",
+  "url": "sec-zero-singularity.html#prop-poles-exist",
+  "type": "Proposition",
+  "number": "5.2.12",
+  "title": "",
+  "body": "  Suppose that is a domain, , and is analytic. Suppose also that as . Then there are (unique) and (unique) analytic for which and .  In this case we say that has a pole of order  at .    We begin by constructing in a small neighborhood of . By our assumption, there is a such that for all . In particular, is nonzero on . Define as follows.   Then, since as , this new function is continuous on (notice that is defined there, since is nonzero) and therefore analytic on by Removal of Singularities .  Since but is not identically on , this zero must (by ) have an order: there must be and an analytic function for which . By the continuity of , there is such that for all . Define by . So is analytic on and satisfies the following equation for all .   But now we can observe that makes sense for all , so has an analytic continuation to all of . So we have found our order and function .   "
+},
+{
+  "id": "def-singularity-types",
+  "level": "2",
+  "url": "sec-zero-singularity.html#def-singularity-types",
+  "type": "Definition",
+  "number": "5.2.13",
+  "title": "",
+  "body": "  A isolated singularity of at is ...     removable if is bounded near (as in );    a pole (of order ) if it satisfies the hypotheses of ;    an isolated essential singularity if it is an isolated singularity that is neither removable nor a pole.     "
+},
+{
+  "id": "example-51",
+  "level": "2",
+  "url": "sec-zero-singularity.html#example-51",
+  "type": "Example",
+  "number": "5.2.14",
+  "title": "",
+  "body": "The function has an isolated essential singularity at , as we will see. "
+},
+{
+  "id": "exercise-13",
+  "level": "2",
+  "url": "sec-zero-singularity.html#exercise-13",
+  "type": "Checkpoint",
+  "number": "5.2.15",
+  "title": "",
+  "body": "Suppose that has a zero of order at and has a zero of order at . Then has a pole of order at , by which we mean:   If then has a pole of order at ;    If then has a zero of order at ;    If then is nonzero and analytic at .   "
+},
+{
+  "id": "sec-laurent-series",
+  "level": "1",
+  "url": "sec-laurent-series.html",
+  "type": "Section",
+  "number": "5.3",
+  "title": "Laurent series",
+  "body": " Laurent series  An analytic function has a Taylor series in a neighborhood of a non-singularity; what about a neighborhood of a singularity?   Laurent's Theorem   Suppose that and consider the annulus . Suppose that is analytic. Then has a (unique) convergent series (its Laurent expansion ) that converges for .  The coefficients can be computed for by the following formula.     In the case (a particularly important one), there are three cases:     Case 1: All the negative coefficients are zero: . Then is bounded near and therefore has a removable singularity there.     Case 2: Only finitely many negative coefficients are nonzero: Then has a pole of order at . (We see this by writing .)     Case 3: Infinitely many of the negative coefficients are nonzero. In this case, has an isolated essential singularity.     In , the Laurent series can be decomposed into an analytic part  , which converges to an analytic function on , and a singular part  , which converges to an analytic function on . Their sum is , which is analytic on the common region of convergence of the two series, i.e., .     GeoGebra: Laurent parts     The function has Laurent series that converges on .    We can find the Laurent series of the function using partial fractions:   Note that is analytic at and has Taylor series expansion that can be found using geometric series:   The Laurent series is and converges for .  (Ooh, but what if we'd considered the function on the annulus instead? Stay tuned!)    Find the Laurent series for on .  Notice that has isolated singularities at and . It is analytic on . Here is the Laurent series:      NB. The Laurent series can depend on the region!  Find the Laurent series for around for              For the first part:   For the second part, notice that is not convergent on , so we use an algebraic trick using the fact that on this :     Proof of   Fix . Find circles and so that lies in the smaller slit annulus , as shown in the figure (TO BE ADDED). Then Cauchy's Integral Formula applies to and the closed curve that encircles it:   As in the proof of the Cauchy Integral Formula, we manipulate to get a geometric series:   holds for , e.g. on . And:   holds for , e.g. on .  Put all this together:    The sum, is   .  Notice that the sum in converges for , and the sum in converges for .   "
+},
+{
+  "id": "thm-laurent",
+  "level": "2",
+  "url": "sec-laurent-series.html#thm-laurent",
+  "type": "Theorem",
+  "number": "5.3.1",
+  "title": "Laurent's Theorem.",
+  "body": " Laurent's Theorem   Suppose that and consider the annulus . Suppose that is analytic. Then has a (unique) convergent series (its Laurent expansion ) that converges for .  The coefficients can be computed for by the following formula.    "
+},
+{
+  "id": "remark-1",
+  "level": "2",
+  "url": "sec-laurent-series.html#remark-1",
+  "type": "Remark",
+  "number": "5.3.2",
+  "title": "",
+  "body": " In , the Laurent series can be decomposed into an analytic part  , which converges to an analytic function on , and a singular part  , which converges to an analytic function on . Their sum is , which is analytic on the common region of convergence of the two series, i.e., .  "
+},
+{
+  "id": "fig-geogebra-laurent-parts",
+  "level": "2",
+  "url": "sec-laurent-series.html#fig-geogebra-laurent-parts",
+  "type": "Figure",
+  "number": "5.3.3",
+  "title": "",
+  "body": " GeoGebra: Laurent parts   "
+},
+{
+  "id": "example-52",
+  "level": "2",
+  "url": "sec-laurent-series.html#example-52",
+  "type": "Example",
+  "number": "5.3.4",
+  "title": "",
+  "body": " The function has Laurent series that converges on .  "
+},
+{
+  "id": "example-53",
+  "level": "2",
+  "url": "sec-laurent-series.html#example-53",
+  "type": "Example",
+  "number": "5.3.5",
+  "title": "",
+  "body": " We can find the Laurent series of the function using partial fractions:   Note that is analytic at and has Taylor series expansion that can be found using geometric series:   The Laurent series is and converges for .  (Ooh, but what if we'd considered the function on the annulus instead? Stay tuned!)  "
+},
+{
+  "id": "example-54",
+  "level": "2",
+  "url": "sec-laurent-series.html#example-54",
+  "type": "Example",
+  "number": "5.3.6",
+  "title": "",
+  "body": " Find the Laurent series for on .  Notice that has isolated singularities at and . It is analytic on . Here is the Laurent series:   "
+},
+{
+  "id": "example-55",
+  "level": "2",
+  "url": "sec-laurent-series.html#example-55",
+  "type": "Example",
+  "number": "5.3.7",
+  "title": "",
+  "body": "  NB. The Laurent series can depend on the region!  Find the Laurent series for around for              For the first part:   For the second part, notice that is not convergent on , so we use an algebraic trick using the fact that on this :   "
+},
+{
+  "id": "proof-44",
+  "level": "2",
+  "url": "sec-laurent-series.html#proof-44",
+  "type": "Proof",
+  "number": "5.3.1",
+  "title": "Proof of Theorem 5.3.1.",
+  "body": " Proof of   Fix . Find circles and so that lies in the smaller slit annulus , as shown in the figure (TO BE ADDED). Then Cauchy's Integral Formula applies to and the closed curve that encircles it:   As in the proof of the Cauchy Integral Formula, we manipulate to get a geometric series:   holds for , e.g. on . And:   holds for , e.g. on .  Put all this together:    The sum, is   .  Notice that the sum in converges for , and the sum in converges for .  "
+},
+{
+  "id": "sec-residues",
+  "level": "1",
+  "url": "sec-residues.html",
+  "type": "Section",
+  "number": "5.4",
+  "title": "Residues",
+  "body": " Residues  If has an isolated singularity at and its Laurent series on is given by then what is around a small simple closed curve encircling ?  Integrate the Laurent series termwise:   The only term in this sum that survives integration is the one involving . (Notice that e.g. .) So .    When has an isolated singularity at , then the residue of at is defined to be , the coefficient of in the Laurent series of defined on . The residue is denoted     Note that the residue of at could alternatively be defined by   "
+},
+{
+  "id": "def-residue",
+  "level": "2",
+  "url": "sec-residues.html#def-residue",
+  "type": "Definition",
+  "number": "5.4.1",
+  "title": "",
+  "body": "  When has an isolated singularity at , then the residue of at is defined to be , the coefficient of in the Laurent series of defined on . The residue is denoted    "
 },
 {
   "id": "colophon-2",

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Laurent's Theorem.</span>
+</h3>
+<div class="para logical">
+<div class="para">Suppose that <span class="process-math">\(0 \le r \lt R \lt \infty\)</span> and consider the annulus <span class="process-math">\(A = \set{ z\in \C }{ r \lt \abs{z - a} \lt R }\text{.}\)</span> Suppose that <span class="process-math">\(f\colon A \to \C\)</span> is analytic. Then <span class="process-math">\(f\)</span> has a (unique) convergent series (its <dfn class="terminology">Laurent expansion</dfn>)</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \sum_{-\infty \lt n \lt \infty} c_n (z-a)^n
+= \cdots \frac{c_{-2}}{(z-a)^2} + \frac{c_{-1}}{z-a} + c_0 + c_1(z-a) + \cdots
+\end{equation*}
+</div>
+<div class="para">that converges for <span class="process-math">\(z \in A\text{.}\)</span>
+</div>
+</div> <div class="para">The coefficients <span class="process-math">\(c_n\)</span> can be computed for <span class="process-math">\(\rho \in (r,R)\)</span> by the following formula.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_n = \frac{1}{2\pi i} \oint_{\abs{z - a} = \rho} \frac{f(z)}{(z-a)^{n+1}}\,dz
+\end{equation*}
+</div></article><span class="incontext"><a href="sec-laurent-series.html#thm-laurent" class="internal">in-context</a></span>
+</body>
+</html>

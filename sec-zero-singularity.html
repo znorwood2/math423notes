@@ -177,7 +177,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-taylor-series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-taylor-laurent-series.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-taylor-series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-taylor-laurent-series.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-laurent-series.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
@@ -195,6 +195,7 @@ window.MathJax = {
 \renewcommand{\bar}{\overline}
 \newcommand{\Arg}{\operatorname{Arg}}
 \newcommand{\Log}{\operatorname{Log}}
+\newcommand{\Res}{\operatorname*{Res}}
 \newcommand{\wo}{\smallsetminus}
 \newcommand{\angleop}{\operatorname{angle}}
 \newcommand {\grad} {\nabla}
@@ -279,6 +280,8 @@ window.MathJax = {
 <li><div class="toc-item"><a href="sec-zero-singularity.html#subsec-singularities" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Singularities</span></a></div></li>
 </ul>
 </li>
+<li><div class="toc-item"><a href="sec-laurent-series.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Laurent series</span></a></div></li>
+<li><div class="toc-item"><a href="sec-residues.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Residues</span></a></div></li>
 </ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -383,7 +386,7 @@ f_0(z) = \sum_{n\ge 0} z^n = 1 + z + z^2 + \cdots
 </div></li>
 <li id="li-51"><div class="para" id="p-519">The principal branch <span class="process-math">\(\Log(z)\)</span> of the log has a singularity at <span class="process-math">\(z = 0\text{,}\)</span> but it is not isolated because of the branch cut.</div></li>
 <li id="li-52"><div class="para" id="p-520">
-<span class="process-math">\(\frac{1}{\sin(\pi/z)}\)</span> has singularities where <span class="process-math">\(\sin(\pi/z) = 0\text{,}\)</span> in particular at <span class="process-math">\(z = 0\)</span> and at <span class="process-math">\(z = 1/n\)</span> for <span class="process-math">\(n\in\Z\text{.}\)</span> The singularities at <span class="process-math">\(\pi 1/n\)</span> are isolated, but the singularity at <span class="process-math">\(0\)</span> is not.</div></li>
+<span class="process-math">\(\frac{1}{\sin(\pi/z)}\)</span> has singularities where <span class="process-math">\(\sin(\pi/z) = 0\text{,}\)</span> in particular at <span class="process-math">\(z = 0\)</span> and at <span class="process-math">\(z = 1/n\)</span> for <span class="process-math">\(n\in\mathbb{Z}\text{.}\)</span> The singularities at <span class="process-math">\(1/n\)</span> are isolated, but the singularity at <span class="process-math">\(0\)</span> is not.</div></li>
 </ol></article></div>
 <article class="proposition theorem-like" id="prop-removal-singularities"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.2.11</span><span class="period">.</span><span class="space"> </span><span class="title">Removal of singularities.</span>
@@ -431,9 +434,74 @@ g(z) = \sum_{n\ge 0} a_{n+2} (z-z_0)^n = a_2 + a_3 (z-z_0) + a_4 (z - z_0)^2 + \
 <div class="para">We have <span class="process-math">\(g(z) = \frac{h(z)}{(z-z_0)^2} = f(z)\)</span> for <span class="process-math">\(z \in B_\rho(z_0)\wo \{z_0\}\text{.}\)</span> And <span class="process-math">\(g(z) \to a_2\)</span> as <span class="process-math">\(z \to z_0\text{,}\)</span> so <span class="process-math">\(f(z) \to a_2\)</span> as <span class="process-math">\(z \to z_0\text{.}\)</span>
 </div>
 </div></article></div>
-<div class="para" id="p-526">The moral of <a href="" class="xref" data-knowl="./knowl/prop-removal-singularities.html" title="Proposition 5.2.11: Removal of singularities">Proposition 5.2.11</a> is that the only way a function can fail to be analytic is because it blows up, not because of some weird (real-analysis-like) failure of continuity.</div></section></section></div>
+<div class="para" id="p-526">The moral of <a href="" class="xref" data-knowl="./knowl/prop-removal-singularities.html" title="Proposition 5.2.11: Removal of singularities">Proposition 5.2.11</a> is that the only way a function can fail to be analytic is because it blows up, not because of some weird (real-analysis-like) failure of continuity.</div>
+<div class="para" id="p-527">A function like <span class="process-math">\(\frac{e^z}{(z-\pi)^5}\)</span> has a singularity at <span class="process-math">\(z = \pi\text{,}\)</span> and there should be some sense in which the singularity has “order” <span class="process-math">\(5\text{.}\)</span> The next proposition makes that precise.</div>
+<article class="proposition theorem-like" id="prop-poles-exist"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.2.12</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-528">Suppose that <span class="process-math">\(D\)</span> is a domain, <span class="process-math">\(z_0 \in D\text{,}\)</span> and <span class="process-math">\(f\colon D \wo \{z_0\} \to \C\)</span> is analytic. Suppose also that <span class="process-math">\(\abs{f(z)} \to \infty\)</span> as <span class="process-math">\(z\to z_0\text{.}\)</span> Then there are (unique) <span class="process-math">\(k\in \{1,2,3,\dots\}\)</span> and (unique) analytic <span class="process-math">\(g\colon D \to \C\)</span> for which <span class="process-math">\(g(z_0) \ne 0\)</span> and <span class="process-math">\(f(z) = \frac{g(z)}{(z-z_0)^k}\text{.}\)</span>
+</div> <div class="para" id="p-529">In this case we say that <span class="process-math">\(f\)</span> has a <dfn class="terminology">pole of order</dfn> <span class="process-math">\(k\)</span> at <span class="process-math">\(z_0\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-43"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-43"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-43"><article class="hiddenproof"><div class="para" id="p-530">We begin by constructing <span class="process-math">\(g\)</span> in a small neighborhood of <span class="process-math">\(z_0\text{.}\)</span> By our assumption, there is a <span class="process-math">\(\delta \gt 0\)</span> such that <span class="process-math">\(\abs{f(z)}\ge 1\)</span> for all <span class="process-math">\(z\in B_\delta(z_0) \wo \{z_0\}\text{.}\)</span> In particular, <span class="process-math">\(f\)</span> is nonzero on <span class="process-math">\(z\in B_\delta(z_0) \wo \{z_0\}\text{.}\)</span> Define <span class="process-math">\(h\colon B_\delta(z_0) \wo \{z_0\}\)</span> as follows.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-removal-singularities.html ./knowl/prop-order-zero.html ./knowl/eqn-poles-prop.html">
+\begin{equation*}
+h(z) = \begin {cases} \frac{1}{f(z)} \amp \text{if } z \in B_{\delta}(z_0)\wo\{z_0\} \\
+0 \amp \text{if } z = z_0
+\end {cases}
+\end{equation*}
+</div>
+<div class="para" id="p-531">Then, since <span class="process-math">\(\abs{f(z)} \to \infty\)</span> as <span class="process-math">\(z\to z_0\text{,}\)</span> this new function <span class="process-math">\(h\)</span> is continuous on <span class="process-math">\(B_\delta(z_0)\)</span> (notice that <span class="process-math">\(h\)</span> is defined there, since <span class="process-math">\(f\)</span> is nonzero) and therefore analytic on <span class="process-math">\(B_\delta(z_0)\)</span> by <a href="" class="xref" data-knowl="./knowl/prop-removal-singularities.html" title="Proposition 5.2.11: Removal of singularities">Removal of Singularities 5.2.11</a>.</div> <div class="para" id="p-532">Since <span class="process-math">\(h(z_0) = 0\)</span> but <span class="process-math">\(h\)</span> is not identically <span class="process-math">\(0\)</span> on <span class="process-math">\(B_\delta(z_0)\text{,}\)</span> this zero must (by <a href="" class="xref" data-knowl="./knowl/prop-order-zero.html" title="Proposition 5.2.1">Proposition 5.2.1</a>) have an order: there must be <span class="process-math">\(k\in \{1,2,3,\dots\}\)</span> and an analytic function <span class="process-math">\(l \colon B_\delta(z_0) \to \C\)</span> for which <span class="process-math">\(l(z_0) \ne 0\text{.}\)</span> By the continuity of <span class="process-math">\(l\text{,}\)</span> there is <span class="process-math">\(\eps \in (0,\delta)\)</span> such that <span class="process-math">\(l(z) \ne 0\)</span> for all <span class="process-math">\(z\in B_\eps(z_0)\text{.}\)</span> Define <span class="process-math">\(g\colon B_\eps(z_0) \to \C\)</span> by <span class="process-math">\(g(z) = \frac{1}{l(z)}\text{.}\)</span> So <span class="process-math">\(g\)</span> is analytic on <span class="process-math">\(B_\eps(z_0)\)</span> and satisfies the following equation for all <span class="process-math">\(z\in B_\eps(z_0)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-removal-singularities.html ./knowl/prop-order-zero.html ./knowl/eqn-poles-prop.html" id="eqn-poles-prop">
+\begin{equation}
+g(z) = \frac{1}{l(z)} = \frac{1}{h(z)} \cdot (z - z_0)^k = (z-z_0)^k f(z).\tag{5.2.1}
+\end{equation}
+</div>
+<div class="para" id="p-533">But now we can observe that <a href="" class="xref" data-knowl="./knowl/eqn-poles-prop.html" title="Equation 5.2.1">(5.2.1)</a> makes sense for all <span class="process-math">\(z\in D\text{,}\)</span> so <span class="process-math">\(g\)</span> has an analytic continuation to all of <span class="process-math">\(D\text{.}\)</span> So we have found our order <span class="process-math">\(k\)</span> and function <span class="process-math">\(g\text{.}\)</span>
+</div></article></div>
+<article class="definition definition-like" id="def-singularity-types"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.13</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-534">A isolated singularity of <span class="process-math">\(f\)</span> at <span class="process-math">\(z_0\)</span> is ...</div> <ul class="disc">
+<li id="li-53"><div class="para" id="p-535">
+<dfn class="terminology">removable</dfn> if <span class="process-math">\(f\)</span> is bounded near <span class="process-math">\(z_0\)</span> (as in <a href="" class="xref" data-knowl="./knowl/prop-removal-singularities.html" title="Proposition 5.2.11: Removal of singularities">Proposition 5.2.11</a>);</div></li>
+<li id="li-54"><div class="para" id="p-536">a <dfn class="terminology">pole</dfn> (of order <span class="process-math">\(k\)</span>) if it satisfies the hypotheses of <a href="" class="xref" data-knowl="./knowl/prop-poles-exist.html" title="Proposition 5.2.12">Proposition 5.2.12</a>;</div></li>
+<li id="li-55"><div class="para" id="p-537">an <dfn class="terminology">isolated essential singularity</dfn> if it is an isolated singularity that is neither removable nor a pole.</div></li>
+</ul></article><article class="example example-like" id="example-51"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-51"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.14</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-51"><article class="example example-like">The function <span class="process-math">\(z\mapsto e^{1/z}\)</span> has an isolated essential singularity at <span class="process-math">\(z = 0\text{,}\)</span> as we will see.</article></div>
+<article class="exercise exercise-like" id="exercise-13"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-13"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">5.2.15</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-13"><article class="exercise exercise-like"><div class="para" id="p-538">Suppose that <span class="process-math">\(f\)</span>  has a zero of order <span class="process-math">\(m\)</span> at <span class="process-math">\(a\)</span> and <span class="process-math">\(g\)</span> has a zero of order <span class="process-math">\(n\)</span> at <span class="process-math">\(a\text{.}\)</span> Then <span class="process-math">\(\frac{f(z)}{g(z)}\)</span> has a “pole of order <span class="process-math">\(n-m\)</span> at <span class="process-math">\(a\)</span>”, by which we mean:</div>
+<ul class="disc">
+<li id="li-56"><div class="para" id="p-539">If <span class="process-math">\(n \gt m\)</span> then <span class="process-math">\(f/g\)</span> has a pole of order <span class="process-math">\(n-m\)</span> at <span class="process-math">\(a\text{;}\)</span>
+</div></li>
+<li id="li-57"><div class="para" id="p-540">If <span class="process-math">\(n \lt m\)</span> then <span class="process-math">\(f/g\)</span> has a zero of order <span class="process-math">\(m-n\)</span> at <span class="process-math">\(a\text{;}\)</span>
+</div></li>
+<li id="li-58"><div class="para" id="p-541">If <span class="process-math">\(m = n\)</span> then <span class="process-math">\(f/g\)</span> is nonzero and analytic at <span class="process-math">\(a\text{.}\)</span>
+</div></li>
+</ul></article></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-poles.html" id="mdn-1">
+\begin{align}
+\frac{f(z)}{g(z)} \amp = \frac{c_m (z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots}{d_n (z-a)^n + d_{n+1}(z-a)^{n+1} + \cdots}\notag\\
+\amp = \frac{1}{(z-a)^{n-m}} \left( \frac{c_m(z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots}{d_n (z-a)^m + d_{n+1}(z-a)^{m+1} + \cdots} \right)\notag\\
+\amp = \frac{1}{(z-a)^{n-m}} \left( \frac{c_m + c_{m+1}(z-a) + \cdots}{d_n + d_{n+1}(z-a) + \cdots} \right)\tag{5.2.2}
+\end{align}
+</div>
+<div class="para logical" id="p-542">
+<div class="para">Notice that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-poles.html">
+\begin{equation*}
+\frac{1}{(z-a)^{n-m}} = \begin {cases} \frac{1}{(z-a)^{n-m}} \amp \text{if } m \lt n \\
+(z-a)^{m-n} \amp \text{if } m \gt n \end {cases},
+\end{equation*}
+</div>
+<div class="para">and that the second factor of <a href="" class="xref" data-knowl="./knowl/eqn-poles.html" title="Equation 5.2.2">(5.2.2)</a> is nonzero at <span class="process-math">\(z=a\text{.}\)</span>
+</div>
+</div>
+</div></div></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-taylor-series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="sec-taylor-series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-laurent-series.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer">

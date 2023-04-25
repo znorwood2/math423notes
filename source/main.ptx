@@ -20,6 +20,7 @@
       \renewcommand{\bar}{\overline}
       \newcommand{\Arg}{\operatorname{Arg}}
       \newcommand{\Log}{\operatorname{Log}}
+      \newcommand{\Res}{\operatorname*{Res}}
       \newcommand{\wo}{\smallsetminus}
       \newcommand{\angleop}{\operatorname{angle}}
       \newcommand {\grad} {\nabla}
@@ -4413,8 +4414,8 @@
               <li>
                 <p>
                   <m>\frac{1}{\sin(\pi/z)}</m> has singularities where <m>\sin(\pi/z) = 0</m>,
-                  in particular at <m>z = 0</m> and at <m>z = 1/n</m> for <m>n\in\Z</m>.
-                  The singularities at <m>\pi 1/n</m> are isolated, but the singularity at <m>0</m> is not.
+                  in particular at <m>z = 0</m> and at <m>z = 1/n</m> for <m>n\in\mathbb{Z}</m>.
+                  The singularities at <m>1/n</m> are isolated, but the singularity at <m>0</m> is not.
                 </p>
               </li>
             </ol>
@@ -4475,8 +4476,388 @@
             The moral of <xref ref="prop-removal-singularities"/> is that the only way a function can fail to be
             analytic is because it blows up, not because of some weird (real-analysis-like) failure of continuity.
           </p>
-
+          <p>
+            A function like <m>\frac{e^z}{(z-\pi)^5}</m> has a singularity at <m>z = \pi</m>,
+            and there should be some sense in which the singularity has <q>order</q> <m>5</m>.
+            The next proposition makes that precise.
+          </p>
+          <proposition xml:id="prop-poles-exist">
+            <statement>
+              <p>
+                Suppose that <m>D</m> is a domain, <m>z_0 \in D</m>, and 
+                <m>f\colon D \wo \{z_0\} \to \C</m> is analytic.
+                Suppose also that <m>\abs{f(z)} \to \infty</m> as <m>z\to z_0</m>.
+                Then there are (unique) <m>k\in \{1,2,3,\dots\}</m> and (unique)
+                analytic <m>g\colon D \to \C</m> for which <m>g(z_0) \ne 0</m>
+                and <m>f(z) = \frac{g(z)}{(z-z_0)^k}</m>.
+              </p>
+              <p>
+                In this case we say that <m>f</m> has a <term>pole of order</term> <m>k</m> at <m>z_0</m>.
+              </p>
+            </statement>
+            <proof>
+              <p>
+                We begin by constructing <m>g</m> in a small neighborhood of <m>z_0</m>.
+                By our assumption, there is a <m>\delta \gt 0</m> such that <m>\abs{f(z)}\ge 1</m>
+                for all <m>z\in B_\delta(z_0) \wo \{z_0\}</m>.
+                In particular, <m>f</m> is nonzero on <m>z\in B_\delta(z_0) \wo \{z_0\}</m>.
+                Define <m>h\colon B_\delta(z_0) \wo \{z_0\}</m> as follows.
+              </p>
+              <me>
+                h(z) = \begin {cases} \frac{1}{f(z)} \amp \text{if } z \in B_{\delta}(z_0)\wo\{z_0\} \\
+                0 \amp \text{if } z = z_0
+                \end {cases}
+              </me>
+              <p>
+                Then, since <m>\abs{f(z)} \to \infty</m> as <m>z\to z_0</m>, this new function <m>h</m>
+                is continuous on <m>B_\delta(z_0)</m> (notice that <m>h</m> is defined there, since <m>f</m>
+                is nonzero) and therefore analytic on <m>B_\delta(z_0)</m> 
+                by <xref ref="prop-removal-singularities">Removal of Singularities</xref>.
+              </p>
+              <p>
+                Since <m>h(z_0) = 0</m> but <m>h</m> is not identically <m>0</m> on <m>B_\delta(z_0)</m>,
+                this zero must (by <xref ref="prop-order-zero"/>) have an order:
+                there must be <m>k\in \{1,2,3,\dots\}</m> and an analytic function <m>l \colon B_\delta(z_0) \to \C</m>
+                for which <m>l(z_0) \ne 0</m>.
+                By the continuity of <m>l</m>, there is <m>\eps \in (0,\delta)</m> such that <m>l(z) \ne 0</m>
+                for all <m>z\in B_\eps(z_0)</m>.
+                Define <m>g\colon B_\eps(z_0) \to \C</m> by <m>g(z) = \frac{1}{l(z)}</m>.
+                So <m>g</m> is analytic on <m>B_\eps(z_0)</m> and satisfies the following equation
+                for all <m>z\in B_\eps(z_0)</m>.
+              </p>
+              <men xml:id="eqn-poles-prop">
+                g(z) = \frac{1}{l(z)} = \frac{1}{h(z)} \cdot (z - z_0)^k = (z-z_0)^k f(z).
+              </men>
+              <p>
+                But now we can observe that <xref ref="eqn-poles-prop"/> makes sense for all <m>z\in D</m>, 
+                so <m>g</m> has an analytic continuation to all of <m>D</m>.
+                So we have found our order <m>k</m> and function <m>g</m>.
+              </p>
+            </proof>
+          </proposition>
+          <definition xml:id="def-singularity-types">
+            <statement>
+              <p>
+                A isolated singularity of <m>f</m> at <m>z_0</m> is ...
+              </p>
+                <ul>
+                  <li>
+                    <p>
+                      <term>removable</term> if <m>f</m> is bounded
+                      near <m>z_0</m> (as in <xref ref="prop-removal-singularities"/>);
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      a <term>pole</term> (of order <m>k</m>) if it
+                satisfies the hypotheses of <xref ref="prop-poles-exist"/>;
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      an <term>isolated essential singularity</term> if it is an isolated singularity
+                      that is neither removable nor a pole.
+                    </p>
+                  </li>
+                </ul>
+            </statement>
+          </definition>
+          <example>
+            The function <m>z\mapsto e^{1/z}</m> has an isolated essential singularity at <m>z = 0</m>, 
+            as we will see.
+          </example>
+          <exercise>
+            <p>
+              Suppose that <m>f</m>  has a zero of order <m>m</m> at <m>a</m> and <m>g</m> has a zero of 
+              order <m>n</m> at <m>a</m>. Then <m>\frac{f(z)}{g(z)}</m> has a <q>pole of order <m>n-m</m>
+              at <m>a</m></q>, by which we mean:
+            </p>
+            <ul>
+              <li>
+                <p>
+                  If <m>n \gt m</m> then <m>f/g</m> has a pole of order <m>n-m</m> at <m>a</m>;
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>n \lt m</m> then <m>f/g</m> has a zero of order <m>m-n</m> at <m>a</m>;
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>m = n</m> then <m>f/g</m> is nonzero and analytic at <m>a</m>.
+                </p>
+              </li>
+            </ul>
+          </exercise>
+          <solution>
+            <mdn>
+              <mrow number="no"> \frac{f(z)}{g(z)} \amp = \frac{c_m (z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots}{d_n (z-a)^n + d_{n+1}(z-a)^{n+1} + \cdots}</mrow>
+              <mrow number="no"> \amp = \frac{1}{(z-a)^{n-m}} \left( \frac{c_m(z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots}{d_n (z-a)^m + d_{n+1}(z-a)^{m+1} + \cdots} \right)</mrow>
+              <mrow xml:id="eqn-poles"> \amp = \frac{1}{(z-a)^{n-m}} \left( \frac{c_m + c_{m+1}(z-a) + \cdots}{d_n + d_{n+1}(z-a) + \cdots} \right)</mrow>
+            </mdn>
+            <p>
+              Notice that 
+              <me>
+                \frac{1}{(z-a)^{n-m}} = \begin {cases} \frac{1}{(z-a)^{n-m}} \amp \text{if } m \lt n \\
+              (z-a)^{m-n} \amp \text{if } m \gt n \end {cases},
+              </me>
+              and that the second factor of <xref ref="eqn-poles"/> is nonzero at <m>z=a</m>.
+            </p>
+          </solution>
         </subsection>
+      </section>
+      <section xml:id="sec-laurent-series">
+        <title>Laurent series</title>
+        <p>
+          An analytic function has a Taylor series in a neighborhood of a non-singularity;
+          what about a neighborhood of a singularity?
+        </p>
+        <theorem xml:id="thm-laurent">
+          <title>Laurent's Theorem</title>
+          <statement>
+            <p>
+              Suppose that <m>0 \le r \lt R \lt \infty</m> and consider the annulus 
+              <m>A = \set{ z\in \C }{ r \lt \abs{z - a} \lt R }</m>.
+              Suppose that <m>f\colon A \to \C</m> is analytic. Then <m>f</m> has a (unique) convergent
+              series (its <term>Laurent expansion</term>)
+            <me>
+              f(z) = \sum_{-\infty \lt n \lt \infty} c_n (z-a)^n
+              = \cdots \frac{c_{-2}}{(z-a)^2} + \frac{c_{-1}}{z-a} + c_0 + c_1(z-a) + \cdots
+            </me>
+              that converges for <m>z \in A</m>.
+            </p>
+            <p>
+              The coefficients <m>c_n</m> can be computed for <m>\rho \in (r,R)</m> by the following formula.
+            </p>
+            <me>
+              c_n = \frac{1}{2\pi i} \oint_{\abs{z - a} = \rho} \frac{f(z)}{(z-a)^{n+1}}\,dz
+            </me>
+          </statement>
+        </theorem>
+        <p>
+          In the case <m>r = 0</m> (a particularly important one), there are three cases:
+        </p>
+        <ol>
+          <li>
+            <p>
+              <alert>Case 1:</alert> All the negative coefficients are zero: <m>0 = c_{-1} = c_{-2} = \cdots</m>.
+              Then <m>f</m> is bounded near <m>a</m> and therefore has a removable singularity there.
+            </p>
+          </li>
+          <li>
+            <p>
+              <alert>Case 2:</alert> Only finitely many negative coefficients are nonzero:
+              <me>
+                f(z) = \frac{c_{-k}}{(z-a)^k} + \cdots + \frac{c_{-1}}{z-a} + c_0 + \cdots
+              </me>
+              Then <m>f</m> has a pole of order <m>k</m> at <m>a</m>.
+              (We see this by writing <m>f(z) = \frac{1}{(z-a)^k}(c_{-k} + c_{-k+1}(z-a) + \cdots)</m>.)
+            </p>
+          </li>
+          <li>
+            <p>
+              <alert>Case 3:</alert> Infinitely many of the negative coefficients are nonzero.
+              In this case, <m>f</m> has an isolated essential singularity. 
+            </p>
+          </li>
+        </ol>
+        <remark>
+          <p>
+            In <xref ref="thm-laurent"/>, the Laurent series can be decomposed into an 
+            <term>analytic part</term> <m>\sum_{n\ge 0} c_n (z-a)^n</m>, which converges to an analytic
+            function on <m>\abs{z-a} \lt R</m>,
+            and a <term>singular part</term> <m>\sum_{k\ge 0} \frac{c_{-k}}{(z-a)^k}</m>, which
+            converges to an analytic function on <m>\abs{z-a} \gt r</m>.
+            Their sum is <m>f</m>, which is analytic on the common region of convergence of the two
+            series, i.e., <m>r \lt \abs{z-a} \lt R</m>.
+          </p>
+        </remark>
+        <!--https://www.geogebra.org/calculator/cdeeqmhd-->
+        <figure xml:id="fig-geogebra-laurent-parts">
+        <caption>GeoGebra: Laurent parts</caption>
+        <interactive xml:id="geogebra-laurent-parts" platform="geogebra" width="80%" aspect="1:1">
+            <slate xml:id="laurent-parts" surface="geogebra" material="cdeeqmhd" aspect="1:1">
+              setCoordSystem(-7,7,-7,7);
+              <!-- centerView((0,0)); -->
+              <!--enableShiftDragZoom(false);-->
+            </slate>
+          <instructions>
+            <p> 
+             You can view a larger version of this <url href="https://www.geogebra.org/calculator/cdeeqmhd">here</url>.
+            </p>
+          </instructions>
+        </interactive>
+        </figure>
+        <example>
+              <p>
+                The function <m>f(z) = \frac{z+1}{z}</m> has Laurent series <m>1 + \frac{1}{z}</m> that converges
+                on <m>0 \lt \abs{z} \lt \infty</m>.
+              </p>
+        </example>
+        <example>
+          <p>
+            We can find the Laurent series of the function <m>\frac{z}{z^2 + 1}</m> using partial fractions:
+          </p>
+          <me>
+            f(z) = \frac{1}{2} \cdot \frac{1}{z-i} + \frac{1}{2} \cdot \frac{1}{z+i}
+          </me>
+          <p>
+            Note that <m>\frac{1}{z+i}</m> is analytic at <m>z=i</m> and has Taylor series expansion
+            that can be found using geometric series:
+          </p>
+          <me>
+            \frac{1}{z+i} = \frac{1}{2i} \frac{1}{1 + \frac{z-i}{2i}} = \frac{1}{2i} \sum_{n\ge 0} \left(- \frac{z-i}{2i}\right)^n
+          </me>
+          <p>
+            The Laurent series is 
+          <me>
+            f(z) = \frac12 \cdot \frac{1}{z-i} + \frac{1}{4i} \sum_{n\ge 0} \left( - \frac{z-i}{2i} \right)^n
+          </me>
+          and converges for <m>0 \lt \abs{z-i} \lt 2</m>.
+         </p>
+         <p>
+          (Ooh, but what if we'd considered the function on the annulus <m>0 \lt \abs{z-i} \lt \infty</m> instead? Stay tuned!)
+         </p>
+        </example>
+        <example>
+          <p>
+            Find the Laurent series for <m>f(z) = \abs{z+1}{z^3(z^2+1)}</m> on <m>A = \set{ z\in \C }{\abs{z}\in (0,1)}</m>.
+          </p>
+          <p>
+            Notice that <m>f</m> has isolated singularities at <m>0</m> and <m>\pi i</m>. It is analytic on <m>A</m>.
+            Here is the Laurent series:
+          </p>
+          <me>
+            f(z) = \frac{1}{z^3} (1+z) (1 - z^2 + z^4 - z^6 + \cdots)
+            = \frac{1}{z^3} + \frac{1}{z^2} - \frac{1}{z} - 1 + z - z^2 - z^3 + \cdots
+          </me>
+        </example>
+        <example>
+          <p>
+            <alert>NB.</alert> The Laurent series can depend on the region!
+          </p>
+          <p>
+            Find the Laurent series for <m>f(z) = \frac{1}{z(z-1)}</m> around <m>a = 0</m> for
+            <ol marker="(a)">
+              <li>
+                <p>
+                  <m>A = \set{ z\in \C }{ \abs{z} \in (0,1) }</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>A = \set{ z\in \C }{ \abs{z} \in (1,\infty)}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            For the first part:
+          </p>
+          <me>
+            f(z) = \frac{-1}{z} \cdot \frac{1}{1-z} = \frac{-1}{z} (1 + z + z^2 + \cdots)
+            = \frac{-1}{z} - 1 - z - z^2 - \cdots
+          </me>
+          <p>
+            For the second part, notice that <m>\frac{1}{1-z}</m> is not convergent on <m>A</m>,
+            so we use an algebraic trick using the fact that <m>\abs{1/z} \lt 1</m> on this <m>A</m>:
+          </p>
+          <me>
+            f(z) = \frac{1}{z} \cdot \frac{1}{z(1-1/z)} = \frac{1}{z^2}\left( 1 + \frac{1}{z} + \frac{1}{z^2} + \cdots \right)
+          </me>
+        </example>
+        <proof>
+          <title>Proof of <xref ref="thm-laurent"/></title>
+          <!--TODO: add static figure-->
+          <p>
+            Fix <m>z\in A</m>. Find circles <m>C_1</m> and <m>C_3</m> so that <m>z</m> lies in the smaller
+            slit annulus <m>C_1 + C_2 - C_3 - C_2</m>, as shown in the figure (TO BE ADDED).
+            Then Cauchy's Integral Formula applies to <m>z</m> and the closed curve <m>C_1 + C_2 - C_3 - C_2</m>
+            that encircles it:
+          </p>
+          <md>
+            <mrow> f(z) \amp = \frac{1}{2\pi i} \oint_{C_1 + C_2 - C_3 - C_2} \frac{f(w)}{w - z} \, dw </mrow>
+            <mrow> \amp = \frac{1}{2\pi i} \oint_{C_1 - C_3} \frac{f(w)}{w - z}\,dw  </mrow>
+            <mrow> \amp = \frac{1}{2\pi i} \oint_{C_1} \frac{f(w)}{w - z}\,dw - \frac{1}{2\pi i} \oint_{C_3} \frac{f(w)}{w-z}\,dw </mrow>
+          </md>          
+          <p>
+            As in the proof of the Cauchy Integral Formula, we manipulate to get a geometric series:
+          </p>
+          <men xml:id="eqn-laurent-1">
+            \frac{f(w)}{w-z} = \frac{f(w)}{w-a} \cdot \frac{1}{1- \frac{z-a}{w-a}} = \sum_{n\ge 0} \frac{f(w) (z-a)^n}{(w-a)^{n+1}}
+          </men>
+          <p>
+            holds for <m>\abs{z - a} \lt \abs{w-a}</m>, e.g. on <m>C_1</m>. And:
+          </p>
+          <men xml:id="eqn-laurent-2">
+            \frac{f(w)}{w-z} = \frac{-f(w)}{z-w} = - \frac{f(w)}{z-a} \cdot \frac{1}{1 - \frac{w-a}{z-a}}
+            = - \sum_{n\ge 0} \frac{f(w)(w-a)^{n}}{(z-a)^{n+1}}
+          </men>
+          <p>
+            holds for <m>\abs{w-a} \lt \abs{z-a}</m>, e.g. on <m>C_3</m>.
+          </p>
+          <p>
+            Put all this together:
+          </p>
+          <mdn>
+            <mrow number="no"> \frac{1}{2\pi i} \oint_{C_1} \frac{f(w)}{w-z}\,dw \amp = \frac{1}{2\pi i} \oint_{C_1} \sum_{n\ge 0} \frac{f(w)(z-a)^n}{(w-a)^{n+1}}\, dw </mrow>
+            <mrow number="no"> \amp = \sum_{n\ge 0} \frac{1}{2\pi i} \left( \oint_{C_1} \frac{f(w)}{(w-a)^{n+1}}\,dw \right) (z-a)^n </mrow>
+            <mrow xml:id="eqn-laurent-3"> \amp = \sum_{n\ge 0} c_n (z-a)^n </mrow>
+          </mdn>
+          <mdn>
+            <mrow number="no"> - \frac{1}{2\pi i} \oint_{C_3} \frac{f(w)}{w-z}\,dw \amp = \frac{1}{2\pi i} \oint_{C_3} \sum_{n\ge 0} \frac{f(w)(w-a)^n}{(z-a)^{n+1}}\, dw</mrow>
+            <mrow number="no"> \amp = \sum_{n\ge 0} \frac{1}{2\pi i} \left( \oint_{C_3} 3(w)(w-a)^n\,dw \right) \frac{1}{(z-a)^{n+1}}</mrow>
+            <mrow xml:id="eqn-laurent-4"> \amp = \sum_{n\ge 0} \frac{c_n}{(z-a)^{n+1}} </mrow>
+          </mdn>
+          <p>
+            The sum, <m>f(z)</m> is <xref ref="eqn-laurent-3"/> <m>+</m> <xref ref="eqn-laurent-4"/>.
+          </p>
+          <p>
+            Notice that the sum in <xref ref="eqn-laurent-3"/> converges for <m>\abs{z-a} \lt R</m>,
+            and the sum in <xref ref="eqn-laurent-4"/> converges for <m>r \lt \abs{z-a}</m>.
+          </p>
+        </proof>
+      </section>
+      <section xml:id="sec-residues">
+        <title>Residues</title>
+        <p>
+          If <m>f(z)</m> has an isolated singularity at <m>z = 0</m> and its Laurent series on <m>0 \lt \abs{z} \lt r</m>
+          is given by
+          <me>
+            f(z) = \cdots + \frac{c_{-2}}{z^2} + \frac{c_{-1}}{z} + c_0 + c_1 z + c_2 z^2 + \cdots
+          </me>
+          then what is <m>\oint_\gamma f(z)\,dz</m> around a small simple closed curve encircling <m>0</m>?
+        </p>
+        <p>
+          Integrate the Laurent series termwise:
+        </p>
+        <me>
+          \oint_\gamma f(z)\,dz = \sum_{n=2}^\infty \oint_\gamma \frac{c_{-n}}{z^n} \, dz + \oint_\gamma \frac{c_{-1}}{z}\,dz + \sum_{n=0}^\infty c_n z^n \,dz
+        </me>
+        <p>
+          The only term in this sum that survives integration is the one involving <m>c_{-1}</m>.
+          (Notice that e.g. <m>\oint_\gamma \frac{c_{-2}}{z^2}\,dz = 2\pi i \left[ \frac{d}{dz} c_{-2} \right]_{z = 0} = 0</m>.)
+          So <m>\oint_\gamma f(z)\,dz = 2\pi i c_{-1}</m>.
+        </p>
+        <definition xml:id="def-residue">
+          <statement>
+            <p>
+              When <m>f</m> has an isolated singularity at <m>z = a</m>, then the <term>residue</term> of <m>f</m> 
+              at <m>a</m> is defined to be <m>c_{-1}</m>, the coefficient of <m>\frac{1}{z-a}</m> in the Laurent series
+              of <m>f</m> defined on <m>B_\eps(a)\wo\{a\}</m>. The residue is denoted
+              <me>
+                \Res_{z=a} f(z) = c_{-1}.
+              </me>
+            </p>
+          </statement>
+        </definition>
+        <p>
+          Note that the residue of <m>f</m> at <m>a</m> could alternatively be defined by
+        <me>
+          \Res_{z=a}f(z) = \frac{1}{2\pi i} \oint\limits_{\abs{z-a} = \eps} f(z)\,dz.
+        </me>
+        </p>
       </section>
     </chapter>
     <backmatter xml:id="backmatter">

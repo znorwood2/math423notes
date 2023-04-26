@@ -300,7 +300,7 @@ f(z) = \cdots + \frac{c_{-2}}{z^2} + \frac{c_{-1}}{z} + c_0 + c_1 z + c_2 z^2 + 
 </div>
 </div>
 <div class="para" id="p-573">Integrate the Laurent series termwise:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-residue-example.html">
 \begin{equation*}
 \oint_\gamma f(z)\,dz = \sum_{n=2}^\infty \oint_\gamma \frac{c_{-n}}{z^n} \, dz + \oint_\gamma \frac{c_{-1}}{z}\,dz + \sum_{n=0}^\infty c_n z^n \,dz
 \end{equation*}
@@ -324,7 +324,88 @@ f(z) = \cdots + \frac{c_{-2}}{z^2} + \frac{c_{-1}}{z} + c_0 + c_1 z + c_2 z^2 + 
 \Res_{z=a}f(z) = \frac{1}{2\pi i} \oint\limits_{\abs{z-a} = \eps} f(z)\,dz.
 \end{equation*}
 </div>
-</div></section></div>
+</div>
+<article class="example example-like" id="example-56"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-56"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-56"><article class="example example-like"><div class="para" id="p-577">The function <span class="process-math">\(f(z) = \frac{1}{z^3} + \frac{2}{z^2} + \frac{4}{z} + 5 + 6z\)</span> has a pole of order <span class="process-math">\(3\)</span> at <span class="process-math">\(z = 0\)</span> and <span class="process-math">\(\Res\limits_{z=0} f(z) = 4\text{.}\)</span>
+</div></article></div>
+<article class="example example-like" id="example-57"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-57"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-57"><article class="example example-like"><div class="para" id="p-578">Suppose that <span class="process-math">\(f(z) = \frac{2}{z} + g(z)\)</span> where <span class="process-math">\(g\)</span> is any function analytic at <span class="process-math">\(z = 0\text{.}\)</span> Then <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(z = 0\)</span> and <span class="process-math">\(\Res\limits_{z = 0} f(z) = 2\text{.}\)</span>
+</div></article></div>
+<article class="example example-like" id="example-58"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-58"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-58"><article class="example example-like"><div class="para" id="p-579">The function <span class="process-math">\(f(z) = \cos(z) = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} + \cdots\)</span> is analytic at <span class="process-math">\(z = 0\)</span> with <span class="process-math">\(\Res\limits_{z=0} \cos(z) = 0\text{.}\)</span>
+</div></article></div>
+<article class="example example-like" id="example-59"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-59"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.5</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-59"><article class="example example-like"><div class="para logical" id="p-580">
+<div class="para">The function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{\sin(z)}{z} = \frac{1}{z}\left( z - \frac{z^3}{3!} + \frac{z^5}{5!} - \cdots \right)
+= 1 - \frac{z^2}{3!} + \cdots
+\end{equation*}
+</div>
+<div class="para">has a removable singularity at <span class="process-math">\(z = 0\)</span> and <span class="process-math">\(\Res\limits_{z=0} f(z) = 0\text{.}\)</span>
+</div>
+</div></article></div>
+<article class="example example-like" id="example-60"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-60"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-60"><article class="example example-like"><div class="para" id="p-581">Consider <span class="process-math">\(f(z) = \frac{z}{z^2 + 1}\text{.}\)</span> Find all poles and residues of the poles.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">
+<div class="para" id="p-582">Expand <span class="process-math">\(f\)</span> by partial fractions:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{z}{(z+i)(z-i)} = \frac{1/2}{z-i} + \frac{1/2}{z+i}.
+\end{equation*}
+</div>
+<div class="para logical" id="p-583">
+<div class="para">Now around <span class="process-math">\(z = i\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{1}{2} \cdot \frac{1}{z-i} + (\text{something analytic at } z=i),
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(z = i\)</span> with <span class="process-math">\(\Res\limits_{z=i}f(z) = 1/2\text{.}\)</span>
+</div>
+</div> <div class="para" id="p-584">The calculation at <span class="process-math">\(z = -i\)</span> is similiar. There is a simple pole at which the residue is <span class="process-math">\(1/2\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-61"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-61"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-61"><article class="example example-like"><div class="para" id="p-585">Find the Laurent series of <span class="process-math">\(f(z) = \frac{1}{z(z-1)}\)</span> on</div> <ol class="lower-alpha">
+<li id="li-64"><div class="para" id="p-derived-li-64"><span class="process-math">\(\displaystyle 0 \lt \abs{z} \lt 1\)</span></div></li>
+<li id="li-65"><div class="para" id="p-derived-li-65"><span class="process-math">\(\displaystyle 1 \lt \abs{z} \lt \infty \)</span></div></li>
+</ol> <div class="para" id="p-586">Then find the residue at <span class="process-math">\(z = 0\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">
+<div class="para logical" id="p-587">
+<div class="para">On the annulus defined by <span class="process-math">\(0 \lt \abs{z} \lt 1\text{,}\)</span> we have the following expression for <span class="process-math">\(f(z)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="eqn-residue-example">
+\begin{equation}
+f(z) = -\frac{1}{z} \cdot \frac{1}{1-z} = -\frac{1}{z}(1 + z + z^2 + \cdots)\tag{5.4.1}
+\end{equation}
+</div>
+</div> <div class="para" id="p-588">On the annulus defined by <span class="process-math">\(1 \lt \abs{z} \lt \infty\text{,}\)</span> we have the following expression for <span class="process-math">\(f(z)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-residue-example.html">
+\begin{equation*}
+f(z) = \frac{1}{z^2} \cdot \frac{1}{1 - \frac{1}{z}} = \frac{1}{z^2}\left( 1 + \frac{1}{z} + \frac{1}{z^2} + \cdots \right)
+\end{equation*}
+</div>
+<div class="para" id="p-589">
+<em class="alert">Warning:</em> We must use <a href="" class="xref" data-knowl="./knowl/eqn-residue-example.html" title="Equation 5.4.1">(5.4.1)</a> to find the residue! The function <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(z=0\)</span> with <span class="process-math">\(\Res\limits_{z=0} f(z) = -1\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-62"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-62"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-62"><article class="example example-like"><div class="para" id="p-590">Consider the function <span class="process-math">\(f(z) = \Log(1+z)\text{.}\)</span> It has a singularity at <span class="process-math">\(z=-1\)</span> but it isn't isolated. Not a pole so no residue.</div></article></div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-laurent-series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

@@ -363,7 +363,7 @@ f(z) = \frac12 \cdot \frac{1}{z-i} + \frac{1}{4i} \sum_{n\ge 0} \left( - \frac{z
 </div> <div class="para" id="p-556">(Ooh, but what if we'd considered the function on the annulus <span class="process-math">\(0 \lt \abs{z-i} \lt \infty\)</span> instead? Stay tuned!)</div></article></div>
 <article class="example example-like" id="example-54"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-54"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-54"><article class="example example-like"><div class="para" id="p-557">Find the Laurent series for <span class="process-math">\(f(z) = \abs{z+1}{z^3(z^2+1)}\)</span> on <span class="process-math">\(A = \set{ z\in \C }{\abs{z}\in (0,1)}\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-54"><article class="example example-like"><div class="para" id="p-557">Find the Laurent series for <span class="process-math">\(f(z) = \frac{z+1}{z^3(z^2+1)}\)</span> on <span class="process-math">\(A = \set{ z\in \C }{\abs{z}\in (0,1)}\text{.}\)</span>
 </div> <div class="para" id="p-558">Notice that <span class="process-math">\(f\)</span> has isolated singularities at <span class="process-math">\(0\)</span> and <span class="process-math">\(\pi i\text{.}\)</span> It is analytic on <span class="process-math">\(A\text{.}\)</span> Here is the Laurent series:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -394,7 +394,8 @@ f(z) = \frac{-1}{z} \cdot \frac{1}{1-z} = \frac{-1}{z} (1 + z + z^2 + \cdots)
 f(z) = \frac{1}{z} \cdot \frac{1}{z(1-1/z)} = \frac{1}{z^2}\left( 1 + \frac{1}{z} + \frac{1}{z^2} + \cdots \right)
 \end{equation*}
 </div></article></div>
-<article class="hiddenproof" id="proof-44"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-44"><h3 class="heading"><span class="title">Proof of Theorem 5.3.1.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-44"><article class="hiddenproof">  <div class="para" id="p-565">Fix <span class="process-math">\(z\in A\text{.}\)</span> Find circles <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_3\)</span> so that <span class="process-math">\(z\)</span> lies in the smaller slit annulus <span class="process-math">\(C_1 + C_2 - C_3 - C_2\text{,}\)</span> as shown in the figure (TO BE ADDED). Then Cauchy's Integral Formula applies to <span class="process-math">\(z\)</span> and the closed curve <span class="process-math">\(C_1 + C_2 - C_3 - C_2\)</span> that encircles it:</div>
+<article class="hiddenproof" id="proof-44"><a href="" data-knowl="" class="id-ref proof-knowl original has-image" data-refid="hk-proof-44"><h3 class="heading"><span class="title">Proof of Theorem 5.3.1.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-44"><article class="hiddenproof"> <figure class="figure figure-like" id="fig-laurents-thm"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/laurents-thm.svg" role="img" class="contained" alt="Picture of curve for the proof of Laurent's Theorem."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.8<span class="period">.</span></span><span class="space"> </span>Picture of curve for the proof of Laurent's Theorem.</figcaption></figure> <div class="para" id="p-565">Fix <span class="process-math">\(z\in A\text{.}\)</span> Find circles <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_3\)</span> so that <span class="process-math">\(z\)</span> lies in the smaller slit annulus <span class="process-math">\(C_1 + C_2 - C_3 - C_2\text{,}\)</span> as shown in the figure (TO BE ADDED). Then Cauchy's Integral Formula applies to <span class="process-math">\(z\)</span> and the closed curve <span class="process-math">\(C_1 + C_2 - C_3 - C_2\)</span> that encircles it:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-laurent.html ./knowl/eqn-laurent-3.html ./knowl/eqn-laurent-4.html ./knowl/eqn-laurent-3.html ./knowl/eqn-laurent-4.html" id="md-45">
 \begin{align*}
 f(z) \amp = \frac{1}{2\pi i} \oint_{C_1 + C_2 - C_3 - C_2} \frac{f(w)}{w - z} \, dw \\
@@ -427,7 +428,7 @@ f(z) \amp = \frac{1}{2\pi i} \oint_{C_1 + C_2 - C_3 - C_2} \frac{f(w)}{w - z} \,
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-laurent.html ./knowl/eqn-laurent-3.html ./knowl/eqn-laurent-4.html ./knowl/eqn-laurent-3.html ./knowl/eqn-laurent-4.html" id="mdn-3">
 \begin{align}
 - \frac{1}{2\pi i} \oint_{C_3} \frac{f(w)}{w-z}\,dw \amp = \frac{1}{2\pi i} \oint_{C_3} \sum_{n\ge 0} \frac{f(w)(w-a)^n}{(z-a)^{n+1}}\, dw\notag\\
-\amp = \sum_{n\ge 0} \frac{1}{2\pi i} \left( \oint_{C_3} 3(w)(w-a)^n\,dw \right) \frac{1}{(z-a)^{n+1}}\notag\\
+\amp = \sum_{n\ge 0} \frac{1}{2\pi i} \left( \oint_{C_3} f(w)(w-a)^n\,dw \right) \frac{1}{(z-a)^{n+1}}\notag\\
 \amp = \sum_{n\ge 0} \frac{c_n}{(z-a)^{n+1}} \tag{5.3.4}
 \end{align}
 </div>

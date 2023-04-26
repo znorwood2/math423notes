@@ -10,7 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><article class="hiddenproof">  <div class="para">Fix <span class="process-math">\(z\in A\text{.}\)</span> Find circles <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_3\)</span> so that <span class="process-math">\(z\)</span> lies in the smaller slit annulus <span class="process-math">\(C_1 + C_2 - C_3 - C_2\text{,}\)</span> as shown in the figure (TO BE ADDED). Then Cauchy's Integral Formula applies to <span class="process-math">\(z\)</span> and the closed curve <span class="process-math">\(C_1 + C_2 - C_3 - C_2\)</span> that encircles it:</div>
+<body class="ignore-math"><article class="hiddenproof"> <figure class="figure figure-like"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/laurents-thm.svg" role="img" class="contained" alt="Picture of curve for the proof of Laurent's Theorem."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.8<span class="period">.</span></span><span class="space"> </span>Picture of curve for the proof of Laurent's Theorem.</figcaption></figure> <div class="para">Fix <span class="process-math">\(z\in A\text{.}\)</span> Find circles <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_3\)</span> so that <span class="process-math">\(z\)</span> lies in the smaller slit annulus <span class="process-math">\(C_1 + C_2 - C_3 - C_2\text{,}\)</span> as shown in the figure (TO BE ADDED). Then Cauchy's Integral Formula applies to <span class="process-math">\(z\)</span> and the closed curve <span class="process-math">\(C_1 + C_2 - C_3 - C_2\)</span> that encircles it:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-laurent.html ./knowl/eqn-laurent-3.html ./knowl/eqn-laurent-4.html ./knowl/eqn-laurent-3.html ./knowl/eqn-laurent-4.html">
 \begin{align*}
 f(z) \amp = \frac{1}{2\pi i} \oint_{C_1 + C_2 - C_3 - C_2} \frac{f(w)}{w - z} \, dw \\
@@ -43,7 +44,7 @@ f(z) \amp = \frac{1}{2\pi i} \oint_{C_1 + C_2 - C_3 - C_2} \frac{f(w)}{w - z} \,
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-laurent.html ./knowl/eqn-laurent-3.html ./knowl/eqn-laurent-4.html ./knowl/eqn-laurent-3.html ./knowl/eqn-laurent-4.html">
 \begin{align}
 - \frac{1}{2\pi i} \oint_{C_3} \frac{f(w)}{w-z}\,dw \amp = \frac{1}{2\pi i} \oint_{C_3} \sum_{n\ge 0} \frac{f(w)(w-a)^n}{(z-a)^{n+1}}\, dw\notag\\
-\amp = \sum_{n\ge 0} \frac{1}{2\pi i} \left( \oint_{C_3} 3(w)(w-a)^n\,dw \right) \frac{1}{(z-a)^{n+1}}\notag\\
+\amp = \sum_{n\ge 0} \frac{1}{2\pi i} \left( \oint_{C_3} f(w)(w-a)^n\,dw \right) \frac{1}{(z-a)^{n+1}}\notag\\
 \amp = \sum_{n\ge 0} \frac{c_n}{(z-a)^{n+1}} \tag{5.3.4}
 \end{align}
 </div>

@@ -1960,7 +1960,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.3",
   "title": "Laurent series",
-  "body": " Laurent series  An analytic function has a Taylor series in a neighborhood of a non-singularity; what about a neighborhood of a singularity?   Laurent's Theorem   Suppose that and consider the annulus . Suppose that is analytic. Then has a (unique) convergent series (its Laurent expansion ) that converges for .  The coefficients can be computed for by the following formula.     In the case (a particularly important one), there are three cases:     Case 1: All the negative coefficients are zero: . Then is bounded near and therefore has a removable singularity there.     Case 2: Only finitely many negative coefficients are nonzero: Then has a pole of order at . (We see this by writing .)     Case 3: Infinitely many of the negative coefficients are nonzero. In this case, has an isolated essential singularity.     In , the Laurent series can be decomposed into an analytic part  , which converges to an analytic function on , and a singular part  , which converges to an analytic function on . Their sum is , which is analytic on the common region of convergence of the two series, i.e., .     GeoGebra: Laurent parts     The function has Laurent series that converges on .    We can find the Laurent series of the function using partial fractions:   Note that is analytic at and has Taylor series expansion that can be found using geometric series:   The Laurent series is and converges for .  (Ooh, but what if we'd considered the function on the annulus instead? Stay tuned!)    Find the Laurent series for on .  Notice that has isolated singularities at and . It is analytic on . Here is the Laurent series:      NB. The Laurent series can depend on the region!  Find the Laurent series for around for              For the first part:   For the second part, notice that is not convergent on , so we use an algebraic trick using the fact that on this :     Proof of   Fix . Find circles and so that lies in the smaller slit annulus , as shown in the figure (TO BE ADDED). Then Cauchy's Integral Formula applies to and the closed curve that encircles it:   As in the proof of the Cauchy Integral Formula, we manipulate to get a geometric series:   holds for , e.g. on . And:   holds for , e.g. on .  Put all this together:    The sum, is   .  Notice that the sum in converges for , and the sum in converges for .   "
+  "body": " Laurent series  An analytic function has a Taylor series in a neighborhood of a non-singularity; what about a neighborhood of a singularity?   Laurent's Theorem   Suppose that and consider the annulus . Suppose that is analytic. Then has a (unique) convergent series (its Laurent expansion ) that converges for .  The coefficients can be computed for by the following formula.     In the case (a particularly important one), there are three cases:     Case 1: All the negative coefficients are zero: . Then is bounded near and therefore has a removable singularity there.     Case 2: Only finitely many negative coefficients are nonzero: Then has a pole of order at . (We see this by writing .)     Case 3: Infinitely many of the negative coefficients are nonzero. In this case, has an isolated essential singularity.     In , the Laurent series can be decomposed into an analytic part  , which converges to an analytic function on , and a singular part  , which converges to an analytic function on . Their sum is , which is analytic on the common region of convergence of the two series, i.e., .     GeoGebra: Laurent parts     The function has Laurent series that converges on .    We can find the Laurent series of the function using partial fractions:   Note that is analytic at and has Taylor series expansion that can be found using geometric series:   The Laurent series is and converges for .  (Ooh, but what if we'd considered the function on the annulus instead? Stay tuned!)    Find the Laurent series for on .  Notice that has isolated singularities at and . It is analytic on . Here is the Laurent series:      NB. The Laurent series can depend on the region!  Find the Laurent series for around for              For the first part:   For the second part, notice that is not convergent on , so we use an algebraic trick using the fact that on this :     Proof of    Picture of curve for the proof of Laurent's Theorem.   Picture of curve for the proof of Laurent's Theorem.   Fix . Find circles and so that lies in the smaller slit annulus , as shown in the figure (TO BE ADDED). Then Cauchy's Integral Formula applies to and the closed curve that encircles it:   As in the proof of the Cauchy Integral Formula, we manipulate to get a geometric series:   holds for , e.g. on . And:   holds for , e.g. on .  Put all this together:    The sum, is   .  Notice that the sum in converges for , and the sum in converges for .   "
 },
 {
   "id": "thm-laurent",
@@ -2032,7 +2032,7 @@ var ptx_lunr_docs = [
   "type": "Proof",
   "number": "5.3.1",
   "title": "Proof of Theorem 5.3.1.",
-  "body": " Proof of   Fix . Find circles and so that lies in the smaller slit annulus , as shown in the figure (TO BE ADDED). Then Cauchy's Integral Formula applies to and the closed curve that encircles it:   As in the proof of the Cauchy Integral Formula, we manipulate to get a geometric series:   holds for , e.g. on . And:   holds for , e.g. on .  Put all this together:    The sum, is   .  Notice that the sum in converges for , and the sum in converges for .  "
+  "body": " Proof of    Picture of curve for the proof of Laurent's Theorem.   Picture of curve for the proof of Laurent's Theorem.   Fix . Find circles and so that lies in the smaller slit annulus , as shown in the figure (TO BE ADDED). Then Cauchy's Integral Formula applies to and the closed curve that encircles it:   As in the proof of the Cauchy Integral Formula, we manipulate to get a geometric series:   holds for , e.g. on . And:   holds for , e.g. on .  Put all this together:    The sum, is   .  Notice that the sum in converges for , and the sum in converges for .  "
 },
 {
   "id": "sec-residues",
@@ -2041,7 +2041,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.4",
   "title": "Residues",
-  "body": " Residues  If has an isolated singularity at and its Laurent series on is given by then what is around a small simple closed curve encircling ?  Integrate the Laurent series termwise:   The only term in this sum that survives integration is the one involving . (Notice that e.g. .) So .    When has an isolated singularity at , then the residue of at is defined to be , the coefficient of in the Laurent series of defined on . The residue is denoted     Note that the residue of at could alternatively be defined by   "
+  "body": " Residues  If has an isolated singularity at and its Laurent series on is given by then what is around a small simple closed curve encircling ?  Integrate the Laurent series termwise:   The only term in this sum that survives integration is the one involving . (Notice that e.g. .) So .    When has an isolated singularity at , then the residue of at is defined to be , the coefficient of in the Laurent series of defined on . The residue is denoted     Note that the residue of at could alternatively be defined by    The function has a pole of order at and .    Suppose that where is any function analytic at . Then has a simple pole at and .    The function is analytic at with .    The function has a removable singularity at and .     Consider . Find all poles and residues of the poles.    Expand by partial fractions:   Now around we have so has a simple pole at with .  The calculation at is similiar. There is a simple pole at which the residue is .      Find the Laurent series of on        Then find the residue at .    On the annulus defined by , we have the following expression for .   On the annulus defined by , we have the following expression for .    Warning: We must use to find the residue! The function has a simple pole at with .     Consider the function . It has a singularity at but it isn't isolated. Not a pole so no residue.   "
 },
 {
   "id": "def-residue",
@@ -2051,6 +2051,69 @@ var ptx_lunr_docs = [
   "number": "5.4.1",
   "title": "",
   "body": "  When has an isolated singularity at , then the residue of at is defined to be , the coefficient of in the Laurent series of defined on . The residue is denoted    "
+},
+{
+  "id": "example-56",
+  "level": "2",
+  "url": "sec-residues.html#example-56",
+  "type": "Example",
+  "number": "5.4.2",
+  "title": "",
+  "body": " The function has a pole of order at and .  "
+},
+{
+  "id": "example-57",
+  "level": "2",
+  "url": "sec-residues.html#example-57",
+  "type": "Example",
+  "number": "5.4.3",
+  "title": "",
+  "body": " Suppose that where is any function analytic at . Then has a simple pole at and .  "
+},
+{
+  "id": "example-58",
+  "level": "2",
+  "url": "sec-residues.html#example-58",
+  "type": "Example",
+  "number": "5.4.4",
+  "title": "",
+  "body": " The function is analytic at with .  "
+},
+{
+  "id": "example-59",
+  "level": "2",
+  "url": "sec-residues.html#example-59",
+  "type": "Example",
+  "number": "5.4.5",
+  "title": "",
+  "body": " The function has a removable singularity at and .  "
+},
+{
+  "id": "example-60",
+  "level": "2",
+  "url": "sec-residues.html#example-60",
+  "type": "Example",
+  "number": "5.4.6",
+  "title": "",
+  "body": "  Consider . Find all poles and residues of the poles.    Expand by partial fractions:   Now around we have so has a simple pole at with .  The calculation at is similiar. There is a simple pole at which the residue is .   "
+},
+{
+  "id": "example-61",
+  "level": "2",
+  "url": "sec-residues.html#example-61",
+  "type": "Example",
+  "number": "5.4.7",
+  "title": "",
+  "body": "  Find the Laurent series of on        Then find the residue at .    On the annulus defined by , we have the following expression for .   On the annulus defined by , we have the following expression for .    Warning: We must use to find the residue! The function has a simple pole at with .   "
+},
+{
+  "id": "example-62",
+  "level": "2",
+  "url": "sec-residues.html#example-62",
+  "type": "Example",
+  "number": "5.4.8",
+  "title": "",
+  "body": " Consider the function . It has a singularity at but it isn't isolated. Not a pole so no residue.  "
 },
 {
   "id": "colophon-2",

@@ -4722,7 +4722,7 @@
         </example>
         <example>
           <p>
-            Find the Laurent series for <m>f(z) = \abs{z+1}{z^3(z^2+1)}</m> on <m>A = \set{ z\in \C }{\abs{z}\in (0,1)}</m>.
+            Find the Laurent series for <m>f(z) = \frac{z+1}{z^3(z^2+1)}</m> on <m>A = \set{ z\in \C }{\abs{z}\in (0,1)}</m>.
           </p>
           <p>
             Notice that <m>f</m> has isolated singularities at <m>0</m> and <m>\pi i</m>. It is analytic on <m>A</m>.
@@ -4769,7 +4769,12 @@
         </example>
         <proof>
           <title>Proof of <xref ref="thm-laurent"/></title>
-          <!--TODO: add static figure-->
+          <figure width="50%" xml:id="fig-laurents-thm">
+          <image source="laurents-thm" width="50%">
+            <description>Picture of curve for the proof of Laurent's Theorem.</description>
+          </image>
+          <caption>Picture of curve for the proof of Laurent's Theorem.</caption>
+         </figure>
           <p>
             Fix <m>z\in A</m>. Find circles <m>C_1</m> and <m>C_3</m> so that <m>z</m> lies in the smaller
             slit annulus <m>C_1 + C_2 - C_3 - C_2</m>, as shown in the figure (TO BE ADDED).
@@ -4807,7 +4812,7 @@
           </mdn>
           <mdn>
             <mrow number="no"> - \frac{1}{2\pi i} \oint_{C_3} \frac{f(w)}{w-z}\,dw \amp = \frac{1}{2\pi i} \oint_{C_3} \sum_{n\ge 0} \frac{f(w)(w-a)^n}{(z-a)^{n+1}}\, dw</mrow>
-            <mrow number="no"> \amp = \sum_{n\ge 0} \frac{1}{2\pi i} \left( \oint_{C_3} 3(w)(w-a)^n\,dw \right) \frac{1}{(z-a)^{n+1}}</mrow>
+            <mrow number="no"> \amp = \sum_{n\ge 0} \frac{1}{2\pi i} \left( \oint_{C_3} f(w)(w-a)^n\,dw \right) \frac{1}{(z-a)^{n+1}}</mrow>
             <mrow xml:id="eqn-laurent-4"> \amp = \sum_{n\ge 0} \frac{c_n}{(z-a)^{n+1}} </mrow>
           </mdn>
           <p>
@@ -4858,6 +4863,97 @@
           \Res_{z=a}f(z) = \frac{1}{2\pi i} \oint\limits_{\abs{z-a} = \eps} f(z)\,dz.
         </me>
         </p>
+        <example>
+          <p>
+            The function <m>f(z) = \frac{1}{z^3} + \frac{2}{z^2} + \frac{4}{z} + 5 + 6z</m>
+            has a pole of order <m>3</m> at <m>z = 0</m> and <m>\Res\limits_{z=0} f(z) = 4</m>.
+          </p>
+        </example>
+        <example>
+          <p>
+            Suppose that <m>f(z) = \frac{2}{z} + g(z)</m> where <m>g</m> is any function analytic at <m>z = 0</m>.
+            Then <m>f</m> has a simple pole at <m>z = 0</m> and <m>\Res\limits_{z = 0} f(z) = 2</m>.
+          </p>
+        </example>
+        <example>
+          <p>The function <m>f(z) = \cos(z) = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} + \cdots</m>
+          is analytic at <m>z = 0</m> with <m>\Res\limits_{z=0} \cos(z) = 0</m>.</p>
+        </example>
+        <example>
+          <p>
+            The function 
+            <me>
+              f(z) = \frac{\sin(z)}{z} = \frac{1}{z}\left( z - \frac{z^3}{3!} + \frac{z^5}{5!} - \cdots \right)
+              = 1 - \frac{z^2}{3!} + \cdots
+            </me>
+            has a removable singularity at <m>z = 0</m> and <m>\Res\limits_{z=0} f(z) = 0</m>.
+          </p>
+        </example>
+        <example>
+        <statement>
+          <p>
+            Consider <m>f(z) = \frac{z}{z^2 + 1}</m>. Find all poles and residues of the poles.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Expand <m>f</m> by partial fractions:
+          </p>
+          <me>
+            f(z) = \frac{z}{(z+i)(z-i)} = \frac{1/2}{z-i} + \frac{1/2}{z+i}.
+          </me>
+          <p>
+            Now around <m>z = i</m> we have
+           <me>
+             f(z) = \frac{1}{2} \cdot \frac{1}{z-i} + (\text{something analytic at } z=i),
+           </me>
+            so <m>f</m> has a simple pole at <m>z = i</m> with <m>\Res\limits_{z=i}f(z) = 1/2</m>.
+          </p>
+          <p>
+            The calculation at <m>z = -i</m> is similiar. There is a simple pole at which the residue
+            is <m>1/2</m>.
+          </p>
+        </solution>
+        </example>
+        <example>
+        <statement>
+          <p>
+            Find the Laurent series of <m>f(z) = \frac{1}{z(z-1)}</m> on 
+          </p>
+          <ol marker="(a)">
+           <li><m>0 \lt \abs{z} \lt 1</m> </li>
+           <li><m>1 \lt \abs{z} \lt \infty </m> </li>
+          </ol>
+          <p>
+            Then find the residue at <m>z = 0</m>.
+          </p>
+          </statement>
+          <solution>
+          <p>
+            On the annulus defined by <m>0 \lt \abs{z} \lt 1</m>, we have the following expression for <m>f(z)</m>.
+            <men xml:id="eqn-residue-example">
+              f(z) = -\frac{1}{z} \cdot \frac{1}{1-z} = -\frac{1}{z}(1 + z + z^2 + \cdots)
+            </men>
+          </p>
+          <p>
+            On the annulus defined by <m>1 \lt \abs{z} \lt \infty</m>, we have the following expression for <m>f(z)</m>.
+          </p>
+          <me>
+            f(z) = \frac{1}{z^2} \cdot \frac{1}{1 - \frac{1}{z}} = \frac{1}{z^2}\left( 1 + \frac{1}{z} + \frac{1}{z^2} + \cdots \right)
+          </me>
+          <p>
+            <alert>Warning:</alert> We must use <xref ref="eqn-residue-example"/> to find the residue!
+            The function <m>f</m> has a simple pole at <m>z=0</m> with <m>\Res\limits_{z=0} f(z) = -1</m>.
+          </p>
+        </solution>
+        </example>
+        
+        <example>
+          <p>
+            Consider the function <m>f(z) = \Log(1+z)</m>. It has a singularity at <m>z=-1</m> but it isn't isolated.
+            Not a pole so no residue.
+          </p>
+        </example>
       </section>
     </chapter>
     <backmatter xml:id="backmatter">

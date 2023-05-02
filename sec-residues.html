@@ -285,7 +285,10 @@ window.MathJax = {
 </li>
 <li>
 <div class="toc-item"><a href="ch-residue.html" class="internal"><span class="codenumber">6</span> <span class="title">The Residue Calculus</span></a></div>
-<ul class="structural"><li class="active"><div class="toc-item"><a href="sec-residues.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Residues</span></a></div></li></ul>
+<ul class="structural"><li class="active">
+<div class="toc-item"><a href="sec-residues.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Residues</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-residues.html#subsec-residues-simple-poles" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Computing Residues at Simple Poles</span></a></div></li></ul>
+</li></ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
@@ -440,12 +443,107 @@ f(z)\,dz = 0 = \oint_{C_1 + C_4} f(z)\,dz + \oint_{-C_3 - C_6}f(z)\,dz
 <div class="para" id="p-594">The proof of the general case (with more than two singularities inside <span class="process-math">\(\gamma\)</span>) is similar.</div></article></div>
 <figure class="figure figure-like" id="fig-residue-thm"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/residue-thm.svg" role="img" class="contained" alt="Picture of keyhole contours for the proof of the Residue Theorem."></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.10<span class="period">.</span></span><span class="space"> </span>Picture of so-called keyhole contours for the proof of <a href="" class="xref" data-knowl="./knowl/thm-residue.html" title="Theorem 6.1.9: The Residue Theorem">Theorem 6.1.9</a>.</figcaption></figure><figure class="figure figure-like" id="fig-residue-example"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/image-residue-example.svg" role="img" class="contained" alt="Curves for the Example."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure><article class="example example-like" id="example-63"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-63"><h3 class="heading">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.11<span class="period">.</span></span><span class="space"> </span>Circles for the Example.</figcaption></figure><article class="example example-like" id="example-63"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-63"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.12</span><span class="period">.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-63"><article class="example example-like"><div class="para" id="p-595">Let <span class="process-math">\(f(z) = \frac{1}{z(z^2 + 1)}\text{.}\)</span> Compute <span class="process-math">\(\oint f(z)\,dz\)</span> over <span class="process-math">\(C_1,C_2,C_3,\)</span> and <span class="process-math">\(C_4\text{,}\)</span> as in the figure.</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like"><div class="para" id="p-596"></div></div></div>
-</div></article></div></section></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">
+<div class="para" id="p-596">The poles of <span class="process-math">\(f\)</span> occur at <span class="process-math">\(z = 0,\pm i\text{.}\)</span> In light of the Residue Theorem, we just need to compute the residues at each of these poles. We are about to devote a section to computing residues like this, but for the impatient reader here are the answers:</div>
+<div class="displaymath process-math" id="md-47">
+\begin{align*}
+\oint_{C_1} f(z)\,dz \amp = 0 \text{ (doesn't encircle any singularities)} \\
+\oint_{C_2} f(z)\,dz \amp = 2\pi i \Res\limits_{z = i}f(z) = -\pi i \\
+\oint_{C_3} f(z)\,dz \amp = 2\pi i (\Res\limits_{z = i}f(z) + \Res\limits_{z = 0}f(z)) = 2\pi i(-\frac12 + 1) \\
+\oint_{C_4} f(z)\,dz \amp = 2\pi i(\Res\limits_{z=i}f(z) + \Res\limits_{z = 0}f(z) + \Res\limits_{z = -i}f(z)) = 2\pi i(-\tfrac12 + 1 + -\tfrac12) = 0 
+\end{align*}
+</div>
+</div></div>
+</div></article></div>
+<section class="subsection" id="subsec-residues-simple-poles"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.1</span> <span class="title">Computing Residues at Simple Poles</span>
+</h3>
+<div class="para" id="p-597">Recall that a <dfn class="terminology">simple pole</dfn> is a pole of order <span class="process-math">\(1\text{.}\)</span> We devote some effort toward understanding how to compute residues at simple poles.</div>
+<article class="proposition theorem-like" id="prop-residues-simple-poles-basic"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Basic properties of residues at simple poles.</span>
+</h4>
+<ol class="lower-alpha">
+<li id="li-66"><div class="para logical" id="p-598">
+<div class="para">If the Laurent series of <span class="process-math">\(f\)</span> near <span class="process-math">\(a\)</span> takes the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{c_{-1}}{z-a} + c_0 + c_1(z-a) + \cdots,
+\end{equation*}
+</div>
+<div class="para">then <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(z = a\)</span> and <span class="process-math">\(\Res\limits_{z=a}f(z) =  c_{-1}\text{.}\)</span>
+</div>
+</div></li>
+<li id="li-67"><div class="para" id="p-599">If <span class="process-math">\(g(z) = (z-a)f(z)\)</span> is analytic at <span class="process-math">\(a\text{,}\)</span> then <span class="process-math">\(f\)</span> has either a removable singularity or a simple pole at <span class="process-math">\(z = a\text{.}\)</span> In either case, <span class="process-math">\(\Res\limits_{z=a}f(z) = g(a)\)</span> (<span class="process-math">\(=0\)</span> if <span class="process-math">\(f\)</span> has a removable singularity).</div></li>
+<li id="li-68"><div class="para logical" id="p-600">
+<div class="para">If <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(a\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{z\to a} (z-a)f(z) = \Res\limits_{z=a}f(z).
+\end{equation*}
+</div>
+<div class="para">(That is, the limit exists and equals the residue. The converse is also true: if the limit exists then <span class="process-math">\(f\)</span> either has a simple pole at <span class="process-math">\(a\)</span> or is analytic at <span class="process-math">\(a\text{.}\)</span>)</div>
+</div></li>
+<li id="li-69"><div class="para logical" id="p-601">
+<div class="para">If <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(a\)</span> and <span class="process-math">\(g\)</span> is analytic at <span class="process-math">\(a\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res\limits_{z=a} f(z) g(z) = g(a) \Res\limits_{z=a} f(z).
+\end{equation*}
+</div>
+<div class="para">If <span class="process-math">\(g(a) \ne 0\)</span> then also</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res\limits_{z=a} \frac{f(z)}{g(z)} = \frac{1}{g(a)} \Res_{z=a} f(z).
+\end{equation*}
+</div>
+</div></li>
+<li id="li-70"><div class="para logical" id="p-602">
+<div class="para">If <span class="process-math">\(g\)</span> has a simple zero at <span class="process-math">\(a\)</span> then <span class="process-math">\(1/g\)</span> has a simple pole at <span class="process-math">\(a\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res_{z=a} \frac{1}{g(z)} = \frac{1}{g'(a)}.
+\end{equation*}
+</div>
+</div></li>
+</ol></article><article class="example example-like" id="example-64"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-64"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.14</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-64"><article class="example example-like"><div class="para logical" id="p-603">
+<div class="para">Consider the following function.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{2 + z + z^2}{(z-2)(z-3)(z-4)(z-5)}.
+\end{equation*}
+</div>
+<div class="para">Show that all the poles are simple and compute their residues.</div>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like"><div class="para logical" id="p-604">
+<div class="para">The poles occur at <span class="process-math">\(z = 2,3,4,5\text{.}\)</span> For <span class="process-math">\(z = 2\text{,}\)</span> multiply by <span class="process-math">\(z-2\)</span> to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) = (z-2)f(z) = \frac{2+z+z^2}{(z-3)(z-4)(z-5)}.
+\end{equation*}
+</div>
+<div class="para">This function is analytic at <span class="process-math">\(z = 2\)</span> and satisfies <span class="process-math">\(g(2) = -4/3\text{,}\)</span> so the pole at <span class="process-math">\(z=2\)</span> is simple and the residue there is <span class="process-math">\(-4/3\text{.}\)</span> The others are similar.</div>
+</div></div></div>
+</div></article></div>
+<article class="example example-like" id="example-65"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-65"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.15</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-65"><article class="example example-like"><div class="para" id="p-605">Consider the function <span class="process-math">\(f(z) = \csc(z) = \frac{1}{\sin(z)}\text{.}\)</span> Find all its poles and compute its residue at each pole.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like"><div class="para logical" id="p-606">
+<div class="para">As we've seen before, the complex zeros of sine occur at <span class="process-math">\(n\pi\)</span> for <span class="process-math">\(n\)</span> an integer. Since the derivative <span class="process-math">\(\sin'(n\pi) = \cos(n\pi)\)</span> is nonzero at each pole, the zeros of sine are simple. So, by the Proposition,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res\limits_{z=n\pi} f(z) = \frac{1}{\cos(n\pi)} = (-1)^n\text{.}
+\end{equation*}
+</div>
+</div></div></div>
+</div></article></div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="ch-residue.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

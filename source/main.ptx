@@ -5008,6 +5008,7 @@
           </image>
         </figure>
         <figure xml:id="fig-residue-example">
+        <caption>Circles for the Example.</caption>
           <image width="60%" xml:id="image-residue-example">
           <description>Curves for the Example.</description>
             <latex-image>
@@ -5039,11 +5040,125 @@
           </statement>
           <solution>
             <p>
-              
+              The poles of <m>f</m> occur at <m>z = 0,\pm i</m>.
+              In light of the Residue Theorem, we just need to compute
+              the residues at each of these poles.
+              We are about to devote a section to computing residues
+              like this, but for the impatient reader here are the answers:
             </p>
+            <md>
+              <mrow> \oint_{C_1} f(z)\,dz \amp = 0 \text{ (doesn't encircle any singularities)} </mrow>
+              <mrow> \oint_{C_2} f(z)\,dz \amp = 2\pi i \Res\limits_{z = i}f(z) = -\pi i </mrow>
+              <mrow> \oint_{C_3} f(z)\,dz \amp = 2\pi i (\Res\limits_{z = i}f(z) + \Res\limits_{z = 0}f(z)) = 2\pi i(-\frac12 + 1) </mrow>
+              <mrow> \oint_{C_4} f(z)\,dz \amp = 2\pi i(\Res\limits_{z=i}f(z) + \Res\limits_{z = 0}f(z) + \Res\limits_{z = -i}f(z)) = 2\pi i(-\tfrac12 + 1 + -\tfrac12) = 0 </mrow>
+            </md>
           </solution>
         </example>
+        <subsection xml:id="subsec-residues-simple-poles">
+          <title>Computing Residues at Simple Poles</title>
+          <p>
+            Recall that a <term>simple pole</term> is a pole of order <m>1</m>.
+            We devote some effort toward understanding how to compute residues at simple poles.
+          </p>
+          <proposition xml:id="prop-residues-simple-poles-basic">
+            <title>Basic properties of residues at simple poles</title>
+            <statement>
+              <ol marker="(a)">
+                <li>
+                  <p>
+                    If the Laurent series of <m>f</m> near <m>a</m> takes the form 
+                    <me>
+                      \frac{c_{-1}}{z-a} + c_0 + c_1(z-a) + \cdots,
+                    </me>
+                    then <m>f</m> has a simple pole at <m>z = a</m>
+                    and <m>\Res\limits_{z=a}f(z) =  c_{-1}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    If <m>g(z) = (z-a)f(z)</m> is analytic at <m>a</m>,
+                    then <m>f</m> has either a removable singularity or a simple
+                    pole at <m>z = a</m>. In either case,
+                    <m>\Res\limits_{z=a}f(z) = g(a)</m> (<m>=0</m> if <m>f</m> has a removable singularity).
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    If <m>f</m> has a simple pole at <m>a</m> then
+                    <me>
+                      \lim_{z\to a} (z-a)f(z) = \Res\limits_{z=a}f(z).
+                    </me>
+                    (That is, the limit exists and equals the residue.
+                    The converse is also true: if the limit exists then <m>f</m> either has a simple pole at <m>a</m> or is analytic at <m>a</m>.)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    If <m>f</m> has a simple pole at <m>a</m> and <m>g</m> is analytic at <m>a</m>,
+                    then
+                    <me>
+                      \Res\limits_{z=a} f(z) g(z) = g(a) \Res\limits_{z=a} f(z).
+                    </me>
+                    If <m>g(a) \ne 0</m> then also
+                    <me>
+                      \Res\limits_{z=a} \frac{f(z)}{g(z)} = \frac{1}{g(a)} \Res_{z=a} f(z).
+                    </me>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    If <m>g</m> has a simple zero at <m>a</m> then <m>1/g</m> has a simple pole at <m>a</m> and
+                    <me>
+                      \Res_{z=a} \frac{1}{g(z)} = \frac{1}{g'(a)}.
+                    </me>
+                  </p>
+                </li>
+              </ol>
+            </statement>
+          </proposition>
+          <example>
+            <statement>
+              <p>
+                Consider the following function.
+                <me>
+                  f(z) = \frac{2 + z + z^2}{(z-2)(z-3)(z-4)(z-5)}.
+                </me>
+                Show that all the poles are simple and compute their residues.
+              </p>
+            </statement>
+            <hint>
+              <p>
+                The poles occur at <m>z = 2,3,4,5</m>.
+                For <m>z = 2</m>, multiply by <m>z-2</m> to get
+                <me>
+                  g(z) = (z-2)f(z) = \frac{2+z+z^2}{(z-3)(z-4)(z-5)}.
+                </me>
+                This function is analytic at <m>z = 2</m> and satisfies
+                <m>g(2) = -4/3</m>, so the pole at <m>z=2</m> is simple and the residue there is
+                <m>-4/3</m>.
+                The others are similar.
+              </p>
+            </hint>
+          </example>
+          <example>
+            <statement>
+              <p>
+                Consider the function <m>f(z) = \csc(z) = \frac{1}{\sin(z)}</m>.
+                Find all its poles and compute its residue at each pole.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                As we've seen before, the complex zeros of sine occur at <m>n\pi</m> for <m>n</m> an integer.
+                Since the derivative <m>\sin'(n\pi) = \cos(n\pi)</m> is nonzero at each pole,
+                the zeros of sine are simple. So, by the Proposition,
+                <me>\Res\limits_{z=n\pi} f(z) = \frac{1}{\cos(n\pi)} = (-1)^n</me>.
+              </p>
+            </solution>
+          </example>
+        </subsection>
       </section>
+
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>

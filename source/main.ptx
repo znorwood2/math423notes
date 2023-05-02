@@ -5001,14 +5001,14 @@
             </p>
           </proof>
         </theorem>
-        <figure width="50%" xml:id="fig-residue-thm">
+        <figure xml:id="fig-residue-thm">
           <caption>Picture of so-called keyhole contours for the proof of <xref ref="thm-residue"/>.</caption>
           <image source="residue-thm" width="50%">
             <description>Picture of keyhole contours for the proof of the Residue Theorem.</description>
           </image>
         </figure>
-        <figure width="60%" xml:id="fig-residue-example">
-          <image xml:id="image-residue-example">
+        <figure xml:id="fig-residue-example">
+          <image width="60%" xml:id="image-residue-example">
           <description>Curves for the Example.</description>
             <latex-image>
                 \begin {tikzpicture}	[scale = 2, outer sep = 0.5ex]

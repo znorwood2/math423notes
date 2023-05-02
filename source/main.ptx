@@ -5003,7 +5003,7 @@
         </theorem>
         <figure xml:id="fig-residue-thm">
           <caption>Picture of so-called keyhole contours for the proof of <xref ref="thm-residue"/>.</caption>
-          <image source="residue-thm" width="50%">
+          <image source="residue-thm" width="70%">
             <description>Picture of keyhole contours for the proof of the Residue Theorem.</description>
           </image>
         </figure>

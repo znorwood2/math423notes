@@ -177,7 +177,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-laurent-series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-taylor-laurent-series.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-residue.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-residue.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
@@ -281,13 +281,16 @@ window.MathJax = {
 </ul>
 </li>
 <li><div class="toc-item"><a href="sec-laurent-series.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Laurent series</span></a></div></li>
-<li class="active"><div class="toc-item"><a href="sec-residues.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Residues</span></a></div></li>
 </ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-residue.html" class="internal"><span class="codenumber">6</span> <span class="title">The Residue Calculus</span></a></div>
+<ul class="structural"><li class="active"><div class="toc-item"><a href="sec-residues.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Residues</span></a></div></li></ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-residues"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">5.4</span> <span class="title">Residues</span>
+<span class="type">Section</span> <span class="codenumber">6.1</span> <span class="title">Residues</span>
 </h2>
 <div class="para logical" id="p-572">
 <div class="para">If <span class="process-math">\(f(z)\)</span> has an isolated singularity at <span class="process-math">\(z = 0\)</span> and its Laurent series on <span class="process-math">\(0 \lt \abs{z} \lt r\)</span> is given by</div>
@@ -300,7 +303,7 @@ f(z) = \cdots + \frac{c_{-2}}{z^2} + \frac{c_{-1}}{z} + c_0 + c_1 z + c_2 z^2 + 
 </div>
 </div>
 <div class="para" id="p-573">Integrate the Laurent series termwise:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-residue-example.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn-residue-example.html ./knowl/thm-residue.html">
 \begin{equation*}
 \oint_\gamma f(z)\,dz = \sum_{n=2}^\infty \oint_\gamma \frac{c_{-n}}{z^n} \, dz + \oint_\gamma \frac{c_{-1}}{z}\,dz + \sum_{n=0}^\infty c_n z^n \,dz
 \end{equation*}
@@ -308,7 +311,7 @@ f(z) = \cdots + \frac{c_{-2}}{z^2} + \frac{c_{-1}}{z} + c_0 + c_1 z + c_2 z^2 + 
 <div class="para" id="p-574">The only term in this sum that survives integration is the one involving <span class="process-math">\(c_{-1}\text{.}\)</span> (Notice that e.g. <span class="process-math">\(\oint_\gamma \frac{c_{-2}}{z^2}\,dz = 2\pi i \left[ \frac{d}{dz} c_{-2} \right]_{z = 0} = 0\text{.}\)</span>) So <span class="process-math">\(\oint_\gamma f(z)\,dz = 2\pi i c_{-1}\text{.}\)</span>
 </div>
 <article class="definition definition-like" id="def-residue"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.4.1</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span>
 </h3>
 <div class="para logical" id="p-575">
 <div class="para">When <span class="process-math">\(f\)</span> has an isolated singularity at <span class="process-math">\(z = a\text{,}\)</span> then the <dfn class="terminology">residue</dfn> of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\)</span> is defined to be <span class="process-math">\(c_{-1}\text{,}\)</span> the coefficient of <span class="process-math">\(\frac{1}{z-a}\)</span> in the Laurent series of <span class="process-math">\(f\)</span> defined on <span class="process-math">\(B_\eps(a)\wo\{a\}\text{.}\)</span> The residue is denoted</div>
@@ -326,19 +329,19 @@ f(z) = \cdots + \frac{c_{-2}}{z^2} + \frac{c_{-1}}{z} + c_0 + c_1 z + c_2 z^2 + 
 </div>
 </div>
 <article class="example example-like" id="example-56"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-56"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.2</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.2</span><span class="period">.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-56"><article class="example example-like"><div class="para" id="p-577">The function <span class="process-math">\(f(z) = \frac{1}{z^3} + \frac{2}{z^2} + \frac{4}{z} + 5 + 6z\)</span> has a pole of order <span class="process-math">\(3\)</span> at <span class="process-math">\(z = 0\)</span> and <span class="process-math">\(\Res\limits_{z=0} f(z) = 4\text{.}\)</span>
 </div></article></div>
 <article class="example example-like" id="example-57"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-57"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.3</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.3</span><span class="period">.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-57"><article class="example example-like"><div class="para" id="p-578">Suppose that <span class="process-math">\(f(z) = \frac{2}{z} + g(z)\)</span> where <span class="process-math">\(g\)</span> is any function analytic at <span class="process-math">\(z = 0\text{.}\)</span> Then <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(z = 0\)</span> and <span class="process-math">\(\Res\limits_{z = 0} f(z) = 2\text{.}\)</span>
 </div></article></div>
 <article class="example example-like" id="example-58"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-58"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.4</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.4</span><span class="period">.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-58"><article class="example example-like"><div class="para" id="p-579">The function <span class="process-math">\(f(z) = \cos(z) = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} + \cdots\)</span> is analytic at <span class="process-math">\(z = 0\)</span> with <span class="process-math">\(\Res\limits_{z=0} \cos(z) = 0\text{.}\)</span>
 </div></article></div>
 <article class="example example-like" id="example-59"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-59"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.5</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.5</span><span class="period">.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-59"><article class="example example-like"><div class="para logical" id="p-580">
 <div class="para">The function</div>
 <div class="displaymath process-math">
@@ -351,7 +354,7 @@ f(z) = \frac{\sin(z)}{z} = \frac{1}{z}\left( z - \frac{z^3}{3!} + \frac{z^5}{5!}
 </div>
 </div></article></div>
 <article class="example example-like" id="example-60"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-60"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.6</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.6</span><span class="period">.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-60"><article class="example example-like"><div class="para" id="p-581">Consider <span class="process-math">\(f(z) = \frac{z}{z^2 + 1}\text{.}\)</span> Find all poles and residues of the poles.</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">
@@ -375,7 +378,7 @@ f(z) = \frac{1}{2} \cdot \frac{1}{z-i} + (\text{something analytic at } z=i),
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-61"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-61"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.7</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.7</span><span class="period">.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-61"><article class="example example-like"><div class="para" id="p-585">Find the Laurent series of <span class="process-math">\(f(z) = \frac{1}{z(z-1)}\)</span> on</div> <ol class="lower-alpha">
 <li id="li-64"><div class="para" id="p-derived-li-64"><span class="process-math">\(\displaystyle 0 \lt \abs{z} \lt 1\)</span></div></li>
 <li id="li-65"><div class="para" id="p-derived-li-65"><span class="process-math">\(\displaystyle 1 \lt \abs{z} \lt \infty \)</span></div></li>
@@ -388,7 +391,7 @@ f(z) = \frac{1}{2} \cdot \frac{1}{z-i} + (\text{something analytic at } z=i),
 </div>
 <div class="displaymath process-math" id="eqn-residue-example">
 \begin{equation}
-f(z) = -\frac{1}{z} \cdot \frac{1}{1-z} = -\frac{1}{z}(1 + z + z^2 + \cdots)\tag{5.4.1}
+f(z) = -\frac{1}{z} \cdot \frac{1}{1-z} = -\frac{1}{z}(1 + z + z^2 + \cdots)\tag{6.1.1}
 \end{equation}
 </div>
 </div> <div class="para" id="p-588">On the annulus defined by <span class="process-math">\(1 \lt \abs{z} \lt \infty\text{,}\)</span> we have the following expression for <span class="process-math">\(f(z)\text{.}\)</span>
@@ -399,15 +402,52 @@ f(z) = \frac{1}{z^2} \cdot \frac{1}{1 - \frac{1}{z}} = \frac{1}{z^2}\left( 1 + \
 \end{equation*}
 </div>
 <div class="para" id="p-589">
-<em class="alert">Warning:</em> We must use <a href="" class="xref" data-knowl="./knowl/eqn-residue-example.html" title="Equation 5.4.1">(5.4.1)</a> to find the residue! The function <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(z=0\)</span> with <span class="process-math">\(\Res\limits_{z=0} f(z) = -1\text{.}\)</span>
+<em class="alert">Warning:</em> We must use <a href="" class="xref" data-knowl="./knowl/eqn-residue-example.html" title="Equation 6.1.1">(6.1.1)</a> to find the residue! The function <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(z=0\)</span> with <span class="process-math">\(\Res\limits_{z=0} f(z) = -1\text{.}\)</span>
 </div>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-62"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-62"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.8</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-62"><article class="example example-like"><div class="para" id="p-590">Consider the function <span class="process-math">\(f(z) = \Log(1+z)\text{.}\)</span> It has a singularity at <span class="process-math">\(z=-1\)</span> but it isn't isolated. Not a pole so no residue.</div></article></div></section></div>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-62"><article class="example example-like"><div class="para" id="p-590">Consider the function <span class="process-math">\(f(z) = \Log(1+z)\text{.}\)</span> It has a singularity at <span class="process-math">\(z=-1\)</span> but it isn't isolated. Not a pole so no residue.</div></article></div>
+<article class="theorem theorem-like" id="thm-residue"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">The Residue Theorem.</span>
+</h3>
+<div class="para logical" id="p-591">
+<div class="para">Suppose that <span class="process-math">\(f\)</span> is analytic except at a set of isolated singularities. Suppose that <span class="process-math">\(\gamma\)</span> is a counterclockwise-oriented curve that does not go through any of the singularities of <span class="process-math">\(f\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\oint_\gamma f(z)\,dz = 2\pi i \sum \Res\limits_{z = a} f(z),
+\end{equation*}
+</div>
+<div class="para">where the sum is taken over all singularities <span class="process-math">\(a\)</span> of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gamma\text{.}\)</span>
+</div>
+</div></article><article class="hiddenproof" id="proof-45"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-45"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-45"><article class="hiddenproof"><div class="para" id="p-592">We will do the case where <span class="process-math">\(\gamma\)</span> encircles two singularities of <span class="process-math">\(f\text{,}\)</span> at <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span> Let <span class="process-math">\(C_3\)</span> be a tiny circle around <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(C_6\)</span> be a tiny circle around <span class="process-math">\(b\text{,}\)</span> and connect <span class="process-math">\(C_6\)</span> and <span class="process-math">\(C_3\)</span> as in the figure. By Cauchy's Theorem, the function integrates to <span class="process-math">\(0\)</span> over the big curve:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\oint\limits_{C_1 + C_2 - C_3 - C_2 + C_4 + C_5 - C_6 - C_5}
+f(z)\,dz = 0 = \oint_{C_1 + C_4} f(z)\,dz + \oint_{-C_3 - C_6}f(z)\,dz
+\end{equation*}
+</div>
+<div class="para" id="p-593">So the integral reduces to the sum of integrals over <span class="process-math">\(C_3\)</span> and <span class="process-math">\(C_6\text{,}\)</span> each of which can be computed as <span class="process-math">\(2\pi i\)</span> times the residue:</div>
+<div class="displaymath process-math" id="md-46">
+\begin{align*}
+\oint_\gamma f(z)\,dz \amp = \oint_{C_3 + C_6} f(z)\,dz \\
+\amp = \oint_{C_3} f(z)\,dz + \oint_{C_6}f(z)\,dz \\
+\amp = 2\pi i \Res\limits_{z = b} f(z) + 2\pi i \Res\limits_{z = a} f(z) \\
+\amp = 2\pi i\left( \Res\limits_{z = b} f(z) + \Res\limits_{z = a} f(z)\right) 
+\end{align*}
+</div>
+<div class="para" id="p-594">The proof of the general case (with more than two singularities inside <span class="process-math">\(\gamma\)</span>) is similar.</div></article></div>
+<figure class="figure figure-like" id="fig-residue-thm"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/residue-thm.svg" role="img" class="contained" alt="Picture of keyhole contours for the proof of the Residue Theorem."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.10<span class="period">.</span></span><span class="space"> </span>Picture of so-called keyhole contours for the proof of <a href="" class="xref" data-knowl="./knowl/thm-residue.html" title="Theorem 6.1.9: The Residue Theorem">Theorem 6.1.9</a>.</figcaption></figure><figure class="figure figure-like" id="fig-residue-example"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/image-residue-example.svg" role="img" class="contained" alt="Curves for the Example."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure><article class="example example-like" id="example-63"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-63"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.12</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-63"><article class="example example-like"><div class="para" id="p-595">Let <span class="process-math">\(f(z) = \frac{1}{z(z^2 + 1)}\text{.}\)</span> Compute <span class="process-math">\(\oint f(z)\,dz\)</span> over <span class="process-math">\(C_1,C_2,C_3,\)</span> and <span class="process-math">\(C_4\text{,}\)</span> as in the figure.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like"><div class="para" id="p-596"></div></div></div>
+</div></article></div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-laurent-series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="ch-residue.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer">

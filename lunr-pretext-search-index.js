@@ -2039,16 +2039,16 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "sec-residues.html",
   "type": "Section",
-  "number": "5.4",
+  "number": "6.1",
   "title": "Residues",
-  "body": " Residues  If has an isolated singularity at and its Laurent series on is given by then what is around a small simple closed curve encircling ?  Integrate the Laurent series termwise:   The only term in this sum that survives integration is the one involving . (Notice that e.g. .) So .    When has an isolated singularity at , then the residue of at is defined to be , the coefficient of in the Laurent series of defined on . The residue is denoted     Note that the residue of at could alternatively be defined by    The function has a pole of order at and .    Suppose that where is any function analytic at . Then has a simple pole at and .    The function is analytic at with .    The function has a removable singularity at and .     Consider . Find all poles and residues of the poles.    Expand by partial fractions:   Now around we have so has a simple pole at with .  The calculation at is similiar. There is a simple pole at which the residue is .      Find the Laurent series of on        Then find the residue at .    On the annulus defined by , we have the following expression for .   On the annulus defined by , we have the following expression for .    Warning: We must use to find the residue! The function has a simple pole at with .     Consider the function . It has a singularity at but it isn't isolated. Not a pole so no residue.   "
+  "body": " Residues  If has an isolated singularity at and its Laurent series on is given by then what is around a small simple closed curve encircling ?  Integrate the Laurent series termwise:   The only term in this sum that survives integration is the one involving . (Notice that e.g. .) So .    When has an isolated singularity at , then the residue of at is defined to be , the coefficient of in the Laurent series of defined on . The residue is denoted     Note that the residue of at could alternatively be defined by    The function has a pole of order at and .    Suppose that where is any function analytic at . Then has a simple pole at and .    The function is analytic at with .    The function has a removable singularity at and .     Consider . Find all poles and residues of the poles.    Expand by partial fractions:   Now around we have so has a simple pole at with .  The calculation at is similiar. There is a simple pole at which the residue is .      Find the Laurent series of on        Then find the residue at .    On the annulus defined by , we have the following expression for .   On the annulus defined by , we have the following expression for .    Warning: We must use to find the residue! The function has a simple pole at with .     Consider the function . It has a singularity at but it isn't isolated. Not a pole so no residue.    The Residue Theorem   Suppose that is analytic except at a set of isolated singularities. Suppose that is a counterclockwise-oriented curve that does not go through any of the singularities of . Then where the sum is taken over all singularities of inside .    We will do the case where encircles two singularities of , at and . Let be a tiny circle around , be a tiny circle around , and connect and as in the figure. By Cauchy's Theorem, the function integrates to over the big curve:   So the integral reduces to the sum of integrals over and , each of which can be computed as times the residue:   The proof of the general case (with more than two singularities inside ) is similar.     Picture of so-called keyhole contours for the proof of .   Picture of keyhole contours for the proof of the Residue Theorem.      Curves for the Example.       Let . Compute over and , as in the figure.        "
 },
 {
   "id": "def-residue",
   "level": "2",
   "url": "sec-residues.html#def-residue",
   "type": "Definition",
-  "number": "5.4.1",
+  "number": "6.1.1",
   "title": "",
   "body": "  When has an isolated singularity at , then the residue of at is defined to be , the coefficient of in the Laurent series of defined on . The residue is denoted    "
 },
@@ -2057,7 +2057,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-residues.html#example-56",
   "type": "Example",
-  "number": "5.4.2",
+  "number": "6.1.2",
   "title": "",
   "body": " The function has a pole of order at and .  "
 },
@@ -2066,7 +2066,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-residues.html#example-57",
   "type": "Example",
-  "number": "5.4.3",
+  "number": "6.1.3",
   "title": "",
   "body": " Suppose that where is any function analytic at . Then has a simple pole at and .  "
 },
@@ -2075,7 +2075,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-residues.html#example-58",
   "type": "Example",
-  "number": "5.4.4",
+  "number": "6.1.4",
   "title": "",
   "body": " The function is analytic at with .  "
 },
@@ -2084,7 +2084,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-residues.html#example-59",
   "type": "Example",
-  "number": "5.4.5",
+  "number": "6.1.5",
   "title": "",
   "body": " The function has a removable singularity at and .  "
 },
@@ -2093,7 +2093,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-residues.html#example-60",
   "type": "Example",
-  "number": "5.4.6",
+  "number": "6.1.6",
   "title": "",
   "body": "  Consider . Find all poles and residues of the poles.    Expand by partial fractions:   Now around we have so has a simple pole at with .  The calculation at is similiar. There is a simple pole at which the residue is .   "
 },
@@ -2102,7 +2102,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-residues.html#example-61",
   "type": "Example",
-  "number": "5.4.7",
+  "number": "6.1.7",
   "title": "",
   "body": "  Find the Laurent series of on        Then find the residue at .    On the annulus defined by , we have the following expression for .   On the annulus defined by , we have the following expression for .    Warning: We must use to find the residue! The function has a simple pole at with .   "
 },
@@ -2111,9 +2111,45 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-residues.html#example-62",
   "type": "Example",
-  "number": "5.4.8",
+  "number": "6.1.8",
   "title": "",
   "body": " Consider the function . It has a singularity at but it isn't isolated. Not a pole so no residue.  "
+},
+{
+  "id": "thm-residue",
+  "level": "2",
+  "url": "sec-residues.html#thm-residue",
+  "type": "Theorem",
+  "number": "6.1.9",
+  "title": "The Residue Theorem.",
+  "body": " The Residue Theorem   Suppose that is analytic except at a set of isolated singularities. Suppose that is a counterclockwise-oriented curve that does not go through any of the singularities of . Then where the sum is taken over all singularities of inside .    We will do the case where encircles two singularities of , at and . Let be a tiny circle around , be a tiny circle around , and connect and as in the figure. By Cauchy's Theorem, the function integrates to over the big curve:   So the integral reduces to the sum of integrals over and , each of which can be computed as times the residue:   The proof of the general case (with more than two singularities inside ) is similar.   "
+},
+{
+  "id": "fig-residue-thm",
+  "level": "2",
+  "url": "sec-residues.html#fig-residue-thm",
+  "type": "Figure",
+  "number": "6.1.10",
+  "title": "",
+  "body": " Picture of so-called keyhole contours for the proof of .   Picture of keyhole contours for the proof of the Residue Theorem.   "
+},
+{
+  "id": "fig-residue-example",
+  "level": "2",
+  "url": "sec-residues.html#fig-residue-example",
+  "type": "Figure",
+  "number": "6.1.11",
+  "title": "",
+  "body": "  Curves for the Example.    "
+},
+{
+  "id": "example-63",
+  "level": "2",
+  "url": "sec-residues.html#example-63",
+  "type": "Example",
+  "number": "6.1.12",
+  "title": "",
+  "body": "  Let . Compute over and , as in the figure.       "
 },
 {
   "id": "colophon-2",

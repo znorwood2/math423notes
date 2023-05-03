@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="example example-like"><div class="para">Here is the prototypical example. We evaluate the integral <span class="process-math">\(\int_{-\infty}^\infty \frac{1}{1+x^2}\,dx\text{.}\)</span> Let <span class="process-math">\(C_R\)</span> be the semicircular closed curve that follows the straight-line path from <span class="process-math">\(-R\)</span> to <span class="process-math">\(R\)</span> and then the semicircle in the upper halfplane from <span class="process-math">\(R\)</span> to <span class="process-math">\(-R\text{.}\)</span> Notice that for sufficiently large <span class="process-math">\(R\text{,}\)</span> the singularity <span class="process-math">\(i\)</span> lies inside the closed curve <span class="process-math">\(C_R\text{.}\)</span> So we can evaluate <span class="process-math">\(\oint_{C_R} \frac{1}{1+z^2}\,dz\)</span> using the Residue Theorem:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\oint_{C_R} \frac{1}{1+z^2}\,dz = 2\pi i \Res\limits_{z=i} \frac{1}{1+z^2} = 2\pi i \frac{1}{2i} = \pi.
+\end{equation*}
+</div>
+<div class="para logical">
+<div class="para">What's left is to integrate over the arc <span class="process-math">\(A_R\)</span> that follows the semicircle from <span class="process-math">\(R\)</span> to <span class="process-math">\(-R\text{.}\)</span> We are going to do an ML-estimate to argue that this integral tends to <span class="process-math">\(0\)</span> in modulus as <span class="process-math">\(R\to \infty\text{.}\)</span> Notice that for <span class="process-math">\(z\)</span> on <span class="process-math">\(A_R\text{,}\)</span> we have <span class="process-math">\(\abs{z} = R\)</span> and so <span class="process-math">\(\abs{z^2 + 1} \ge R^2 - 1\text{.}\)</span> (Draw a picture of the arc and the arc shifted over by <span class="process-math">\(1\)</span> unit to the right.) Taking reciprocals gives, for <span class="process-math">\(z\in A_R\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{\frac{1}{1+z^2}} = \frac{1}{\abs{1+z^2}} \le \frac{1}{R^2-1}.
+\end{equation*}
+</div>
+<div class="para">Now we can do the ML-estimate:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{\int_{A_R} \frac{1}{1 + z^2}\,dz} \le \frac{1}{R^2 - 1}\cdot \pi R
+\underset{R\to \infty}{\longrightarrow} 0.
+\end{equation*}
+</div>
+<div class="para">Now we can compute the improper integral we started with:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_{-R}^R\frac{1}{1+x^2}\,dx = \oint_{C_R} \frac{1}{1+z^2}\,dz - \int_{A_R} \frac{1}{1+z^2}\,dz = \pi - \int_{A_R}\frac{1}{1+z^2}\,dz \underset{R\to\infty}{\longrightarrow} \pi.
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(\int_{-\infty}^\infty \frac{1}{1+x^2}\,dx = \pi\text{.}\)</span>
+</div>
+</div> <div class="para">Of course, you could have done this example using methods from calculus. But we will see other examples that cannot be solved without complex methods.</div></article></body>
+</html>

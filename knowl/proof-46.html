@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h4 class="heading"><span class="type">Proof</span></h4>
+<ol class="decimal">
+<li><div class="para">This is essentially just the definition of residue.</div></li>
+<li><div class="para">Write the Laurent series for <span class="process-math">\(f\)</span> centered at <span class="process-math">\(a\text{.}\)</span>
+</div></li>
+<li><div class="para">Write the Laurent series for <span class="process-math">\(f\)</span> centered at <span class="process-math">\(a\)</span> and take the limit term by term.</div></li>
+<li><div class="para logical">
+<div class="para">Since <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(a\)</span> the Laurent series of <span class="process-math">\(f\)</span> near <span class="process-math">\(a\)</span> can be written as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{c_{-1}}{z-a} + c_0 + c_1(z-a) + \cdots
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(g\)</span> has a Taylor series given as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) = d_0 + d_1(z-a) + d_2(z-a)^2 + \cdots
+\end{equation*}
+</div>
+<div class="para">Multiply these together:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z)g(z) = \frac{c_{-1}d_0}{z-a} + (c_0 d_0 + c_{-1} d_1) + \cdots
+\end{equation*}
+</div>
+<div class="para">Read off the residue from this:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res\limits_{z=a} f(z) g(z) = d_0 c_{-1} = g(a) \Res\limits_{z=a}f(z).
+\end{equation*}
+</div>
+<div class="para">The second statement follows from the first since <span class="process-math">\(1/g\)</span> is analytic at <span class="process-math">\(a\text{.}\)</span>
+</div>
+</div></li>
+<li>
+<div class="para logical">
+<div class="para">Since <span class="process-math">\(g\)</span> has a simple zero at <span class="process-math">\(a\text{,}\)</span> its Taylor series around <span class="process-math">\(a\)</span> looks like this:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) = c_1 (z-a) + c_2 (z-a)^2 + \cdots
+\end{equation*}
+</div>
+<div class="para">with <span class="process-math">\(c_1 \ne 0\text{.}\)</span> Use this to express <span class="process-math">\(\frac{1}{g(z)}\)</span> as follows.</div>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{g(z)} = \frac{1}{c_1 (z-a) + c_2 (z-a)^2 + \cdots}
+= \frac{1}{c_1(z-a)}\left( \frac{1}{1 + \frac{c_2}{c_1}(z-a) + \cdots} \right)
+\end{equation*}
+</div>
+<div class="para">The function <span class="process-math">\(\frac{1}{1 + \frac{c_2}{c_1}(z-a) + \cdots}\)</span> is analytic at <span class="process-math">\(z=a\)</span> and takes the value <span class="process-math">\(1\)</span> at <span class="process-math">\(a\text{.}\)</span> Thus it has a Taylor expansion <span class="process-math">\(1 + d_1(z-a)+ \cdots\text{.}\)</span> Combine this to see that the Laurent expansion of <span class="process-math">\(1/g\)</span> near <span class="process-math">\(a\)</span> takes the following form.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{c_1 (z-a)} (1 + d_1 (z-a) + \cdots)
+\end{equation*}
+</div>
+<div class="para">So the residue of <span class="process-math">\(1/g\)</span> at <span class="process-math">\(a\)</span> is <span class="process-math">\(\frac{1}{c_1} = \frac{1}{g'(a)}\text{.}\)</span>
+</div>
+</li>
+</ol></article><span class="incontext"><a href="sec-residues.html#proof-46" class="internal">in-context</a></span>
+</body>
+</html>

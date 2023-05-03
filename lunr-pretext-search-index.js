@@ -2041,7 +2041,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "6.1",
   "title": "Residues",
-  "body": " Residues  If has an isolated singularity at and its Laurent series on is given by then what is around a small simple closed curve encircling ?  Integrate the Laurent series termwise:   The only term in this sum that survives integration is the one involving . (Notice that e.g. .) So .    When has an isolated singularity at , then the residue of at is defined to be , the coefficient of in the Laurent series of defined on . The residue is denoted     Note that the residue of at could alternatively be defined by    The function has a pole of order at and .    Suppose that where is any function analytic at . Then has a simple pole at and .    The function is analytic at with .    The function has a removable singularity at and .     Consider . Find all poles and residues of the poles.    Expand by partial fractions:   Now around we have so has a simple pole at with .  The calculation at is similiar. There is a simple pole at which the residue is .      Find the Laurent series of on        Then find the residue at .    On the annulus defined by , we have the following expression for .   On the annulus defined by , we have the following expression for .    Warning: We must use to find the residue! The function has a simple pole at with .     Consider the function . It has a singularity at but it isn't isolated. Not a pole so no residue.    The Residue Theorem   Suppose that is analytic except at a set of isolated singularities. Suppose that is a counterclockwise-oriented curve that does not go through any of the singularities of . Then where the sum is taken over all singularities of inside .    We will do the case where encircles two singularities of , at and . Let be a tiny circle around , be a tiny circle around , and connect and as in the figure. By Cauchy's Theorem, the function integrates to over the big curve:   So the integral reduces to the sum of integrals over and , each of which can be computed as times the residue:   The proof of the general case (with more than two singularities inside ) is similar.     Picture of so-called keyhole contours for the proof of .   Picture of keyhole contours for the proof of the Residue Theorem.     Circles for the Example.   Curves for the Example.       Let . Compute over and , as in the figure.    The poles of occur at . In light of the Residue Theorem, we just need to compute the residues at each of these poles. We are about to devote a section to computing residues like this, but for the impatient reader here are the answers:      Computing Residues at Simple Poles  Recall that a simple pole is a pole of order . We devote some effort toward understanding how to compute residues at simple poles.   Basic properties of residues at simple poles     If the Laurent series of near takes the form then has a simple pole at and .    If is analytic at , then has either a removable singularity or a simple pole at . In either case, ( if has a removable singularity).    If has a simple pole at then (That is, the limit exists and equals the residue. The converse is also true: if the limit exists then either has a simple pole at or is analytic at .)    If has a simple pole at and is analytic at , then If then also     If has a simple zero at then has a simple pole at and         Consider the following function. Show that all the poles are simple and compute their residues.    The poles occur at . For , multiply by to get This function is analytic at and satisfies , so the pole at is simple and the residue there is . The others are similar.      Consider the function . Find all its poles and compute its residue at each pole.    As we've seen before, the complex zeros of sine occur at for an integer. Since the derivative is nonzero at each pole, the zeros of sine are simple. So, by the Proposition, .     "
+  "body": " Residues  If has an isolated singularity at and its Laurent series on is given by then what is around a small simple closed curve encircling ?  Integrate the Laurent series termwise:   The only term in this sum that survives integration is the one involving . (Notice that e.g. .) So .    When has an isolated singularity at , then the residue of at is defined to be , the coefficient of in the Laurent series of defined on . The residue is denoted     Note that the residue of at could alternatively be defined by    The function has a pole of order at and .    Suppose that where is any function analytic at . Then has a simple pole at and .    The function is analytic at with .    The function has a removable singularity at and .     Consider . Find all poles and residues of the poles.    Expand by partial fractions:   Now around we have so has a simple pole at with .  The calculation at is similiar. There is a simple pole at which the residue is .      Find the Laurent series of on        Then find the residue at .    On the annulus defined by , we have the following expression for .   On the annulus defined by , we have the following expression for .    Warning: We must use to find the residue! The function has a simple pole at with .     Consider the function . It has a singularity at but it isn't isolated. Not a pole so no residue.    The Residue Theorem   Suppose that is analytic except at a set of isolated singularities. Suppose that is a counterclockwise-oriented curve that does not go through any of the singularities of . Then where the sum is taken over all singularities of inside .    We will do the case where encircles two singularities of , at and . Let be a tiny circle around , be a tiny circle around , and connect and as in the figure. By Cauchy's Theorem, the function integrates to over the big curve:   So the integral reduces to the sum of integrals over and , each of which can be computed as times the residue:   The proof of the general case (with more than two singularities inside ) is similar.     Picture of so-called keyhole contours for the proof of .   Picture of keyhole contours for the proof of the Residue Theorem.     Circles for the Example.   Curves for the Example.       Let . Compute over and , as in the figure.    The poles of occur at . In light of the Residue Theorem, we just need to compute the residues at each of these poles. We are about to devote a section to computing residues like this, but for the impatient reader here are the answers:      Computing Residues at Simple Poles  Recall that a simple pole is a pole of order . We devote some effort toward understanding how to compute residues at simple poles.   Basic properties of residues at simple poles     If the Laurent series of near takes the form then has a simple pole at and .    If is analytic at , then has either a removable singularity or a simple pole at . In either case, ( if has a removable singularity).    If has a simple pole at then (That is, the limit exists and equals the residue. The converse is also true: if the limit exists then either has a simple pole at or is analytic at .)    If has a simple pole at and is analytic at , then If then also     If has a simple zero at then has a simple pole at and         This is essentially just the definition of residue.    Write the Laurent series for centered at .    Write the Laurent series for centered at and take the limit term by term.    Since has a simple pole at the Laurent series of near can be written as and has a Taylor series given as follows. Multiply these together: Read off the residue from this: The second statement follows from the first since is analytic at .    Since has a simple zero at , its Taylor series around looks like this: with . Use this to express as follows.   The function is analytic at and takes the value at . Thus it has a Taylor expansion . Combine this to see that the Laurent expansion of near takes the following form.   So the residue of at is .        Consider the following function. Show that all the poles are simple and compute their residues.    The poles occur at . For , multiply by to get This function is analytic at and satisfies , so the pole at is simple and the residue there is . The others are similar.      Consider the function . Find all its poles and compute its residue at each pole.    As we've seen before, the complex zeros of sine occur at for an integer. Since the derivative is nonzero at each pole, the zeros of sine are simple. So, by the Proposition, .    Suppose that and are each analytic at . Assume that , , and . Prove that .    Residues at finite poles   If has a pole of order at then is analytic at and where is the coefficient of in the Taylor seris for .      Consider the following function. Compute .    The requested residue is the coefficient of in the Taylor series expansion of .   So .      Find the residue of the following function at .     The function is analytic at . The requested residue is the coefficient of in its Taylor series, i.e., . You can check that this is .    The cotangent function is particularly useful in applications. Show that it has simple poles at all integer multiples of and that the residue is at each pole. Compute the first few terms of the Laurent expansion of around .  "
 },
 {
   "id": "def-residue",
@@ -2167,7 +2167,7 @@ var ptx_lunr_docs = [
   "type": "Proposition",
   "number": "6.1.13",
   "title": "Basic properties of residues at simple poles.",
-  "body": " Basic properties of residues at simple poles     If the Laurent series of near takes the form then has a simple pole at and .    If is analytic at , then has either a removable singularity or a simple pole at . In either case, ( if has a removable singularity).    If has a simple pole at then (That is, the limit exists and equals the residue. The converse is also true: if the limit exists then either has a simple pole at or is analytic at .)    If has a simple pole at and is analytic at , then If then also     If has a simple zero at then has a simple pole at and      "
+  "body": " Basic properties of residues at simple poles     If the Laurent series of near takes the form then has a simple pole at and .    If is analytic at , then has either a removable singularity or a simple pole at . In either case, ( if has a removable singularity).    If has a simple pole at then (That is, the limit exists and equals the residue. The converse is also true: if the limit exists then either has a simple pole at or is analytic at .)    If has a simple pole at and is analytic at , then If then also     If has a simple zero at then has a simple pole at and         This is essentially just the definition of residue.    Write the Laurent series for centered at .    Write the Laurent series for centered at and take the limit term by term.    Since has a simple pole at the Laurent series of near can be written as and has a Taylor series given as follows. Multiply these together: Read off the residue from this: The second statement follows from the first since is analytic at .    Since has a simple zero at , its Taylor series around looks like this: with . Use this to express as follows.   The function is analytic at and takes the value at . Thus it has a Taylor expansion . Combine this to see that the Laurent expansion of near takes the following form.   So the residue of at is .     "
 },
 {
   "id": "example-64",
@@ -2186,6 +2186,69 @@ var ptx_lunr_docs = [
   "number": "6.1.15",
   "title": "",
   "body": "  Consider the function . Find all its poles and compute its residue at each pole.    As we've seen before, the complex zeros of sine occur at for an integer. Since the derivative is nonzero at each pole, the zeros of sine are simple. So, by the Proposition, .   "
+},
+{
+  "id": "exercise-14",
+  "level": "2",
+  "url": "sec-residues.html#exercise-14",
+  "type": "Checkpoint",
+  "number": "6.1.16",
+  "title": "",
+  "body": "Suppose that and are each analytic at . Assume that , , and . Prove that . "
+},
+{
+  "id": "prop-residues-finite-poles",
+  "level": "2",
+  "url": "sec-residues.html#prop-residues-finite-poles",
+  "type": "Proposition",
+  "number": "6.1.17",
+  "title": "Residues at finite poles.",
+  "body": " Residues at finite poles   If has a pole of order at then is analytic at and where is the coefficient of in the Taylor seris for .   "
+},
+{
+  "id": "example-66",
+  "level": "2",
+  "url": "sec-residues.html#example-66",
+  "type": "Example",
+  "number": "6.1.18",
+  "title": "",
+  "body": "  Consider the following function. Compute .    The requested residue is the coefficient of in the Taylor series expansion of .   So .   "
+},
+{
+  "id": "example-67",
+  "level": "2",
+  "url": "sec-residues.html#example-67",
+  "type": "Example",
+  "number": "6.1.19",
+  "title": "",
+  "body": "  Find the residue of the following function at .     The function is analytic at . The requested residue is the coefficient of in its Taylor series, i.e., . You can check that this is .   "
+},
+{
+  "id": "exercise-15",
+  "level": "2",
+  "url": "sec-residues.html#exercise-15",
+  "type": "Checkpoint",
+  "number": "6.1.20",
+  "title": "",
+  "body": "The cotangent function is particularly useful in applications. Show that it has simple poles at all integer multiples of and that the residue is at each pole. Compute the first few terms of the Laurent expansion of around . "
+},
+{
+  "id": "sec-real-integrals",
+  "level": "1",
+  "url": "sec-real-integrals.html",
+  "type": "Section",
+  "number": "6.2",
+  "title": "Applications to real integrals",
+  "body": " Applications to real integrals  A typical appliaction of the Residue Theorem is to evaluate an improper integral from calculus. Recall that this equals when the improper integral exists.   Here is the prototypical example. We evaluate the integral . Let be the semicircular closed curve that follows the straight-line path from to and then the semicircle in the upper halfplane from to . Notice that for sufficiently large , the singularity lies inside the closed curve . So we can evaluate using the Residue Theorem:   What's left is to integrate over the arc that follows the semicircle from to . We are going to do an ML-estimate to argue that this integral tends to in modulus as . Notice that for on , we have and so . (Draw a picture of the arc and the arc shifted over by unit to the right.) Taking reciprocals gives, for , Now we can do the ML-estimate: Now we can compute the improper integral we started with: So .  Of course, you could have done this example using methods from calculus. But we will see other examples that cannot be solved without complex methods.   "
+},
+{
+  "id": "example-68",
+  "level": "2",
+  "url": "sec-real-integrals.html#example-68",
+  "type": "Example",
+  "number": "6.2.1",
+  "title": "",
+  "body": " Here is the prototypical example. We evaluate the integral . Let be the semicircular closed curve that follows the straight-line path from to and then the semicircle in the upper halfplane from to . Notice that for sufficiently large , the singularity lies inside the closed curve . So we can evaluate using the Residue Theorem:   What's left is to integrate over the arc that follows the semicircle from to . We are going to do an ML-estimate to argue that this integral tends to in modulus as . Notice that for on , we have and so . (Draw a picture of the arc and the arc shifted over by unit to the right.) Taking reciprocals gives, for , Now we can do the ML-estimate: Now we can compute the improper integral we started with: So .  Of course, you could have done this example using methods from calculus. But we will see other examples that cannot be solved without complex methods.  "
 },
 {
   "id": "colophon-2",

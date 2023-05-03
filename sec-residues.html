@@ -177,7 +177,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-residue.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-residue.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-residue.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-residue.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-real-integrals.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
@@ -285,10 +285,13 @@ window.MathJax = {
 </li>
 <li>
 <div class="toc-item"><a href="ch-residue.html" class="internal"><span class="codenumber">6</span> <span class="title">The Residue Calculus</span></a></div>
-<ul class="structural"><li class="active">
+<ul class="structural">
+<li class="active">
 <div class="toc-item"><a href="sec-residues.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Residues</span></a></div>
 <ul class="structural"><li><div class="toc-item"><a href="sec-residues.html#subsec-residues-simple-poles" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Computing Residues at Simple Poles</span></a></div></li></ul>
-</li></ul>
+</li>
+<li><div class="toc-item"><a href="sec-real-integrals.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Applications to real integrals</span></a></div></li>
+</ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
@@ -509,9 +512,68 @@ f(z)\,dz = 0 = \oint_{C_1 + C_4} f(z)\,dz + \oint_{-C_3 - C_6}f(z)\,dz
 \end{equation*}
 </div>
 </div></li>
-</ol></article><article class="example example-like" id="example-64"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-64"><h4 class="heading">
+</ol></article><article class="hiddenproof" id="proof-46"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-46"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-46"><article class="hiddenproof"><ol class="decimal">
+<li id="li-71"><div class="para" id="p-603">This is essentially just the definition of residue.</div></li>
+<li id="li-72"><div class="para" id="p-604">Write the Laurent series for <span class="process-math">\(f\)</span> centered at <span class="process-math">\(a\text{.}\)</span>
+</div></li>
+<li id="li-73"><div class="para" id="p-605">Write the Laurent series for <span class="process-math">\(f\)</span> centered at <span class="process-math">\(a\)</span> and take the limit term by term.</div></li>
+<li id="li-74"><div class="para logical" id="p-606">
+<div class="para">Since <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(a\)</span> the Laurent series of <span class="process-math">\(f\)</span> near <span class="process-math">\(a\)</span> can be written as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{c_{-1}}{z-a} + c_0 + c_1(z-a) + \cdots
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(g\)</span> has a Taylor series given as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) = d_0 + d_1(z-a) + d_2(z-a)^2 + \cdots
+\end{equation*}
+</div>
+<div class="para">Multiply these together:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z)g(z) = \frac{c_{-1}d_0}{z-a} + (c_0 d_0 + c_{-1} d_1) + \cdots
+\end{equation*}
+</div>
+<div class="para">Read off the residue from this:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res\limits_{z=a} f(z) g(z) = d_0 c_{-1} = g(a) \Res\limits_{z=a}f(z).
+\end{equation*}
+</div>
+<div class="para">The second statement follows from the first since <span class="process-math">\(1/g\)</span> is analytic at <span class="process-math">\(a\text{.}\)</span>
+</div>
+</div></li>
+<li id="li-75">
+<div class="para logical" id="p-607">
+<div class="para">Since <span class="process-math">\(g\)</span> has a simple zero at <span class="process-math">\(a\text{,}\)</span> its Taylor series around <span class="process-math">\(a\)</span> looks like this:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(z) = c_1 (z-a) + c_2 (z-a)^2 + \cdots
+\end{equation*}
+</div>
+<div class="para">with <span class="process-math">\(c_1 \ne 0\text{.}\)</span> Use this to express <span class="process-math">\(\frac{1}{g(z)}\)</span> as follows.</div>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{g(z)} = \frac{1}{c_1 (z-a) + c_2 (z-a)^2 + \cdots}
+= \frac{1}{c_1(z-a)}\left( \frac{1}{1 + \frac{c_2}{c_1}(z-a) + \cdots} \right)
+\end{equation*}
+</div>
+<div class="para" id="p-608">The function <span class="process-math">\(\frac{1}{1 + \frac{c_2}{c_1}(z-a) + \cdots}\)</span> is analytic at <span class="process-math">\(z=a\)</span> and takes the value <span class="process-math">\(1\)</span> at <span class="process-math">\(a\text{.}\)</span> Thus it has a Taylor expansion <span class="process-math">\(1 + d_1(z-a)+ \cdots\text{.}\)</span> Combine this to see that the Laurent expansion of <span class="process-math">\(1/g\)</span> near <span class="process-math">\(a\)</span> takes the following form.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{c_1 (z-a)} (1 + d_1 (z-a) + \cdots)
+\end{equation*}
+</div>
+<div class="para" id="p-609">So the residue of <span class="process-math">\(1/g\)</span> at <span class="process-math">\(a\)</span> is <span class="process-math">\(\frac{1}{c_1} = \frac{1}{g'(a)}\text{.}\)</span>
+</div>
+</li>
+</ol></article></div>
+<article class="example example-like" id="example-64"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-64"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.14</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-64"><article class="example example-like"><div class="para logical" id="p-603">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-64"><article class="example example-like"><div class="para logical" id="p-610">
 <div class="para">Consider the following function.</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -521,7 +583,7 @@ f(z) = \frac{2 + z + z^2}{(z-2)(z-3)(z-4)(z-5)}.
 <div class="para">Show that all the poles are simple and compute their residues.</div>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like"><div class="para logical" id="p-604">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like"><div class="para logical" id="p-611">
 <div class="para">The poles occur at <span class="process-math">\(z = 2,3,4,5\text{.}\)</span> For <span class="process-math">\(z = 2\text{,}\)</span> multiply by <span class="process-math">\(z-2\)</span> to get</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -533,9 +595,9 @@ g(z) = (z-2)f(z) = \frac{2+z+z^2}{(z-3)(z-4)(z-5)}.
 </div></article></div>
 <article class="example example-like" id="example-65"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-65"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.15</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-65"><article class="example example-like"><div class="para" id="p-605">Consider the function <span class="process-math">\(f(z) = \csc(z) = \frac{1}{\sin(z)}\text{.}\)</span> Find all its poles and compute its residue at each pole.</div>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-65"><article class="example example-like"><div class="para" id="p-612">Consider the function <span class="process-math">\(f(z) = \csc(z) = \frac{1}{\sin(z)}\text{.}\)</span> Find all its poles and compute its residue at each pole.</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like"><div class="para logical" id="p-606">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like"><div class="para logical" id="p-613">
 <div class="para">As we've seen before, the complex zeros of sine occur at <span class="process-math">\(n\pi\)</span> for <span class="process-math">\(n\)</span> an integer. Since the derivative <span class="process-math">\(\sin'(n\pi) = \cos(n\pi)\)</span> is nonzero at each pole, the zeros of sine are simple. So, by the Proposition,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -543,9 +605,67 @@ g(z) = (z-2)f(z) = \frac{2+z+z^2}{(z-3)(z-4)(z-5)}.
 \end{equation*}
 </div>
 </div></div></div>
-</div></article></div></section></section></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-14"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-14"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.1.16</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-14"><article class="exercise exercise-like"><div class="para" id="p-614">Suppose that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are each analytic at <span class="process-math">\(a\text{.}\)</span> Assume that <span class="process-math">\(f(a) \ne 0\text{,}\)</span> <span class="process-math">\(g(a) = 0\text{,}\)</span> and <span class="process-math">\(g'(a) \ne 0\text{.}\)</span> Prove that <span class="process-math">\(\Res\limits_{z=a} \frac{f(z)}{g(z)} = \frac{f(a)}{g'(a)}\text{.}\)</span>
+</div></article></div></section><article class="proposition theorem-like" id="prop-residues-finite-poles"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.1.17</span><span class="period">.</span><span class="space"> </span><span class="title">Residues at finite poles.</span>
+</h3>
+<div class="para logical" id="p-615">
+<div class="para">If <span class="process-math">\(f\)</span> has a pole of order <span class="process-math">\(k\)</span> at <span class="process-math">\(a\)</span> then <span class="process-math">\(g(z) = (z-a)^k f(z)\)</span> is analytic at <span class="process-math">\(z=a\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res_{z=a}f(z) = c_{k-1} = \frac{g^{(k-1)}(a)}{(k-1)!},
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(c_{k-1}\)</span> is the coefficient of <span class="process-math">\((z-a)^{k-1}\)</span> in the Taylor seris for <span class="process-math">\(g\text{.}\)</span>
+</div>
+</div></article><article class="example example-like" id="example-66"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-66"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.18</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-66"><article class="example example-like"><div class="para logical" id="p-616">
+<div class="para">Consider the following function.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{\sinh(z) e^z}{z^5}
+\end{equation*}
+</div>
+<div class="para">Compute <span class="process-math">\(\Res\limits_{z=0}f(z)\text{.}\)</span>
+</div>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like">
+<div class="para" id="p-617">The requested residue <span class="process-math">\(\Res\limits_{z=0}f(z)\)</span> is the coefficient of <span class="process-math">\(z^4\)</span> in the Taylor series expansion of <span class="process-math">\(\sinh(z)e^z\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sinh(z)e^z = \left( z + \frac{z^3}{3!} + \cdots \right)\left( 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \cdots \right)
+= \cdots + (\frac{1}{4!} + \frac{1}{3!})z^4 + \cdots
+\end{equation*}
+</div>
+<div class="para" id="p-618">So <span class="process-math">\(\Res_{z=0}f(z) = \frac{1}{3!} + \frac{1}{4!} + \frac{5}{24}\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-67"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-67"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.19</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-67"><article class="example example-like"><div class="para" id="p-619">Find the residue of the following function <span class="process-math">\(f\)</span> at <span class="process-math">\(z=2\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{1}{z(z^2 + 1)(z-2)^2}.
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like"><div class="para" id="p-620">The function <span class="process-math">\(g(z) = (z-2)^2f(z) = \frac{1}{z(z^2+1)}\)</span> is analytic at <span class="process-math">\(z=2\text{.}\)</span> The requested residue is the coefficient of <span class="process-math">\((z-2)\)</span> in its Taylor series, i.e., <span class="process-math">\(g'(2)\text{.}\)</span> You can check that this is <span class="process-math">\(\frac{-13}{100}\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-15"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-15"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">6.1.20</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-15"><article class="exercise exercise-like"><div class="para" id="p-621">The cotangent function is particularly useful in applications. Show that it has simple poles at all integer multiples of <span class="process-math">\(\pi\)</span> and that the residue is <span class="process-math">\(1\)</span> at each pole. Compute the first few terms of the Laurent expansion of <span class="process-math">\(\cot(z)\)</span> around <span class="process-math">\(z = 0\text{.}\)</span>
+</div></article></div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="ch-residue.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="ch-residue.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-real-integrals.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer">

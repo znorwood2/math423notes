@@ -5115,6 +5115,73 @@
                 </li>
               </ol>
             </statement>
+            <proof>
+              <ol>
+                <li>
+                  <p> This is essentially just the definition of residue. </p>
+                </li>
+                <li>
+                  <p>
+                    Write the Laurent series for <m>f</m> centered at <m>a</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Write the Laurent series for <m>f</m> centered at <m>a</m>
+                    and take the limit term by term.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Since <m>f</m> has a simple pole at <m>a</m> the Laurent series
+                    of <m>f</m> near <m>a</m> can be written as
+                    <me>
+                      f(z) = \frac{c_{-1}}{z-a} + c_0 + c_1(z-a) + \cdots
+                    </me>
+                    and <m>g</m> has a Taylor series given as follows.
+                    <me>
+                      g(z) = d_0 + d_1(z-a) + d_2(z-a)^2 + \cdots
+                    </me>
+                    Multiply these together:
+                    <me>
+                      f(z)g(z) = \frac{c_{-1}d_0}{z-a} + (c_0 d_0 + c_{-1} d_1) + \cdots
+                    </me>
+                    Read off the residue from this:
+                    <me>
+                      \Res\limits_{z=a} f(z) g(z) = d_0 c_{-1} = g(a) \Res\limits_{z=a}f(z).
+                    </me>
+                    The second statement follows from the first since <m>1/g</m>
+                    is analytic at <m>a</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Since <m>g</m> has a simple zero at <m>a</m>, its Taylor series around <m>a</m> looks like this:
+                  <me>
+                    g(z) = c_1 (z-a) + c_2 (z-a)^2 + \cdots
+                  </me>
+                  with <m>c_1 \ne 0</m>.
+                    Use this to express <m>\frac{1}{g(z)}</m> as follows.
+                  </p>
+                  <me>
+                    \frac{1}{g(z)} = \frac{1}{c_1 (z-a) + c_2 (z-a)^2 + \cdots}
+                    = \frac{1}{c_1(z-a)}\left( \frac{1}{1 + \frac{c_2}{c_1}(z-a) + \cdots} \right)
+                  </me>
+                  <p>
+                    The function <m>\frac{1}{1 + \frac{c_2}{c_1}(z-a) + \cdots}</m>
+                    is analytic at <m>z=a</m> and takes the value <m>1</m> at <m>a</m>.
+                    Thus it has a Taylor expansion <m>1 + d_1(z-a)+ \cdots</m>.
+                    Combine this to see that the Laurent expansion of <m>1/g</m> near <m>a</m> takes the following form.
+                  </p>
+                  <me>
+                    \frac{1}{c_1 (z-a)} (1 + d_1 (z-a) + \cdots)
+                  </me>
+                  <p>
+                    So the residue of <m>1/g</m> at <m>a</m> is <m>\frac{1}{c_1} = \frac{1}{g'(a)}</m>.
+                  </p>
+                </li>
+              </ol>
+            </proof>
           </proposition>
           <example>
             <statement>
@@ -5156,9 +5223,128 @@
               </p>
             </solution>
           </example>
-        </subsection>
+          <exercise>
+            <p>
+              Suppose that <m>f</m> and <m>g</m> are each analytic at <m>a</m>.
+                Assume that <m>f(a) \ne 0</m>, <m>g(a) = 0</m>, and <m>g'(a) \ne 0</m>.
+                Prove that <m>\Res\limits_{z=a} \frac{f(z)}{g(z)} = \frac{f(a)}{g'(a)}</m>.
+            </p>
+          </exercise>
+          </subsection>
+            <proposition xml:id="prop-residues-finite-poles">
+              <title>Residues at finite poles</title>
+              <statement>
+                <p>
+                  If <m>f</m> has a pole of order <m>k</m> at <m>a</m>
+                  then <m>g(z) = (z-a)^k f(z)</m> is analytic at <m>z=a</m>
+                  and
+                  <me>
+                    \Res_{z=a}f(z) = c_{k-1} = \frac{g^{(k-1)}(a)}{(k-1)!},
+                  </me>
+                  where <m>c_{k-1}</m> is the coefficient of <m>(z-a)^{k-1}</m>
+                  in the Taylor seris for <m>g</m>.
+                </p>
+              </statement>
+            </proposition>
+          <example>
+            <statement>
+              <p>
+                Consider the following function.
+                <me>
+                  f(z) = \frac{\sinh(z) e^z}{z^5}
+                </me>
+                Compute <m>\Res\limits_{z=0}f(z)</m>.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                The requested residue <m>\Res\limits_{z=0}f(z)</m> is the coefficient of <m>z^4</m>
+                in the Taylor series expansion of <m>\sinh(z)e^z</m>.
+              </p>
+              <me>
+                \sinh(z)e^z = \left( z + \frac{z^3}{3!} + \cdots \right)\left( 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \cdots \right)
+                = \cdots + (\frac{1}{4!} + \frac{1}{3!})z^4 + \cdots
+              </me>
+              <p>
+                So <m>\Res_{z=0}f(z) = \frac{1}{3!} + \frac{1}{4!} + \frac{5}{24}</m>.
+              </p>
+            </solution>
+          </example>
+          <example>
+            <statement>
+              <p>
+                Find the residue of the following function <m>f</m> at <m>z=2</m>.
+              </p>
+              <me>
+                f(z) = \frac{1}{z(z^2 + 1)(z-2)^2}.
+              </me>              
+            </statement>
+            <solution>
+              <p>
+                The function <m>g(z) = (z-2)^2f(z) = \frac{1}{z(z^2+1)}</m> is analytic at <m>z=2</m>.
+                The requested residue is the coefficient of <m>(z-2)</m> in its Taylor series,
+                i.e., <m>g'(2)</m>. You can check that this is <m>\frac{-13}{100}</m>.
+              </p>
+            </solution>
+          </example>
+          <exercise>
+            <p>
+              The cotangent function is particularly useful in applications.
+              Show that it has simple poles at all integer multiples of <m>\pi</m>
+              and that the residue is <m>1</m> at each pole.
+              Compute the first few terms of the Laurent expansion of <m>\cot(z)</m>
+              around <m>z = 0</m>.
+            </p>
+          </exercise>
       </section>
-
+      <section xml:id="sec-real-integrals">
+        <title>Applications to real integrals</title>
+        <p>
+          A typical appliaction of the Residue Theorem is to evaluate
+          an improper integral <m>\int_{-\infty}^\infty f(x)\,dx</m> from 
+          calculus.
+          Recall that this equals <m>\lim\limits_{R\to \infty} \int_{-R}^R f(x)\,dx</m>
+          when the improper integral exists.
+        </p>
+        <example>
+          <p>
+            Here is the prototypical example.
+            We evaluate the integral <m>\int_{-\infty}^\infty \frac{1}{1+x^2}\,dx</m>.
+            Let <m>C_R</m> be the semicircular closed curve that follows the straight-line path from <m>-R</m> to <m>R</m>
+            and then the semicircle in the upper halfplane from <m>R</m> to <m>-R</m>.
+            Notice that for sufficiently large <m>R</m>,
+            the singularity <m>i</m> lies inside the closed curve <m>C_R</m>.
+            So we can evaluate <m>\oint_{C_R} \frac{1}{1+z^2}\,dz</m> using the Residue Theorem:
+          </p>
+          <me>
+            \oint_{C_R} \frac{1}{1+z^2}\,dz = 2\pi i \Res\limits_{z=i} \frac{1}{1+z^2} = 2\pi i \frac{1}{2i} = \pi.
+          </me>
+          <p>
+            What's left is to integrate over the arc <m>A_R</m> that follows the semicircle from <m>R</m> to <m>-R</m>.
+            We are going to do an ML-estimate to argue that this integral tends to <m>0</m> in modulus as <m>R\to \infty</m>.
+            Notice that for <m>z</m> on <m>A_R</m>, we have <m>\abs{z} = R</m>
+            and so <m>\abs{z^2 + 1} \ge R^2 - 1</m>. (Draw a picture of the arc and the arc shifted over by <m>1</m> unit to the right.)
+            Taking reciprocals gives, for <m>z\in A_R</m>,
+            <me>
+              \abs{\frac{1}{1+z^2}} = \frac{1}{\abs{1+z^2}} \le \frac{1}{R^2-1}.
+            </me>
+            Now we can do the ML-estimate:
+          <me>
+            \abs{\int_{A_R} \frac{1}{1 + z^2}\,dz} \le \frac{1}{R^2 - 1}\cdot \pi R
+            \underset{R\to \infty}{\longrightarrow} 0.
+          </me>
+            Now we can compute the improper integral we started with:
+            <me>
+              \int_{-R}^R\frac{1}{1+x^2}\,dx = \oint_{C_R} \frac{1}{1+z^2}\,dz - \int_{A_R} \frac{1}{1+z^2}\,dz = \pi - \int_{A_R}\frac{1}{1+z^2}\,dz \underset{R\to\infty}{\longrightarrow} \pi.
+            </me>
+            So <m>\int_{-\infty}^\infty \frac{1}{1+x^2}\,dx = \pi</m>.
+          </p>
+          <p>
+            Of course, you could have done this example using methods from calculus.
+            But we will see other examples that cannot be solved without complex methods.
+          </p>
+        </example>
+      </section>
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>

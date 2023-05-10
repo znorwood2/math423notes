@@ -5307,7 +5307,7 @@
           <attribution>Jacques Hadamard</attribution>
         </blockquote>
         <p>
-          A typical appliaction of the Residue Theorem is to evaluate
+          A typical application of the Residue Theorem is to evaluate
           an improper integral <m>\int_{-\infty}^\infty f(x)\,dx</m> from 
           calculus.
           Recall that this equals <m>\lim\limits_{R\to \infty} \int_{-R}^R f(x)\,dx</m>

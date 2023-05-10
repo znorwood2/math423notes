@@ -25,6 +25,7 @@
       \newcommand{\angleop}{\operatorname{angle}}
       \newcommand {\grad} {\nabla}
       \newcommand {\eps} {\epsilon}
+      \newcommand {\pv} {\operatorname{pv}}
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
@@ -5539,6 +5540,11 @@
       </section>
       <section xml:id="sec-rouche">
         <title>The Argument Principle and Rouché's Theorem</title>
+        <blockquote>
+        <p>
+          Your first step into a larger world...
+        </p>
+        </blockquote>
         <p>
           A central idea of the Residue Calculus is that the behavior of the singularities
           inside <m>\gamma</m> controls <m>\int_\gamma f</m>.

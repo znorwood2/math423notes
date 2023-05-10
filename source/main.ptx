@@ -5299,6 +5299,13 @@
       </section>
       <section xml:id="sec-real-integrals">
         <title>Applications to real integrals</title>
+        <blockquote>
+          <p>
+            Between two truths of the real domain, the easiest and shortest path quite often
+            passes through the complex domain.
+          </p>
+          <attribution>Jacques Hadamard</attribution>
+        </blockquote>
         <p>
           A typical appliaction of the Residue Theorem is to evaluate
           an improper integral <m>\int_{-\infty}^\infty f(x)\,dx</m> from 
@@ -5617,9 +5624,9 @@
               Then the winding number of <m>f(\gamma)</m> around <m>0</m>
               is 
               <me>
-              \text{number of zeros of } <m>f</m> \text{ inside } <m>\gamma</m>
-              - \text{number of poles of } <m>f</m> \text{ inside } <m>\gamma</m>
-              </me>,
+              \text{number of zeros of } f \text{ inside } \gamma
+              - \text{number of poles of } f \text{ inside } \gamma,
+              </me>
               counting multiplicity. 
             </p>
           </statement>

@@ -14,14 +14,27 @@
 <h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
 <div class="para">
-<em class="alert">In summary,</em> if <span class="process-math">\(f\)</span> has no essential singularities inside <span class="process-math">\(\gamma\text{,}\)</span> then</div>
+<em class="alert">Case 2:</em> <span class="process-math">\(f\)</span> has a pole of order <span class="process-math">\(m\)</span> at <span class="process-math">\(a\text{.}\)</span> Near <span class="process-math">\(a\)</span> we have a series explansion of the following form.</div>
 <div class="displaymath process-math">
-\begin{align*}
-\oint_\gamma \frac{f'(z)}{f(z)}\,dz \amp = 2\pi i \left[ (\text{sum of zeros of }  \text{ inside } ) - (\text{sum of poles of }  \text { inside } ) \right] \\
-\amp = 2\pi i (\text{number of zeros inside }  - \text{ number of poles inside } ) 
-\end{align*}
+\begin{equation*}
+f(z) = c_{-m} (z-a)^{-m} + \cdots
+\end{equation*}
 </div>
-<div class="para">where the sums count multiplicity.</div>
+<div class="para">So <span class="process-math">\(f'\)</span> has a pole of order <span class="process-math">\(m+1\)</span> at <span class="process-math">\(a\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(z) = -m c_{-m} (z - a)^{-m-1} + \cdots .
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(f'/f\)</span> has a simple pole at <span class="process-math">\(a\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res_{z=a}\frac{f'(z)}{f(z)} = \lim_{z\to a}(z-a) \frac{-m c_{-m}(z-a)^{-m-1} + \cdots}{c_{-m} (z-a)^{-m} + \cdots}
+= -m.
+\end{equation*}
+</div>
 </div>
 <span class="incontext"><a href="sec-rouche.html#p-652" class="internal">in-context</a></span>
 </body>

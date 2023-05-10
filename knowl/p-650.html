@@ -12,31 +12,8 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para logical">
 <div class="para">
-<em class="alert">Case 1:</em> <span class="process-math">\(f(a) = 0\text{.}\)</span> Suppose that <span class="process-math">\(f\)</span> has a zero of order <span class="process-math">\(m\text{,}\)</span> so that near <span class="process-math">\(a\text{,}\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{equation*}
-f(z) = c_m (z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots.
-\end{equation*}
-</div>
-<div class="para">So <span class="process-math">\(f'\)</span> has a zero of order <span class="process-math">\(m-1\text{:}\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{equation*}
-f'(z) = m c_m (z-a)^{m-1} + (m+1) c_{m+1} (z-a)^m + \cdots .
-\end{equation*}
-</div>
-<div class="para">So <span class="process-math">\(f'/f\)</span> has a simple pole at <span class="process-math">\(a\text{,}\)</span> and</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\Res_{z=a}\frac{f'(z)}{f(z)} = \lim_{z\to a} (z-a) \frac{f'(z)}{f(z)}
-= \lim_{z\to a} \frac{m c_m (z-a)^m + (m+1)c_{m+1} (z-a)^{m+1} + \cdots}{c_m (z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots} = m.
-\end{equation*}
-</div>
-<div class="para">In summary, the residue of <span class="process-math">\(f'/f\)</span> at <span class="process-math">\(a\)</span> is the order of the zero of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{.}\)</span>
-</div>
+<em class="alert">Trick:</em> Look at <span class="process-math">\(\oint_\gamma \frac{f'(z)}{f(z)}\,dz\text{,}\)</span> which equals <span class="process-math">\(2\pi i \sum \Res \frac{f'(z)}{f(z)}\text{,}\)</span> where the sum is over singularities of <span class="process-math">\(f'/f\)</span> inside <span class="process-math">\(\gamma\text{.}\)</span> And this is why the trick works: <span class="process-math">\(f'/f\)</span> has a singularity at <span class="process-math">\(a\)</span> means either <span class="process-math">\(f(a) = 0\)</span> or <span class="process-math">\(f\)</span> has a singularity at <span class="process-math">\(a\text{.}\)</span>
 </div>
 <span class="incontext"><a href="sec-rouche.html#p-650" class="internal">in-context</a></span>
 </body>

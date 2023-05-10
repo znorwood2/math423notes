@@ -11,24 +11,16 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Suppose that <span class="process-math">\(f(z) = a_n z^n + a_{n-1}z^{n-1} + \cdots + a_0\)</span> with <span class="process-math">\(a_n \ne 0\text{.}\)</span> Set <span class="process-math">\(g(z) = a_n z^n\text{.}\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{align*}
-\abs{f(z) - g(z)} \amp = \abs{a_{n-1}z^{n-1} + \cdots + a_0} \\
-\amp \le \abs{a_{n-1}} R^{n-1} + \cdots + \abs{a_0} \\
-\amp \lt \abs{a_n} R^n 
-\end{align*}
-</div>
-<div class="para">for sufficiently large <span class="process-math">\(R\text{,}\)</span> because</div>
+<div class="para">Let <span class="process-math">\(l(z) = f(z) - g(z)\text{.}\)</span> Our assumption is that <span class="process-math">\(\abs{l(z)} \lt \abs{g(z)}\)</span> for all <span class="process-math">\(z\)</span> on <span class="process-math">\(\gamma\text{.}\)</span> We let the “leash” out a little bit at a time: for <span class="process-math">\(\alpha \in [0,1]\)</span> define</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{ \abs{a_{n-1}}R^n + \cdots + \abs{a_0} }{\abs{a_n}R^n} \underset{R\to\infty}{\longrightarrow} 0.
+I(\alpha) = \frac{1}{2\pi i} \oint_\gamma \frac{g'(z) + \alpha l'(z)}{g(z) + \alpha l(z)}\,dz
 \end{equation*}
 </div>
-<div class="para">So by Rouché's Theorem, <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> have the same number of zeros inside <span class="process-math">\(\abs{z} = R\text{.}\)</span> And <span class="process-math">\(g(z) = a_n z^n\)</span> has <span class="process-math">\(n\)</span> zeros, so <span class="process-math">\(f\)</span> does too.</div>
+<div class="para">Notice that <span class="process-math">\(I(0)\)</span> equals the number of zeros of <span class="process-math">\(g\)</span> inside <span class="process-math">\(\gamma\text{,}\)</span> and <span class="process-math">\(I(1)\)</span> equals the number of zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gamma\text{.}\)</span> And notice that <span class="process-math">\(g(z) + \alpha l(z) \ne 0\)</span> because <span class="process-math">\(\abs{\alpha l(z)} \le \abs{l(z)} \lt \abs{g(z)}\text{.}\)</span> So <span class="process-math">\(I(\alpha)\)</span> is an integer, and <span class="process-math">\(I(\alpha)\)</span> varies continuously with <span class="process-math">\(\alpha\text{,}\)</span> so <span class="process-math">\(I(0) = I(1)\text{.}\)</span>
+</div>
 </div>
 <span class="incontext"><a href="sec-rouche.html#p-664" class="internal">in-context</a></span>
 </body>

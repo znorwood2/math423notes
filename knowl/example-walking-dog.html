@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.5</span><span class="period">.</span>
+</h3>
+<div class="para">Let's try to count the zeros of <span class="process-math">\(f(z) = z^5 - z - 1\)</span> inside the circle <span class="process-math">\(\abs{z} = 2\text{.}\)</span> Parametrize <span class="process-math">\(\gamma\)</span> as <span class="process-math">\(\gamma(\theta) = 2e^{i\theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{.}\)</span> Then <span class="process-math">\(f\)</span> has no poles, so its number of zeros inside <span class="process-math">\(\gamma\)</span> is the winding number of <span class="process-math">\(f(\gamma)\)</span> around <span class="process-math">\(0\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(\gamma) = \gamma_1: \quad 32e^{5i\theta} - 2e^{i\theta} - 1, \quad \theta \in [0,2\pi]
+\end{equation*}
+</div>
+<div class="para logical">
+<div class="para">Let's analyze the simpler <span class="process-math">\(\gamma_2(t) = 32e^{5i\theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{.}\)</span> It traverses the large circle <span class="process-math">\(\abs{z} = 32\)</span> five times CCW, so its winding number around <span class="process-math">\(0\)</span> is <span class="process-math">\(5\text{.}\)</span> Let original curve <span class="process-math">\(\gamma_2\)</span> is pretty close to the original one <span class="process-math">\(\gamma_1\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{ \gamma_2(\theta) - \gamma_1(\theta)} = \abs{2e^{i\theta}  + 1} \le 3 \gg 32.
+\end{equation*}
+</div>
+<div class="para">We expect <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\)</span> to have the same winding number around <span class="process-math">\(0\text{...}\)</span>
+</div>
+</div></article><span class="incontext"><a href="sec-rouche.html#example-walking-dog" class="internal">in-context</a></span>
+</body>
+</html>

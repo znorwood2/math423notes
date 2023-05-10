@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><div class="para logical">
+<div class="para">Since <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(a\text{,}\)</span> its Laurent series expansion near <span class="process-math">\(a\)</span> looks like this:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = \frac{c_{-1}}{z - a} + c_0 + c_1(z-a) + \cdots
+\end{equation*}
+</div>
+<div class="para">We simply use the parametrization of the arc and integrate term by term. Most of the terms will go to <span class="process-math">\(0\)</span> as <span class="process-math">\(\eps \to 0\text{:}\)</span>
+</div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_{A_\eps} f(z)\,dz \amp = \int_\alpha^\beta f(a + \eps e^{i\theta})\epsilon i e^{i\theta}\,d\theta \\
+\amp = \int_\alpha^\beta \left( c_{-1}i + c_0 i \epsilon e^{i\theta} + c_1 i \eps^2 e^{2i\theta} + \cdots \right) \, d\theta \\
+\amp = \int_\alpha^\beta c_{-1}i\,d\theta + \eps \int_\alpha^\beta (c_0 i e^{i\theta} + \cdots)\\
+\amp \underset{\eps \to 0}{\longrightarrow} (\beta - \alpha)i \Res_{z=a} f(z)
+\end{align*}
+</div></article></body>
+</html>

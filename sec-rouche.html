@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Argument Principle and Rouché's Theorem</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Complex Analysis">
+<meta property="book:author" content="Zach Norwood">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Complex Analysis:</span> <span class="subtitle">Course notes for Math 423 at UNL</span></a></h1>
+<p class="byline">Zach Norwood</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-real-integrals.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-residue.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand {\bH}{\mathbb{H}}
+\newcommand {\bF} {\mathbf{F}}
+\newcommand {\bG} {\mathbf{G}}
+\newcommand {\bN} {\mathbf{N}}
+\newcommand {\bT} {\mathbf{T}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\angs}[1]{\langle #1 \rangle}
+\newcommand\set[2]{\left\{ #1 : #2 \right\}}
+\renewcommand{\bar}{\overline}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\Res}{\operatorname*{Res}}
+\newcommand{\wo}{\smallsetminus}
+\newcommand{\angleop}{\operatorname{angle}}
+\newcommand {\grad} {\nabla}
+\newcommand {\eps} {\epsilon}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Complex pre-calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Basic arithmetic and geometry</span></a></div></li>
+<li>
+<div class="toc-item"><a href="section-polar.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Polar representation and Euler's Formula</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-polar.html#subsec-de-moivre" class="internal"><span class="codenumber">1.2.1</span> <span class="title">De Moivre's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="section-polar.html#subsection-2" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Roots of unity</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="section-3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The Stereographic Projection</span></a></div></li>
+<li>
+<div class="toc-item"><a href="section-4.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Some elementary functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-4.html#subsec-mult-add" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Multiplication and addition by a fixed number</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-square-function" class="internal"><span class="codenumber">1.4.2</span> <span class="title">The Square Function</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-square-root" class="internal"><span class="codenumber">1.4.3</span> <span class="title">The Square Root Function</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-exponential" class="internal"><span class="codenumber">1.4.4</span> <span class="title">The Complex Exponential</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-log" class="internal"><span class="codenumber">1.4.5</span> <span class="title">The complex logarithm</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-branches" class="internal"><span class="codenumber">1.4.6</span> <span class="title">Branch cuts and branch points</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-power-functions" class="internal"><span class="codenumber">1.4.7</span> <span class="title">General power functions</span></a></div></li>
+<li><div class="toc-item"><a href="section-4.html#subsec-trig-functions" class="internal"><span class="codenumber">1.4.8</span> <span class="title">Trig functions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-plane-topology.html" class="internal"><span class="codenumber">2</span> <span class="title">Basic topology of the plane</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-regions.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Regions in the plane</span></a></div></li>
+<li><div class="toc-item"><a href="sec-limits-continuity.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Limits and continuity</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-analytic-functions.html" class="internal"><span class="codenumber">3</span> <span class="title">Analytic Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-derivative.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Complex Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cauchy-riemann.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The Cauchy–Riemann Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec-inverse.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Analyticity of inverse functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-harmonic.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Harmonic functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-conformal.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Conformal mappings</span></a></div></li>
+<li><div class="toc-item"><a href="sec-flt.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Fractional Linear Transformations</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-complex-integration.html" class="internal"><span class="codenumber">4</span> <span class="title">Complex Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-def-contour-integrals.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Defining the contour integral</span></a></div></li>
+<li><div class="toc-item"><a href="sec-basic-integral-props.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Basic properties and the Fundamental Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cauchys-thm.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Cauchy's Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-connections-to-multivariable.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Connections to multivariable calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec-cauchy-integral-formula.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Cauchy's Integral Formula</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec-applications-cif.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Applications of the Cauchy Integral Formula</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-applications-cif.html#subsec-mmp" class="internal"><span class="codenumber">4.6.1</span> <span class="title">The Maximum Modulus Principle</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-taylor-laurent-series.html" class="internal"><span class="codenumber">5</span> <span class="title">Taylor and Laurent Series</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-taylor-series.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Taylor Series</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec-zero-singularity.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Zeros and Singularities</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-zero-singularity.html#subsec-zeros" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Zeros of analytic functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-zero-singularity.html#subsec-permanence-functional-equations" class="internal"><span class="codenumber">5.2.2</span> <span class="title">The Principle of Permanence of Functional Equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec-zero-singularity.html#subsec-singularities" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Singularities</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-laurent-series.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Laurent series</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-residue.html" class="internal"><span class="codenumber">6</span> <span class="title">The Residue Calculus</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-residues.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Residues</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-residues.html#subsec-residues-simple-poles" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Computing Residues at Simple Poles</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-real-integrals.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Applications to real integrals</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-real-integrals.html#subsec-frac-residues" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Fractional residues and principal values of divergent integrals</span></a></div></li></ul>
+</li>
+<li class="active"><div class="toc-item"><a href="sec-rouche.html" class="internal"><span class="codenumber">6.3</span> <span class="title">The Argument Principle and Rouché's Theorem</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-rouche"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">6.3</span> <span class="title">The Argument Principle and Rouché's Theorem</span>
+</h2>
+<div class="para" id="p-646">A central idea of the Residue Calculus is that the behavior of the singularities inside <span class="process-math">\(\gamma\)</span> controls <span class="process-math">\(\int_\gamma f\text{.}\)</span> But we can turn this around: the behavior of <span class="process-math">\(f\)</span> on <span class="process-math">\(\gamma\)</span> can give information about the singularities and zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gamma\text{.}\)</span>
+</div>
+<div class="para" id="p-647">Suppose that <span class="process-math">\(f\)</span> is analytic on and inside a simple closed curve <span class="process-math">\(\gamma\text{,}\)</span> oriented counterclockwise, except maybe at finitely many singularities. If <span class="process-math">\(\oint_\gamma f \ne 0\text{,}\)</span> then there must be at least one singularity.</div>
+<div class="para" id="p-648">
+<em class="alert">Trick:</em> Look at <span class="process-math">\(\oint_\gamma \frac{f'(z)}{f(z)}\,dz\text{,}\)</span> which equals <span class="process-math">\(2\pi i \sum \Res \frac{f'(z)}{f(z)}\text{,}\)</span> where the sum is over singularities of <span class="process-math">\(f'/f\)</span> inside <span class="process-math">\(\gamma\text{.}\)</span> And this is why the trick works: <span class="process-math">\(f'/f\)</span> has a singularity at <span class="process-math">\(a\)</span> means either <span class="process-math">\(f(a) = 0\)</span> or <span class="process-math">\(f\)</span> has a singularity at <span class="process-math">\(a\text{.}\)</span>
+</div>
+<div class="para logical" id="p-649">
+<div class="para">
+<em class="alert">Case 1:</em> <span class="process-math">\(f(a) = 0\text{.}\)</span> Suppose that <span class="process-math">\(f\)</span> has a zero of order <span class="process-math">\(m\text{,}\)</span> so that near <span class="process-math">\(a\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = c_m (z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots.
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(f'\)</span> has a zero of order <span class="process-math">\(m-1\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(z) = m c_m (z-a)^{m-1} + (m+1) c_{m+1} (z-a)^m + \cdots .
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(f'/f\)</span> has a simple pole at <span class="process-math">\(a\text{,}\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res_{z=a}\frac{f'(z)}{f(z)} = \lim_{z\to a} (z-a) \frac{f'(z)}{f(z)}
+= \lim_{z\to a} \frac{m c_m (z-a)^m + (m+1)c_{m+1} (z-a)^{m+1} + \cdots}{c_m (z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots} = m.
+\end{equation*}
+</div>
+<div class="para">In summary, the residue of <span class="process-math">\(f'/f\)</span> at <span class="process-math">\(a\)</span> is the order of the zero of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="p-650">
+<div class="para">
+<em class="alert">Case 2:</em> <span class="process-math">\(f\)</span> has a pole of order <span class="process-math">\(m\)</span> at <span class="process-math">\(a\text{.}\)</span> Near <span class="process-math">\(a\)</span> we have a series explansion of the following form.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(z) = c_{-m} (z-a)^{-m} + \cdots
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(f'\)</span> has a pole of order <span class="process-math">\(m+1\)</span> at <span class="process-math">\(a\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f'(z) = -m c_{-m} (z - a)^{-m-1} + \cdots .
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(f'/f\)</span> has a simple pole at <span class="process-math">\(a\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Res_{z=a}\frac{f'(z)}{f(z)} = \lim_{z\to a}(z-a) \frac{-m c_{-m}(z-a)^{-m-1} + \cdots}{c_{-m} (z-a)^{-m} + \cdots}
+= -m.
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="p-651">
+<div class="para">
+<em class="alert">In summary,</em> if <span class="process-math">\(f\)</span> has no essential singularities inside <span class="process-math">\(\gamma\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="md-49">
+\begin{align*}
+\oint_\gamma \frac{f'(z)}{f(z)}\,dz \amp = 2\pi i \left[ (\text{sum of zeros of }  \text{ inside } ) - (\text{sum of poles of }  \text { inside } ) \right] \\
+\amp = 2\pi i (\text{number of zeros inside }  - \text{ number of poles inside } ) 
+\end{align*}
+</div>
+<div class="para">where the sums count multiplicity.</div>
+</div>
+<div class="para logical" id="p-652">
+<div class="para">OK, but how do we compute <span class="process-math">\(\oint_\gamma \frac{f'(z)}{f(z)}\,dz\text{?}\)</span> Change variables!</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w = f(z), \quad dw = f'(z)\,dz
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\oint_\gamma \frac{f'(z)}{f(z)}\,dz = \oint_{f(\gamma)} \frac{dw}{w} = \text{winding number of 
+around } 0.
+\end{equation*}
+</div>
+<div class="para">We have proved the following theorem.</div>
+</div>
+<article class="theorem theorem-like" id="thm-argument-principle"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">The Argument Principle.</span>
+</h3>
+<div class="para logical" id="p-653">
+<div class="para">Suppose that <span class="process-math">\(\gamma\)</span> is a simple closed curve, oriented counterclockwise. Suppose that <span class="process-math">\(f\)</span> is analytic on and inside <span class="process-math">\(\gamma\)</span> except at finitely many poles. Suppose also that <span class="process-math">\(f\)</span> has no zeros on <span class="process-math">\(\gamma\text{,}\)</span> either. Then the winding number of <span class="process-math">\(f(\gamma)\)</span> around <span class="process-math">\(0\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{number of zeros of }  \text{ inside } 
+- \text{number of poles of }  \text{ inside } \text{,}
+\end{equation*}
+</div>
+<div class="para">counting multiplicity.</div>
+</div></article><article class="example example-like" id="example-72"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-72"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-72"><article class="example example-like"><div class="para" id="p-654">Let <span class="process-math">\(f(z) = z^5,\)</span> let <span class="process-math">\(\gamma\)</span> parametrize the unit circle. Inside the unit circle, <span class="process-math">\(f\)</span> has one quintuple zero and no singularities. The image <span class="process-math">\(f(\gamma)\)</span> traverses the unit circle <span class="process-math">\(5\)</span> times and has winding number <span class="process-math">\(5\text{.}\)</span> <span class="process-math">\(5 = 5.\)</span>
+</div></article></div>
+<article class="example example-like" id="example-73"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-73"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-73"><article class="example example-like"><div class="para logical" id="p-655">
+<div class="para">Try <span class="process-math">\(f(z) = z^5 + 2\)</span> with the same <span class="process-math">\(\gamma\text{.}\)</span> The five zeros of <span class="process-math">\(f\)</span> occur at</div>
+<div class="displaymath process-math">
+\begin{equation*}
+2^{1/5}e^{i \pi / 5}, 2^{1/5} e^{3 \pi i / 5}, 2^{1/5} e^{5 \pi i / 5}, 2^{1/5} e^{7 \pi i / 5}, 2^{1/5} e^{9\pi i / 5}.
+\end{equation*}
+</div>
+<div class="para">They all lie outside <span class="process-math">\(\gamma\text{.}\)</span> Now look at <span class="process-math">\(f(\gamma)\text{:}\)</span> it's parametrized by <span class="process-math">\(e^{5i \theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{.}\)</span> It's the circle <span class="process-math">\(\abs{z - 1} = 2\)</span> traversed <span class="process-math">\(5\)</span> times CCW, whose winding number around <span class="process-math">\(0\)</span> is <span class="process-math">\(0\text{.}\)</span>
+</div>
+</div></article></div>
+<article class="example example-like" id="example-74"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-74"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-74"><article class="example example-like"><div class="para" id="p-656">Consider <span class="process-math">\(f(z) = \frac{1}{z^5}\text{,}\)</span> a function that has <span class="process-math">\(5\)</span> poles (counting multiplicity) and no zeros inside the unit circle. The image <span class="process-math">\(f(\gamma)\)</span> is parametrized by <span class="process-math">\(e^{-5i\theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{,}\)</span> which winds <span class="process-math">\(5\)</span> times clockwise around <span class="process-math">\(0\text{.}\)</span> And <span class="process-math">\(0 - 5 = -5\text{.}\)</span>
+</div></article></div>
+<article class="example example-like" id="example-walking-dog"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-walking-dog"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.5</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-walking-dog"><article class="example example-like"><div class="para" id="p-657">Let's try to count the zeros of <span class="process-math">\(f(z) = z^5 - z - 1\)</span> inside the circle <span class="process-math">\(\abs{z} = 2\text{.}\)</span> Parametrize <span class="process-math">\(\gamma\)</span> as <span class="process-math">\(\gamma(\theta) = 2e^{i\theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{.}\)</span> Then <span class="process-math">\(f\)</span> has no poles, so its number of zeros inside <span class="process-math">\(\gamma\)</span> is the winding number of <span class="process-math">\(f(\gamma)\)</span> around <span class="process-math">\(0\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(\gamma) = \gamma_1: \quad 32e^{5i\theta} - 2e^{i\theta} - 1, \quad \theta \in [0,2\pi]
+\end{equation*}
+</div>
+<div class="para logical" id="p-658">
+<div class="para">Let's analyze the simpler <span class="process-math">\(\gamma_2(t) = 32e^{5i\theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{.}\)</span> It traverses the large circle <span class="process-math">\(\abs{z} = 32\)</span> five times CCW, so its winding number around <span class="process-math">\(0\)</span> is <span class="process-math">\(5\text{.}\)</span> Let original curve <span class="process-math">\(\gamma_2\)</span> is pretty close to the original one <span class="process-math">\(\gamma_1\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{ \gamma_2(\theta) - \gamma_1(\theta)} = \abs{2e^{i\theta}  + 1} \le 3 \gg 32.
+\end{equation*}
+</div>
+<div class="para">We expect <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\)</span> to have the same winding number around <span class="process-math">\(0\text{...}\)</span>
+</div>
+</div></article></div>
+<article class="theorem theorem-like" id="thm-walking-dog"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Walking the Dog.</span>
+</h3>
+<div class="para" id="p-659">If <span class="process-math">\(\abs{\gamma_2(\theta) - \gamma_1(\theta)} \lt \abs{\gamma_1(\theta)}\)</span> for all <span class="process-math">\(\theta \in [a,b]\text{,}\)</span> then <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\)</span> have the same winding number around <span class="process-math">\(0\text{.}\)</span>
+</div></article><div class="para" id="p-660">In the context of <a href="" class="xref" data-knowl="./knowl/example-walking-dog.html" title="Example 6.3.5">Example 6.3.5</a>, we are saying that <span class="process-math">\(z^5\)</span> and <span class="process-math">\(z^5 - z - 1\)</span> have the same number of zeros in <span class="process-math">\(\abs{z} = 5\text{.}\)</span>
+</div>
+<article class="theorem theorem-like" id="thm-rouche"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">Rouché's Theorem.</span>
+</h3>
+<div class="para" id="p-661">Suppose that <span class="process-math">\(\gamma\)</span> is a simple closed curve, oriented counterclockwise. Suppose that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are analytic on and inside <span class="process-math">\(\gamma\text{.}\)</span> If <span class="process-math">\(\abs{f(z) - g(z)} \lt \abs{g(z)}\)</span> for all <span class="process-math">\(z\)</span> on <span class="process-math">\(\gamma\text{,}\)</span> then <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> have the same number of zeros inside <span class="process-math">\(\gamma\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-48"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-48"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-48"><article class="hiddenproof"><div class="para logical" id="p-662">
+<div class="para">Let <span class="process-math">\(l(z) = f(z) - g(z)\text{.}\)</span> Our assumption is that <span class="process-math">\(\abs{l(z)} \lt \abs{g(z)}\)</span> for all <span class="process-math">\(z\)</span> on <span class="process-math">\(\gamma\text{.}\)</span> We let the “leash” out a little bit at a time: for <span class="process-math">\(\alpha \in [0,1]\)</span> define</div>
+<div class="displaymath process-math">
+\begin{equation*}
+I(\alpha) = \frac{1}{2\pi i} \oint_\gamma \frac{g'(z) + \alpha l'(z)}{g(z) + \alpha l(z)}\,dz
+\end{equation*}
+</div>
+<div class="para">Notice that <span class="process-math">\(I(0)\)</span> equals the number of zeros of <span class="process-math">\(g\)</span> inside <span class="process-math">\(\gamma\text{,}\)</span> and <span class="process-math">\(I(1)\)</span> equals the number of zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gamma\text{.}\)</span> And notice that <span class="process-math">\(g(z) + \alpha l(z) \ne 0\)</span> because <span class="process-math">\(\abs{\alpha l(z)} \le \abs{l(z)} \lt \abs{g(z)}\text{.}\)</span> So <span class="process-math">\(I(\alpha)\)</span> is an integer, and <span class="process-math">\(I(\alpha)\)</span> varies continuously with <span class="process-math">\(\alpha\text{,}\)</span> so <span class="process-math">\(I(0) = I(1)\text{.}\)</span>
+</div>
+</div></article></div>
+<article class="hiddenproof" id="proof-49"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-49"><h3 class="heading"><span class="title">Another proof of the Fundamental Theorem of Algebra.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-49"><article class="hiddenproof"> <div class="para logical" id="p-663">
+<div class="para">Suppose that <span class="process-math">\(f(z) = a_n z^n + a_{n-1}z^{n-1} + \cdots + a_0\)</span> with <span class="process-math">\(a_n \ne 0\text{.}\)</span> Set <span class="process-math">\(g(z) = a_n z^n\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="md-50">
+\begin{align*}
+\abs{f(z) - g(z)} \amp = \abs{a_{n-1}z^{n-1} + \cdots + a_0} \\
+\amp \le \abs{a_{n-1}} R^{n-1} + \cdots + \abs{a_0} \\
+\amp \lt \abs{a_n} R^n 
+\end{align*}
+</div>
+<div class="para">for sufficiently large <span class="process-math">\(R\text{,}\)</span> because</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{ \abs{a_{n-1}}R^n + \cdots + \abs{a_0} }{\abs{a_n}R^n} \underset{R\to\infty}{\longrightarrow} 0.
+\end{equation*}
+</div>
+<div class="para">So by Rouché's Theorem, <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> have the same number of zeros inside <span class="process-math">\(\abs{z} = R\text{.}\)</span> And <span class="process-math">\(g(z) = a_n z^n\)</span> has <span class="process-math">\(n\)</span> zeros, so <span class="process-math">\(f\)</span> does too.</div>
+</div></article></div>
+<article class="corollary theorem-like" id="cor-fta-rouche"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">6.3.8</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-664">The modulus of every zero of <span class="process-math">\(f\)</span> is <span class="process-math">\(\le \max(1,n\abs{a_{n-1}},\dots,n\abs{a_0})\text{.}\)</span>
+</div></article></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-real-integrals.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

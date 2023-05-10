@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">As in the previous example, let <span class="process-math">\(A_R\)</span> be the semicircular path that proceeds from <span class="process-math">\(R\)</span> through <span class="process-math">\(Ri\)</span> to <span class="process-math">\(-R\text{,}\)</span> and let <span class="process-math">\(C_R\)</span> be the closed path that combines <span class="process-math">\(A_R\)</span> with the straight-line path from <span class="process-math">\(-R\)</span> to <span class="process-math">\(R\text{.}\)</span>
+</div> <div class="para">For a non-obvious reason, we will try replacing <span class="process-math">\(\cos(ax)\)</span> by <span class="process-math">\(e^{iaz}\)</span> instead of <span class="process-math">\(\cos(a z)\text{.}\)</span> Use the Residue Theorem to compute the integral over <span class="process-math">\(C_R\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-contour-integral.html">
+\begin{equation*}
+\oint_{C_R} \frac{e^{iaz}}{1 + z^2}\,dz = 2\pi i \Res_{z=i} \frac{e^{iaz}}{1 + z^2}
+= 2\pi i \left( \frac{e^{iaz}}{2z} \left.\right|_{z = i} \right) = \pi e^{-a}
+\end{equation*}
+</div>
+<div class="para logical">
+<div class="para">Next we deal with the integral over <span class="process-math">\(A_R\)</span> using an ML estimate. For <span class="process-math">\(z\)</span> in the upper halfplane,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{e^{iaz}} = e^{ia(x + iy)} = e^{ay} \le 1,
+\end{equation*}
+</div>
+<div class="para">since <span class="process-math">\(a \gt 0\text{.}\)</span> So the ML estimate can be done almost exactly as in the previous example:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{\int_{A_R} \frac{e^{iaz}}{1 + z^2}\,dz} \le \frac{1}{R^2 - 1}\pi R \underset{R\to\infty}{\longrightarrow} 0.
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Just as in the previous example we must have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-contour-integral.html">
+\begin{equation*}
+\int_{-\infty}^\infty \frac{e^{iax}}{1 + x^2}\,dx = \pi e^{-a}.
+\end{equation*}
+</div>
+<div class="para">Recalling <a href="" class="xref" data-knowl="./knowl/def-contour-integral.html" title="Definition 4.1.3">Definition 4.1.3</a>, we take real parts to get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-contour-integral.html">
+\begin{equation*}
+\int_{-\infty}^\infty \frac{\cos(ax)}{1 + x^2}\,dx = \pi e^{-a}.
+\end{equation*}
+</div>
+<div class="para">(We could take imaginary parts to see that <span class="process-math">\(\int_{-\infty}^\infty \frac{\sin(ax)}{1 + x^2}\,dx = 0\text{,}\)</span> but that isn't interesting since it is an integral of an odd function over a symmetric interval.)</div>
+</div>
+</div></body>
+</html>

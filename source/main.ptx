@@ -5344,6 +5344,413 @@
             But we will see other examples that cannot be solved without complex methods.
           </p>
         </example>
+        <p>
+          The same technique applies more generally:
+        </p>
+        <fact xml:id="fact-real-integral">
+          <statement>
+            <p>
+              Suppose that <m>P(x),Q(x)</m> are polynomials, 
+              <m>Q</m> has no real roots, and
+              <m>\deg Q(x) \ge \deg P(x) + 2</m>.
+              Then 
+              <me>
+                \int_{-\infty}^\infty \frac{P(x)}{Q(x)}\,dx = 2\pi i \sum \Res_{z=a} \frac{P(z)}{Q(z)},
+              </me>
+              where the sum on the right is taken over all poles <m>a</m> of <m>P/Q</m>
+              in the upper halfplane.
+            </p>
+          </statement>
+        </fact>
+        <example>
+          <statement>
+            <p>
+              Let <m>a \gt 0</m> be a real parameter and
+              compute <m>\displaystyle \int_{-\infty}^\infty \frac{\cos(ax)}{1 + x^2}\,dx</m>.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              As in the previous example, let <m>A_R</m> be the semicircular
+              path that proceeds from <m>R</m> through <m>Ri</m> to <m>-R</m>,
+              and let <m>C_R</m> be the closed path that combines <m>A_R</m>
+              with the straight-line path from <m>-R</m> to <m>R</m>.
+            </p>
+            <p>
+              For a non-obvious reason, we will try replacing <m>\cos(ax)</m> 
+              by <m>e^{iaz}</m>
+              instead of <m>\cos(a z)</m>.
+
+              Use the Residue Theorem to compute the integral over <m>C_R</m>:
+            </p>
+            <me>
+              \oint_{C_R} \frac{e^{iaz}}{1 + z^2}\,dz = 2\pi i \Res_{z=i} \frac{e^{iaz}}{1 + z^2}
+              = 2\pi i \left( \frac{e^{iaz}}{2z} \left.\right|_{z = i} \right) = \pi e^{-a}
+            </me>
+            <p>
+              Next we deal with the integral over <m>A_R</m> using an ML estimate.
+              For <m>z</m> in the upper halfplane,
+              <me>
+                \abs{e^{iaz}} = e^{ia(x + iy)} = e^{ay} \le 1,
+              </me>
+              since <m>a \gt 0</m>.
+              So the ML estimate can be done almost exactly as in the previous example:
+              <me>
+                \abs{\int_{A_R} \frac{e^{iaz}}{1 + z^2}\,dz} \le \frac{1}{R^2 - 1}\pi R \underset{R\to\infty}{\longrightarrow} 0.
+              </me>
+            </p>
+            <p>
+              Just as in the previous example we must have
+              <me>
+                \int_{-\infty}^\infty \frac{e^{iax}}{1 + x^2}\,dx = \pi e^{-a}.
+              </me>
+              Recalling <xref ref="def-contour-integral"/>, we take real parts
+              to get
+              <me>
+                \int_{-\infty}^\infty \frac{\cos(ax)}{1 + x^2}\,dx = \pi e^{-a}.
+              </me>
+              (We could take imaginary parts to see that <m>\int_{-\infty}^\infty \frac{\sin(ax)}{1 + x^2}\,dx = 0</m>,
+              but that isn't interesting since it is an integral of an odd function over a symmetric
+              interval.)
+            </p>
+          </solution>
+        </example>
+        <p>
+          And now for something much different.
+        </p>
+        <example>
+          <statement>
+            <p>
+              Let <m>a \gt 1</m> be a real parameter, 
+              and evaluate the integral <m>\int_0^{2\pi} \frac{1}{a + \cos\theta}\,d\theta</m>.
+              (Notice that this is a real calculus integral.)
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Recalling <xref ref="def-contour-integral"/>, we recognize this integral
+              as a contour integral over the unit circle
+              parametrized by <m>\gamma(\theta) = e^{i \theta},</m> <m>0 \le \theta \le 2\pi</m>.
+              You can think of this as a substitution or change of variables:
+            </p>
+            <me>
+              z = e^{i\theta}, \quad z = iz d\theta, \quad d\theta = \frac{1}{iz}dz
+            </me>
+            <p>
+              What remains to replace in the integrand is the <m>\cos\theta</m>.
+              For <m>\theta\in [0,2\pi]</m>, <m>z = e^{i\theta}</m> is on the unit
+              circle, so we have
+              <me>
+                \cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2} = \frac{z + \frac{1}{z}}{2}.
+              </me>
+              Now we are ready to do the substitution:
+            </p>
+            <me>
+              \int_0^{2\pi} \frac{1}{a + \cos\theta}\,d\theta
+              = \oint_{\abs{z} = 1} \frac{\frac{dz}{iz}}{a + \frac{z + 1/z}{2}}
+              = \frac{2}{i} \oint_{\abs{z} = 1} \frac{dz}{z^2 + 2az + 1}
+            </me>
+            <p>
+              The poles of the integrand (by the Quadratic Formula) occur at
+              <m>-a \pm \sqrt{a^2 - 1}</m>.
+              Only <m>a + \sqrt{a^2 - 1}</m> lies inside the unit circle,
+              so that's the one we need for the Residue Theorem.
+            </p>
+            <me>
+              \Res_{z = -a + \sqrt{a^2 - 1}} \frac{1}{z^2 + 2az + 1}
+              = \frac{1}{2z + 2a} \left.\right|_{z = -a + \sqrt{a^2 - 1}} = \frac{1}{2\sqrt{a^2 - 1}}
+            </me>
+            <p>
+              An application of the Residue Theorem finishes the computation:
+            </p>
+            <me>
+              \int_0^{2\pi} \frac{d\theta}{a + \cos\theta} 
+              = \frac{2}{i}\cdot 2\pi i \cdot \frac{1}{2\sqrt{a^2 - 1}} 
+              = \frac{2\pi}{\sqrt{a^2 - 1}}
+            </me>
+          </solution>
+        </example>
+        <subsection xml:id="subsec-frac-residues">
+          <title>Fractional residues and principal values of divergent integrals</title>
+          <p>
+            We have many tools for computing integrals around a whole circle;
+            what about an arc of a circle, e.g. a semicircle?
+          </p>
+          <theorem xml:id="thm-frac-residue-thm">
+            <title>The Fractional Residue Theorem</title>
+            <statement>
+              <p>
+                Suppose that <m>f</m> has a simple pole at <m>a</m>.
+                For <m>\eps \gt 0,</m> let <m>A_\eps</m> be the arc centered at <m>a</m>
+                of radius <m>\eps</m> subtending an angle of <m>\beta - \alpha</m> radians,
+                parametrized by <m>a + \eps e^{i\theta},</m> <m>\theta \in [\alpha,\beta]</m>.
+                In the limit as <m>\eps \to 0</m>, we have the following generalization of the Residue Theorem.
+              </p>
+              <me>
+                \lim_{\eps \to 0} \int_{A_\eps} f(z)\,dz = (\beta - \alpha) i \Res_{z = a}f(z)
+              </me>
+              <p>
+                (Notice that the case <m>\alpha = 0</m>, <m>\beta = 2\pi</m>
+                follows by applying the Residue Theorem and taking a limit.
+                We will primarily be interested in the case <m>\alpha = 0</m>, <m>\beta = \pi</m>.)
+              </p>
+            </statement>
+            <proof>
+              <p>
+                Since <m>f</m> has a simple pole at <m>a</m>, its Laurent series expansion near <m>a</m>
+                looks like this:
+                <me>
+                  f(z) = \frac{c_{-1}}{z - a} + c_0 + c_1(z-a) + \cdots
+                </me>
+                We simply use the parametrization of the arc and integrate term by term.
+                Most of the terms will go to <m>0</m> as <m>\eps \to 0</m>:
+              </p>
+              <md>
+                <mrow> \int_{A_\eps} f(z)\,dz \amp = \int_\alpha^\beta f(a + \eps e^{i\theta})\epsilon i e^{i\theta}\,d\theta </mrow>
+                <mrow> \amp = \int_\alpha^\beta \left( c_{-1}i + c_0 i \epsilon e^{i\theta} + c_1 i \eps^2 e^{2i\theta} + \cdots \right) \, d\theta </mrow>
+                <mrow> \amp = \int_\alpha^\beta c_{-1}i\,d\theta + \eps \int_\alpha^\beta (c_0 i e^{i\theta} + \cdots)</mrow>
+                <mrow> \amp \underset{\eps \to 0}{\longrightarrow} (\beta - \alpha)i \Res_{z=a} f(z)</mrow>
+              </md>
+            </proof>
+          </theorem>
+          <p>
+            (principal values)
+          </p>
+          <example>
+            <statement>
+              <p>
+                Show that <m>\pv \int_{-\infty}^\infty \frac{1}{x^3 - 1}\,dx = \frac{-\pi}{\sqrt3}</m>.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                
+              </p>
+            </solution>
+          </example>
+        </subsection>
+      </section>
+      <section xml:id="sec-rouche">
+        <title>The Argument Principle and Rouché's Theorem</title>
+        <p>
+          A central idea of the Residue Calculus is that the behavior of the singularities
+          inside <m>\gamma</m> controls <m>\int_\gamma f</m>.
+          But we can turn this around: the behavior of <m>f</m> on <m>\gamma</m>
+          can give information about the singularities and zeros of <m>f</m>
+          inside <m>\gamma</m>.
+        </p>
+        <p>
+          Suppose that <m>f</m> is analytic on and inside a simple closed curve <m>\gamma</m>,
+          oriented counterclockwise, except maybe at finitely many singularities.
+          If <m>\oint_\gamma f \ne 0</m>, then there must be at least one singularity.
+        </p>
+        <p>
+          <alert>Trick:</alert> Look at <m>\oint_\gamma \frac{f'(z)}{f(z)}\,dz</m>,
+          which equals <m>2\pi i \sum \Res \frac{f'(z)}{f(z)}</m>,
+          where the sum is over singularities of <m>f'/f</m> inside <m>\gamma</m>.
+          And this is why the trick works:
+          <m>f'/f</m> has a singularity at <m>a</m> means either <m>f(a) = 0</m>
+          or <m>f</m> has a singularity at <m>a</m>.
+        </p>
+        <p>
+          <alert>Case 1:</alert> <m>f(a) = 0</m>.
+          Suppose that <m>f</m> has a zero of order <m>m</m>, so that near <m>a</m>,
+          <me>
+            f(z) = c_m (z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots.
+          </me>
+          So <m>f'</m> has a zero of order <m>m-1</m>:
+          <me>
+            f'(z) = m c_m (z-a)^{m-1} + (m+1) c_{m+1} (z-a)^m + \cdots .
+          </me>
+          So <m>f'/f</m> has a simple pole at <m>a</m>, and 
+          <me>
+            \Res_{z=a}\frac{f'(z)}{f(z)} = \lim_{z\to a} (z-a) \frac{f'(z)}{f(z)}
+            = \lim_{z\to a} \frac{m c_m (z-a)^m + (m+1)c_{m+1} (z-a)^{m+1} + \cdots}{c_m (z-a)^m + c_{m+1}(z-a)^{m+1} + \cdots} = m.
+          </me>
+          In summary, the residue of <m>f'/f</m> at <m>a</m> is the order
+          of the zero of <m>f</m> at <m>a</m>.
+        </p>
+        <p>
+          <alert>Case 2:</alert> <m>f</m> has a pole of order <m>m</m> at <m>a</m>.
+          Near <m>a</m> we have a series explansion of the following form.
+          <me>
+            f(z) = c_{-m} (z-a)^{-m} + \cdots
+          </me>
+          So <m>f'</m> has a pole of order <m>m+1</m> at <m>a</m>:
+          <me>
+            f'(z) = -m c_{-m} (z - a)^{-m-1} + \cdots .
+          </me>
+          So <m>f'/f</m> has a simple pole at <m>a</m>:
+          <me>
+            \Res_{z=a}\frac{f'(z)}{f(z)} = \lim_{z\to a}(z-a) \frac{-m c_{-m}(z-a)^{-m-1} + \cdots}{c_{-m} (z-a)^{-m} + \cdots}
+            = -m.
+          </me>
+        </p>
+        <p>
+          <alert>In summary,</alert> if <m>f</m> has no essential singularities inside <m>\gamma</m>, then
+          <md>
+            <mrow> \oint_\gamma \frac{f'(z)}{f(z)}\,dz \amp = 2\pi i \left[ (\text{sum of zeros of } <m>f</m> \text{ inside } <m>\gamma</m>) - (\text{sum of poles of } <m>f</m> \text { inside } <m>\gamma</m>) \right] </mrow>
+            <mrow> \amp = 2\pi i (\text{number of zeros inside } <m>\gamma</m> - \text{ number of poles inside } <m>\gamma</m>) </mrow>,
+          </md>
+          where the sums count multiplicity.
+        </p>
+        <p>
+          OK, but how do we compute <m>\oint_\gamma \frac{f'(z)}{f(z)}\,dz</m>?
+          Change variables!
+          <me>
+            w = f(z), \quad dw = f'(z)\,dz
+          </me>
+          <me>
+            \oint_\gamma \frac{f'(z)}{f(z)}\,dz = \oint_{f(\gamma)} \frac{dw}{w} = \text{winding number of 
+            <m>f(\gamma)</m> around } 0.
+          </me>
+          We have proved the following theorem.
+        </p>
+        <theorem xml:id="thm-argument-principle">
+          <title>The Argument Principle</title>
+          <statement>
+            <p>
+              Suppose that <m>\gamma</m> is a simple closed curve, oriented
+              counterclockwise. Suppose that <m>f</m> is analytic on and inside
+              <m>\gamma</m> except at finitely many poles. 
+              Suppose also that <m>f</m> has no zeros on <m>\gamma</m>, either.
+              Then the winding number of <m>f(\gamma)</m> around <m>0</m>
+              is 
+              <me>
+              \text{number of zeros of } <m>f</m> \text{ inside } <m>\gamma</m>
+              - \text{number of poles of } <m>f</m> \text{ inside } <m>\gamma</m>
+              </me>,
+              counting multiplicity. 
+            </p>
+          </statement>
+        </theorem>
+        <example>
+         <p>
+          Let <m>f(z) = z^5,</m> let <m>\gamma</m> parametrize the unit circle.
+          Inside the unit circle, <m>f</m> has one quintuple zero and no singularities.
+          The image <m>f(\gamma)</m> traverses the unit circle <m>5</m> times and has
+          winding number <m>5</m>. <m>5 = 5.</m>
+          </p>
+        </example>
+        <example>
+          <p>
+            Try <m>f(z) = z^5 + 2</m> with the same <m>\gamma</m>.
+            The five zeros of <m>f</m> occur at
+            <me>
+              2^{1/5}e^{i \pi / 5}, 2^{1/5} e^{3 \pi i / 5}, 2^{1/5} e^{5 \pi i / 5}, 2^{1/5} e^{7 \pi i / 5}, 2^{1/5} e^{9\pi i / 5}.
+            </me>
+            They all lie outside <m>\gamma</m>.
+            Now look at <m>f(\gamma)</m>: it's parametrized by <m>e^{5i \theta}</m>,
+            <m>\theta \in [0,2\pi]</m>.
+            It's the circle <m>\abs{z - 1} = 2</m> traversed <m>5</m> times CCW,
+            whose winding number around <m>0</m> is <m>0</m>.
+          </p>
+        </example>
+        <example>
+          <p>
+            Consider <m>f(z) = \frac{1}{z^5}</m>,
+            a function that has <m>5</m> poles (counting multiplicity)
+            and no zeros inside the unit circle.
+            The image <m>f(\gamma)</m> is parametrized by <m>e^{-5i\theta}</m>,
+            <m>\theta \in [0,2\pi]</m>, which winds <m>5</m> times 
+            clockwise around <m>0</m>.
+            And <m>0 - 5 = -5</m>.
+          </p>
+        </example>
+        <example xml:id="example-walking-dog">
+          <p>
+            Let's try to count the zeros of <m>f(z) = z^5 - z - 1</m> inside
+            the circle <m>\abs{z} = 2</m>.
+            Parametrize <m>\gamma</m> as <m>\gamma(\theta) = 2e^{i\theta}</m>,
+            <m>\theta \in [0,2\pi]</m>. 
+            Then <m>f</m> has no poles, so its number of zeros inside <m>\gamma</m>
+            is the winding number of <m>f(\gamma)</m> around <m>0</m>.
+          </p>
+          <me>
+            f(\gamma) = \gamma_1: \quad 32e^{5i\theta} - 2e^{i\theta} - 1, \quad \theta \in [0,2\pi]
+          </me>
+          <p>
+            Let's analyze the simpler <m>\gamma_2(t) = 32e^{5i\theta}</m>, <m>\theta \in [0,2\pi]</m>.
+            It traverses the large circle <m>\abs{z} = 32</m> five times CCW, so its winding number around <m>0</m>
+            is <m>5</m>. Let original curve <m>\gamma_2</m> is pretty close to the original one <m>\gamma_1</m>:
+            <me>
+              \abs{ \gamma_2(\theta) - \gamma_1(\theta)} = \abs{2e^{i\theta}  + 1} \le 3 \gg 32.
+            </me>
+            We expect <m>\gamma_1</m> and <m>\gamma_2</m> to have the same winding number around <m>0</m>...
+          </p>
+        </example>
+        <theorem xml:id="thm-walking-dog">
+          <title>Walking the Dog</title>
+          <statement>
+            <p>
+              If <m>\abs{\gamma_2(\theta) - \gamma_1(\theta)} \lt \abs{\gamma_1(\theta)}</m>
+              for all <m>\theta \in [a,b]</m>, then <m>\gamma_1</m> and <m>\gamma_2</m> have the same winding number around 
+              <m>0</m>.
+            </p>
+          </statement>
+        </theorem>
+        <p>
+          In the context of <xref ref="example-walking-dog"/>, we are saying that 
+          <m>z^5</m> and <m>z^5 - z - 1</m> have the same number of zeros in <m>\abs{z} = 5</m>.
+        </p>
+        <!-- TODO: insert figure of walking dog-->
+        <theorem xml:id="thm-rouche">
+          <title>Rouché's Theorem</title>          
+          <statement>
+            <p>
+              Suppose that <m>\gamma</m> is a simple closed curve,
+              oriented counterclockwise.
+              Suppose that <m>f</m> and <m>g</m> are analytic on and inside <m>\gamma</m>.
+              If <m>\abs{f(z) - g(z)} \lt \abs{g(z)}</m> for all <m>z</m> on <m>\gamma</m>,
+              then <m>f</m> and <m>g</m> have the same number of zeros inside <m>\gamma</m>.
+            </p>
+          </statement>
+          <proof>
+            <p>
+              Let <m>l(z) = f(z) - g(z)</m>. Our assumption is that <m>\abs{l(z)} \lt \abs{g(z)}</m>
+              for all <m>z</m> on <m>\gamma</m>.
+              We let the <q>leash</q> out a little bit at a time:
+              for <m>\alpha \in [0,1]</m> define
+              <me>
+                I(\alpha) = \frac{1}{2\pi i} \oint_\gamma \frac{g'(z) + \alpha l'(z)}{g(z) + \alpha l(z)}\,dz
+              </me>
+              Notice that <m>I(0)</m> equals the number of zeros of <m>g</m> inside <m>\gamma</m>,
+              and <m>I(1)</m> equals the number of zeros of <m>f</m> inside <m>\gamma</m>.
+              And notice that <m>g(z) + \alpha l(z) \ne 0</m>
+              because <m>\abs{\alpha l(z)} \le \abs{l(z)} \lt \abs{g(z)}</m>.
+              So <m>I(\alpha)</m> is an integer, and <m>I(\alpha)</m> varies continuously with <m>\alpha</m>,
+              so <m>I(0) = I(1)</m>.
+            </p>
+          </proof>
+        </theorem>
+        <proof>
+          <title>Another proof of the Fundamental Theorem of Algebra</title>
+          <p>
+            Suppose that <m>f(z) = a_n z^n + a_{n-1}z^{n-1} + \cdots + a_0</m>
+            with <m>a_n \ne 0</m>.
+            Set <m>g(z) = a_n z^n</m>.
+          <md>
+            <mrow> \abs{f(z) - g(z)} \amp = \abs{a_{n-1}z^{n-1} + \cdots + a_0} </mrow>
+            <mrow> \amp \le \abs{a_{n-1}} R^{n-1} + \cdots + \abs{a_0} </mrow>
+            <mrow> \amp \lt \abs{a_n} R^n </mrow>
+          </md>
+            for sufficiently large <m>R</m>, because 
+            <me>
+              \frac{ \abs{a_{n-1}}R^n + \cdots + \abs{a_0} }{\abs{a_n}R^n} \underset{R\to\infty}{\longrightarrow} 0.
+            </me>
+            So by Rouché's Theorem, <m>f</m> and <m>g</m> have the same number of zeros
+            inside <m>\abs{z} = R</m>. 
+            And <m>g(z) = a_n z^n</m> has <m>n</m> zeros, so <m>f</m> does too.
+          </p>
+        </proof>
+        <corollary xml:id="cor-fta-rouche">
+          <statement>
+            <p>
+              The modulus of every zero of <m>f</m> is 
+              <m>\le \max(1,n\abs{a_{n-1}},\dots,n\abs{a_0})</m>.
+            </p>
+          </statement>
+        </corollary>
       </section>
     </chapter>
     <backmatter xml:id="backmatter">

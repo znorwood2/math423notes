@@ -13,19 +13,15 @@
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
-<div class="para">OK, but how do we compute <span class="process-math">\(\oint_\gamma \frac{f'(z)}{f(z)}\,dz\text{?}\)</span> Change variables!</div>
+<div class="para">
+<em class="alert">In summary,</em> if <span class="process-math">\(f\)</span> has no essential singularities inside <span class="process-math">\(\gamma\text{,}\)</span> then</div>
 <div class="displaymath process-math">
-\begin{equation*}
-w = f(z), \quad dw = f'(z)\,dz
-\end{equation*}
+\begin{align*}
+\oint_\gamma \frac{f'(z)}{f(z)}\,dz \amp = 2\pi i \left[ (\text{sum of zeros of }  \text{ inside } ) - (\text{sum of poles of }  \text { inside } ) \right] \\
+\amp = 2\pi i (\text{number of zeros inside }  - \text{ number of poles inside } ) 
+\end{align*}
 </div>
-<div class="displaymath process-math">
-\begin{equation*}
-\oint_\gamma \frac{f'(z)}{f(z)}\,dz = \oint_{f(\gamma)} \frac{dw}{w} = \text{winding number of 
-around } 0.
-\end{equation*}
-</div>
-<div class="para">We have proved the following theorem.</div>
+<div class="para">where the sums count multiplicity.</div>
 </div>
 <span class="incontext"><a href="sec-rouche.html#p-652" class="internal">in-context</a></span>
 </body>

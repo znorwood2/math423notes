@@ -302,16 +302,19 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-real-integrals"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.2</span> <span class="title">Applications to real integrals</span>
 </h2>
-<div class="para" id="p-622">A typical appliaction of the Residue Theorem is to evaluate an improper integral <span class="process-math">\(\int_{-\infty}^\infty f(x)\,dx\)</span> from calculus. Recall that this equals <span class="process-math">\(\lim\limits_{R\to \infty} \int_{-R}^R f(x)\,dx\)</span> when the improper integral exists.</div>
+<blockquote class="blockquote" id="blockquote-1">
+<div class="para" id="p-622">Between two truths of the real domain, the easiest and shortest path quite often passes through the complex domain.</div> <cite class="attribution">―Jacques Hadamard</cite>
+</blockquote>
+<div class="para" id="p-623">A typical appliaction of the Residue Theorem is to evaluate an improper integral <span class="process-math">\(\int_{-\infty}^\infty f(x)\,dx\)</span> from calculus. Recall that this equals <span class="process-math">\(\lim\limits_{R\to \infty} \int_{-R}^R f(x)\,dx\)</span> when the improper integral exists.</div>
 <article class="example example-like" id="example-68"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-68"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.1</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-68"><article class="example example-like"><div class="para" id="p-623">Here is the prototypical example. We evaluate the integral <span class="process-math">\(\int_{-\infty}^\infty \frac{1}{1+x^2}\,dx\text{.}\)</span> Let <span class="process-math">\(C_R\)</span> be the semicircular closed curve that follows the straight-line path from <span class="process-math">\(-R\)</span> to <span class="process-math">\(R\)</span> and then the semicircle in the upper halfplane from <span class="process-math">\(R\)</span> to <span class="process-math">\(-R\text{.}\)</span> Notice that for sufficiently large <span class="process-math">\(R\text{,}\)</span> the singularity <span class="process-math">\(i\)</span> lies inside the closed curve <span class="process-math">\(C_R\text{.}\)</span> So we can evaluate <span class="process-math">\(\oint_{C_R} \frac{1}{1+z^2}\,dz\)</span> using the Residue Theorem:</div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-68"><article class="example example-like"><div class="para" id="p-624">Here is the prototypical example. We evaluate the integral <span class="process-math">\(\int_{-\infty}^\infty \frac{1}{1+x^2}\,dx\text{.}\)</span> Let <span class="process-math">\(C_R\)</span> be the semicircular closed curve that follows the straight-line path from <span class="process-math">\(-R\)</span> to <span class="process-math">\(R\)</span> and then the semicircle in the upper halfplane from <span class="process-math">\(R\)</span> to <span class="process-math">\(-R\text{.}\)</span> Notice that for sufficiently large <span class="process-math">\(R\text{,}\)</span> the singularity <span class="process-math">\(i\)</span> lies inside the closed curve <span class="process-math">\(C_R\text{.}\)</span> So we can evaluate <span class="process-math">\(\oint_{C_R} \frac{1}{1+z^2}\,dz\)</span> using the Residue Theorem:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \oint_{C_R} \frac{1}{1+z^2}\,dz = 2\pi i \Res\limits_{z=i} \frac{1}{1+z^2} = 2\pi i \frac{1}{2i} = \pi.
 \end{equation*}
 </div>
-<div class="para logical" id="p-624">
+<div class="para logical" id="p-625">
 <div class="para">What's left is to integrate over the arc <span class="process-math">\(A_R\)</span> that follows the semicircle from <span class="process-math">\(R\)</span> to <span class="process-math">\(-R\text{.}\)</span> We are going to do an ML-estimate to argue that this integral tends to <span class="process-math">\(0\)</span> in modulus as <span class="process-math">\(R\to \infty\text{.}\)</span> Notice that for <span class="process-math">\(z\)</span> on <span class="process-math">\(A_R\text{,}\)</span> we have <span class="process-math">\(\abs{z} = R\)</span> and so <span class="process-math">\(\abs{z^2 + 1} \ge R^2 - 1\text{.}\)</span> (Draw a picture of the arc and the arc shifted over by <span class="process-math">\(1\)</span> unit to the right.) Taking reciprocals gives, for <span class="process-math">\(z\in A_R\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -334,12 +337,12 @@ window.MathJax = {
 </div>
 <div class="para">So <span class="process-math">\(\int_{-\infty}^\infty \frac{1}{1+x^2}\,dx = \pi\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-625">Of course, you could have done this example using methods from calculus. But we will see other examples that cannot be solved without complex methods.</div></article></div>
-<div class="para" id="p-626">The same technique applies more generally:</div>
+</div> <div class="para" id="p-626">Of course, you could have done this example using methods from calculus. But we will see other examples that cannot be solved without complex methods.</div></article></div>
+<div class="para" id="p-627">The same technique applies more generally:</div>
 <article class="fact theorem-like" id="fact-real-integral"><h3 class="heading">
 <span class="type">Fact</span><span class="space"> </span><span class="codenumber">6.2.2</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-627">
+<div class="para logical" id="p-628">
 <div class="para">Suppose that <span class="process-math">\(P(x),Q(x)\)</span> are polynomials, <span class="process-math">\(Q\)</span> has no real roots, and <span class="process-math">\(\deg Q(x) \ge \deg P(x) + 2\text{.}\)</span> Then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -349,12 +352,12 @@ window.MathJax = {
 <div class="para">where the sum on the right is taken over all poles <span class="process-math">\(a\)</span> of <span class="process-math">\(P/Q\)</span> in the upper halfplane.</div>
 </div></article><article class="example example-like" id="example-69"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-69"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-69"><article class="example example-like"><div class="para" id="p-628">Let <span class="process-math">\(a \gt 0\)</span> be a real parameter and compute <span class="process-math">\(\displaystyle \int_{-\infty}^\infty \frac{\cos(ax)}{1 + x^2}\,dx\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-69"><article class="example example-like"><div class="para" id="p-629">Let <span class="process-math">\(a \gt 0\)</span> be a real parameter and compute <span class="process-math">\(\displaystyle \int_{-\infty}^\infty \frac{\cos(ax)}{1 + x^2}\,dx\text{.}\)</span>
 </div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-10" id="solution-10"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-10"><div class="solution solution-like">
-<div class="para" id="p-629">As in the previous example, let <span class="process-math">\(A_R\)</span> be the semicircular path that proceeds from <span class="process-math">\(R\)</span> through <span class="process-math">\(Ri\)</span> to <span class="process-math">\(-R\text{,}\)</span> and let <span class="process-math">\(C_R\)</span> be the closed path that combines <span class="process-math">\(A_R\)</span> with the straight-line path from <span class="process-math">\(-R\)</span> to <span class="process-math">\(R\text{.}\)</span>
-</div> <div class="para" id="p-630">For a non-obvious reason, we will try replacing <span class="process-math">\(\cos(ax)\)</span> by <span class="process-math">\(e^{iaz}\)</span> instead of <span class="process-math">\(\cos(a z)\text{.}\)</span> Use the Residue Theorem to compute the integral over <span class="process-math">\(C_R\text{:}\)</span>
+<div class="para" id="p-630">As in the previous example, let <span class="process-math">\(A_R\)</span> be the semicircular path that proceeds from <span class="process-math">\(R\)</span> through <span class="process-math">\(Ri\)</span> to <span class="process-math">\(-R\text{,}\)</span> and let <span class="process-math">\(C_R\)</span> be the closed path that combines <span class="process-math">\(A_R\)</span> with the straight-line path from <span class="process-math">\(-R\)</span> to <span class="process-math">\(R\text{.}\)</span>
+</div> <div class="para" id="p-631">For a non-obvious reason, we will try replacing <span class="process-math">\(\cos(ax)\)</span> by <span class="process-math">\(e^{iaz}\)</span> instead of <span class="process-math">\(\cos(a z)\text{.}\)</span> Use the Residue Theorem to compute the integral over <span class="process-math">\(C_R\text{:}\)</span>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/def-contour-integral.html">
 \begin{equation*}
@@ -362,7 +365,7 @@ window.MathJax = {
 = 2\pi i \left( \frac{e^{iaz}}{2z} \left.\right|_{z = i} \right) = \pi e^{-a}
 \end{equation*}
 </div>
-<div class="para logical" id="p-631">
+<div class="para logical" id="p-632">
 <div class="para">Next we deal with the integral over <span class="process-math">\(A_R\)</span> using an ML estimate. For <span class="process-math">\(z\)</span> in the upper halfplane,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -375,7 +378,7 @@ window.MathJax = {
 \abs{\int_{A_R} \frac{e^{iaz}}{1 + z^2}\,dz} \le \frac{1}{R^2 - 1}\pi R \underset{R\to\infty}{\longrightarrow} 0.
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-632">
+</div> <div class="para logical" id="p-633">
 <div class="para">Just as in the previous example we must have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/def-contour-integral.html">
 \begin{equation*}
@@ -392,19 +395,19 @@ window.MathJax = {
 </div>
 </div></div>
 </div></article></div>
-<div class="para" id="p-633">And now for something much different.</div>
+<div class="para" id="p-634">And now for something much different.</div>
 <article class="example example-like" id="example-70"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-70"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.4</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-70"><article class="example example-like"><div class="para" id="p-634">Let <span class="process-math">\(a \gt 1\)</span> be a real parameter, and evaluate the integral <span class="process-math">\(\int_0^{2\pi} \frac{1}{a + \cos\theta}\,d\theta\text{.}\)</span> (Notice that this is a real calculus integral.)</div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-70"><article class="example example-like"><div class="para" id="p-635">Let <span class="process-math">\(a \gt 1\)</span> be a real parameter, and evaluate the integral <span class="process-math">\(\int_0^{2\pi} \frac{1}{a + \cos\theta}\,d\theta\text{.}\)</span> (Notice that this is a real calculus integral.)</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-11" id="solution-11"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-11"><div class="solution solution-like">
-<div class="para" id="p-635">Recalling <a href="" class="xref" data-knowl="./knowl/def-contour-integral.html" title="Definition 4.1.3">Definition 4.1.3</a>, we recognize this integral as a contour integral over the unit circle parametrized by <span class="process-math">\(\gamma(\theta) = e^{i \theta},\)</span> <span class="process-math">\(0 \le \theta \le 2\pi\text{.}\)</span> You can think of this as a substitution or change of variables:</div>
+<div class="para" id="p-636">Recalling <a href="" class="xref" data-knowl="./knowl/def-contour-integral.html" title="Definition 4.1.3">Definition 4.1.3</a>, we recognize this integral as a contour integral over the unit circle parametrized by <span class="process-math">\(\gamma(\theta) = e^{i \theta},\)</span> <span class="process-math">\(0 \le \theta \le 2\pi\text{.}\)</span> You can think of this as a substitution or change of variables:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/def-contour-integral.html">
 \begin{equation*}
 z = e^{i\theta}, \quad z = iz d\theta, \quad d\theta = \frac{1}{iz}dz
 \end{equation*}
 </div>
-<div class="para logical" id="p-636">
+<div class="para logical" id="p-637">
 <div class="para">What remains to replace in the integrand is the <span class="process-math">\(\cos\theta\text{.}\)</span> For <span class="process-math">\(\theta\in [0,2\pi]\text{,}\)</span> <span class="process-math">\(z = e^{i\theta}\)</span> is on the unit circle, so we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -420,14 +423,14 @@ z = e^{i\theta}, \quad z = iz d\theta, \quad d\theta = \frac{1}{iz}dz
 = \frac{2}{i} \oint_{\abs{z} = 1} \frac{dz}{z^2 + 2az + 1}
 \end{equation*}
 </div>
-<div class="para" id="p-637">The poles of the integrand (by the Quadratic Formula) occur at <span class="process-math">\(-a \pm \sqrt{a^2 - 1}\text{.}\)</span> Only <span class="process-math">\(a + \sqrt{a^2 - 1}\)</span> lies inside the unit circle, so that's the one we need for the Residue Theorem.</div>
+<div class="para" id="p-638">The poles of the integrand (by the Quadratic Formula) occur at <span class="process-math">\(-a \pm \sqrt{a^2 - 1}\text{.}\)</span> Only <span class="process-math">\(a + \sqrt{a^2 - 1}\)</span> lies inside the unit circle, so that's the one we need for the Residue Theorem.</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/def-contour-integral.html">
 \begin{equation*}
 \Res_{z = -a + \sqrt{a^2 - 1}} \frac{1}{z^2 + 2az + 1}
 = \frac{1}{2z + 2a} \left.\right|_{z = -a + \sqrt{a^2 - 1}} = \frac{1}{2\sqrt{a^2 - 1}}
 \end{equation*}
 </div>
-<div class="para" id="p-638">An application of the Residue Theorem finishes the computation:</div>
+<div class="para" id="p-639">An application of the Residue Theorem finishes the computation:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/def-contour-integral.html">
 \begin{equation*}
 \int_0^{2\pi} \frac{d\theta}{a + \cos\theta} 
@@ -440,17 +443,17 @@ z = e^{i\theta}, \quad z = iz d\theta, \quad d\theta = \frac{1}{iz}dz
 <section class="subsection" id="subsec-frac-residues"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.2.1</span> <span class="title">Fractional residues and principal values of divergent integrals</span>
 </h3>
-<div class="para" id="p-639">We have many tools for computing integrals around a whole circle; what about an arc of a circle, e.g. a semicircle?</div>
+<div class="para" id="p-640">We have many tools for computing integrals around a whole circle; what about an arc of a circle, e.g. a semicircle?</div>
 <article class="theorem theorem-like" id="thm-frac-residue-thm"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">The Fractional Residue Theorem.</span>
 </h4>
-<div class="para" id="p-640">Suppose that <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(a\text{.}\)</span> For <span class="process-math">\(\eps \gt 0,\)</span> let <span class="process-math">\(A_\eps\)</span> be the arc centered at <span class="process-math">\(a\)</span> of radius <span class="process-math">\(\eps\)</span> subtending an angle of <span class="process-math">\(\beta - \alpha\)</span> radians, parametrized by <span class="process-math">\(a + \eps e^{i\theta},\)</span> <span class="process-math">\(\theta \in [\alpha,\beta]\text{.}\)</span> In the limit as <span class="process-math">\(\eps \to 0\text{,}\)</span> we have the following generalization of the Residue Theorem.</div>
+<div class="para" id="p-641">Suppose that <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(a\text{.}\)</span> For <span class="process-math">\(\eps \gt 0,\)</span> let <span class="process-math">\(A_\eps\)</span> be the arc centered at <span class="process-math">\(a\)</span> of radius <span class="process-math">\(\eps\)</span> subtending an angle of <span class="process-math">\(\beta - \alpha\)</span> radians, parametrized by <span class="process-math">\(a + \eps e^{i\theta},\)</span> <span class="process-math">\(\theta \in [\alpha,\beta]\text{.}\)</span> In the limit as <span class="process-math">\(\eps \to 0\text{,}\)</span> we have the following generalization of the Residue Theorem.</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \lim_{\eps \to 0} \int_{A_\eps} f(z)\,dz = (\beta - \alpha) i \Res_{z = a}f(z)
 \end{equation*}
 </div>
-<div class="para" id="p-641">(Notice that the case <span class="process-math">\(\alpha = 0\text{,}\)</span> <span class="process-math">\(\beta = 2\pi\)</span> follows by applying the Residue Theorem and taking a limit. We will primarily be interested in the case <span class="process-math">\(\alpha = 0\text{,}\)</span> <span class="process-math">\(\beta = \pi\text{.}\)</span>)</div></article><article class="hiddenproof" id="proof-47"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-47"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-47"><article class="hiddenproof"><div class="para logical" id="p-642">
+<div class="para" id="p-642">(Notice that the case <span class="process-math">\(\alpha = 0\text{,}\)</span> <span class="process-math">\(\beta = 2\pi\)</span> follows by applying the Residue Theorem and taking a limit. We will primarily be interested in the case <span class="process-math">\(\alpha = 0\text{,}\)</span> <span class="process-math">\(\beta = \pi\text{.}\)</span>)</div></article><article class="hiddenproof" id="proof-47"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-47"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-47"><article class="hiddenproof"><div class="para logical" id="p-643">
 <div class="para">Since <span class="process-math">\(f\)</span> has a simple pole at <span class="process-math">\(a\text{,}\)</span> its Laurent series expansion near <span class="process-math">\(a\)</span> looks like this:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -468,13 +471,13 @@ f(z) = \frac{c_{-1}}{z - a} + c_0 + c_1(z-a) + \cdots
 \amp \underset{\eps \to 0}{\longrightarrow} (\beta - \alpha)i \Res_{z=a} f(z)
 \end{align*}
 </div></article></div>
-<div class="para" id="p-643">(principal values)</div>
+<div class="para" id="p-644">(principal values)</div>
 <article class="example example-like" id="example-71"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-71"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.6</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-71"><article class="example example-like"><div class="para" id="p-644">Show that <span class="process-math">\(\pv \int_{-\infty}^\infty \frac{1}{x^3 - 1}\,dx = \frac{-\pi}{\sqrt3}\text{.}\)</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-71"><article class="example example-like"><div class="para" id="p-645">Show that <span class="process-math">\(\pv \int_{-\infty}^\infty \frac{1}{x^3 - 1}\,dx = \frac{-\pi}{\sqrt3}\text{.}\)</span>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-12" id="solution-12"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-12"><div class="solution solution-like"><div class="para" id="p-645"></div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-12" id="solution-12"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-12"><div class="solution solution-like"><div class="para" id="p-646"></div></div></div>
 </div></article></div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-residues.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-rouche.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

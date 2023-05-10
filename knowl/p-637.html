@@ -12,7 +12,15 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">The poles of the integrand (by the Quadratic Formula) occur at <span class="process-math">\(-a \pm \sqrt{a^2 - 1}\text{.}\)</span> Only <span class="process-math">\(a + \sqrt{a^2 - 1}\)</span> lies inside the unit circle, so that's the one we need for the Residue Theorem.</div>
+<div class="para logical">
+<div class="para">What remains to replace in the integrand is the <span class="process-math">\(\cos\theta\text{.}\)</span> For <span class="process-math">\(\theta\in [0,2\pi]\text{,}\)</span> <span class="process-math">\(z = e^{i\theta}\)</span> is on the unit circle, so we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2} = \frac{z + \frac{1}{z}}{2}.
+\end{equation*}
+</div>
+<div class="para">Now we are ready to do the substitution:</div>
+</div>
 <span class="incontext"><a href="sec-real-integrals.html#p-637" class="internal">in-context</a></span>
 </body>
 </html>

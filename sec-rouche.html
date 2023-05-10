@@ -302,13 +302,13 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-rouche"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.3</span> <span class="title">The Argument Principle and Rouché's Theorem</span>
 </h2>
-<div class="para" id="p-646">A central idea of the Residue Calculus is that the behavior of the singularities inside <span class="process-math">\(\gamma\)</span> controls <span class="process-math">\(\int_\gamma f\text{.}\)</span> But we can turn this around: the behavior of <span class="process-math">\(f\)</span> on <span class="process-math">\(\gamma\)</span> can give information about the singularities and zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gamma\text{.}\)</span>
+<div class="para" id="p-647">A central idea of the Residue Calculus is that the behavior of the singularities inside <span class="process-math">\(\gamma\)</span> controls <span class="process-math">\(\int_\gamma f\text{.}\)</span> But we can turn this around: the behavior of <span class="process-math">\(f\)</span> on <span class="process-math">\(\gamma\)</span> can give information about the singularities and zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gamma\text{.}\)</span>
 </div>
-<div class="para" id="p-647">Suppose that <span class="process-math">\(f\)</span> is analytic on and inside a simple closed curve <span class="process-math">\(\gamma\text{,}\)</span> oriented counterclockwise, except maybe at finitely many singularities. If <span class="process-math">\(\oint_\gamma f \ne 0\text{,}\)</span> then there must be at least one singularity.</div>
-<div class="para" id="p-648">
+<div class="para" id="p-648">Suppose that <span class="process-math">\(f\)</span> is analytic on and inside a simple closed curve <span class="process-math">\(\gamma\text{,}\)</span> oriented counterclockwise, except maybe at finitely many singularities. If <span class="process-math">\(\oint_\gamma f \ne 0\text{,}\)</span> then there must be at least one singularity.</div>
+<div class="para" id="p-649">
 <em class="alert">Trick:</em> Look at <span class="process-math">\(\oint_\gamma \frac{f'(z)}{f(z)}\,dz\text{,}\)</span> which equals <span class="process-math">\(2\pi i \sum \Res \frac{f'(z)}{f(z)}\text{,}\)</span> where the sum is over singularities of <span class="process-math">\(f'/f\)</span> inside <span class="process-math">\(\gamma\text{.}\)</span> And this is why the trick works: <span class="process-math">\(f'/f\)</span> has a singularity at <span class="process-math">\(a\)</span> means either <span class="process-math">\(f(a) = 0\)</span> or <span class="process-math">\(f\)</span> has a singularity at <span class="process-math">\(a\text{.}\)</span>
 </div>
-<div class="para logical" id="p-649">
+<div class="para logical" id="p-650">
 <div class="para">
 <em class="alert">Case 1:</em> <span class="process-math">\(f(a) = 0\text{.}\)</span> Suppose that <span class="process-math">\(f\)</span> has a zero of order <span class="process-math">\(m\text{,}\)</span> so that near <span class="process-math">\(a\text{,}\)</span>
 </div>
@@ -334,7 +334,7 @@ f'(z) = m c_m (z-a)^{m-1} + (m+1) c_{m+1} (z-a)^m + \cdots .
 <div class="para">In summary, the residue of <span class="process-math">\(f'/f\)</span> at <span class="process-math">\(a\)</span> is the order of the zero of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-650">
+<div class="para logical" id="p-651">
 <div class="para">
 <em class="alert">Case 2:</em> <span class="process-math">\(f\)</span> has a pole of order <span class="process-math">\(m\)</span> at <span class="process-math">\(a\text{.}\)</span> Near <span class="process-math">\(a\)</span> we have a series explansion of the following form.</div>
 <div class="displaymath process-math">
@@ -358,7 +358,7 @@ f'(z) = -m c_{-m} (z - a)^{-m-1} + \cdots .
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-651">
+<div class="para logical" id="p-652">
 <div class="para">
 <em class="alert">In summary,</em> if <span class="process-math">\(f\)</span> has no essential singularities inside <span class="process-math">\(\gamma\text{,}\)</span> then</div>
 <div class="displaymath process-math" id="md-49">
@@ -369,7 +369,7 @@ f'(z) = -m c_{-m} (z - a)^{-m-1} + \cdots .
 </div>
 <div class="para">where the sums count multiplicity.</div>
 </div>
-<div class="para logical" id="p-652">
+<div class="para logical" id="p-653">
 <div class="para">OK, but how do we compute <span class="process-math">\(\oint_\gamma \frac{f'(z)}{f(z)}\,dz\text{?}\)</span> Change variables!</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -387,22 +387,22 @@ around } 0.
 <article class="theorem theorem-like" id="thm-argument-principle"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">The Argument Principle.</span>
 </h3>
-<div class="para logical" id="p-653">
+<div class="para logical" id="p-654">
 <div class="para">Suppose that <span class="process-math">\(\gamma\)</span> is a simple closed curve, oriented counterclockwise. Suppose that <span class="process-math">\(f\)</span> is analytic on and inside <span class="process-math">\(\gamma\)</span> except at finitely many poles. Suppose also that <span class="process-math">\(f\)</span> has no zeros on <span class="process-math">\(\gamma\text{,}\)</span> either. Then the winding number of <span class="process-math">\(f(\gamma)\)</span> around <span class="process-math">\(0\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\text{number of zeros of }  \text{ inside } 
-- \text{number of poles of }  \text{ inside } \text{,}
+\text{number of zeros of } f \text{ inside } \gamma
+- \text{number of poles of } f \text{ inside } \gamma,
 \end{equation*}
 </div>
 <div class="para">counting multiplicity.</div>
 </div></article><article class="example example-like" id="example-72"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-72"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-72"><article class="example example-like"><div class="para" id="p-654">Let <span class="process-math">\(f(z) = z^5,\)</span> let <span class="process-math">\(\gamma\)</span> parametrize the unit circle. Inside the unit circle, <span class="process-math">\(f\)</span> has one quintuple zero and no singularities. The image <span class="process-math">\(f(\gamma)\)</span> traverses the unit circle <span class="process-math">\(5\)</span> times and has winding number <span class="process-math">\(5\text{.}\)</span> <span class="process-math">\(5 = 5.\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-72"><article class="example example-like"><div class="para" id="p-655">Let <span class="process-math">\(f(z) = z^5,\)</span> let <span class="process-math">\(\gamma\)</span> parametrize the unit circle. Inside the unit circle, <span class="process-math">\(f\)</span> has one quintuple zero and no singularities. The image <span class="process-math">\(f(\gamma)\)</span> traverses the unit circle <span class="process-math">\(5\)</span> times and has winding number <span class="process-math">\(5\text{.}\)</span> <span class="process-math">\(5 = 5.\)</span>
 </div></article></div>
 <article class="example example-like" id="example-73"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-73"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-73"><article class="example example-like"><div class="para logical" id="p-655">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-73"><article class="example example-like"><div class="para logical" id="p-656">
 <div class="para">Try <span class="process-math">\(f(z) = z^5 + 2\)</span> with the same <span class="process-math">\(\gamma\text{.}\)</span> The five zeros of <span class="process-math">\(f\)</span> occur at</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -414,18 +414,18 @@ around } 0.
 </div></article></div>
 <article class="example example-like" id="example-74"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-74"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.4</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-74"><article class="example example-like"><div class="para" id="p-656">Consider <span class="process-math">\(f(z) = \frac{1}{z^5}\text{,}\)</span> a function that has <span class="process-math">\(5\)</span> poles (counting multiplicity) and no zeros inside the unit circle. The image <span class="process-math">\(f(\gamma)\)</span> is parametrized by <span class="process-math">\(e^{-5i\theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{,}\)</span> which winds <span class="process-math">\(5\)</span> times clockwise around <span class="process-math">\(0\text{.}\)</span> And <span class="process-math">\(0 - 5 = -5\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-74"><article class="example example-like"><div class="para" id="p-657">Consider <span class="process-math">\(f(z) = \frac{1}{z^5}\text{,}\)</span> a function that has <span class="process-math">\(5\)</span> poles (counting multiplicity) and no zeros inside the unit circle. The image <span class="process-math">\(f(\gamma)\)</span> is parametrized by <span class="process-math">\(e^{-5i\theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{,}\)</span> which winds <span class="process-math">\(5\)</span> times clockwise around <span class="process-math">\(0\text{.}\)</span> And <span class="process-math">\(0 - 5 = -5\text{.}\)</span>
 </div></article></div>
 <article class="example example-like" id="example-walking-dog"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-walking-dog"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-walking-dog"><article class="example example-like"><div class="para" id="p-657">Let's try to count the zeros of <span class="process-math">\(f(z) = z^5 - z - 1\)</span> inside the circle <span class="process-math">\(\abs{z} = 2\text{.}\)</span> Parametrize <span class="process-math">\(\gamma\)</span> as <span class="process-math">\(\gamma(\theta) = 2e^{i\theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{.}\)</span> Then <span class="process-math">\(f\)</span> has no poles, so its number of zeros inside <span class="process-math">\(\gamma\)</span> is the winding number of <span class="process-math">\(f(\gamma)\)</span> around <span class="process-math">\(0\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-walking-dog"><article class="example example-like"><div class="para" id="p-658">Let's try to count the zeros of <span class="process-math">\(f(z) = z^5 - z - 1\)</span> inside the circle <span class="process-math">\(\abs{z} = 2\text{.}\)</span> Parametrize <span class="process-math">\(\gamma\)</span> as <span class="process-math">\(\gamma(\theta) = 2e^{i\theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{.}\)</span> Then <span class="process-math">\(f\)</span> has no poles, so its number of zeros inside <span class="process-math">\(\gamma\)</span> is the winding number of <span class="process-math">\(f(\gamma)\)</span> around <span class="process-math">\(0\text{.}\)</span>
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
 f(\gamma) = \gamma_1: \quad 32e^{5i\theta} - 2e^{i\theta} - 1, \quad \theta \in [0,2\pi]
 \end{equation*}
 </div>
-<div class="para logical" id="p-658">
+<div class="para logical" id="p-659">
 <div class="para">Let's analyze the simpler <span class="process-math">\(\gamma_2(t) = 32e^{5i\theta}\text{,}\)</span> <span class="process-math">\(\theta \in [0,2\pi]\text{.}\)</span> It traverses the large circle <span class="process-math">\(\abs{z} = 32\)</span> five times CCW, so its winding number around <span class="process-math">\(0\)</span> is <span class="process-math">\(5\text{.}\)</span> Let original curve <span class="process-math">\(\gamma_2\)</span> is pretty close to the original one <span class="process-math">\(\gamma_1\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -439,14 +439,14 @@ f(\gamma) = \gamma_1: \quad 32e^{5i\theta} - 2e^{i\theta} - 1, \quad \theta \in 
 <article class="theorem theorem-like" id="thm-walking-dog"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Walking the Dog.</span>
 </h3>
-<div class="para" id="p-659">If <span class="process-math">\(\abs{\gamma_2(\theta) - \gamma_1(\theta)} \lt \abs{\gamma_1(\theta)}\)</span> for all <span class="process-math">\(\theta \in [a,b]\text{,}\)</span> then <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\)</span> have the same winding number around <span class="process-math">\(0\text{.}\)</span>
-</div></article><div class="para" id="p-660">In the context of <a href="" class="xref" data-knowl="./knowl/example-walking-dog.html" title="Example 6.3.5">Example 6.3.5</a>, we are saying that <span class="process-math">\(z^5\)</span> and <span class="process-math">\(z^5 - z - 1\)</span> have the same number of zeros in <span class="process-math">\(\abs{z} = 5\text{.}\)</span>
+<div class="para" id="p-660">If <span class="process-math">\(\abs{\gamma_2(\theta) - \gamma_1(\theta)} \lt \abs{\gamma_1(\theta)}\)</span> for all <span class="process-math">\(\theta \in [a,b]\text{,}\)</span> then <span class="process-math">\(\gamma_1\)</span> and <span class="process-math">\(\gamma_2\)</span> have the same winding number around <span class="process-math">\(0\text{.}\)</span>
+</div></article><div class="para" id="p-661">In the context of <a href="" class="xref" data-knowl="./knowl/example-walking-dog.html" title="Example 6.3.5">Example 6.3.5</a>, we are saying that <span class="process-math">\(z^5\)</span> and <span class="process-math">\(z^5 - z - 1\)</span> have the same number of zeros in <span class="process-math">\(\abs{z} = 5\text{.}\)</span>
 </div>
 <article class="theorem theorem-like" id="thm-rouche"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">Rouché's Theorem.</span>
 </h3>
-<div class="para" id="p-661">Suppose that <span class="process-math">\(\gamma\)</span> is a simple closed curve, oriented counterclockwise. Suppose that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are analytic on and inside <span class="process-math">\(\gamma\text{.}\)</span> If <span class="process-math">\(\abs{f(z) - g(z)} \lt \abs{g(z)}\)</span> for all <span class="process-math">\(z\)</span> on <span class="process-math">\(\gamma\text{,}\)</span> then <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> have the same number of zeros inside <span class="process-math">\(\gamma\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-48"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-48"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-48"><article class="hiddenproof"><div class="para logical" id="p-662">
+<div class="para" id="p-662">Suppose that <span class="process-math">\(\gamma\)</span> is a simple closed curve, oriented counterclockwise. Suppose that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are analytic on and inside <span class="process-math">\(\gamma\text{.}\)</span> If <span class="process-math">\(\abs{f(z) - g(z)} \lt \abs{g(z)}\)</span> for all <span class="process-math">\(z\)</span> on <span class="process-math">\(\gamma\text{,}\)</span> then <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> have the same number of zeros inside <span class="process-math">\(\gamma\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-48"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-48"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-48"><article class="hiddenproof"><div class="para logical" id="p-663">
 <div class="para">Let <span class="process-math">\(l(z) = f(z) - g(z)\text{.}\)</span> Our assumption is that <span class="process-math">\(\abs{l(z)} \lt \abs{g(z)}\)</span> for all <span class="process-math">\(z\)</span> on <span class="process-math">\(\gamma\text{.}\)</span> We let the “leash” out a little bit at a time: for <span class="process-math">\(\alpha \in [0,1]\)</span> define</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -456,7 +456,7 @@ I(\alpha) = \frac{1}{2\pi i} \oint_\gamma \frac{g'(z) + \alpha l'(z)}{g(z) + \al
 <div class="para">Notice that <span class="process-math">\(I(0)\)</span> equals the number of zeros of <span class="process-math">\(g\)</span> inside <span class="process-math">\(\gamma\text{,}\)</span> and <span class="process-math">\(I(1)\)</span> equals the number of zeros of <span class="process-math">\(f\)</span> inside <span class="process-math">\(\gamma\text{.}\)</span> And notice that <span class="process-math">\(g(z) + \alpha l(z) \ne 0\)</span> because <span class="process-math">\(\abs{\alpha l(z)} \le \abs{l(z)} \lt \abs{g(z)}\text{.}\)</span> So <span class="process-math">\(I(\alpha)\)</span> is an integer, and <span class="process-math">\(I(\alpha)\)</span> varies continuously with <span class="process-math">\(\alpha\text{,}\)</span> so <span class="process-math">\(I(0) = I(1)\text{.}\)</span>
 </div>
 </div></article></div>
-<article class="hiddenproof" id="proof-49"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-49"><h3 class="heading"><span class="title">Another proof of the Fundamental Theorem of Algebra.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-49"><article class="hiddenproof"> <div class="para logical" id="p-663">
+<article class="hiddenproof" id="proof-49"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-49"><h3 class="heading"><span class="title">Another proof of the Fundamental Theorem of Algebra.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-49"><article class="hiddenproof"> <div class="para logical" id="p-664">
 <div class="para">Suppose that <span class="process-math">\(f(z) = a_n z^n + a_{n-1}z^{n-1} + \cdots + a_0\)</span> with <span class="process-math">\(a_n \ne 0\text{.}\)</span> Set <span class="process-math">\(g(z) = a_n z^n\text{.}\)</span>
 </div>
 <div class="displaymath process-math" id="md-50">
@@ -477,7 +477,7 @@ I(\alpha) = \frac{1}{2\pi i} \oint_\gamma \frac{g'(z) + \alpha l'(z)}{g(z) + \al
 <article class="corollary theorem-like" id="cor-fta-rouche"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">6.3.8</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-664">The modulus of every zero of <span class="process-math">\(f\)</span> is <span class="process-math">\(\le \max(1,n\abs{a_{n-1}},\dots,n\abs{a_0})\text{.}\)</span>
+<div class="para" id="p-665">The modulus of every zero of <span class="process-math">\(f\)</span> is <span class="process-math">\(\le \max(1,n\abs{a_{n-1}},\dots,n\abs{a_0})\text{.}\)</span>
 </div></article></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-real-integrals.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
